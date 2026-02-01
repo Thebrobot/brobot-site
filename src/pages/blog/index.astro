@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+import FloatingMenu from '../../components/FloatingMenu';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const pathname = "/blog";
+---
+
+<BaseLayout title="Blog | Brobot Media - AI Automation Insights">
+  <main class="min-h-screen bg-[#020617] text-white pt-32 pb-20">
+    <Navbar client:load pathname={pathname} />
+    
+    <section class="px-6 py-20 relative overflow-hidden">
+      <div class="absolute inset-0 bg-amber-500/5 blur-[120px] rounded-full scale-150 -z-10"></div>
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-20">
+          <h1 class="text-6xl md:text-8xl font-display font-black tracking-tighter mb-6 leading-tight uppercase">
+            THE <span class="text-amber-500 italic">BROBLOG</span>
+          </h1>
+          <p class="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto font-medium leading-relaxed">
+            Insights on AI agents, automation, and scaling your business without the overhead.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {posts.map((post) => (
+            <a href={`/blog/${post.slug}`} class="group">
+              <article class="h-full p-8 rounded-[40px] cyber-glass border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all flex flex-col">
+                {post.data.heroImage && (
+                  <div class="aspect-video w-full mb-8 rounded-[24px] overflow-hidden border border-white/5">
+                    <img 
+                      src={post.data.heroImage} 
+                      alt={post.data.title}
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                )}
+                <div class="flex-1">
+                  <div class="flex items-center gap-3 mb-4">
+                    <span class="text-[10px] font-black uppercase tracking-[0.3em] text-amber-500">
+                      {post.data.pubDate.toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric',
+                      })}
+                    </span>
+                    <div class="h-[1px] w-8 bg-amber-500/30"></div>
+                    <span class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500">
+                      By {post.data.author}
+                    </span>
+                  </div>
+                  <h2 class="text-2xl font-black mb-4 uppercase tracking-tight group-hover:text-amber-500 transition-colors">
+                    {post.data.title}
+                  </h2>
+                  <p class="text-slate-500 font-medium leading-relaxed line-clamp-3">
+                    {post.data.description}
+                  </p>
+                </div>
+                <div class="mt-8 pt-8 border-t border-white/5 flex items-center justify-between text-amber-500">
+                  <span class="text-xs font-black uppercase tracking-widest">Read Article</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </div>
+              </article>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <FloatingMenu client:load pathname={pathname} />
+    <Footer client:visible />
+  </main>
+</BaseLayout>
+
+<style>
+  .cyber-glass {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+</style>

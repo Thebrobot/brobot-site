@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Footer from '../../components/Footer';
+import Navbar from '../../components/Navbar';
+import FloatingMenu from '../../components/FloatingMenu';
+import { industries } from '../../data/industries';
+import { CheckCircle2, ArrowRight, Activity, Bot, Zap } from 'lucide-react';
+
+export function getStaticPaths() {
+  return industries.map((industry) => ({
+    params: { slug: industry.slug },
+    props: { industry },
+  }));
+}
+
+const { industry } = Astro.props;
+const pathname = `/industries/${industry.slug}`;
+const Icon = industry.icon;
+---
+
+<BaseLayout title={`${industry.name} AI Agent | Brobot Media`}>
+  <main class="min-h-screen bg-[#020617] text-white pt-32 pb-20">
+    <Navbar client:load pathname={pathname} />
+    
+    <!-- Hero Section -->
+    <section class="relative px-6 py-20 overflow-hidden">
+      <div class="absolute inset-0 bg-amber-500/5 blur-[120px] rounded-full scale-150 -z-10"></div>
+      <div class="max-w-7xl mx-auto text-center">
+        <div class="flex justify-center mb-8">
+          <div class="w-20 h-20 rounded-3xl bg-amber-600/10 border border-amber-500/20 flex items-center justify-center text-amber-500 shadow-[0_0_50px_-10px_rgba(245,158,11,0.3)]">
+            <Icon class="w-10 h-10" />
+          </div>
+        </div>
+        <h1 class="text-6xl md:text-8xl font-display font-black tracking-tighter mb-6 leading-tight">
+          THE AI AGENT FOR <br />
+          <span class="text-amber-500 italic uppercase">{industry.name}</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto font-medium mb-12 leading-relaxed">
+          {industry.tagline} {industry.description}
+        </p>
+        <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+          <button class="w-full md:w-auto bg-amber-600 hover:bg-amber-500 text-white px-10 py-5 rounded-full font-black uppercase tracking-[0.2em] shadow-xl shadow-amber-600/20 transition-all flex items-center justify-center gap-3">
+            Deploy Your {industry.name} Bot <ArrowRight class="w-4 h-4" />
+          </button>
+          <a href="#features" class="w-full md:w-auto px-10 py-5 rounded-full font-black uppercase tracking-[0.2em] border border-white/10 hover:bg-white/5 transition-all text-center">
+            Explore Features
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Grid -->
+    <section id="features" class="py-32 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {industry.benefits.map((benefit: string) => (
+            <div class="p-10 rounded-[40px] cyber-glass border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all">
+              <CheckCircle2 class="w-8 h-8 text-amber-500 mb-6" />
+              <h3 class="text-2xl font-black mb-4 uppercase tracking-tight">{benefit}</h3>
+              <p class="text-slate-500 font-medium leading-relaxed">
+                Tailored specifically for the {industry.name} industry to ensure maximum conversion and client satisfaction.
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature List (Niche Specific) -->
+    <section class="py-32 px-6 bg-white/[0.01] border-y border-white/5">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div>
+            <div class="flex items-center gap-3 mb-8 text-amber-500">
+              <Activity class="w-4 h-4 animate-pulse" />
+              <span class="text-[10px] font-black uppercase tracking-[0.5em]">Industry_Vertical</span>
+            </div>
+            <h2 class="text-5xl font-display font-black tracking-tighter mb-8 leading-tight">
+              BUILT TO SCALE <br />
+              YOUR WORKFLOW.
+            </h2>
+            <div class="space-y-6">
+              {industry.features.map((feature: string) => (
+                <div class="flex items-center gap-4 p-6 rounded-2xl bg-white/[0.02] border border-white/5">
+                  <div class="w-10 h-10 rounded-xl bg-amber-600/10 flex items-center justify-center text-amber-500">
+                    <Zap class="w-5 h-5" />
+                  </div>
+                  <span class="text-lg font-bold uppercase tracking-wider">{feature}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="relative">
+            <div class="absolute inset-0 bg-amber-500/10 blur-[100px] rounded-full"></div>
+            <div class="relative rounded-[48px] border border-white/10 p-1 bg-gradient-to-br from-white/[0.1] to-transparent overflow-hidden">
+              <div class="p-12 bg-neutral-950/50 backdrop-blur-3xl">
+                <div class="flex items-center gap-4 mb-10">
+                  <Bot class="w-8 h-8 text-amber-500" />
+                  <div class="h-[2px] flex-1 bg-gradient-to-r from-amber-500/50 to-transparent"></div>
+                </div>
+                <div class="space-y-8">
+                  <div class="p-6 rounded-3xl bg-amber-600/10 border border-amber-500/20 text-amber-100 font-medium italic">
+                    "Processing {industry.name} lead intake protocol... Status: OPTIMIZED"
+                  </div>
+                  <div class="p-6 rounded-3xl bg-white/[0.03] border border-white/5 text-slate-400 font-medium">
+                    Brobot's {industry.name} module handles everything from initial qualification to final calendar synchronization.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-40 px-6">
+      <div class="max-w-4xl mx-auto text-center rounded-[60px] bg-amber-600 p-20 relative overflow-hidden shadow-2xl shadow-amber-600/40">
+        <div class="absolute top-0 right-0 p-10 opacity-20">
+          <Icon class="w-40 h-40" />
+        </div>
+        <div class="relative z-10">
+          <h2 class="text-4xl md:text-6xl font-display font-black tracking-tighter text-white mb-8 uppercase">
+            READY TO DOMINATE <br /> THE {industry.name} MARKET?
+          </h2>
+          <button class="bg-white text-amber-600 px-12 py-6 rounded-full font-black uppercase tracking-[0.2em] hover:scale-105 transition-all shadow-xl">
+            Activate Your Bot Now
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <FloatingMenu client:load pathname={pathname} />
+
+    <Footer client:visible />
+  </main>
+</BaseLayout>

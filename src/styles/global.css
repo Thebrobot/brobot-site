@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #020617; /* Deep Midnight */
+  --foreground: #f8fafc;
+  --primary: #f59e0b;
+  --accent: #f59e0b;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px;
+  }
+
+  body {
+    @apply bg-[#020617] text-slate-200 overflow-x-hidden;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, .font-display {
+    @apply tracking-tight;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+@layer components {
+  .cyber-glass {
+    @apply bg-white/[0.03] backdrop-blur-2xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.4)];
+  }
+  
+  .neon-border {
+    @apply relative overflow-hidden;
+  }
+  
+  .neon-border::before {
+    content: '';
+    @apply absolute inset-0 -z-10 bg-gradient-to-r from-amber-500/20 to-amber-500/20 opacity-0 transition-opacity duration-500;
+  }
+  
+  .neon-border:hover::before {
+    @apply opacity-100;
+  }
+
+  .text-metallic {
+    @apply bg-gradient-to-b from-white via-white to-slate-500 bg-clip-text text-transparent;
+  }
+
+  .grid-perspective {
+    background-image: 
+      linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse 80% 50% at 50% 0%, black 20%, transparent 100%);
+    perspective: 1000px;
+    transform: rotateX(60deg);
+  }
+}
+
+.engine-core-glow {
+  background: radial-gradient(circle at center, rgba(245, 158, 11, 0.3) 0%, rgba(245, 158, 11, 0.1) 40%, transparent 70%);
+}
+
+.glow-blue {
+  box-shadow: 0 0 20px -5px rgba(245, 158, 11, 0.5);
+}
+
+.glow-amber {
+  box-shadow: 0 0 20px -5px rgba(245, 158, 11, 0.5);
+}
+
+/* Advanced Core Animations */
+@keyframes beam {
+  0% {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-slow-reverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes pulse-fast {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+}
+
+.animate-beam {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: beam 4s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 30s linear infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.animate-spin-slow-reverse {
+  animation: spin-slow-reverse 25s linear infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+  .animate-pulse-fast {
+  animation: pulse-fast 2s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+/* Lucide Icon Sizing Fix */
+svg.lucide {
+  width: 24px;
+  height: 24px;
+}
+
+svg.lucide path {
+  height: 24px;
+}
+
+/* Hide GoHighLevel Chat Widget Default Launcher Bubble */
+.lc_chat_widget_button,
+#chat-widget-launcher,
+#chat-widget-container {
+    display: none !important;
+}
+
+/* Ensure the main widget container can be seen when opened */
+chat-widget {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}

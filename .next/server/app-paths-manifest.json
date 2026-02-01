@@ -1,0 +1,10 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/page": "app/page.js",
+  "/the-brobot/page": "app/the-brobot/page.js",
+  "/industries/[slug]/page": "app/industries/[slug]/page.js",
+  "/industries/page": "app/industries/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/imapspro/page": "app/imapspro/page.js",
+  "/agent-broski/page": "app/agent-broski/page.js"
+}

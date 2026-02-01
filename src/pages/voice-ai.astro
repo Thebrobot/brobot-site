@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProductLayout from '../components/ProductLayout';
+import VoicePreview from '../components/VoicePreview';
+import { CheckCircle2 } from 'lucide-react';
+
+const pathname = "/voice-ai";
+---
+
+<BaseLayout title="Agent Broski | Brobot Media">
+  <ProductLayout 
+    client:load
+    title="Agent Broski"
+    subtitle="The world's most human-like AI voice and text agent. Answers calls, qualifies leads, and books your calendar 24/7."
+    badge="Conversational AI"
+    backgroundImage="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=3540&auto=format&fit=crop"
+    pathname={pathname}
+  >
+    <div id="demo">
+      <VoicePreview client:visible />
+    </div>
+
+    <section id="features" class="py-16 md:py-32 container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-neutral-900 mb-6 md:mb-8">Never miss another lead.</h2>
+          <p class="text-base md:text-lg text-neutral-500 font-medium mb-8 md:mb-12 leading-relaxed">
+            Agent Broski doesn't just answer the phone. He understands intent, manages objections, 
+            and represents your brand with total professionalism.
+          </p>
+          <ul class="space-y-4">
+            {["Instant call response (under 1 second)", "Natural language processing", "Direct calendar integration", "SMS follow-up automation", "Multilingual support"].map((item) => (
+              <li class="flex items-center gap-3 font-bold text-neutral-800">
+                <CheckCircle2 class="h-5 w-5 text-amber-600" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="rounded-[32px] md:rounded-[40px] bg-neutral-50 border border-neutral-100 p-8 md:p-12 aspect-square flex items-center justify-center">
+          <div class="text-center">
+            <div class="w-24 h-24 md:w-32 md:h-32 bg-amber-600 rounded-full mx-auto mb-6 md:mb-8 shadow-2xl shadow-amber-600/20 animate-pulse"></div>
+            <p class="text-neutral-400 font-bold uppercase tracking-widest text-xs">Neural Network Active</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </ProductLayout>
+</BaseLayout>

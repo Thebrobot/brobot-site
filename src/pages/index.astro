@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar';
+import Hero from '../components/Hero';
+import HowItWorks from '../components/HowItWorks.astro';
+import AutomationEngine from '../components/AutomationEngine';
+import VoicePreview from '../components/VoicePreview';
+import BuiltForConversion from '../components/BuiltForConversion.astro';
+import DifferentiationSection from '../components/DifferentiationSection.astro';
+import FAQ from '../components/FAQ.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import FloatingMenu from '../components/FloatingMenu';
+import Footer from '../components/Footer';
+
+const pathname = "/";
+---
+
+<BaseLayout>
+  <main class="min-h-screen bg-[#020617]">
+    <Navbar client:load pathname={pathname} />
+    
+    <!-- Hero Intro -->
+    <Hero client:load />
+    
+    <!-- 1-2-3 Guide -->
+    <HowItWorks />
+    
+    <!-- The Core Engine Flow -->
+    <AutomationEngine client:visible />
+
+    <!-- Meet Agent Broski: Human-Grade Voice AI -->
+    <VoicePreview client:visible />
+
+    <!-- Built for Conversion: Pillars of Growth -->
+    <BuiltForConversion />
+
+    <DifferentiationSection />
+    
+    <!-- Frequently Asked Questions -->
+    <FAQ />
+    
+    <!-- Final Conversion Block -->
+    <FinalCTA />
+    
+    <!-- Floating App Switcher -->
+    <FloatingMenu client:load pathname={pathname} />
+
+    <Footer client:visible />
+  </main>
+</BaseLayout>

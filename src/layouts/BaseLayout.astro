@@ -1,0 +1,60 @@
+---
+import '../styles/global.css';
+import MouseTracker from '../components/MouseTracker';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "Brobot Media | Automation Engine Flow",
+  description = "Automate the grunt work so you can focus on your patients and clients. Your digital office that never misses a lead."
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    
+    <!-- Font Preloading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <title>{title}</title>
+
+    <!-- GoHighLevel Chat Widget -->
+    <link rel="stylesheet" href="https://stcdn.leadconnectorhq.com/intl-tel-input/17.0.12/css/intlTelInput.min.css">
+    <script 
+      src="https://beta.leadconnectorhq.com/loader.js"  
+      data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js" 
+      data-widget-id="697afb8edad8af891080ebef"> 
+    </script>
+
+    <!-- Unicorn Studio Shader Script -->
+    <script is:inline src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js"></script>
+    <script is:inline>
+      // Initialize on initial load
+      window.addEventListener('load', () => {
+        if (window.UnicornStudio) {
+          window.UnicornStudio.init();
+        }
+      });
+      // Re-initialize after Astro page transitions
+      document.addEventListener('astro:after-swap', () => {
+        if (window.UnicornStudio) {
+          window.UnicornStudio.init();
+        }
+      });
+    </script>
+  </head>
+  <body class="antialiased selection:bg-amber-100 selection:text-amber-900">
+    <MouseTracker client:load />
+    <slot />
+  </body>
+</html>

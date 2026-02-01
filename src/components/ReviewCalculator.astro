@@ -1,0 +1,507 @@
+---
+// Review Growth Calculator
+// Modernized design, no emojis, improved visual hierarchy
+---
+
+<div class="cyber-glass border border-white/5 bg-white/[0.02] rounded-[32px] md:rounded-[40px] p-6 sm:p-8 md:p-10 lg:p-12 overflow-hidden">
+  <div class="text-center mb-8 md:mb-10">
+    <h3 class="text-2xl sm:text-3xl md:text-4xl font-display font-black tracking-tighter text-white mb-3">
+      REVIEW GROWTH <span class="text-emerald-500 italic">CALCULATOR</span>
+    </h3>
+    <p class="text-sm sm:text-base md:text-lg text-slate-400 font-medium leading-relaxed max-w-3xl mx-auto">
+      Search a business to estimate how many high-quality reviews you may need to strengthen trust and compete locally.
+    </p>
+  </div>
+
+  <div class="max-w-3xl mx-auto">
+    <label for="rb-businessName" class="block text-[10px] font-black uppercase tracking-[0.35em] text-slate-400 mb-3">
+      Business Search
+    </label>
+    <div class="relative">
+      <input
+        id="rb-businessName"
+        type="text"
+        placeholder="Business name + City/State (or Google Maps link)"
+        class="w-full px-5 py-4 pr-12 rounded-2xl bg-white/[0.03] border border-white/10 text-white placeholder:text-slate-500 font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500/30 transition-all"
+        autocomplete="off"
+      />
+      <svg class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+      </svg>
+    </div>
+    <button
+      id="rb-searchBtn"
+      type="button"
+      class="mt-4 w-full bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-600 disabled:cursor-not-allowed text-white px-8 py-4 rounded-2xl font-black uppercase tracking-[0.2em] text-[11px] shadow-[0_0_40px_-15px_rgba(16,185,129,0.7)] transition-all flex items-center justify-center gap-3"
+    >
+      <span id="rb-btnText">Search Business</span>
+      <svg id="rb-spinner" class="hidden animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+    </button>
+
+    <div id="rb-statusMessage" class="text-center mt-4 text-sm text-slate-400 font-medium min-h-[24px]"></div>
+    
+    <div class="mt-4 text-center text-xs text-slate-500 font-medium leading-relaxed max-w-2xl mx-auto">
+      <span class="opacity-60">First search may take 15-30 seconds if the API needs to wake up.</span>
+    </div>
+  </div>
+
+  <div id="rb-resultSection" class="hidden mt-10 md:mt-12">
+    <!-- Business Info Header -->
+    <div class="cyber-glass border border-emerald-500/20 bg-emerald-500/5 rounded-[24px] md:rounded-[32px] p-5 sm:p-6 md:p-8 mb-6 md:mb-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+        <div class="flex-1 min-w-0">
+          <div class="text-[9px] md:text-[10px] font-black uppercase tracking-[0.35em] text-emerald-400 mb-2">
+            Business Found
+          </div>
+          <div class="text-lg md:text-xl font-bold text-white truncate">
+            <span id="rb-businessNameDisplay"></span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between sm:justify-end gap-4 md:gap-6 flex-shrink-0 pt-4 sm:pt-0 border-t border-white/5 sm:border-0">
+          <div class="text-left sm:text-right">
+            <div class="text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-1">
+              Current Rating
+            </div>
+            <div class="text-2xl md:text-3xl font-black text-white tracking-tight flex items-baseline gap-1">
+              <span id="rb-currentRatingBox"></span>
+              <span class="text-sm md:text-lg text-emerald-400 font-bold opacity-80">/5</span>
+            </div>
+          </div>
+          <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-emerald-600/10 border border-emerald-500/20 flex items-center justify-center shadow-[0_0_20px_-5px_rgba(16,185,129,0.3)]">
+            <svg class="w-6 h-6 md:w-7 md:h-7 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Metrics Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8">
+      <!-- Reviews Per Month -->
+      <div class="group cyber-glass border border-white/5 bg-white/[0.02] rounded-[24px] p-6 md:p-8 hover:border-emerald-500/20 hover:bg-emerald-500/[0.02] transition-all">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-emerald-600/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+            <svg class="w-5 h-5 md:w-6 md:h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <div>
+            <div class="text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">
+              Monthly Target
+            </div>
+            <div id="rb-reviewsPerMonth" class="text-2xl md:text-3xl font-black text-white tracking-tight">0</div>
+          </div>
+        </div>
+        <p class="text-[11px] md:text-xs text-slate-500 font-medium leading-relaxed">
+          Suggested reviews per month to reach your goal
+        </p>
+      </div>
+
+      <!-- Reviews Needed -->
+      <div class="group cyber-glass border border-white/5 bg-white/[0.02] rounded-[24px] p-6 md:p-8 hover:border-emerald-500/20 hover:bg-emerald-500/[0.02] transition-all">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-emerald-600/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+            <svg class="w-5 h-5 md:w-6 md:h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+            </svg>
+          </div>
+          <div>
+            <div class="text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">
+              Total Goal
+            </div>
+            <div id="rb-neededReviews" class="text-2xl md:text-3xl font-black text-white tracking-tight">0</div>
+          </div>
+        </div>
+        <p class="text-[11px] md:text-xs text-slate-500 font-medium leading-relaxed">
+          Total 5-star reviews needed to reach 4.99 rating
+        </p>
+      </div>
+
+      <!-- Percentile -->
+      <div class="group cyber-glass border border-white/5 bg-white/[0.02] rounded-[24px] p-6 md:p-8 hover:border-emerald-500/20 hover:bg-emerald-500/[0.02] transition-all sm:col-span-2 lg:col-span-1">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-emerald-600/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+            <svg class="w-5 h-5 md:w-6 md:h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+            </svg>
+          </div>
+          <div>
+            <div class="text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">
+              Estimated Rank
+            </div>
+            <div id="rb-percentileScore" class="text-2xl md:text-3xl font-black text-white tracking-tight">-</div>
+          </div>
+        </div>
+        <p class="text-[11px] md:text-xs text-slate-500 font-medium leading-relaxed">
+          Your expected percentile vs local competitors
+        </p>
+      </div>
+    </div>
+
+    <!-- Chart Section -->
+    <div class="cyber-glass border border-white/5 bg-white/[0.02] rounded-[24px] md:rounded-[32px] p-6 md:p-8 overflow-hidden">
+      <div class="mb-6">
+        <div class="flex items-center gap-3 mb-2">
+          <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
+          <div class="text-[10px] font-black uppercase tracking-[0.35em] text-slate-400">
+            Growth Timeline
+          </div>
+        </div>
+        <h4 class="text-lg md:text-xl font-black text-white tracking-tight">
+          6-Month Review Accumulation Plan
+        </h4>
+      </div>
+      <div class="overflow-x-auto -mx-2 px-2">
+        <canvas id="rb-timelineChart" class="w-full" style="height: 180px;"></canvas>
+      </div>
+    </div>
+
+    <div id="rb-geoLocation" class="mt-6 text-xs text-slate-500 font-medium text-center"></div>
+  </div>
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script is:inline>
+  (function () {
+    function extractPlaceIdFromUrl(url) {
+      const match = url.match(/place_id=([^&]+)/);
+      return match ? match[1] : null;
+    }
+
+    function setStatus(text) {
+      const el = document.getElementById("rb-statusMessage");
+      if (el) el.innerText = text;
+    }
+
+    function setVisible(id, visible) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (visible) el.classList.remove("hidden");
+      else el.classList.add("hidden");
+    }
+
+    function setLoading(loading) {
+      const btn = document.getElementById("rb-searchBtn");
+      const spinner = document.getElementById("rb-spinner");
+      const btnText = document.getElementById("rb-btnText");
+      
+      if (!btn || !spinner || !btnText) return;
+      
+      if (loading) {
+        btn.disabled = true;
+        spinner.classList.remove("hidden");
+        btnText.innerText = "Searching...";
+      } else {
+        btn.disabled = false;
+        spinner.classList.add("hidden");
+        btnText.innerText = "Search Business";
+      }
+    }
+
+    async function fetchJson(url) {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return await res.json();
+    }
+
+    function renderBusinessLink(result) {
+      const display = document.getElementById("rb-businessNameDisplay");
+      if (!display) return;
+      const businessUrl =
+        result.url ||
+        `https://www.google.com/maps/search/?api=1&query=Google&query_place_id=${result.place_id}`;
+
+      display.innerHTML = `<a href="${businessUrl}" target="_blank" rel="noreferrer" class="hover:text-emerald-300 transition-colors">${result.name}</a>`;
+    }
+
+    async function sendAnalytics(result) {
+      try {
+        const payload = {
+          name: result.name,
+          rating: result.rating,
+          reviews: result.user_ratings_total,
+          location: result.formatted_address || "",
+          phone: result.formatted_phone_number || result.international_phone_number || "",
+          source: "RevuBro Calculator"
+        };
+
+        // 1. Google Sheets Webhook
+        fetch(
+          "https://script.google.com/macros/s/AKfycbyTYS40DZlKQv96UCLwTGQKP8iS8Z27br0FGwyT4lXb-N2PKKjMldvGm-ZVJktcBsQX/exec",
+          {
+            method: "POST",
+            body: JSON.stringify(payload),
+            headers: { "Content-Type": "application/json" },
+          }
+        );
+
+        // 2. GHL Notification Webhook
+        fetch(
+          "https://services.leadconnectorhq.com/hooks/nUFqlRRkiJoqpyubsiaD/webhook-trigger/9c98c16a-977e-4d4a-a25d-4e7b0fbab1a3",
+          {
+            method: "POST",
+            body: JSON.stringify(payload),
+            headers: { "Content-Type": "application/json" },
+          }
+        );
+      } catch {
+        // ignore
+      }
+    }
+
+    function calculateReviews(currentRating, currentCount) {
+      const currentRatingBox = document.getElementById("rb-currentRatingBox");
+      const neededReviews = document.getElementById("rb-neededReviews");
+      const reviewsPerMonth = document.getElementById("rb-reviewsPerMonth");
+      const percentileScore = document.getElementById("rb-percentileScore");
+      const canvas = document.getElementById("rb-timelineChart");
+
+      if (!currentRatingBox || !neededReviews || !reviewsPerMonth || !percentileScore || !canvas) return;
+
+      currentRatingBox.innerText = Number(currentRating).toFixed(1);
+      const highRated = currentRating === 5.0 && currentCount >= 150;
+
+      const ctx = canvas.getContext("2d");
+      if (!ctx || !window.Chart) return;
+      if (window.reviewChart) window.reviewChart.destroy();
+
+      if (highRated) {
+        neededReviews.innerHTML = `<div class="flex items-center gap-2"><svg class="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-sm font-black text-emerald-400 uppercase tracking-wider">Excellent</span></div>`;
+        reviewsPerMonth.innerText = "10+";
+        percentileScore.innerText = "99%";
+
+        window.reviewChart = new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: ["Month 1", "Month 2", "Month 3", "Month 4", "Month 5", "Month 6"],
+            datasets: [
+              {
+                label: "Suggested Monthly Reviews to Maintain Score",
+                data: [10, 20, 30, 40, 50, 60],
+                borderColor: "#10b981",
+                backgroundColor: "rgba(16, 185, 129, 0.1)",
+                pointBackgroundColor: "#10b981",
+                pointBorderColor: "#fff",
+                pointBorderWidth: 2,
+                pointRadius: 4,
+                pointHoverRadius: 6,
+                fill: true,
+                tension: 0.4,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { 
+              legend: { display: false }, 
+              tooltip: { 
+                enabled: true,
+                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                titleColor: '#10b981',
+                bodyColor: '#fff',
+                padding: 12,
+                cornerRadius: 8,
+              } 
+            },
+            scales: { 
+              y: { 
+                beginAtZero: true,
+                ticks: { color: '#64748b' },
+                grid: { color: 'rgba(255, 255, 255, 0.05)' }
+              },
+              x: {
+                ticks: { color: '#64748b' },
+                grid: { color: 'rgba(255, 255, 255, 0.05)' }
+              }
+            },
+          },
+        });
+        return;
+      }
+
+      let targetRating = 4.99;
+      const numerator = (targetRating - currentRating) * currentCount;
+      const denominator = 5 - targetRating;
+      let x = Math.ceil(numerator / denominator);
+
+      if (currentCount > 1000) {
+        x = Math.min(x, 1200);
+      } else if (currentRating >= 4.95) {
+        x = 30;
+      }
+
+      if (currentRating === 5.0 && currentCount < 150) {
+        x = 30;
+      }
+
+      if (currentRating >= 4.9 && currentCount < 100) {
+        x = Math.min(x, currentCount * 2);
+      }
+
+      const suggestedMonths = 6;
+      let perMonth = Math.ceil(x / suggestedMonths);
+
+      if (currentCount > 1000) {
+        perMonth = Math.min(perMonth, 200);
+      } else if (currentRating >= 4.95) {
+        perMonth = 5;
+      }
+
+      if (currentRating === 5.0 && currentCount < 150) {
+        perMonth = 5;
+      }
+
+      const maxGrowthRate = Math.max(20, currentCount / 10);
+      perMonth = Math.min(perMonth, maxGrowthRate);
+
+      const monthlyData = Array.from({ length: suggestedMonths }, (_, i) => perMonth * (i + 1));
+
+      let percentile;
+      if (currentRating >= 4.9) percentile = 99;
+      else if (currentRating >= 4.7) percentile = 95;
+      else if (currentRating >= 4.5) percentile = 90;
+      else if (currentRating >= 4.3) percentile = 80;
+      else if (currentRating >= 4.0) percentile = 70;
+      else percentile = 60;
+
+      neededReviews.innerText = String(x);
+      reviewsPerMonth.innerText = String(perMonth);
+      percentileScore.innerText = `${percentile}%`;
+
+      window.reviewChart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: Array.from({ length: suggestedMonths }, (_, i) => `Month ${i + 1}`),
+          datasets: [
+            {
+              label: "Cumulative 5-Star Review Progress",
+              data: monthlyData,
+              borderColor: "#10b981",
+              backgroundColor: "rgba(16, 185, 129, 0.1)",
+              pointBackgroundColor: "#10b981",
+              pointBorderColor: "#fff",
+              pointBorderWidth: 2,
+              pointRadius: 4,
+              pointHoverRadius: 6,
+              fill: true,
+              tension: 0.4,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { 
+            legend: { display: false }, 
+            tooltip: { 
+              enabled: true,
+              backgroundColor: 'rgba(0, 0, 0, 0.8)',
+              titleColor: '#10b981',
+              bodyColor: '#fff',
+              padding: 12,
+              cornerRadius: 8,
+            } 
+          },
+          scales: { 
+            y: { 
+              beginAtZero: true,
+              ticks: { color: '#64748b' },
+              grid: { color: 'rgba(255, 255, 255, 0.05)' }
+            },
+            x: {
+              ticks: { color: '#64748b' },
+              grid: { color: 'rgba(255, 255, 255, 0.05)' }
+            }
+          },
+        },
+      });
+    }
+
+    async function fetchBusinessInfo() {
+      const inputEl = document.getElementById("rb-businessName");
+      const input = inputEl ? inputEl.value.trim() : "";
+      if (!input) {
+        setStatus("Enter a business name or Google Maps link.");
+        setVisible("rb-resultSection", false);
+        return;
+      }
+
+      const placeIdFromUrl = extractPlaceIdFromUrl(input);
+      const isPlaceId = /^[A-Za-z0-9_-]{25,}$/.test(input);
+
+      setLoading(true);
+      setStatus("Connecting to API...");
+      setVisible("rb-resultSection", false);
+
+      const endpoint =
+        placeIdFromUrl || isPlaceId
+          ? `https://review-proxy-api.onrender.com/details?place_id=${placeIdFromUrl || input}`
+          : `https://review-proxy-api.onrender.com/textsearch?query=${encodeURIComponent(input)}`;
+
+      const warningTimeout = setTimeout(() => {
+        setStatus("API is waking up (this can take 15-30s on first request). Please wait...");
+      }, 8000);
+
+      try {
+        let data = await fetchJson(endpoint);
+        let result = data.result || (data.results && data.results[0]);
+
+        // If we only have search results (textsearch), do a follow-up 'details' call
+        // to ensure we get the phone number and full profile for GHL.
+        if (result && result.place_id && !result.formatted_phone_number) {
+          try {
+            const detailsData = await fetchJson(`https://review-proxy-api.onrender.com/details?place_id=${result.place_id}`);
+            if (detailsData.result) {
+              result = detailsData.result;
+            }
+          } catch (detailsErr) {
+            console.warn("Details fetch failed, using search result:", detailsErr);
+          }
+        }
+
+        clearTimeout(warningTimeout);
+
+        if (result && result.name && result.rating !== undefined) {
+          sendAnalytics(result);
+
+          const reviewsCount = result.user_ratings_total ?? 0;
+          setStatus(`Found: ${result.name}. ${result.rating} stars (${reviewsCount} reviews).`);
+
+          setVisible("rb-resultSection", true);
+          renderBusinessLink(result);
+          calculateReviews(result.rating, reviewsCount);
+        } else {
+          setStatus("No matching business found.");
+        }
+      } catch (err) {
+        clearTimeout(warningTimeout);
+        console.error(err);
+        setStatus("Failed to fetch business info. Try again.");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    const btn = document.getElementById("rb-searchBtn");
+    if (btn) btn.addEventListener("click", fetchBusinessInfo);
+
+    const inputEl = document.getElementById("rb-businessName");
+    if (inputEl) {
+      inputEl.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") fetchBusinessInfo();
+      });
+    }
+
+    window.fetchBusinessInfo = fetchBusinessInfo;
+    window.calculateReviews = calculateReviews;
+  })();
+</script>
