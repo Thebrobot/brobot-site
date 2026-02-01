@@ -36,21 +36,42 @@ const {
       data-widget-id="697afb8edad8af891080ebef"> 
     </script>
 
-    <!-- Unicorn Studio Shader Script -->
-    <script is:inline src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js"></script>
+    <!-- Unicorn Studio (load only on tablet/desktop, and only when needed) -->
     <script is:inline>
-      // Initialize on initial load
-      window.addEventListener('load', () => {
-        if (window.UnicornStudio) {
-          window.UnicornStudio.init();
+      (function () {
+        const TABLET_UP = '(min-width: 768px)';
+        const SCRIPT_ID = 'unicornstudio-umd';
+        const SCRIPT_SRC = 'https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js';
+
+        function hasUnicornProject() {
+          return !!document.querySelector('[data-us-project]');
         }
-      });
-      // Re-initialize after Astro page transitions
-      document.addEventListener('astro:after-swap', () => {
-        if (window.UnicornStudio) {
-          window.UnicornStudio.init();
+
+        function shouldLoadUnicorn() {
+          return window.matchMedia(TABLET_UP).matches && hasUnicornProject();
         }
-      });
+
+        function ensureLoadedAndInit() {
+          if (!shouldLoadUnicorn()) return;
+
+          const existing = document.getElementById(SCRIPT_ID);
+          if (existing) {
+            if (window.UnicornStudio) window.UnicornStudio.init();
+            return;
+          }
+
+          const s = document.createElement('script');
+          s.id = SCRIPT_ID;
+          s.src = SCRIPT_SRC;
+          s.onload = () => {
+            if (window.UnicornStudio) window.UnicornStudio.init();
+          };
+          document.head.appendChild(s);
+        }
+
+        window.addEventListener('load', ensureLoadedAndInit);
+        document.addEventListener('astro:after-swap', ensureLoadedAndInit);
+      })();
     </script>
   </head>
   <body class="antialiased selection:bg-amber-100 selection:text-amber-900">

@@ -11,6 +11,43 @@ export default function AutomationEngine() {
 
       <div className="max-w-7xl mx-auto relative">
         <div className="text-center mb-16 md:mb-32 space-y-6">
+          {/* Animated Brain Icon - Mobile only, above System Architecture */}
+          <motion.div
+            className="lg:hidden flex justify-center mb-6"
+            animate={{ 
+              scale: [1, 1.08, 1],
+              opacity: [0.85, 1, 0.85]
+            }}
+            transition={{ 
+              duration: 3, 
+              repeat: Infinity, 
+              ease: "easeInOut" 
+            }}
+          >
+            <svg 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor"
+              className="text-amber-400"
+              style={{ 
+                width: '48px',
+                height: '48px',
+                strokeWidth: '1.5',
+                filter: 'drop-shadow(0 0 20px rgba(245, 158, 11, 0.6))',
+              }}
+            >
+              <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" />
+              <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" />
+              <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" />
+              <path d="M17.599 6.5a3 3 0 0 0 .399-1.375" />
+              <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" />
+              <path d="M3.477 10.896a4 4 0 0 1 .585-.396" />
+              <path d="M19.938 10.5a4 4 0 0 1 .585.396" />
+              <path d="M6 18a4 4 0 0 1-1.967-.516" />
+              <path d="M19.967 17.484A4 4 0 0 1 18 18" />
+            </svg>
+          </motion.div>
+
           <motion.div 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -28,7 +65,7 @@ export default function AutomationEngine() {
 
         <div className="relative grid grid-cols-1 lg:grid-cols-3 items-center gap-8 md:gap-12 lg:gap-24">
           {/* Left Column - Input Devices */}
-          <div className="space-y-8 md:space-y-12 order-2 lg:order-1">
+          <div className="space-y-8 md:space-y-12">
             {/* Agent Broski Glass Slab */}
             <motion.a
               href="/conversational-ai"
@@ -111,12 +148,12 @@ export default function AutomationEngine() {
             </motion.a>
           </div>
 
-          {/* Center Column - THE ENERGY CORE */}
-          <div className="relative flex items-center justify-center order-1 lg:order-2 py-8 md:py-20 lg:py-0">
+          {/* Center Column - THE ENERGY CORE (Desktop/Tablet only) */}
+          <div className="hidden lg:flex relative items-center justify-center py-8 md:py-20 lg:py-0">
             <div className="relative w-full h-96 md:w-[550px] md:h-[550px] lg:w-[650px] lg:h-[650px] flex items-center justify-center">
               
               {/* Advanced Technical SVG - Behind the core */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible" viewBox="0 0 600 600" style={{ transform: 'translateZ(0)' }}>
+              <svg className="absolute inset-0 w-full h-full pointer-events-none z-10 overflow-visible" viewBox="0 0 600 600" style={{ transform: 'translateZ(0)' }}>
                 <defs>
                   <radialGradient id="center-glow">
                     <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.4" />

@@ -1,58 +1,65 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Cpu } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-export default function Hero() {
+function useMediaQuery(query: string) {
+  const [matches, setMatches] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia(query).matches;
+  });
+
+  useEffect(() => {
+    const mql = window.matchMedia(query);
+    const onChange = (e: MediaQueryListEvent) => setMatches(e.matches);
+    setMatches(mql.matches);
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, [query]);
+
+  return matches;
+}
+
+function HeroDesktop() {
   const { scrollY } = useScroll();
   const perspectiveY = useTransform(scrollY, [0, 500], [0, -150]);
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
 
-  useEffect(() => {
-    // Initialize Unicorn Studio after component mounts
-    const initUnicorn = () => {
-      if (window.UnicornStudio) {
-        window.UnicornStudio.init();
-      }
-    };
-
-    // Small delay to ensure DOM is ready
-    const timer = setTimeout(initUnicorn, 100);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <section id="hero" className="relative pt-24 md:pt-32 pb-20 px-4 flex flex-col items-center justify-center overflow-hidden min-h-[90vh] md:min-h-screen">
+    <section
+      id="hero"
+      className="relative pt-24 md:pt-32 pb-20 px-4 flex flex-col items-center justify-center overflow-hidden min-h-[90vh] md:min-h-screen"
+    >
       {/* Base Background Color */}
       <div className="absolute inset-0 bg-[#020617] -z-20" />
-      
-      {/* Unicorn Studio Background */}
-      <div data-us-project="X0ErZR3QhPzMHfKgBbJJ" className="absolute inset-0 z-0"></div>
-      
-      {/* 3D Perspective Grid - Lowered Opacity to see Unicorn background */}
+
+      {/* Unicorn Studio Background (desktop/tablet only) */}
+      <div data-us-project="X0ErZR3QhPzMHfKgBbJJ" className="absolute inset-0 z-0" />
+
+      {/* 3D Perspective Grid */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden h-full w-full z-10">
-        <motion.div 
+        <motion.div
           style={{ y: perspectiveY }}
           className="grid-perspective absolute -bottom-1/2 left-[-50%] right-[-50%] h-full opacity-20"
         />
       </div>
-      
-      {/* Cinematic Ambient Lighting - Adjusted Z-index */}
+
+      {/* Cinematic Ambient Lighting */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-10">
-        <motion.div 
-          animate={{ 
+        <motion.div
+          animate={{
             opacity: [0.1, 0.2, 0.1],
-            scale: [1, 1.1, 1]
+            scale: [1, 1.1, 1],
           }}
           transition={{ duration: 10, repeat: Infinity }}
-          className="absolute top-[-10%] left-[-10%] w-[70%] h-[70%] bg-amber-600/20 blur-[150px] rounded-full" 
+          className="absolute top-[-10%] left-[-10%] w-[70%] h-[70%] bg-amber-600/20 blur-[150px] rounded-full"
         />
-        <motion.div 
-          animate={{ 
+        <motion.div
+          animate={{
             opacity: [0.1, 0.15, 0.1],
-            scale: [1, 1.2, 1]
+            scale: [1, 1.2, 1],
           }}
           transition={{ duration: 15, repeat: Infinity, delay: 5 }}
-          className="absolute bottom-[-10%] right-[-10%] w-[70%] h-[70%] bg-amber-600/10 blur-[150px] rounded-full" 
+          className="absolute bottom-[-10%] right-[-10%] w-[70%] h-[70%] bg-amber-600/10 blur-[150px] rounded-full"
         />
       </div>
 
@@ -64,16 +71,13 @@ export default function Hero() {
         className="max-w-6xl mx-auto text-center relative z-10"
       >
         {/* Tech Badge */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3 }}
           className="mb-8 md:mb-12 inline-flex items-center space-x-3 bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] px-4 md:px-6 py-2 rounded-full text-[9px] md:text-[10px] uppercase tracking-[0.4em] font-bold text-amber-400 shadow-2xl"
         >
-          <motion.div
-            animate={{ opacity: [1, 0.5, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
+          <motion.div animate={{ opacity: [1, 0.5, 1] }} transition={{ duration: 2, repeat: Infinity }}>
             <Cpu className="w-3 md:w-3.5 h-3 md:h-3.5" />
           </motion.div>
           <span>Neural Engine Active</span>
@@ -100,9 +104,9 @@ export default function Hero() {
           >
             <span className="uppercase tracking-widest">BOOK 15-MIN DEMO</span>
           </motion.a>
-          
+
           <motion.a
-            href="#voice"
+            href="/industries"
             whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.05)" }}
             whileTap={{ scale: 0.98 }}
             className="group h-16 md:h-18 w-full sm:w-auto px-10 md:px-12 rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-md text-white font-bold text-base md:text-lg transition-all flex items-center justify-center gap-3 active:scale-95 hover:text-amber-500"
@@ -110,30 +114,94 @@ export default function Hero() {
             <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-amber-500/10 transition-colors">
               <ArrowRight className="w-3.5 h-3.5 text-white group-hover:text-amber-500 transition-colors" />
             </div>
-            HEAR AGENT BROSKI
+            PICK YOUR INDUSTRY
           </motion.a>
         </div>
 
         <div className="mt-8 md:mt-10 text-center">
           <a
-            href="/industries"
-            className="inline-flex items-center justify-center text-[10px] md:text-[11px] font-black uppercase tracking-[0.35em] text-slate-500 hover:text-amber-400 transition-colors"
+            href="#voice"
+            className="inline-flex items-center justify-center text-[10px] md:text-[11px] font-black uppercase tracking-[0.25em] text-slate-500 hover:text-amber-400 transition-colors"
           >
-            Explore Industry Models
+            Hear Agent Broski
           </a>
         </div>
       </motion.div>
 
-      {/* Hero Footnote */}
-      <motion.div 
+      {/* Hero Footnote (desktop/tablet only) */}
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-12 flex flex-col items-center gap-4"
+        className="hidden md:flex absolute bottom-12 flex-col items-center gap-4"
       >
         <div className="text-[9px] font-black uppercase tracking-[0.5em] text-slate-600">Secure AI Protocol v2.0</div>
         <div className="w-px h-12 bg-gradient-to-b from-amber-500/50 to-transparent" />
       </motion.div>
     </section>
   );
+}
+
+function HeroMobile() {
+  return (
+    <section id="hero" className="relative pt-28 pb-28 px-4 overflow-hidden min-h-[85vh]">
+      {/* Lightweight background (no Unicorn / no motion) */}
+      <div className="absolute inset-0 bg-[#020617] -z-20" />
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[520px] h-[520px] bg-amber-600/10 blur-[120px] rounded-full" />
+        <div className="absolute -bottom-40 left-1/2 -translate-x-1/2 w-[520px] h-[520px] bg-amber-600/5 blur-[120px] rounded-full" />
+      </div>
+
+      <div className="max-w-6xl mx-auto text-center relative flex flex-col justify-center min-h-[calc(85vh-12rem)]">
+        <div className="mb-7 flex justify-center">
+          <div className="inline-flex items-center space-x-3 bg-white/[0.03] border border-white/[0.08] px-4 py-2 rounded-full text-[9px] uppercase tracking-[0.35em] font-bold text-amber-400 shadow-2xl">
+            <Cpu className="w-3 h-3" />
+            <span>Neural Engine Active</span>
+          </div>
+        </div>
+
+        <h1 className="mb-7 text-[3.5rem] font-display font-black tracking-tighter leading-[0.95] bg-gradient-to-b from-white via-white to-white/60 bg-clip-text text-transparent drop-shadow-[0_15px_35px_rgba(0,0,0,0.8)]">
+          EVERY MISSED <br />
+          <span className="text-amber-500">CALL IS MONEY</span>
+        </h1>
+
+        <p className="mx-auto mb-10 max-w-2xl text-lg text-white font-medium leading-relaxed tracking-tight drop-shadow-md px-2">
+          The only system you need to grow. Calls → booked appointments → CRM follow-up → more 5-star reviews → higher map visibility.
+        </p>
+
+        <div className="flex flex-col items-center justify-center gap-4 px-2">
+          <a
+            href="/contact"
+            className="h-16 w-full max-w-sm px-8 rounded-2xl bg-amber-500 text-black font-black text-base transition-all hover:bg-amber-400 flex items-center justify-center"
+          >
+            <span className="uppercase tracking-widest">BOOK 15-MIN DEMO</span>
+          </a>
+
+          <a
+            href="/industries"
+            className="group h-16 w-full max-w-sm px-8 rounded-2xl border border-white/10 bg-white/[0.02] text-white font-bold text-base transition-all flex items-center justify-center gap-3 active:scale-95 hover:text-amber-500"
+          >
+            <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-amber-500/10 transition-colors">
+              <ArrowRight className="w-3.5 h-3.5 text-white group-hover:text-amber-500 transition-colors" />
+            </div>
+            PICK YOUR INDUSTRY
+          </a>
+        </div>
+
+        <div className="mt-6 text-center">
+          <a
+            href="#voice"
+            className="inline-flex items-center justify-center text-[10px] font-black uppercase tracking-[0.25em] text-slate-500 hover:text-amber-400 transition-colors"
+          >
+            Hear Agent Broski
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default function Hero() {
+  const isTabletUp = useMediaQuery("(min-width: 768px)");
+  return isTabletUp ? <HeroDesktop /> : <HeroMobile />;
 }
