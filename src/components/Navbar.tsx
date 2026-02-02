@@ -21,6 +21,7 @@ export default function Navbar({ pathname = "/" }: NavbarProps) {
 
   const systems = [
     { name: "Brobot", href: "/", icon: LayoutDashboard, image: "/images/favicon.png", desc: "MAIN ECOSYSTEM", color: "bg-neutral-950", iconColor: "text-white" },
+    { name: "Brobot CRM", href: "/crm", icon: LayoutDashboard, desc: "COMMAND CENTER", color: "bg-indigo-600", iconColor: "text-white" },
     { name: "Agent Broski", href: "/conversational-ai", icon: Zap, image: "/images/agent-broski-logo.png", desc: "AI SALES AGENT", color: "bg-cyan-500", iconColor: "text-white" },
     { name: "iMapsPro", href: "/local-seo", icon: MapPin, desc: "LOCAL SEO MAPS", color: "bg-emerald-500", iconColor: "text-white" },
     { name: "RevuBro", href: "/reputation", icon: Star, desc: "REVIEW AUTOMATION", color: "bg-emerald-500", iconColor: "text-white" },
@@ -82,8 +83,10 @@ export default function Navbar({ pathname = "/" }: NavbarProps) {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         className={cn(
-          "cyber-glass px-3 md:px-8 py-2 md:py-3 rounded-full flex items-center justify-between gap-3 md:gap-8 shadow-2xl pointer-events-auto transition-all duration-500",
-          isScrolled ? "bg-white/[0.05] border-white/10 translate-y-2" : "bg-white/[0.02] border-white/5"
+          "cyber-glass px-3 md:px-8 py-2 md:py-3 rounded-full flex items-center justify-between gap-3 md:gap-8 pointer-events-auto transition-all duration-500",
+          "shadow-[0_8px_32px_rgba(0,0,0,0.4),0_0_1px_rgba(255,255,255,0.1)_inset]",
+          "border border-white/20",
+          isScrolled ? "bg-[#020617]/95 backdrop-blur-2xl translate-y-2" : "bg-[#020617]/80 backdrop-blur-xl"
         )}
       >
         {/* Hub / Logo Area */}

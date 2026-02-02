@@ -66,6 +66,7 @@ export default function Footer() {
             </h4>
             <ul className="space-y-4">
               {[
+                { name: "Main Ecosystem", href: "/", icon: Globe },
                 { name: "Brobot CRM", href: "/crm", icon: LayoutDashboard },
                 { name: "Agent Broski (Voice)", href: "/conversational-ai", icon: Activity },
                 { name: "iMapsPro (SEO)", href: "/local-seo", icon: MapPin },

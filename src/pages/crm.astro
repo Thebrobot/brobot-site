@@ -3,12 +3,35 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import FloatingMenu from '../components/FloatingMenu';
-import { LayoutDashboard, Users, Zap, BarChart3, ArrowRight, Activity } from 'lucide-react';
+import { 
+  LayoutDashboard, 
+  Users, 
+  Zap, 
+  BarChart3, 
+  ArrowRight, 
+  Activity, 
+  Smartphone, 
+  MessageSquare, 
+  Calendar, 
+  GanttChartSquare, 
+  MousePointerClick, 
+  Bot, 
+  Layers,
+  CheckCircle2,
+  Star,
+  Share2,
+  GraduationCap,
+  Receipt,
+  Globe,
+  Mic,
+  Monitor,
+  Heart
+} from 'lucide-react';
 
 const pathname = "/crm";
 ---
 
-<BaseLayout title="Brobot CRM | The Command Center | Brobot Media">
+<BaseLayout title="Brobot CRM | The Ultimate Command Center | Brobot Media">
   <main class="min-h-screen bg-[#020617] text-white pt-32 pb-20">
     <Navbar client:load pathname={pathname} />
     
@@ -25,8 +48,11 @@ const pathname = "/crm";
           THE ULTIMATE <br />
           <span class="text-indigo-500 italic uppercase">COMMAND CENTER</span>
         </h1>
-        <p class="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto font-medium mb-12 leading-relaxed">
+        <p class="text-xl md:text-2xl text-white max-w-3xl mx-auto font-medium mb-6 leading-relaxed">
           White-labeled power built to track leads, automate follow-ups, and drive ROI. Every interaction, every dollar, one dashboard.
+        </p>
+        <p class="text-lg md:text-xl text-white max-w-3xl mx-auto font-medium mb-12 leading-relaxed">
+          Run it from desktop or your phone. Pipeline, conversations, tasks, and reporting on the go.
         </p>
         <div class="flex flex-col md:flex-row items-center justify-center gap-6">
           <button class="w-full md:w-auto bg-indigo-600 hover:bg-indigo-500 text-white px-10 py-5 rounded-full font-black uppercase tracking-[0.2em] shadow-xl shadow-indigo-600/20 transition-all flex items-center justify-center gap-3">
@@ -37,66 +63,310 @@ const pathname = "/crm";
     </section>
 
     <!-- Platform Features -->
-    <section id="platform" class="py-32 px-6">
+    <section id="platform" class="py-32 px-6 relative overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-indigo-900/20 via-transparent to-transparent"></div>
+      <div class="max-w-7xl mx-auto relative z-10">
+        <div class="text-center mb-20">
+          <div class="inline-flex items-center gap-3 mb-6 px-6 py-3 rounded-full border border-indigo-500/20 bg-indigo-500/5">
+            <Activity class="w-4 h-4 text-indigo-500" />
+            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-indigo-400">Platform_Core</span>
+          </div>
+          <h2 class="text-4xl md:text-5xl font-display font-black tracking-tighter text-white mb-4">
+            Everything You Need. <span class="text-indigo-500 italic">Nothing You Don't.</span>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 auto-rows-fr">
+          <!-- Lead Tracking - Large -->
+          <div class="group relative md:col-span-2 lg:col-span-2 p-10 rounded-[40px] bg-gradient-to-br from-indigo-600 to-indigo-800 border border-indigo-500/20 shadow-[0_8px_48px_rgba(99,102,241,0.3)] hover:shadow-[0_8px_64px_rgba(99,102,241,0.5)] hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+            <div class="relative z-10">
+              <div class="relative w-24 h-24 mb-6">
+                <div class="absolute inset-0 bg-white/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+                <div class="relative w-full h-full rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <LayoutDashboard class="h-12 w-12 text-white drop-shadow-2xl" />
+                </div>
+              </div>
+              <h3 class="text-2xl font-black mb-4 uppercase tracking-tight text-white">Lead Tracking</h3>
+              <p class="text-white text-xl font-semibold leading-relaxed">Every lead from every source, in one beautiful pipeline.</p>
+            </div>
+          </div>
+
+          <!-- Workflow Magic - Medium -->
+          <div class="group relative md:col-span-2 lg:col-span-2 p-8 rounded-[40px] bg-[#020617] border border-white/10 shadow-[0_8px_32px_rgba(99,102,241,0.15)] hover:border-indigo-500/40 hover:shadow-[0_8px_48px_rgba(99,102,241,0.3)] hover:-translate-y-2 transition-all duration-300">
+            <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-purple-500/5 rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="relative z-10">
+              <div class="relative w-20 h-20 mb-6">
+                <div class="absolute inset-0 bg-indigo-500/30 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-300"></div>
+                <div class="relative w-full h-full rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300">
+                  <Zap class="h-10 w-10 text-indigo-400 drop-shadow-[0_0_8px_rgba(99,102,241,0.8)]" />
+                </div>
+              </div>
+              <h3 class="text-xl font-black mb-3 uppercase tracking-tight text-white">Workflow Magic</h3>
+              <p class="text-white text-lg font-semibold leading-relaxed">Automate your entire sales process with drag-and-drop ease.</p>
+            </div>
+          </div>
+
+          <!-- ROI Analytics - Medium -->
+          <div class="group relative md:col-span-2 lg:col-span-2 p-8 rounded-[40px] bg-[#020617] border border-white/10 shadow-[0_8px_32px_rgba(99,102,241,0.15)] hover:border-indigo-500/40 hover:shadow-[0_8px_48px_rgba(99,102,241,0.3)] hover:-translate-y-2 transition-all duration-300">
+            <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-purple-500/5 rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="relative z-10">
+              <div class="relative w-20 h-20 mb-6">
+                <div class="absolute inset-0 bg-emerald-500/30 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-300"></div>
+                <div class="relative w-full h-full rounded-2xl bg-gradient-to-br from-emerald-500/10 to-indigo-500/10 border border-emerald-500/20 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                  <BarChart3 class="h-10 w-10 text-emerald-400 drop-shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
+                </div>
+              </div>
+              <h3 class="text-xl font-black mb-3 uppercase tracking-tight text-white">ROI Analytics</h3>
+              <p class="text-white text-lg font-semibold leading-relaxed">Know exactly which marketing channels are making you money.</p>
+            </div>
+          </div>
+
+          <!-- Client Portal - Small -->
+          <div class="group relative md:col-span-2 lg:col-span-3 p-8 rounded-[40px] bg-[#020617] border border-white/10 shadow-[0_8px_32px_rgba(99,102,241,0.15)] hover:border-indigo-500/40 hover:shadow-[0_8px_48px_rgba(99,102,241,0.3)] hover:-translate-y-2 transition-all duration-300">
+            <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-purple-500/5 rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="relative z-10">
+              <div class="relative w-20 h-20 mb-6">
+                <div class="absolute inset-0 bg-purple-500/30 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-300"></div>
+                <div class="relative w-full h-full rounded-2xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/20 flex items-center justify-center group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300">
+                  <Users class="h-10 w-10 text-purple-400 drop-shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                </div>
+              </div>
+              <h3 class="text-xl font-black mb-3 uppercase tracking-tight text-white">Client Portal</h3>
+              <p class="text-white text-lg font-semibold leading-relaxed">Give your clients a premium experience with their own dashboard.</p>
+            </div>
+          </div>
+
+          <!-- Mobile + Web App - Featured -->
+          <div class="group relative md:col-span-2 lg:col-span-3 p-8 rounded-[40px] bg-gradient-to-br from-purple-600/90 to-indigo-600/90 border border-purple-500/20 shadow-[0_8px_48px_rgba(168,85,247,0.3)] hover:shadow-[0_8px_64px_rgba(168,85,247,0.5)] hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+            <div class="absolute top-0 right-0 w-48 h-48 bg-white/5 rounded-full blur-3xl"></div>
+            <div class="relative z-10">
+              <div class="relative w-20 h-20 mb-6">
+                <div class="absolute inset-0 bg-white/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+                <div class="relative w-full h-full rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                  <Smartphone class="h-10 w-10 text-white drop-shadow-2xl" />
+                </div>
+              </div>
+              <h3 class="text-xl font-black mb-3 uppercase tracking-tight text-white">Mobile + Web App</h3>
+              <p class="text-white text-lg font-semibold leading-relaxed">Full access from desktop or phone. View pipeline, call, text, and move deals forward from anywhere.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deep Dive: Unified Inbox -->
+    <section class="py-32 px-6 bg-white/[0.01] overflow-hidden">
       <div class="max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div class="relative order-2 lg:order-1">
+            <div class="absolute inset-0 bg-indigo-500/10 blur-[100px] rounded-full"></div>
+            <div class="relative p-8 md:p-12 rounded-[48px] border border-white/10 bg-neutral-950/50 backdrop-blur-3xl">
+              <div class="space-y-6">
+                {[
+                  { source: "SMS Text", msg: "Hey! Just saw your ad, are you available tomorrow?", color: "text-blue-400" },
+                  { source: "Facebook DM", msg: "How much do you charge for a full install?", color: "text-indigo-400" },
+                  { source: "Google Chat", msg: "I'd like to book an appointment for next week.", color: "text-emerald-400" },
+                  { source: "Email", msg: "New inquiry from your website form.", color: "text-amber-400" },
+                ].map((item, i) => (
+                  <div class={`p-6 rounded-2xl bg-white/[0.03] border border-white/5 transform translate-x-${i * 4}`}>
+                    <div class={`text-[10px] font-black uppercase tracking-widest mb-2 ${item.color}`}>{item.source}</div>
+                    <div class="text-white font-medium text-lg">{item.msg}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2">
+            <div class="flex items-center gap-3 mb-8 text-indigo-500">
+              <MessageSquare class="w-4 h-4" />
+              <span class="text-[10px] font-black uppercase tracking-[0.5em]">Unified_Communications</span>
+            </div>
+            <h2 class="text-5xl md:text-6xl font-display font-black tracking-tighter mb-8 leading-tight">
+              ONE INBOX. <br />
+              <span class="text-indigo-500 italic uppercase">NO LEAKS.</span>
+            </h2>
+            <p class="text-white text-xl font-medium leading-relaxed mb-12">
+              Connect your SMS, Email, Facebook, and Instagram into one unified stream. You will never miss a lead again because it was hidden in a social media folder. Reply instantly from one place.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {["Consolidated Messaging", "Two-Way SMS & Email", "GMB Chat Integration", "Facebook & Instagram DMs"].map((item) => (
+                <div class="flex items-center gap-3 text-white font-bold uppercase text-sm tracking-wider">
+                  <CheckCircle2 class="w-5 h-5 text-indigo-500" />
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deep Dive: Scheduling -->
+    <section class="py-32 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div>
+            <div class="flex items-center gap-3 mb-8 text-indigo-500">
+              <Calendar class="w-4 h-4" />
+              <span class="text-[10px] font-black uppercase tracking-[0.5em]">Automated_Booking</span>
+            </div>
+            <h2 class="text-5xl md:text-6xl font-display font-black tracking-tighter mb-8 leading-tight text-white">
+              THE APPOINTMENT <br />
+              <span class="text-indigo-500 italic uppercase">MACHINE.</span>
+            </h2>
+            <p class="text-white text-xl font-medium leading-relaxed mb-12">
+              Ditch the back and forth. Send your booking link, let them pick a time, and the system automatically sends the confirmation, the text reminders, and the follow up messages.
+            </p>
+            <div class="space-y-6">
+              {[
+                { icon: Calendar, title: "Smart Calendars", desc: "Sync with Google or Outlook instantly." },
+                { icon: MessageSquare, title: "Auto Reminders", desc: "Reduce no-shows with SMS and email alerts." },
+                { icon: Receipt, title: "Deposit Collection", desc: "Collect payments at the time of booking." },
+              ].map((item) => (
+                <div class="group flex items-start gap-6 p-8 rounded-[32px] bg-[#020617] border-2 border-indigo-500/20 shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:border-indigo-500/40 hover:shadow-[0_12px_48px_rgba(99,102,241,0.4)] hover:-translate-y-2 transition-all duration-300">
+                  <div class="w-14 h-14 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-500 flex-shrink-0 group-hover:bg-indigo-500/20 group-hover:scale-110 transition-all duration-300">
+                    <item.icon class="w-7 h-7" />
+                  </div>
+                  <div>
+                    <h4 class="text-white font-black uppercase text-xl tracking-widest mb-2">{item.title}</h4>
+                    <p class="text-white text-lg font-medium leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="relative">
+            <div class="absolute inset-0 bg-indigo-500/10 blur-[120px] rounded-full"></div>
+            <div class="relative rounded-[48px] border border-white/10 p-1 bg-gradient-to-br from-white/[0.1] to-transparent overflow-hidden">
+              <div class="p-12 bg-neutral-950/50 backdrop-blur-3xl">
+                <div class="flex items-center justify-between mb-10">
+                  <div class="text-sm font-black uppercase tracking-widest text-indigo-500">Upcoming_Bookings</div>
+                  <div class="px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-[10px] font-black text-indigo-400">ACTIVE_SYNC</div>
+                </div>
+                <div class="space-y-6">
+                  {[
+                    { time: "9:00 AM", name: "Sarah Jenkins", service: "Full Consultation" },
+                    { time: "11:30 AM", name: "Mike Ross", service: "Follow-up Call" },
+                    { time: "2:00 PM", name: "James Wilson", service: "Project Review" },
+                  ].map((booking) => (
+                    <div class="flex items-center gap-6 p-4 rounded-2xl bg-white/[0.03] border border-white/5">
+                      <div class="text-indigo-400 font-mono font-bold text-lg">{booking.time}</div>
+                      <div>
+                        <div class="text-white font-black uppercase text-base tracking-tight">{booking.name}</div>
+                        <div class="text-white opacity-60 text-sm font-medium">{booking.service}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deep Dive: Pipelines -->
+    <section class="py-32 px-6 bg-white/[0.01] border-y border-white/5">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-24">
+          <div class="flex justify-center items-center gap-3 mb-8 text-indigo-500">
+            <GanttChartSquare class="w-4 h-4" />
+            <span class="text-[10px] font-black uppercase tracking-[0.5em]">Financial_Clarity</span>
+          </div>
+          <h2 class="text-5xl md:text-7xl font-display font-black tracking-tighter mb-8 leading-tight text-white">
+            THE ULTIMATE <br />
+            <span class="text-indigo-500 italic uppercase">SALES PIPELINE.</span>
+          </h2>
+          <p class="text-white text-xl font-medium leading-relaxed">
+            Visualize your revenue at a glance. Track every opportunity from the first hello to the final invoice with our intuitive drag and drop interface.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
           {[
-            { icon: LayoutDashboard, title: "Lead Tracking", desc: "Every lead from every source, in one beautiful pipeline." },
-            { icon: Users, title: "Client Portal", desc: "Give your clients a premium experience with their own dashboard." },
-            { icon: Zap, title: "Workflow Magic", desc: "Automate your entire sales process with drag-and-drop ease." },
-            { icon: BarChart3, title: "ROI Analytics", desc: "Know exactly which marketing channels are making you money." },
-          ].map((feature) => (
-            <div class="p-8 rounded-[32px] cyber-glass border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all">
-              <feature.icon class="h-8 w-8 text-indigo-500 mb-6" />
-              <h3 class="text-xl font-black mb-3 uppercase tracking-tight">{feature.title}</h3>
-              <p class="text-slate-500 text-sm font-medium leading-relaxed">{feature.desc}</p>
+            { stage: "New Lead", count: 12, value: "$14,400", color: "bg-blue-500", borderColor: "border-blue-500/20" },
+            { stage: "Qualified", count: 8, value: "$9,600", color: "bg-indigo-500", borderColor: "border-indigo-500/20" },
+            { stage: "Proposal Sent", count: 5, value: "$25,000", color: "bg-amber-500", borderColor: "border-amber-500/20" },
+            { stage: "Won", count: 14, value: "$42,000", color: "bg-emerald-500", borderColor: "border-emerald-500/20" },
+          ].map((column) => (
+            <div class={`group p-8 rounded-[32px] bg-[#020617] border-2 ${column.borderColor} shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:shadow-[0_12px_48px_rgba(99,102,241,0.3)] hover:-translate-y-1 transition-all duration-300`}>
+              <div class="flex items-center justify-between mb-8">
+                <div class="text-base font-black uppercase tracking-widest text-white">{column.stage}</div>
+                <div class={`px-3 py-1.5 rounded-lg text-xs font-bold text-white ${column.color} shadow-lg`}>{column.count}</div>
+              </div>
+              <div class="text-4xl font-black text-white mb-4 group-hover:scale-105 transition-transform">{column.value}</div>
+              <div class="h-2 w-full bg-white/10 rounded-full overflow-hidden">
+                <div class={`h-full ${column.color} transition-all duration-500 group-hover:opacity-100`} style="width: 60%; opacity: 0.7"></div>
+              </div>
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- Why CRM Section -->
-    <section class="py-32 px-6 bg-white/[0.01] border-y border-white/5">
+
+    <!-- Deep Dive: Agent Broski -->
+    <section class="py-20 px-6 bg-white/[0.01]">
       <div class="max-w-7xl mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div>
             <div class="flex items-center gap-3 mb-8 text-indigo-500">
-              <Activity class="w-4 h-4 animate-pulse" />
-              <span class="text-[10px] font-black uppercase tracking-[0.5em]">Central_Intelligence</span>
+              <Mic class="w-4 h-4" />
+              <span class="text-[10px] font-black uppercase tracking-[0.5em]">AI_Sales_Agent</span>
             </div>
-            <h2 class="text-5xl font-display font-black tracking-tighter mb-8 leading-tight">
-              ONE DASHBOARD. <br />
-              TOTAL CONTROL.
+            <h2 class="text-5xl md:text-6xl font-display font-black tracking-tighter mb-8 leading-tight text-white">
+              AGENT BROSKI <br />
+              <span class="text-indigo-500 italic uppercase">AI VOICE & TEXT.</span>
             </h2>
-            <p class="text-slate-400 text-lg font-medium leading-relaxed mb-12">
-              Stop juggling spreadsheets, missed follow-ups, and scattered data. Brobot CRM gives you a 360° view of your entire operation.
+            <p class="text-white text-xl font-medium leading-relaxed mb-12">
+              The CRM is the brain, but Agent Broski is the voice. Our AI Sales Agent handles the calls and texts, qualifying leads in real time and syncing every word to your CRM. Never miss a lead again.
             </p>
-            <div class="space-y-6">
-              {["Pipeline Management", "Automated Workflows", "Client Communication Hub", "Revenue Attribution", "Team Collaboration"].map((feature) => (
-                <div class="flex items-center gap-4 p-6 rounded-2xl bg-white/[0.02] border border-white/5">
-                  <div class="w-10 h-10 rounded-xl bg-indigo-600/10 flex items-center justify-center text-indigo-500">
-                    <Zap class="w-5 h-5" />
+            <div class="space-y-6 mb-12">
+              {[
+                { title: "AI Voice Calls", desc: "Human grade phone conversations that qualify leads 24/7." },
+                { title: "Smart Text Replies", desc: "Instant SMS responses that keep conversations moving forward." },
+                { title: "CRM Integration", desc: "Every call and text is recorded and synced to the contact record." },
+              ].map((item) => (
+                <div class="group flex items-start gap-6 p-8 rounded-[32px] bg-[#020617] border-2 border-indigo-500/20 shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:border-indigo-500/40 hover:shadow-[0_12px_48px_rgba(99,102,241,0.4)] hover:-translate-y-2 transition-all duration-300">
+                  <div class="w-14 h-14 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-500 flex-shrink-0 group-hover:bg-indigo-500/20 group-hover:scale-110 transition-all duration-300">
+                    <Mic class="w-7 h-7" />
                   </div>
-                  <span class="text-lg font-bold uppercase tracking-wider">{feature}</span>
+                  <div>
+                    <h4 class="text-white font-black uppercase text-xl tracking-widest mb-2">{item.title}</h4>
+                    <p class="text-white text-lg font-medium leading-relaxed">{item.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
+            <a href="/agent-broski" class="inline-flex items-center gap-3 bg-indigo-600 hover:bg-indigo-500 text-white px-8 py-4 rounded-full font-black uppercase tracking-[0.2em] shadow-xl shadow-indigo-600/20 transition-all hover:scale-105">
+              Meet Agent Broski <ArrowRight class="w-5 h-5" />
+            </a>
           </div>
           <div class="relative">
-            <div class="absolute inset-0 bg-indigo-500/10 blur-[100px] rounded-full"></div>
-            <div class="relative rounded-[48px] border border-white/10 p-1 bg-gradient-to-br from-white/[0.1] to-transparent overflow-hidden">
-              <div class="p-12 bg-neutral-950/50 backdrop-blur-3xl">
-                <div class="flex items-center gap-4 mb-10">
-                  <LayoutDashboard class="w-8 h-8 text-indigo-500" />
-                  <div class="h-[2px] flex-1 bg-gradient-to-r from-indigo-500/50 to-transparent"></div>
+            <div class="absolute inset-0 bg-indigo-500/10 blur-[120px] rounded-full"></div>
+            <div class="relative p-1 rounded-[48px] bg-gradient-to-br from-indigo-500/20 to-transparent">
+              <div class="p-12 rounded-[46px] bg-[#020617] border border-white/5 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-8 opacity-5">
+                  <Bot class="w-32 h-32 text-indigo-500" />
                 </div>
-                <div class="space-y-8">
-                  <div class="p-6 rounded-3xl bg-indigo-600/10 border border-indigo-500/20 text-indigo-100 font-medium italic">
-                    "32 new leads this week. 14 appointments booked. $47,000 in projected revenue."
+                <div class="relative z-10">
+                  <div class="flex items-center gap-4 mb-8">
+                    <div class="w-12 h-12 rounded-full bg-indigo-500/20 flex items-center justify-center border border-indigo-500/30">
+                      <Activity class="w-6 h-6 text-indigo-500" />
+                    </div>
+                    <div>
+                      <div class="text-xs font-black uppercase tracking-widest text-indigo-400">Live_Simulation</div>
+                      <div class="text-white font-black">AI_CORE_ACTIVE</div>
+                    </div>
                   </div>
-                  <div class="p-6 rounded-3xl bg-white/[0.03] border border-white/5 text-slate-400 font-medium">
-                    Your entire business, organized and automated from a single command center.
+                  <div class="space-y-4">
+                    <div class="p-4 rounded-2xl bg-white/[0.05] border border-white/10 text-lg font-medium text-white">
+                      "Agent Broski: Hello! I see you are looking for a quote. I have an opening at 2:00 PM tomorrow. Should I lock that in?"
+                    </div>
+                    <div class="p-4 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-lg font-medium text-indigo-100 italic">
+                      "CRM Alert: Appointment confirmed. Moving lead to 'Booked' stage. Triggering confirmation sequence."
+                    </div>
                   </div>
                 </div>
               </div>
@@ -106,7 +376,493 @@ const pathname = "/crm";
       </div>
     </section>
 
-    <!-- Final CTA -->
+    <!-- Deep Dive: RevuBro -->
+    <section class="py-20 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div class="relative order-2 lg:order-1">
+            <div class="absolute inset-0 bg-amber-500/10 blur-[120px] rounded-full"></div>
+            <div class="relative p-1 rounded-[48px] bg-gradient-to-br from-amber-500/20 to-transparent">
+              <div class="p-12 rounded-[46px] bg-[#020617] border border-white/5 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-8 opacity-5">
+                  <Star class="w-32 h-32 text-amber-500" />
+                </div>
+                <div class="relative z-10">
+                  <div class="flex items-center gap-4 mb-8">
+                    <div class="flex -space-x-2">
+                      <Star class="w-8 h-8 text-amber-400 fill-amber-400" />
+                      <Star class="w-8 h-8 text-amber-400 fill-amber-400" />
+                      <Star class="w-8 h-8 text-amber-400 fill-amber-400" />
+                      <Star class="w-8 h-8 text-amber-400 fill-amber-400" />
+                      <Star class="w-8 h-8 text-amber-400 fill-amber-400" />
+                    </div>
+                  </div>
+                  <div class="space-y-4">
+                    <div class="p-6 rounded-2xl bg-white/[0.05] border border-white/10">
+                      <div class="text-amber-400 font-black text-sm mb-3 uppercase tracking-widest">New Review Request</div>
+                      <div class="text-white text-lg font-medium">"Thanks for choosing us! Your opinion matters. Share your experience and help others discover what you loved."</div>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-amber-500/10 border border-amber-500/20">
+                      <div class="text-amber-400 font-black text-sm mb-3 uppercase tracking-widest">Auto Posted</div>
+                      <div class="text-amber-100 text-lg font-medium italic">"5 star review collected and posted to Google, Facebook, and your website."</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2">
+            <div class="flex items-center gap-3 mb-8 text-amber-500">
+              <Star class="w-4 h-4" />
+              <span class="text-[10px] font-black uppercase tracking-[0.5em]">Reputation_Engine</span>
+            </div>
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-display font-black tracking-tighter mb-8 leading-tight text-white">
+              REVUBRO <span class="text-amber-500 italic uppercase whitespace-nowrap">REVIEW AUTOMATION.</span>
+            </h2>
+            <p class="text-white text-xl font-medium leading-relaxed mb-12">
+              Once the job is done, RevuBro takes over. Automatically trigger review requests the second a project is completed. Capture more 5 star reviews and build unshakeable social proof.
+            </p>
+            <div class="space-y-6 mb-12">
+              {[
+                { title: "Smart Timing", desc: "Requests are sent at the perfect moment when satisfaction is highest." },
+                { title: "Multi Platform", desc: "Collect reviews across Google, Facebook, and your website automatically." },
+                { title: "Instant Notifications", desc: "Get alerted the moment a new review comes in so you can respond fast." },
+              ].map((item) => (
+                <div class="group flex items-start gap-6 p-8 rounded-[32px] bg-[#020617] border-2 border-amber-500/20 shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:border-amber-500/40 hover:shadow-[0_12px_48px_rgba(251,191,36,0.4)] hover:-translate-y-2 transition-all duration-300">
+                  <div class="w-14 h-14 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 flex-shrink-0 group-hover:bg-amber-500/20 group-hover:scale-110 transition-all duration-300">
+                    <Star class="w-7 h-7" />
+                  </div>
+                  <div>
+                    <h4 class="text-white font-black uppercase text-xl tracking-widest mb-2">{item.title}</h4>
+                    <p class="text-white text-lg font-medium leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <a href="/reputation" class="inline-flex items-center gap-3 bg-amber-600 hover:bg-amber-500 text-white px-8 py-4 rounded-full font-black uppercase tracking-[0.2em] shadow-xl shadow-amber-600/20 transition-all hover:scale-105">
+              Explore RevuBro <ArrowRight class="w-5 h-5" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deep Dive: Social Media & Analytics -->
+    <section class="py-32 px-6">
+      <div class="max-w-7xl mx-auto text-center mb-24">
+        <div class="flex justify-center items-center gap-3 mb-8 text-indigo-500">
+          <Share2 class="w-4 h-4" />
+          <span class="text-[10px] font-black uppercase tracking-[0.5em]">Social_Command</span>
+        </div>
+        <h2 class="text-5xl md:text-7xl font-display font-black tracking-tighter mb-8 leading-tight text-white">
+          SOCIAL MEDIA <br />
+          <span class="text-indigo-500 italic uppercase">OMNIPRESENCE.</span>
+        </h2>
+        <p class="text-white text-xl font-medium leading-relaxed max-w-3xl mx-auto">
+          Schedule your entire month of social media in one afternoon. Our visual planner connects to Facebook, Instagram, LinkedIn, and more, providing deep analytics on what is actually driving growth.
+        </p>
+      </div>
+
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            { icon: Calendar, title: "Visual Planner", desc: "Drag and drop your content across all platforms from one calendar." },
+            { icon: BarChart3, title: "Deep Analytics", desc: "Know exactly which posts are turning followers into paying leads." },
+            { icon: Zap, title: "Auto Posting", desc: "Set it and forget it. Your brand stays active while you stay in the field." },
+          ].map((feature) => (
+            <div class="group relative p-12 rounded-[40px] bg-[#020617] border border-white/10 shadow-[0_8px_32px_rgba(99,102,241,0.15)] text-center hover:border-indigo-500/40 hover:shadow-[0_8px_48px_rgba(99,102,241,0.3)] hover:-translate-y-2 transition-all duration-300">
+              <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-purple-500/5 rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div class="relative z-10">
+                <div class="w-20 h-20 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-500 mx-auto mb-8 group-hover:bg-indigo-500/20 group-hover:scale-110 transition-all duration-300">
+                  <feature.icon class="w-10 h-10" />
+                </div>
+                <h3 class="text-2xl font-black mb-6 uppercase tracking-tight text-white">{feature.title}</h3>
+                <p class="text-white text-lg font-medium leading-relaxed">{feature.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Deep Dive: Memberships & Communities -->
+    <section class="py-32 px-6 bg-white/[0.01] border-y border-white/5">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div class="relative order-2 lg:order-1">
+            <div class="absolute inset-0 bg-indigo-500/10 blur-[100px] rounded-full"></div>
+            <div class="grid grid-cols-1 gap-4">
+              <div class="p-8 rounded-[32px] cyber-glass border border-white/10 bg-neutral-950/50">
+                <div class="flex items-center gap-4 mb-6">
+                  <div class="w-12 h-12 rounded-xl bg-amber-500/20 flex items-center justify-center text-amber-500">
+                    <GraduationCap class="w-6 h-6" />
+                  </div>
+                  <div class="text-white font-black uppercase text-base tracking-widest">Training_Portal</div>
+                </div>
+                <div class="space-y-3">
+                  <div class="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+                    <div class="h-full bg-amber-500" style="width: 75%"></div>
+                  </div>
+                  <div class="text-sm font-bold text-white uppercase opacity-60">Course Progress: 75%</div>
+                </div>
+              </div>
+              <div class="p-8 rounded-[32px] cyber-glass border border-white/10 bg-neutral-950/50">
+                <div class="flex items-center gap-4 mb-6">
+                  <div class="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center text-indigo-500">
+                    <Users class="w-6 h-6" />
+                  </div>
+                  <div class="text-white font-black uppercase text-base tracking-widest">Client_Community</div>
+                </div>
+                <div class="text-white text-lg font-medium italic">"12 new members joined the discussion today."</div>
+              </div>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2">
+            <div class="flex items-center gap-3 mb-8 text-indigo-500">
+              <GraduationCap class="w-4 h-4" />
+              <span class="text-[10px] font-black uppercase tracking-[0.5em]">Knowledge_Hub</span>
+            </div>
+            <h2 class="text-5xl md:text-6xl font-display font-black tracking-tighter mb-8 leading-tight text-white">
+              COMMUNITIES & <br />
+              <span class="text-indigo-500 italic uppercase">TRAININGS.</span>
+            </h2>
+            <p class="text-white text-xl font-medium leading-relaxed mb-12">
+              Host your own digital products, training courses, and private client communities. Provide massive value to your customers and build a loyal tribe directly inside your CRM.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {["Unlimited Courses", "Private Communities", "Member Management", "Video Hosting Included"].map((item) => (
+                <div class="flex items-center gap-3 text-white font-bold uppercase text-sm tracking-wider">
+                  <CheckCircle2 class="w-5 h-5 text-indigo-500" />
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deep Dive: Website Builder & Content Factory -->
+    <section class="py-32 px-6 bg-white/[0.01] border-y border-white/5">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div class="relative order-2 lg:order-1 flex items-center justify-center">
+            <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/20 via-purple-500/10 to-indigo-500/20 blur-[140px] rounded-full"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-indigo-500/5 rounded-full blur-3xl"></div>
+            <div class="relative grid grid-cols-2 gap-6 max-w-md mx-auto">
+              <div class="p-10 rounded-[40px] bg-[#020617] border border-white/10 shadow-[0_8px_32px_rgba(99,102,241,0.15)] text-center group hover:border-indigo-500/40 hover:shadow-[0_8px_48px_rgba(99,102,241,0.3)] transition-all duration-300 hover:-translate-y-2">
+                <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-indigo-500/20 transition-colors">
+                  <Globe class="w-8 h-8 text-indigo-500 group-hover:scale-110 transition-transform" />
+                </div>
+                <div class="text-white font-black uppercase text-sm tracking-widest">Unlimited Sites</div>
+              </div>
+              <div class="p-10 rounded-[40px] bg-[#020617] border border-white/10 shadow-[0_8px_32px_rgba(99,102,241,0.15)] text-center group hover:border-indigo-500/40 hover:shadow-[0_8px_48px_rgba(99,102,241,0.3)] transition-all duration-300 hover:-translate-y-2">
+                <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-indigo-500/20 transition-colors">
+                  <MousePointerClick class="w-8 h-8 text-indigo-500 group-hover:scale-110 transition-transform" />
+                </div>
+                <div class="text-white font-black uppercase text-sm tracking-widest">Drag & Drop</div>
+              </div>
+              <div class="p-10 rounded-[40px] bg-[#020617] border border-white/10 shadow-[0_8px_32px_rgba(99,102,241,0.15)] text-center group hover:border-indigo-500/40 hover:shadow-[0_8px_48px_rgba(99,102,241,0.3)] transition-all duration-300 hover:-translate-y-2">
+                <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-indigo-500/20 transition-colors">
+                  <Layers class="w-8 h-8 text-indigo-500 group-hover:scale-110 transition-transform" />
+                </div>
+                <div class="text-white font-black uppercase text-sm tracking-widest">Funnels & Pages</div>
+              </div>
+              <div class="p-10 rounded-[40px] bg-[#020617] border border-white/10 shadow-[0_8px_32px_rgba(99,102,241,0.15)] text-center group hover:border-indigo-500/40 hover:shadow-[0_8px_48px_rgba(99,102,241,0.3)] transition-all duration-300 hover:-translate-y-2">
+                <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-indigo-500/20 transition-colors">
+                  <Activity class="w-8 h-8 text-indigo-500 group-hover:scale-110 transition-transform" />
+                </div>
+                <div class="text-white font-black uppercase text-sm tracking-widest">Form Builder</div>
+              </div>
+              <div class="p-10 rounded-[40px] bg-[#020617] border border-white/10 shadow-[0_8px_32px_rgba(99,102,241,0.15)] text-center group hover:border-indigo-500/40 hover:shadow-[0_8px_48px_rgba(99,102,241,0.3)] transition-all duration-300 hover:-translate-y-2">
+                <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-indigo-500/20 transition-colors">
+                  <Bot class="w-8 h-8 text-indigo-500 group-hover:scale-110 transition-transform" />
+                </div>
+                <div class="text-white font-black uppercase text-sm tracking-widest">AI Content</div>
+              </div>
+              <div class="p-10 rounded-[40px] bg-[#020617] border border-white/10 shadow-[0_8px_32px_rgba(99,102,241,0.15)] text-center group hover:border-indigo-500/40 hover:shadow-[0_8px_48px_rgba(99,102,241,0.3)] transition-all duration-300 hover:-translate-y-2">
+                <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-indigo-500/20 transition-colors">
+                  <Monitor class="w-8 h-8 text-indigo-500 group-hover:scale-110 transition-transform" />
+                </div>
+                <div class="text-white font-black uppercase text-sm tracking-widest">Mobile Ready</div>
+              </div>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2">
+            <div class="flex items-center gap-3 mb-8 text-indigo-500">
+              <Globe class="w-4 h-4" />
+              <span class="text-[10px] font-black uppercase tracking-[0.5em]">Content_Engine</span>
+            </div>
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-display font-black tracking-tighter mb-8 leading-tight text-white">
+              WEBSITE BUILDER & <span class="text-indigo-500 italic uppercase whitespace-nowrap">AI CONTENT FACTORY.</span>
+            </h2>
+            <p class="text-white text-xl font-medium leading-relaxed mb-12">
+              Replace your entire stack. Build stunning websites, high-converting funnels, landing pages, forms, and surveys all in one place. Drag and drop editor with AI content generation. Launch new offers in minutes, not months.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {["Unlimited Websites", "Funnel Builder", "Form & Survey Logic", "Landing Pages", "AI Content Generator", "Built-In Hosting", "Mobile Optimized", "Email Automation", "SSL Security", "Custom Domains"].map((item) => (
+                <div class="flex items-center gap-3 text-white font-bold uppercase text-sm tracking-wider">
+                  <CheckCircle2 class="w-5 h-5 text-indigo-500" />
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deep Dive: Invoicing & Payments -->
+    <section class="py-32 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div>
+            <div class="flex items-center gap-3 mb-8 text-indigo-500">
+              <Receipt class="w-4 h-4" />
+              <span class="text-[10px] font-black uppercase tracking-[0.5em]">Revenue_Capture</span>
+            </div>
+            <h2 class="text-5xl md:text-6xl font-display font-black tracking-tighter mb-8 leading-tight text-white">
+              INVOICING & <br />
+              <span class="text-indigo-500 italic uppercase">PAYMENTS.</span>
+            </h2>
+            <p class="text-white text-xl font-medium leading-relaxed mb-12">
+              Stop waiting weeks to get paid. Send professional invoices, collect deposits at booking, and text payment links from the field. Full Stripe and PayPal integration built in.
+            </p>
+            <div class="space-y-6">
+              {[
+                { icon: Receipt, title: "Pro Invoicing", desc: "Send branded invoices with custom line items and payment terms." },
+                { icon: Zap, title: "Instant Payment Links", desc: "Text a link and get paid in seconds without opening a laptop." },
+                { icon: CheckCircle2, title: "Deposit Collection", desc: "Collect payments at the time of booking to reduce no-shows." },
+              ].map((item) => (
+                <div class="group flex items-start gap-6 p-8 rounded-[32px] bg-[#020617] border-2 border-indigo-500/20 shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:border-indigo-500/40 hover:shadow-[0_12px_48px_rgba(99,102,241,0.4)] hover:-translate-y-2 transition-all duration-300">
+                  <div class="w-14 h-14 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-500 flex-shrink-0 group-hover:bg-indigo-500/20 group-hover:scale-110 transition-all duration-300">
+                    <item.icon class="w-7 h-7" />
+                  </div>
+                  <div>
+                    <h4 class="text-white font-black uppercase text-xl tracking-widest mb-2">{item.title}</h4>
+                    <p class="text-white text-lg font-medium leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="relative">
+            <div class="absolute inset-0 bg-indigo-500/10 blur-[120px] rounded-full"></div>
+            <div class="relative p-12 rounded-[60px] bg-[#020617] border border-white/10 shadow-2xl overflow-hidden">
+              <div class="absolute top-0 right-0 p-8 opacity-5">
+                <BarChart3 class="w-40 h-40 text-indigo-500" />
+              </div>
+              <div class="relative z-10">
+                <div class="text-center mb-10">
+                  <div class="text-indigo-500 font-black text-4xl mb-4 italic uppercase">Get Paid Faster.</div>
+                  <div class="text-white text-lg font-medium">Track every dollar from quote to close.</div>
+                </div>
+                
+                <div class="space-y-6 mt-12">
+                  <div class="p-6 rounded-[32px] bg-white/[0.03] border border-white/5">
+                    <div class="flex items-center justify-between mb-3">
+                      <div class="text-xs font-black uppercase tracking-widest text-indigo-400">Invoice #1247</div>
+                      <div class="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-black text-emerald-400">PAID</div>
+                    </div>
+                    <div class="text-white font-black text-2xl mb-1">$4,250.00</div>
+                    <div class="text-white text-xs font-medium">Payment received via Stripe</div>
+                  </div>
+                  
+                  <div class="p-6 rounded-[32px] bg-white/[0.03] border border-white/5">
+                    <div class="flex items-center justify-between mb-3">
+                      <div class="text-xs font-black uppercase tracking-widest text-indigo-400">Invoice #1248</div>
+                      <div class="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-[10px] font-black text-amber-400">PENDING</div>
+                    </div>
+                    <div class="text-white font-black text-2xl mb-1">$2,800.00</div>
+                    <div class="text-white text-xs font-medium">Sent 2 hours ago</div>
+                  </div>
+                  
+                  <div class="p-6 rounded-[32px] bg-white/[0.03] border border-white/5">
+                    <div class="flex items-center justify-between mb-3">
+                      <div class="text-xs font-black uppercase tracking-widest text-white/60">Monthly Revenue</div>
+                      <div class="text-emerald-400 font-black text-lg">+24%</div>
+                    </div>
+                    <div class="text-white font-black text-2xl">$38,450.00</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why CRM Section - Elevated -->
+    <section class="py-32 px-6 relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-transparent to-purple-900/20"></div>
+      <div class="max-w-7xl mx-auto relative z-10">
+        <div class="text-center mb-20">
+          <div class="inline-flex items-center gap-3 mb-6 px-6 py-3 rounded-full border border-indigo-500/20 bg-indigo-500/5">
+            <Activity class="w-4 h-4 text-indigo-500 animate-pulse" />
+            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-indigo-400">Central_Intelligence</span>
+          </div>
+          <h2 class="text-5xl md:text-7xl font-display font-black tracking-tighter text-white mb-6 leading-tight">
+            ONE DASHBOARD. <br />
+            <span class="text-indigo-500 italic uppercase">TOTAL CONTROL.</span>
+          </h2>
+          <p class="text-white text-2xl font-medium leading-relaxed max-w-3xl mx-auto">
+            Stop juggling spreadsheets, missed follow-ups, and scattered data. Brobot CRM gives you a 360 degree view of your entire operation.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[
+            { icon: LayoutDashboard, title: "Pipeline Management", desc: "Visualize every deal from first contact to closed won" },
+            { icon: Zap, title: "Automated Workflows", desc: "Set it once and watch it run on autopilot forever" },
+            { icon: MessageSquare, title: "Communication Hub", desc: "SMS, email, and social all in one unified inbox" },
+            { icon: BarChart3, title: "Revenue Attribution", desc: "Know exactly which channels drive real profit" },
+            { icon: Users, title: "Team Collaboration", desc: "Everyone sees the same data in real time" },
+            { icon: Activity, title: "Real-Time Analytics", desc: "Live dashboards that update as deals move" },
+          ].map((feature) => (
+            <div class="group relative p-8 rounded-[32px] bg-[#020617] border-2 border-indigo-500/20 shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:border-indigo-500/40 hover:shadow-[0_12px_48px_rgba(99,102,241,0.4)] hover:-translate-y-2 transition-all duration-300 text-center">
+              <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-purple-500/5 rounded-[32px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div class="relative z-10">
+                <div class="w-16 h-16 rounded-2xl bg-indigo-500/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-indigo-500/20 group-hover:scale-110 transition-all duration-300">
+                  <feature.icon class="w-8 h-8 text-indigo-500" />
+                </div>
+                <h3 class="text-xl font-black mb-3 uppercase tracking-tight text-white">{feature.title}</h3>
+                <p class="text-white text-lg font-medium leading-relaxed">{feature.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-20 max-w-4xl mx-auto">
+          <div class="relative p-1 rounded-[48px] bg-gradient-to-br from-indigo-500/20 to-transparent">
+            <div class="p-12 rounded-[46px] bg-[#020617] border border-white/5 relative overflow-hidden">
+              <div class="absolute top-0 right-0 p-8 opacity-5">
+                <LayoutDashboard class="w-40 h-40 text-indigo-500" />
+              </div>
+              <div class="relative z-10 text-center">
+                <div class="text-indigo-500 font-black text-2xl mb-4 uppercase tracking-widest">Live Dashboard Preview</div>
+                <div class="space-y-6 mt-8">
+                  <div class="p-8 rounded-3xl bg-indigo-600/10 border border-indigo-500/20 text-indigo-100 text-2xl font-bold">
+                    "32 new leads this week. 14 appointments booked. $47,000 in projected revenue."
+                  </div>
+                  <div class="p-8 rounded-3xl bg-white/[0.03] border border-white/5 text-white text-xl font-medium leading-relaxed">
+                    Your entire business, organized and automated from a single command center. No more tool hopping, no more data chaos, no more missed opportunities.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Growth Stack Replacement (The "Backbone" argument) -->
+    <section class="py-32 px-6 bg-gradient-to-br from-indigo-900 via-indigo-600 to-indigo-800 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-20">
+        <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1)_0%,transparent_50%)]"></div>
+        <Layers class="absolute -right-24 -top-24 w-96 h-96 text-white opacity-10" />
+        <Zap class="absolute -left-24 -bottom-24 w-96 h-96 text-white opacity-10" />
+      </div>
+      
+      <div class="max-w-[1400px] mx-auto relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+          <div class="lg:col-span-7 lg:sticky lg:top-32">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-[10px] font-black uppercase tracking-[0.3em] mb-8 backdrop-blur-xl">
+              <Zap class="w-3 h-3 text-amber-400" />
+              Consolidation_Protocol_Active
+            </div>
+            <h2 class="text-5xl md:text-7xl xl:text-8xl font-display font-black tracking-tighter text-white mb-8 leading-[0.85]">
+              KILL THE <br />
+              <span class="italic text-indigo-200">SUBSCRIPTIONS.</span>
+            </h2>
+            <p class="text-white text-xl md:text-2xl font-medium leading-relaxed mb-12 max-w-xl">
+              The Brobot is the central nervous system for your business. Stop bleeding cash on a dozen different platforms that do not talk to each other. 
+            </p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-12 lg:gap-16 items-start">
+              <div class="space-y-10 py-2">
+                <div class="text-xs font-black uppercase tracking-[0.3em] text-white opacity-80">The Old, Broken Way:</div>
+                <div class="grid grid-cols-1 gap-y-5">
+                  {[
+                    "Calendly", "Mailchimp", "ClickFunnels", "Docusign", 
+                    "ActiveCampaign", "Podium", "HubSpot", "Zapier", 
+                    "WordPress", "Wix", "Typeform", "Slack"
+                  ].map((tool) => (
+                    <div class="text-white font-black uppercase text-xl md:text-2xl lg:text-3xl tracking-tighter line-through decoration-indigo-400/60 decoration-[3px] flex items-center gap-4 group/tool">
+                      <div class="w-3 h-3 rounded-full bg-indigo-400/40 group-hover/tool:bg-indigo-400 transition-colors flex-shrink-0"></div>
+                      <span class="opacity-50 group-hover/tool:opacity-100 transition-opacity">{tool}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div class="relative group mt-8 sm:mt-0">
+                <div class="absolute -inset-4 bg-white/10 rounded-[40px] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="relative bg-white p-8 md:p-10 rounded-[40px] shadow-2xl shadow-indigo-950/50 transform group-hover:-translate-y-2 transition-transform border border-white/20">
+                  <div class="text-xs font-black uppercase tracking-[0.2em] text-indigo-600 mb-8">The Solution:</div>
+                  <div class="mb-10">
+                    <div class="text-indigo-600 font-black text-5xl md:text-6xl tracking-tighter italic leading-none uppercase">The Brobot</div>
+                    <div class="text-black text-xs font-black uppercase tracking-widest mt-4 ml-1">Universal OS</div>
+                  </div>
+                  <div class="space-y-3">
+                    {[
+                      "One Unified Login",
+                      "Instant Data Sync",
+                      "Zero Integration Fees",
+                      "Mobile Command App"
+                    ].map(benefit => (
+                      <div class="flex items-center gap-4 text-indigo-900 font-black uppercase text-sm md:text-base tracking-widest">
+                        <CheckCircle2 class="w-5 h-5 text-indigo-500 flex-shrink-0" />
+                        {benefit}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 relative lg:mt-0 mt-20">
+            <div class="absolute -inset-10 bg-white/5 blur-[120px] rounded-full"></div>
+            <div class="relative p-8 md:p-14 rounded-[60px] bg-[#020617] border border-white/10 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] overflow-hidden group">
+              <div class="absolute top-0 right-0 p-12 opacity-5 group-hover:opacity-10 transition-opacity">
+                <BarChart3 class="w-40 h-40 text-white" />
+              </div>
+              
+              <div class="relative z-10">
+                <div class="text-indigo-500 font-black text-[10px] uppercase tracking-[0.5em] mb-12">Profitability_Statement</div>
+                <h3 class="text-white font-black text-4xl tracking-tight mb-16 leading-tight">
+                  IMPACT ON YOUR <br />
+                  <span class="text-indigo-500 italic uppercase">BOTTOM LINE.</span>
+                </h3>
+                
+                <div class="space-y-12">
+                  {[
+                    { label: "Annual Savings", val: "$10,000+ per year", sub: "Based on average SaaS stack replacement" },
+                    { label: "Time Reclaimed", val: "15+ Hours / Week", sub: "Eliminating manual data entry and task jumping" },
+                    { label: "Lead Response", val: "Instant Automation", sub: "Zero leaks from the first touch to the close" },
+                    { label: "Business Value", val: "One Centralized Asset", sub: "Ownership of your data and customer journey" },
+                  ].map((stat) => (
+                    <div class="group/item">
+                      <div class="flex justify-between items-end mb-4">
+                        <div>
+                          <div class="text-sm font-black uppercase tracking-[0.2em] text-white opacity-60 mb-2">{stat.label}</div>
+                          <div class="text-white font-black text-3xl tracking-wide group-hover/item:text-indigo-400 transition-colors">{stat.val}</div>
+                        </div>
+                        <CheckCircle2 class="w-6 h-6 text-indigo-500 opacity-0 -translate-x-4 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all" />
+                      </div>
+                      <div class="text-white text-base font-medium opacity-80">{stat.sub}</div>
+                      <div class="h-[1px] w-full bg-white/10 mt-6 group-hover/item:bg-indigo-500/30 transition-colors"></div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- Final CTA -->
     <section class="py-40 px-6">
       <div class="max-w-4xl mx-auto text-center rounded-[60px] bg-indigo-600 p-20 relative overflow-hidden shadow-2xl shadow-indigo-600/40">
         <div class="absolute top-0 right-0 p-10 opacity-20 text-white">
@@ -116,9 +872,12 @@ const pathname = "/crm";
           <h2 class="text-4xl md:text-6xl font-display font-black tracking-tighter text-white mb-8 uppercase">
             READY TO TAKE <br /> COMMAND?
           </h2>
-          <button class="bg-white text-indigo-600 px-12 py-6 rounded-full font-black uppercase tracking-[0.2em] hover:scale-105 transition-all shadow-xl">
+          <p class="text-white/90 text-lg md:text-xl font-medium mb-10 max-w-2xl mx-auto">
+            Join the elite businesses running on the Brobot backbone. Stop leaking leads and start scaling with total clarity.
+          </p>
+          <a href="/contact" class="inline-block bg-white text-indigo-600 px-12 py-6 rounded-full font-black uppercase tracking-[0.2em] hover:scale-105 transition-all shadow-xl">
             Launch Your CRM
-          </button>
+          </a>
         </div>
       </div>
     </section>

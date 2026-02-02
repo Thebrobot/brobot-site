@@ -9,14 +9,15 @@ interface FloatingMenuProps {
 }
 
 const menuItems = [
-  { id: "home", icon: Home, label: "Home", href: "/" },
+  { id: "home", icon: Home, label: "Home", href: "/", home: true },
+  { id: "crm", icon: LayoutDashboard, label: "Brobot_CRM", href: "/crm" },
   { id: "broski", icon: Zap, label: "Agent_Broski", href: "/conversational-ai" },
   { id: "ai-hub", icon: Bot, label: "TALK TO AI", href: "#", main: true },
   { id: "imapspro", icon: MapPin, label: "iMapsPro", href: "/local-seo" },
   { id: "revubro", icon: Star, label: "RevuBro", href: "/reputation" },
 ];
 
-function MagneticIcon({ children, isActive, main }: { children: React.ReactNode, isActive?: boolean, main?: boolean }) {
+function MagneticIcon({ children, isActive, main, home }: { children: React.ReactNode, isActive?: boolean, main?: boolean, home?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -49,6 +50,8 @@ function MagneticIcon({ children, isActive, main }: { children: React.ReactNode,
         "relative flex items-center justify-center rounded-xl md:rounded-2xl transition-all duration-500",
         main 
           ? "h-12 w-12 md:h-14 md:w-14 bg-amber-600 text-white shadow-[0_0_40px_-5px_rgba(245,158,11,0.6)]" 
+          : home
+          ? "h-10 w-10 md:h-11 md:w-11 bg-white/[0.08] border border-white/10 text-white hover:bg-white/[0.12] hover:border-white/20"
           : "h-10 w-10 md:h-11 md:w-11 text-slate-500 hover:text-white hover:bg-white/[0.05]"
       )}
     >
@@ -173,14 +176,15 @@ export default function FloatingMenu({ pathname = "/" }: FloatingMenuProps) {
                   )}
                 </AnimatePresence>
 
-                <MagneticIcon isActive={isActive} main={item.main}>
+                <MagneticIcon isActive={isActive} main={item.main} home={item.home}>
                   <item.icon 
                     className={cn(
                       "relative z-10 transition-all duration-500", 
                       item.main ? "h-6 w-6 md:h-7 md:w-7" : "h-4 w-4 md:h-5 md:w-5",
-                      isActive && !item.main ? "text-amber-400" : ""
+                      isActive && !item.main && !item.home ? "text-amber-400" : "",
+                      isActive && item.home ? "text-white" : ""
                     )} 
-                    strokeWidth={item.main ? 2.5 : 2} 
+                    strokeWidth={item.main ? 2.5 : item.home ? 2.5 : 2} 
                   />
                 </MagneticIcon>
 
