@@ -5,12 +5,19 @@ import MouseTracker from '../components/MouseTracker';
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  type?: string;
 }
 
 const { 
-  title = "Brobot Media | Automation Engine Flow",
-  description = "Automate the grunt work so you can focus on your patients and clients. Your digital office that never misses a lead."
+  title = "Brobot Media | AI Voice Agents & Lead Automation for Local Businesses",
+  description = "AI-powered voice agents, CRM automation, and review management for HVAC, plumbing, dental, real estate & 20+ industries. Book appointments 24/7, never miss a lead.",
+  image = "/images/brobot_landscape.png",
+  type = "website"
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://thebrobot.com');
+const ogImageURL = new URL(image, Astro.site || 'https://thebrobot.com');
 ---
 
 <!DOCTYPE html>
@@ -21,12 +28,51 @@ const {
     <meta name="description" content={description} />
     <link rel="icon" type="image/png" href="/images/favicon.png" />
     
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:site_name" content="Brobot Media" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+    
+    <!-- Additional SEO -->
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
+    
     <!-- Font Preloading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
     <title>{title}</title>
+    
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Brobot Media",
+      "url": "https://thebrobot.com",
+      "logo": "https://thebrobot.com/images/favicon.png",
+      "description": "AI-powered business automation platform providing voice AI agents, CRM, review management, and local SEO for service-based businesses.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "url": "https://thebrobot.com/contact"
+      },
+      "sameAs": []
+    })} />
 
     <!-- GoHighLevel Chat Widget -->
     <link rel="stylesheet" href="https://stcdn.leadconnectorhq.com/intl-tel-input/17.0.12/css/intlTelInput.min.css">

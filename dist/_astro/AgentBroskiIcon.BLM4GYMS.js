@@ -1,0 +1,1 @@
+import{j as e}from"./jsx-runtime.D_zvdyIk.js";function a({className:i="",animate:n=!0,size:t=24}){return e.jsx("div",{className:`relative inline-block ${i}`,style:{width:t,height:t},children:e.jsx("img",{src:"/images/agent-broski-logo.png",alt:"Agent Broski",className:"w-full h-full object-contain"})})}export{a as default};
