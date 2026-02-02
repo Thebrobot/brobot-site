@@ -62,9 +62,9 @@ export default function Navbar({ pathname = "/" }: NavbarProps) {
         ];
       case "/crm":
         return [
-          { name: "Platform", href: "#platform" },
-          { name: "Workflow", href: "#automation" },
-          { name: "ROI", href: "#conversion" },
+          { name: "Features", href: "#platform" },
+          { name: "Why CRM", href: "#value" },
+          { name: "ROI Impact", href: "#savings" },
         ];
       default: // Home page or fallback
         return [

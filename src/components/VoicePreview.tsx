@@ -8,7 +8,18 @@ import VoiceCloningModal from "./VoiceCloningModal";
 
 const demos = [
   {
-    industry: "HVAC & PLUMBING",
+    industry: "HVAC",
+    audio: "/demos/hvac.mp3",
+    transcript: [
+      { sender: "bot", text: "SYSTEM_ONLINE: Welcome to Elite HVAC. How can I assist you today?" },
+      { sender: "user", text: "My AC stopped working and it's 95 degrees in here!" },
+      { sender: "bot", text: "Understood. Priority status engaged. I have a senior tech available at 2 PM today. Should I secure this slot?" },
+      { sender: "user", text: "Yes, please. Right away." },
+      { sender: "bot", text: "CONFIRMED. Dispatching confirmation to your device now. Help is on the way." },
+    ]
+  },
+  {
+    industry: "PLUMBING",
     audio: "/demos/hvac.mp3",
     transcript: [
       { sender: "bot", text: "SYSTEM_ONLINE: Welcome to Elite Plumbing. How can I assist your dispatch today?" },
