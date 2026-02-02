@@ -8,6 +8,10 @@ const faqs = [
     answer: "No. Brobot uses advanced neural voice technology that captures human-like inflection and emotion. Most people can't tell they are talking to an AI."
   },
   {
+    question: "Can Agent Broski use my own voice?",
+    answer: "Yes. Our optional voice cloning enhancement lets Agent Broski speak in your exact voice. This creates an incredibly personal experience for your callers—they hear the familiar voice they trust, backed by 24/7 AI intelligence. It's a premium add-on that integrates seamlessly with our system."
+  },
+  {
     question: "How long does setup take?",
     answer: "Our team can have your custom industry model live and connected to your phone line in under 15 minutes. It's truly plug-and-play."
   },

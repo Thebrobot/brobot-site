@@ -42,10 +42,6 @@
     </button>
 
     <div id="rb-statusMessage" class="text-center mt-4 text-sm text-slate-400 font-medium min-h-[24px]"></div>
-    
-    <div class="mt-4 text-center text-xs text-slate-500 font-medium leading-relaxed max-w-2xl mx-auto">
-      <span class="opacity-60">First search may take 15-30 seconds if the API needs to wake up.</span>
-    </div>
   </div>
 
   <div id="rb-resultSection" class="hidden mt-10 md:mt-12">
@@ -438,18 +434,34 @@
       const placeIdFromUrl = extractPlaceIdFromUrl(input);
       const isPlaceId = /^[A-Za-z0-9_-]{25,}$/.test(input);
 
+      // Status sequence to mask API latency
+      const loadingMessages = [
+        "Searching Google Business Directory...",
+        "Locating business profile...",
+        "Retrieving review history...",
+        "Analyzing rating distribution...",
+        "Scanning local competitors...",
+        "Calculating growth opportunities...",
+        "Finalizing analysis..."
+      ];
+      let msgIndex = 0;
+
       setLoading(true);
-      setStatus("Connecting to API...");
       setVisible("rb-resultSection", false);
+      setStatus(loadingMessages[0]);
+
+      // Cycle through messages every 3.5 seconds
+      const statusInterval = setInterval(() => {
+        if (msgIndex < loadingMessages.length - 1) {
+          msgIndex++;
+          setStatus(loadingMessages[msgIndex]);
+        }
+      }, 3500);
 
       const endpoint =
         placeIdFromUrl || isPlaceId
           ? `https://review-proxy-api.onrender.com/details?place_id=${placeIdFromUrl || input}`
           : `https://review-proxy-api.onrender.com/textsearch?query=${encodeURIComponent(input)}`;
-
-      const warningTimeout = setTimeout(() => {
-        setStatus("API is waking up (this can take 15-30s on first request). Please wait...");
-      }, 8000);
 
       try {
         let data = await fetchJson(endpoint);
@@ -468,7 +480,7 @@
           }
         }
 
-        clearTimeout(warningTimeout);
+        clearInterval(statusInterval);
 
         if (result && result.name && result.rating !== undefined) {
           sendAnalytics(result);
@@ -483,7 +495,7 @@
           setStatus("No matching business found.");
         }
       } catch (err) {
-        clearTimeout(warningTimeout);
+        clearInterval(statusInterval);
         console.error(err);
         setStatus("Failed to fetch business info. Try again.");
       } finally {

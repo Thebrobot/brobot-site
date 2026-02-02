@@ -121,7 +121,7 @@ function HeroDesktop() {
         <div className="mt-8 md:mt-10 text-center">
           <a
             href="#voice"
-            className="inline-flex items-center justify-center text-[10px] md:text-[11px] font-black uppercase tracking-[0.25em] text-slate-500 hover:text-amber-400 transition-colors"
+            className="inline-flex items-center justify-center text-[10px] md:text-[11px] font-black uppercase tracking-[0.25em] text-slate-300 hover:text-amber-300 transition-colors"
           >
             Hear Agent Broski
           </a>
@@ -191,7 +191,7 @@ function HeroMobile() {
         <div className="mt-6 text-center">
           <a
             href="#voice"
-            className="inline-flex items-center justify-center text-[10px] font-black uppercase tracking-[0.25em] text-slate-500 hover:text-amber-400 transition-colors"
+            className="inline-flex items-center justify-center text-[10px] font-black uppercase tracking-[0.25em] text-slate-300 hover:text-amber-300 transition-colors"
           >
             Hear Agent Broski
           </a>

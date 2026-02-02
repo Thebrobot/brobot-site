@@ -15,6 +15,7 @@ const pathname = "/agent-broski";
     badge="Conversational AI"
     backgroundImage="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=3540&auto=format&fit=crop"
     pathname={pathname}
+    accentColor="cyan-600"
   >
     <div id="demo">
       <VoicePreview client:visible />
@@ -31,7 +32,7 @@ const pathname = "/agent-broski";
           <ul class="space-y-4">
             {["Instant call response (under 1 second)", "Natural language processing", "Direct calendar integration", "SMS follow-up automation", "Multilingual support"].map((item) => (
               <li class="flex items-center gap-3 font-bold text-neutral-800">
-                <CheckCircle2 class="h-5 w-5 text-amber-600" />
+                <CheckCircle2 class="h-5 w-5 text-cyan-600" />
                 {item}
               </li>
             ))}
@@ -39,7 +40,7 @@ const pathname = "/agent-broski";
         </div>
         <div class="rounded-[32px] md:rounded-[40px] bg-neutral-50 border border-neutral-100 p-8 md:p-12 aspect-square flex items-center justify-center">
           <div class="text-center">
-            <div class="w-24 h-24 md:w-32 md:h-32 bg-amber-600 rounded-full mx-auto mb-6 md:mb-8 shadow-2xl shadow-amber-600/20 animate-pulse"></div>
+            <div class="w-24 h-24 md:w-32 md:h-32 bg-cyan-600 rounded-full mx-auto mb-6 md:mb-8 shadow-2xl shadow-cyan-600/20 animate-pulse"></div>
             <p class="text-neutral-400 font-bold uppercase tracking-widest text-xs">Neural Network Active</p>
           </div>
         </div>

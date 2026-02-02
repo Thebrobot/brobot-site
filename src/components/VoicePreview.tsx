@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { industries } from "@/data/industries";
 import DemoModal from "./DemoModal";
+import VoiceCloningModal from "./VoiceCloningModal";
 
 const demos = [
   {
@@ -36,6 +37,7 @@ export default function VoicePreview() {
   const [currentLine, setCurrentLine] = useState(-1);
   const [industryIndex, setIndustryIndex] = useState(0);
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
+  const [isVoiceCloningModalOpen, setIsVoiceCloningModalOpen] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -75,19 +77,19 @@ export default function VoicePreview() {
     <section id="voice" className="py-24 md:py-40 bg-[#020617] relative overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row gap-12 md:gap-24 items-center">
-          <div className="flex-1 max-w-xl text-left">
+          <div className="flex-1 w-full text-left">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <div className="flex items-center gap-3 mb-6 md:mb-8 text-amber-500">
+              <div className="flex items-center gap-3 mb-6 md:mb-8 text-cyan-400">
                 <Activity className="w-4 h-4 animate-pulse" />
                 <span className="text-[10px] font-black uppercase tracking-[0.5em]">Live_Transmission</span>
               </div>
               <h2 className="text-4xl md:text-7xl font-display font-black tracking-tighter text-white mb-6 md:mb-10 leading-[0.95]">
                 AI THAT SOUNDS <br />
-                <span className="text-amber-500 italic text-5xl md:text-8xl">LIKE A HUMAN.</span>
+                <span className="text-cyan-400 italic text-5xl md:text-8xl">LIKE A HUMAN.</span>
               </h2>
               <p className="text-lg md:text-xl text-slate-400 font-medium mb-8 md:mb-12 leading-relaxed">
                 No robot voices. No delays. Brobot talks to your customers and books your appointments while you focus on your business.
@@ -95,10 +97,10 @@ export default function VoicePreview() {
 
               <div className="mb-8 md:mb-12 min-h-20 flex flex-col justify-center">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-[10px] font-black uppercase tracking-[0.4em] text-amber-500/50">
+                  <span className="text-[10px] font-black uppercase tracking-[0.4em] text-cyan-400/50">
                     System Versatility_
                   </span>
-                  <a href="/industries" className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-600 hover:text-amber-500 transition-colors flex items-center gap-1">
+                  <a href="/industries" className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-600 hover:text-cyan-400 transition-colors flex items-center gap-1">
                     View All <ArrowUpRight className="w-2.5 h-2.5" />
                   </a>
                 </div>
@@ -116,7 +118,7 @@ export default function VoicePreview() {
                       >
                         <a 
                           href={`/industries/${industries[industryIndex].slug}`}
-                          className="text-amber-500 uppercase italic hover:text-amber-400 transition-colors inline-flex items-center gap-2 group"
+                          className="text-cyan-400 uppercase italic hover:text-cyan-300 transition-colors inline-flex items-center gap-2 group"
                         >
                           {industries[industryIndex].name}
                           <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all -translate-y-1" />
@@ -136,7 +138,7 @@ export default function VoicePreview() {
                     className={cn(
                       "px-4 md:px-6 py-2.5 md:py-3 rounded-xl md:rounded-2xl text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] transition-all border",
                       activeDemo === i 
-                        ? "bg-amber-600 text-white border-amber-600 shadow-lg shadow-amber-600/30" 
+                        ? "bg-cyan-500 text-white border-cyan-500 shadow-lg shadow-cyan-500/30" 
                         : "bg-white/[0.02] text-slate-500 border-white/5 hover:border-white/10"
                     )}
                   >
@@ -160,7 +162,7 @@ export default function VoicePreview() {
                     initial={{ x: "-100%" }}
                     animate={isPlaying ? { x: "100%" } : { x: "-100%" }}
                     transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                    className="absolute inset-0 bg-amber-500/10"
+                    className="absolute inset-0 bg-cyan-500/10"
                   />
                 </motion.button>
 
@@ -168,7 +170,7 @@ export default function VoicePreview() {
                   onClick={() => setIsDemoModalOpen(true)}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="group relative flex items-center justify-center gap-3 bg-amber-600 hover:bg-amber-500 text-white w-full sm:flex-1 px-10 md:px-12 py-5 md:py-6 rounded-2xl md:rounded-[24px] font-black text-sm shadow-[0_0_40px_-5px_rgba(245,158,11,0.3)] transition-all overflow-hidden"
+                  className="group relative flex items-center justify-center gap-3 bg-cyan-500 hover:bg-cyan-400 text-white w-full sm:flex-1 px-10 md:px-12 py-5 md:py-6 rounded-2xl md:rounded-[24px] font-black text-sm shadow-[0_0_40px_-5px_rgba(6,182,212,0.3)] transition-all overflow-hidden"
                 >
                   <Zap className="w-5 h-5 md:w-6 md:h-6" />
                   <span className="uppercase tracking-[0.2em]">Get Started</span>
@@ -179,7 +181,7 @@ export default function VoicePreview() {
 
           <div className="flex-1 w-full max-w-2xl relative mt-12 lg:mt-0">
             {/* Ambient Pulse Glow */}
-            <div className="absolute inset-0 bg-amber-500/5 blur-[120px] rounded-full scale-110" />
+            <div className="absolute inset-0 bg-cyan-500/5 blur-[120px] rounded-full scale-110" />
             
             <div className="relative rounded-[32px] md:rounded-[56px] cyber-glass border border-white/10 p-1 bg-gradient-to-br from-white/[0.05] to-transparent overflow-hidden">
               {/* Terminal Header */}
@@ -192,8 +194,8 @@ export default function VoicePreview() {
                     {isPlaying ? "Stream_Active" : "Protocol_Idle"}
                   </span>
                 </div>
-                <div className="flex items-center gap-3 font-mono text-[9px] md:text-[10px] font-bold text-amber-500/50">
-                  <div className="h-1 w-1 rounded-full bg-amber-500 hidden sm:block" />
+                <div className="flex items-center gap-3 font-mono text-[9px] md:text-[10px] font-bold text-cyan-400/50">
+                  <div className="h-1 w-1 rounded-full bg-cyan-500 hidden sm:block" />
                   BIT_RATE: 128KBPS
                 </div>
               </div>
@@ -215,7 +217,7 @@ export default function VoicePreview() {
                         <div className={cn(
                           "w-10 h-10 md:w-12 md:h-12 rounded-[14px] md:rounded-[18px] flex items-center justify-center flex-shrink-0 border transition-all",
                           line.sender === "bot" 
-                            ? "bg-amber-600 text-white border-amber-400 shadow-[0_0_20px_-5px_rgba(245,158,11,0.5)]" 
+                            ? "bg-cyan-500 text-white border-cyan-300 shadow-[0_0_20px_-5px_rgba(0,229,255,0.5)]" 
                             : "bg-white/5 text-slate-400 border-white/10"
                         )}>
                           {line.sender === "bot" ? <Bot className="w-5 h-5 md:w-6 md:h-6" strokeWidth={1.5} /> : <User className="w-5 h-5 md:w-6 md:h-6" strokeWidth={1.5} />}
@@ -224,7 +226,7 @@ export default function VoicePreview() {
                           "p-4 md:p-6 rounded-2xl md:rounded-[32px] text-sm md:text-base font-medium leading-relaxed",
                           line.sender === "bot" 
                             ? "bg-white/[0.03] text-white border border-white/5 rounded-tl-none" 
-                            : "bg-amber-600 text-white rounded-tr-none shadow-xl shadow-amber-600/20"
+                            : "bg-cyan-500 text-white rounded-tr-none shadow-xl shadow-cyan-500/20"
                         )}>
                           {line.text}
                         </div>
@@ -241,7 +243,7 @@ export default function VoicePreview() {
                         key={i}
                         animate={isPlaying ? { 
                           height: [4, Math.random() * 40 + 10, 4],
-                          backgroundColor: ["#f59e0b", "#fbbf24", "#f59e0b"]
+                          backgroundColor: ["#00E5FF", "#70F3FF", "#00E5FF"]
                         } : { height: 2, backgroundColor: "#334155" }}
                         transition={{ repeat: Infinity, duration: 0.5, delay: i * 0.03 }}
                         className="w-1 rounded-full"
@@ -253,16 +255,54 @@ export default function VoicePreview() {
                       <div className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.5)] animate-pulse" />
                       <span className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-500">Secure_Encryption_AES_256</span>
                     </div>
-                    <span className="text-[9px] font-mono font-bold text-amber-500">VOICE_SYNC_ENABLED</span>
+                    <span className="text-[9px] font-mono font-bold text-cyan-400">VOICE_SYNC_ENABLED</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        {/* Voice Cloning Premium Feature - Full Width Below */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="mt-12 md:mt-16 relative group max-w-6xl mx-auto"
+        >
+          <div className="absolute inset-0 bg-cyan-500/5 blur-[60px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="relative cyber-glass border border-cyan-500/20 bg-white/[0.02] rounded-2xl md:rounded-3xl p-6 md:p-8 hover:border-cyan-500/40 transition-all duration-300">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-2 h-2 rounded-full bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.5)] animate-pulse" />
+              <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.5em] text-cyan-400">
+                Voice_Identity_Protocol
+              </span>
+            </div>
+            <h3 className="text-xl md:text-2xl font-display font-black tracking-tight text-white mb-3 leading-tight">
+              Your Voice. Your Brand. <span className="text-cyan-400 italic">Your AI.</span>
+            </h3>
+            <p className="text-base md:text-lg text-white font-medium leading-relaxed mb-5">
+              Clone your own voice and let Agent Broski speak as you. Callers hear the familiar tone they trust, backed by 24/7 AI precision.
+            </p>
+            <div className="flex items-center justify-between">
+              <span className="text-[9px] font-black uppercase tracking-[0.3em] text-slate-600">
+                Optional Premium Enhancement
+              </span>
+              <button
+                onClick={() => setIsVoiceCloningModalOpen(true)}
+                className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-2 group/link"
+              >
+                Learn More 
+                <ArrowUpRight className="w-3 h-3 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+              </button>
+            </div>
+          </div>
+        </motion.div>
       </div>
 
       <DemoModal isOpen={isDemoModalOpen} onClose={() => setIsDemoModalOpen(false)} />
+      <VoiceCloningModal isOpen={isVoiceCloningModalOpen} onClose={() => setIsVoiceCloningModalOpen(false)} />
     </section>
   );
 }

@@ -70,25 +70,29 @@ export default function AutomationEngine() {
             <motion.a
               href="/conversational-ai"
               whileHover={{ scale: 1.05, x: 10, y: -5 }}
-              className="block cyber-glass p-6 md:p-8 rounded-3xl md:rounded-[32px] neon-border group relative transition-all cursor-pointer hover:shadow-[0_20px_60px_-15px_rgba(245,158,11,0.4)] hover:border-amber-500/30"
+              className="block cyber-glass p-6 md:p-8 rounded-3xl md:rounded-[32px] neon-border group relative transition-all cursor-pointer hover:shadow-[0_20px_60px_-15px_rgba(245,158,11,0.4)] hover:border-cyan-500/30"
             >
               {/* Hover Glow Effect */}
-              <div className="absolute inset-0 bg-amber-500/0 group-hover:bg-amber-500/5 rounded-3xl md:rounded-[32px] transition-all duration-300 pointer-events-none" />
+              <div className="absolute inset-0 bg-cyan-500/0 group-hover:bg-cyan-500/5 rounded-3xl md:rounded-[32px] transition-all duration-300 pointer-events-none" />
               
               <div className="relative z-10">
                 <div className="flex items-start justify-between mb-8">
-                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 group-hover:bg-amber-500/20 group-hover:border-amber-500/40 transition-all">
-                    <Phone className="w-6 h-6 md:w-7 md:h-7" />
+                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500/20 group-hover:border-cyan-500/40 transition-all">
+                    <img 
+                      src="/images/agent-broski-logo.png" 
+                      alt="Agent Broski" 
+                      className="w-6 h-6 md:w-7 md:h-7 object-contain"
+                    />
                   </div>
                   <div className="text-right">
-                    <div className="text-[10px] font-black text-amber-500/50 uppercase tracking-widest mb-1">Status</div>
+                    <div className="text-[10px] font-black text-cyan-500/50 uppercase tracking-widest mb-1">Status</div>
                     <div className="flex items-center gap-2 text-green-400 font-mono text-[10px] font-bold">
                       <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
                       LIVE_ACTIVE
                     </div>
                   </div>
                 </div>
-                <h3 className="text-xl md:text-2xl font-black text-white mb-3 tracking-tight font-display italic group-hover:text-amber-400 transition-colors">AGENT BROSKI</h3>
+                <h3 className="text-xl md:text-2xl font-black text-white mb-3 tracking-tight font-display italic group-hover:text-cyan-400 transition-colors">AGENT BROSKI</h3>
                 <p className="text-slate-500 text-sm font-medium leading-relaxed mb-8">Talks & texts like a human. Qualifies inquiries 24/7. Books meetings for you.</p>
                 <div className="grid grid-cols-2 gap-4 border-t border-white/5 pt-6 mb-4">
                   <div>
@@ -102,7 +106,7 @@ export default function AutomationEngine() {
                 </div>
                 
                 {/* Learn More Indicator */}
-                <div className="flex items-center gap-2 text-amber-500 text-[10px] font-black uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-all">
+                <div className="flex items-center gap-2 text-cyan-500 text-[10px] font-black uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-all">
                   <span>Learn More</span>
                   <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -113,34 +117,34 @@ export default function AutomationEngine() {
             <motion.a
               href="/reputation"
               whileHover={{ scale: 1.05, x: 10, y: -5 }}
-              className="block cyber-glass p-6 md:p-8 rounded-3xl md:rounded-[32px] neon-border group relative transition-all cursor-pointer hover:shadow-[0_20px_60px_-15px_rgba(245,158,11,0.4)] hover:border-amber-500/30"
+              className="block cyber-glass p-6 md:p-8 rounded-3xl md:rounded-[32px] neon-border group relative transition-all cursor-pointer hover:shadow-[0_20px_60px_-15px_rgba(16,185,129,0.4)] hover:border-emerald-500/30"
             >
               {/* Hover Glow Effect */}
-              <div className="absolute inset-0 bg-amber-500/0 group-hover:bg-amber-500/5 rounded-3xl md:rounded-[32px] transition-all duration-300 pointer-events-none" />
+              <div className="absolute inset-0 bg-emerald-500/0 group-hover:bg-emerald-500/5 rounded-3xl md:rounded-[32px] transition-all duration-300 pointer-events-none" />
               
               <div className="relative z-10">
                 <div className="flex items-start justify-between mb-8">
-                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 group-hover:bg-amber-500/20 group-hover:border-amber-500/40 transition-all">
+                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500/20 group-hover:border-emerald-500/40 transition-all">
                     <Star className="w-6 h-6 md:w-7 md:h-7" />
                   </div>
-                  <div className="text-[10px] font-black text-amber-500/50 uppercase tracking-widest">Growth_Engine</div>
+                  <div className="text-[10px] font-black text-emerald-500/50 uppercase tracking-widest">Growth_Engine</div>
                 </div>
-                <h3 className="text-xl md:text-2xl font-black text-white mb-3 tracking-tight font-display italic group-hover:text-amber-400 transition-colors">REVUBRO</h3>
+                <h3 className="text-xl md:text-2xl font-black text-white mb-3 tracking-tight font-display italic group-hover:text-emerald-400 transition-colors">REVUBRO</h3>
                 <p className="text-slate-500 text-sm font-medium leading-relaxed mb-8">Automate Google reviews. Convert satisfied customers. Build 5-star authority.</p>
                 <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden mb-2">
                   <motion.div 
                     initial={{ width: 0 }}
                     whileInView={{ width: "88%" }}
-                    className="h-full bg-amber-500 shadow-[0_0_10px_rgba(245,158,11,0.5)]" 
+                    className="h-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]" 
                   />
                 </div>
                 <div className="flex justify-between mb-4">
                   <span className="text-[9px] font-black text-slate-600 uppercase">Trust Index</span>
-                  <span className="text-[10px] font-bold text-amber-400">88% ALPHA</span>
+                  <span className="text-[10px] font-bold text-emerald-400">88% ALPHA</span>
                 </div>
                 
                 {/* Learn More Indicator */}
-                <div className="flex items-center gap-2 text-amber-500 text-[10px] font-black uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-all">
+                <div className="flex items-center gap-2 text-emerald-500 text-[10px] font-black uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-all">
                   <span>Learn More</span>
                   <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -274,7 +278,11 @@ export default function AutomationEngine() {
               <div className="relative z-10">
                 <div className="flex items-start justify-between mb-8">
                   <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 group-hover:bg-indigo-500/20 group-hover:border-indigo-500/40 transition-all">
-                    <Calendar className="w-6 h-6 md:w-7 md:h-7" />
+                    <img 
+                      src="/images/favicon.png" 
+                      alt="Brobot" 
+                      className="w-6 h-6 md:w-7 md:h-7 object-contain"
+                    />
                   </div>
                   <div className="text-[10px] font-black text-indigo-500/50 uppercase tracking-widest">Output_Node</div>
                 </div>

@@ -21,9 +21,9 @@ export default function Navbar({ pathname = "/" }: NavbarProps) {
 
   const systems = [
     { name: "Brobot", href: "/", icon: LayoutDashboard, image: "/images/favicon.png", desc: "MAIN ECOSYSTEM", color: "bg-neutral-950", iconColor: "text-white" },
-    { name: "Agent Broski", href: "/conversational-ai", icon: Zap, desc: "AI SALES AGENT", color: "bg-indigo-600", iconColor: "text-white" },
-    { name: "iMapsPro", href: "/local-seo", icon: MapPin, desc: "LOCAL SEO MAPS", color: "bg-cyan-500", iconColor: "text-white" },
-    { name: "RevuBro", href: "/reputation", icon: Star, desc: "REVIEW AUTOMATION", color: "bg-amber-500", iconColor: "text-white" },
+    { name: "Agent Broski", href: "/conversational-ai", icon: Zap, image: "/images/agent-broski-logo.png", desc: "AI SALES AGENT", color: "bg-cyan-500", iconColor: "text-white" },
+    { name: "iMapsPro", href: "/local-seo", icon: MapPin, desc: "LOCAL SEO MAPS", color: "bg-emerald-500", iconColor: "text-white" },
+    { name: "RevuBro", href: "/reputation", icon: Star, desc: "REVIEW AUTOMATION", color: "bg-emerald-500", iconColor: "text-white" },
   ];
 
   // Find the current system based on pathname, default to Brobot CRM for home
@@ -31,6 +31,15 @@ export default function Navbar({ pathname = "/" }: NavbarProps) {
 
   // Dynamic menu links based on current page
   const getMenuLinks = () => {
+    // Check if we're on an industry page
+    if (pathname?.startsWith("/industries/")) {
+      return [
+        { name: "The Problem", href: "#workflow" },
+        { name: "Solution", href: "#playbook" },
+        { name: "Live Demo", href: "#demo" },
+      ];
+    }
+
     switch (pathname) {
       case "/conversational-ai":
         return [
@@ -220,7 +229,7 @@ export default function Navbar({ pathname = "/" }: NavbarProps) {
         </div>
         
         {/* Desktop Navigation Links */}
-        <div className="hidden md:flex items-center gap-8 text-[11px] font-black uppercase tracking-[0.3em] text-slate-500">
+        <div className="hidden md:flex items-center gap-8 text-[11px] font-black uppercase tracking-[0.3em] text-white">
           {menuLinks.map((link) => (
             <a 
               key={link.name} 

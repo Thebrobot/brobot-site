@@ -3,13 +3,26 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Footer from '../../components/Footer';
 import Navbar from '../../components/Navbar';
 import FloatingMenu from '../../components/FloatingMenu';
+import CustomBuildQuestionnaire from '../../components/CustomBuildQuestionnaire';
 import { industries } from '../../data/industries';
 import { ArrowRight, Activity } from 'lucide-react';
 
 const pathname = "/industries";
+const industryCategories = [
+  "All",
+  "Home Services",
+  "Health & Wellness",
+  "Finance & Real Estate",
+  "Business Services",
+  "Events",
+  "Automotive",
+];
 ---
 
-<BaseLayout title="Industry Solutions | Brobot Media">
+<BaseLayout
+  title="Industry Solutions | Brobot Media"
+  description="Choose your industry to see how Brobot’s AI agents handle lead response, qualification, scheduling, and follow-up—built for your vertical."
+>
   <main class="min-h-screen bg-[#020617] text-white pt-40 pb-20 px-6">
     <Navbar client:load pathname={pathname} />
     
@@ -23,8 +36,60 @@ const pathname = "/industries";
         INDUSTRY <br /> <span class="text-amber-500 italic">SOLUTIONS</span>
       </h1>
       <p class="text-xl text-slate-400 max-w-2xl mx-auto font-medium leading-relaxed">
-        Brobot works for every business. Pick your industry below to see how our AI agents can help you scale your workflow.
+        Choose your industry to see how Brobot captures leads, qualifies prospects, and books appointments automatically for businesses like yours.
       </p>
+    </section>
+
+    <!-- Search + Filters -->
+    <section class="max-w-7xl mx-auto mb-10">
+      <div class="cyber-glass border border-white/5 bg-white/[0.02] rounded-[32px] md:rounded-[40px] p-4 md:p-8">
+        <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4 md:gap-6">
+          <div class="flex-1 text-left">
+            <label for="industry-filter" class="block text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 mb-3">
+              Find_Your_Industry
+            </label>
+            <input
+              id="industry-filter"
+              name="industry-filter"
+              type="search"
+              autocomplete="off"
+              placeholder="Search: HVAC, dentist, home services, finance..."
+              class="w-full h-14 px-6 rounded-[24px] bg-white/[0.03] border border-white/10 text-white placeholder:text-slate-700 focus:border-amber-500 focus:bg-white/[0.05] transition-all outline-none font-medium"
+            />
+          </div>
+          <div class="flex items-center justify-between md:justify-end gap-4">
+            <div class="text-left md:text-right">
+              <div class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 mb-1">Showing</div>
+              <div class="text-amber-500 font-black tracking-tight text-sm md:text-base">
+                <span id="industry-results-count">—</span>
+              </div>
+            </div>
+            <a
+              href="/contact"
+              class="bg-amber-600 hover:bg-amber-500 text-white px-5 py-3 md:px-6 md:py-4 rounded-full font-black uppercase tracking-[0.2em] shadow-xl shadow-amber-600/20 transition-all flex items-center justify-center gap-3 text-[10px] whitespace-nowrap"
+            >
+              Book Demo <ArrowRight class="w-3 h-3" />
+            </a>
+          </div>
+        </div>
+
+        <div class="mt-5 md:mt-6 flex flex-nowrap md:flex-wrap gap-2 overflow-x-auto md:overflow-visible pb-2 md:pb-0 -mx-1 px-1">
+          {industryCategories.map((cat) => (
+            <button
+              type="button"
+              data-industry-chip
+              data-category={cat}
+              aria-pressed={cat === "All" ? "true" : "false"}
+              class="px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] transition-all border bg-white/[0.02] border-white/10 text-slate-500 hover:text-white hover:bg-white/[0.05] hover:border-white/20 focus:outline-none focus:ring-2 focus:ring-amber-500/40 whitespace-nowrap"
+            >
+              {cat.replaceAll(" ", "_")}
+            </button>
+          ))}
+        </div>
+        <div class="hidden md:block mt-4 text-[10px] font-bold uppercase tracking-[0.3em] text-slate-600">
+          Filters instantly as you type
+        </div>
+      </div>
     </section>
 
     <!-- Directory Grid -->
@@ -35,12 +100,21 @@ const pathname = "/industries";
           return (
             <a 
               href={`/industries/${industry.slug}`}
-              class="group p-8 rounded-[40px] cyber-glass border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-amber-500/30 transition-all relative overflow-hidden"
+              data-industry-card
+              data-name={industry.name}
+              data-tagline={industry.tagline}
+              data-category={industry.category}
+              data-slug={industry.slug}
+              aria-label={`Explore ${industry.name} solutions`}
+              class="group p-8 rounded-[40px] cyber-glass border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-amber-500/30 transition-all relative overflow-hidden focus:outline-none focus:ring-2 focus:ring-amber-500/40"
             >
               <div class="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div class="relative z-10">
                 <div class="w-14 h-14 rounded-2xl bg-amber-600/10 border border-amber-500/20 flex items-center justify-center text-amber-500 mb-6 group-hover:scale-110 transition-transform">
                   <Icon class="w-7 h-7" />
+                </div>
+                <div class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-600 mb-3">
+                  {industry.category.replaceAll(" ", "_")}
                 </div>
                 <h3 class="text-2xl font-black mb-3 uppercase tracking-tight group-hover:text-amber-400 transition-colors">
                   {industry.name}
@@ -56,17 +130,108 @@ const pathname = "/industries";
           );
         })}
       </div>
+
+      <div id="industry-empty-state" class="hidden mt-14 text-center">
+        <div class="p-10 rounded-[40px] border border-dashed border-white/10">
+          <h3 class="text-2xl font-black uppercase tracking-widest text-slate-500 mb-4">No_Match_Found</h3>
+          <p class="text-slate-600 font-medium max-w-xl mx-auto italic mb-8">
+            Try a different keyword (e.g. “contractor”, “insurance”, “dispatch”) or request a custom build for your niche.
+          </p>
+          <CustomBuildQuestionnaire
+            client:load
+            buttonLabel="Request Custom Build"
+            buttonClassName="inline-flex items-center justify-center gap-3 bg-amber-600 hover:bg-amber-500 text-white px-8 py-4 rounded-full font-black uppercase tracking-[0.2em] shadow-xl shadow-amber-600/20 transition-all text-[10px]"
+          />
+        </div>
+      </div>
     </section>
 
     <!-- Monthly Update Note -->
     <section class="max-w-7xl mx-auto mt-32">
       <div class="p-12 rounded-[50px] border border-dashed border-white/10 text-center">
         <h4 class="text-xl font-black uppercase tracking-widest text-slate-500 mb-4">Expanding Monthly_</h4>
-        <p class="text-slate-600 font-medium max-w-xl mx-auto italic">
-          Don't see your specific niche? We deploy new industry-specific AI modules every month. Contact our engineering team for custom infrastructure.
+        <p class="text-slate-600 font-medium max-w-xl mx-auto italic mb-8">
+          Don’t see your niche? We can deploy a custom vertical module (intake, qualification, follow-up, scheduling, and integrations).
         </p>
+        <CustomBuildQuestionnaire
+          client:load
+          buttonLabel="REQUEST CUSTOM BUILD"
+          buttonClassName="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full font-black uppercase tracking-[0.2em] border border-white/10 hover:bg-white/5 transition-all text-center text-[10px] text-white"
+        />
       </div>
     </section>
+
+    <script is:inline>
+      (() => {
+        const input = document.getElementById("industry-filter");
+        const countEl = document.getElementById("industry-results-count");
+        const emptyEl = document.getElementById("industry-empty-state");
+        const chips = Array.from(document.querySelectorAll("[data-industry-chip]"));
+        const cards = Array.from(document.querySelectorAll("[data-industry-card]"));
+
+        if (!input || !countEl) return;
+
+        const ACTIVE_ON = ["bg-amber-600/10", "border-amber-500/30", "text-amber-200"];
+        const ACTIVE_OFF = ["bg-white/[0.02]", "border-white/10", "text-slate-500"];
+
+        let activeCategory = "All";
+
+        const normalize = (s) => (s || "").toLowerCase().trim();
+        const toTokens = (s) => normalize(s).split(/\s+/).filter(Boolean);
+
+        function setChipActive(chip, isActive) {
+          chip.setAttribute("aria-pressed", isActive ? "true" : "false");
+          if (isActive) {
+            ACTIVE_OFF.forEach((c) => chip.classList.remove(c));
+            ACTIVE_ON.forEach((c) => chip.classList.add(c));
+          } else {
+            ACTIVE_ON.forEach((c) => chip.classList.remove(c));
+            ACTIVE_OFF.forEach((c) => chip.classList.add(c));
+          }
+        }
+
+        function applyFilters() {
+          const q = normalize(input.value);
+          const tokens = toTokens(q);
+          let shown = 0;
+
+          for (const el of cards) {
+            const name = normalize(el.getAttribute("data-name"));
+            const tagline = normalize(el.getAttribute("data-tagline"));
+            const cat = el.getAttribute("data-category") || "";
+            const slug = normalize(el.getAttribute("data-slug"));
+            const catNorm = normalize(cat);
+
+            // Allow searching by industry name, tagline, category, or slug.
+            const haystack = (name + " " + tagline + " " + catNorm + " " + slug).trim();
+
+            const matchesCategory = activeCategory === "All" || cat === activeCategory;
+            const matchesText = tokens.length === 0 || tokens.every((t) => haystack.includes(t));
+            const show = matchesCategory && matchesText;
+
+            el.classList.toggle("hidden", !show);
+            if (show) shown += 1;
+          }
+
+          countEl.textContent = shown + " of " + cards.length;
+          if (emptyEl) emptyEl.classList.toggle("hidden", shown !== 0);
+        }
+
+        for (const chip of chips) {
+          chip.addEventListener("click", () => {
+            activeCategory = chip.getAttribute("data-category") || "All";
+            for (const c of chips) setChipActive(c, c === chip);
+            applyFilters();
+          });
+        }
+
+        input.addEventListener("input", applyFilters);
+
+        // Initialize active state (All)
+        for (const chip of chips) setChipActive(chip, (chip.getAttribute("data-category") || "") === "All");
+        applyFilters();
+      })();
+    </script>
 
     <FloatingMenu client:load pathname={pathname} />
 
