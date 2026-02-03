@@ -3,7 +3,7 @@ title: "Why AI Agents are the Future of Business Automation"
 description: "Discover how AI agents are transforming local businesses by handling the grunt work 24/7."
 pubDate: 2026-01-29
 heroImage: "/images/blog_landscape_trans.png"
-author: "Kyle Artman"
+author: "Brobot Media"
 tags: ["AI Agents", "Automation", "Small Business"]
 ---
 

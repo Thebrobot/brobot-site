@@ -23,7 +23,7 @@ export default function Footer() {
             className="flex items-center gap-4 bg-white/5 border border-white/10 px-6 py-2 rounded-full backdrop-blur-xl"
           >
             <div className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
-            <span className="text-[9px] font-black uppercase tracking-[0.4em] text-slate-400">End_Transmission_Station</span>
+            <span className="text-[9px] font-black uppercase tracking-[0.4em] text-white">End_Transmission_Station</span>
             <div className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
           </motion.div>
         </div>
@@ -42,13 +42,13 @@ export default function Footer() {
                 />
               </div>
             </a>
-            <p className="text-slate-500 text-sm font-medium leading-relaxed max-w-xs">
+            <p className="text-white text-sm font-medium leading-relaxed max-w-xs">
               The proprietary intelligence layer for autonomous business growth. Deploying high-bandwidth AI agents at scale.
             </p>
             <div className="flex flex-col gap-3">
               <div className="flex items-center gap-3 bg-white/[0.03] border border-white/[0.08] px-4 py-2 rounded-xl w-fit">
                 <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">
+                <span className="text-[10px] font-mono font-bold text-white uppercase tracking-widest">
                   System_Status: <span className="text-green-500">Optimal</span>
                 </span>
               </div>
@@ -73,7 +73,7 @@ export default function Footer() {
                 { name: "RevuBro (Trust)", href: "/reputation", icon: Star },
               ].map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="text-slate-500 hover:text-amber-400 text-xs font-bold transition-all flex items-center gap-3 group">
+                  <a href={link.href} className="text-white hover:text-amber-400 text-xs font-bold transition-all flex items-center gap-3 group">
                     <link.icon className="w-3.5 h-3.5 text-slate-700 group-hover:text-amber-500 transition-colors" />
                     {link.name}
                   </a>
@@ -97,7 +97,7 @@ export default function Footer() {
                 "Legal & Finance",
               ].map((item) => (
                 <li key={item}>
-                  <a href="/industries" className="text-slate-500 hover:text-amber-400 text-xs font-bold transition-all block">
+                  <a href="/industries" className="text-white hover:text-amber-400 text-xs font-bold transition-all block">
                     {item}
                   </a>
                 </li>
@@ -126,7 +126,7 @@ export default function Footer() {
                 { name: "Contact_Sales", href: "/contact" },
               ].map((item) => (
                 <li key={item.name}>
-                  <a href={item.href} className="text-slate-500 hover:text-amber-400 text-xs font-bold transition-all block">
+                  <a href={item.href} className="text-white hover:text-amber-400 text-xs font-bold transition-all block">
                     {item.name}
                   </a>
                 </li>
@@ -143,7 +143,7 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-8">
             <div className="flex items-center gap-2">
               <div className="w-1 h-1 rounded-full bg-amber-500" />
-              <span className="text-slate-500 text-[9px] font-black uppercase tracking-[0.3em]">[Global_Release_v2.0.4]</span>
+              <span className="text-white text-[9px] font-black uppercase tracking-[0.3em]">[Global_Release_v2.0.4]</span>
             </div>
             <div className="text-slate-700 text-[9px] font-mono">
               ENCRYPTION_LEVEL: AES-256

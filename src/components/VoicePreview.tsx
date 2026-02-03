@@ -102,7 +102,7 @@ export default function VoicePreview() {
                 AI THAT SOUNDS <br />
                 <span className="text-cyan-400 italic text-5xl md:text-8xl">LIKE A HUMAN.</span>
               </h2>
-              <p className="text-lg md:text-xl text-slate-400 font-medium mb-8 md:mb-12 leading-relaxed">
+              <p className="text-xl md:text-2xl text-white font-medium mb-8 md:mb-12 leading-relaxed">
                 No robot voices. No delays. Brobot talks to your customers and books your appointments while you focus on your business.
               </p>
 
@@ -116,7 +116,7 @@ export default function VoicePreview() {
                   </a>
                 </div>
                 <div className="flex flex-wrap items-center gap-3 md:gap-4 text-xl md:text-3xl font-display font-black tracking-tight text-white">
-                  <span className="text-slate-500 uppercase italic">Ready For:</span>
+                  <span className="text-white uppercase italic">Ready For:</span>
                   <div className="h-10 overflow-hidden relative flex-1 min-w-[200px]">
                     <AnimatePresence mode="wait">
                       <motion.div
@@ -141,7 +141,7 @@ export default function VoicePreview() {
               </div>
 
               <div className="flex flex-wrap gap-2 md:gap-3 mb-12 opacity-60 hover:opacity-100 transition-opacity">
-                <span className="w-full text-[9px] font-black uppercase tracking-[0.2em] text-slate-500 mb-1">Select Demo Case:</span>
+                <span className="w-full text-[9px] font-black uppercase tracking-[0.2em] text-white mb-1">Select Demo Case:</span>
                 {demos.map((demo, i) => (
                   <button
                     key={i}
@@ -150,7 +150,7 @@ export default function VoicePreview() {
                       "px-4 md:px-6 py-2.5 md:py-3 rounded-xl md:rounded-2xl text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] transition-all border",
                       activeDemo === i 
                         ? "bg-cyan-500 text-white border-cyan-500 shadow-lg shadow-cyan-500/30" 
-                        : "bg-white/[0.02] text-slate-500 border-white/5 hover:border-white/10"
+                        : "bg-white/[0.02] text-white border-white/5 hover:border-white/10"
                     )}
                   >
                     {demo.industry}
@@ -201,7 +201,7 @@ export default function VoicePreview() {
                   <div className="relative">
                     <div className={cn("w-2.5 h-2.5 md:w-3 md:h-3 rounded-full shadow-[0_0_10px_rgba(239,68,68,0.5)]", isPlaying ? "bg-red-500 animate-pulse" : "bg-slate-700")} />
                   </div>
-                  <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">
+                  <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] text-white">
                     {isPlaying ? "Stream_Active" : "Protocol_Idle"}
                   </span>
                 </div>
@@ -229,7 +229,7 @@ export default function VoicePreview() {
                           "w-10 h-10 md:w-12 md:h-12 rounded-[14px] md:rounded-[18px] flex items-center justify-center flex-shrink-0 border transition-all",
                           line.sender === "bot" 
                             ? "bg-cyan-500 text-white border-cyan-300 shadow-[0_0_20px_-5px_rgba(0,229,255,0.5)]" 
-                            : "bg-white/5 text-slate-400 border-white/10"
+                            : "bg-white/5 text-white border-white/10"
                         )}>
                           {line.sender === "bot" ? <Bot className="w-5 h-5 md:w-6 md:h-6" strokeWidth={1.5} /> : <User className="w-5 h-5 md:w-6 md:h-6" strokeWidth={1.5} />}
                         </div>
@@ -264,7 +264,7 @@ export default function VoicePreview() {
                   <div className="flex flex-col sm:flex-row items-center justify-between px-6 py-4 md:px-8 md:py-5 bg-white/[0.02] rounded-2xl md:rounded-3xl border border-white/5 gap-3">
                     <div className="flex items-center gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.5)] animate-pulse" />
-                      <span className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-500">Secure_Encryption_AES_256</span>
+                      <span className="text-[9px] font-black uppercase tracking-[0.2em] text-white">Secure_Encryption_AES_256</span>
                     </div>
                     <span className="text-[9px] font-mono font-bold text-cyan-400">VOICE_SYNC_ENABLED</span>
                   </div>
@@ -293,7 +293,7 @@ export default function VoicePreview() {
             <h3 className="text-xl md:text-2xl font-display font-black tracking-tight text-white mb-3 leading-tight">
               Your Voice. Your Brand. <span className="text-cyan-400 italic">Your AI.</span>
             </h3>
-            <p className="text-base md:text-lg text-white font-medium leading-relaxed mb-5">
+            <p className="text-lg md:text-xl text-white font-medium leading-relaxed mb-5">
               Clone your own voice and let Agent Broski speak as you. Callers hear the familiar tone they trust, backed by 24/7 AI precision.
             </p>
             <div className="flex items-center justify-between">

@@ -56,7 +56,7 @@ export default function BuiltForConversion() {
                 <pillar.icon className="w-8 h-8 md:w-10 md:h-10 text-white" strokeWidth={1.5} />
               </div>
               <h3 className="text-lg md:text-xl font-black text-white mb-4 tracking-widest font-display italic">{pillar.title}</h3>
-              <p className="text-slate-500 text-sm md:text-base font-medium leading-relaxed mb-10 md:mb-12">
+              <p className="text-white text-sm md:text-base font-medium leading-relaxed mb-10 md:mb-12">
                 {pillar.description}
               </p>
               <div className="mt-auto py-3 md:py-4 px-6 bg-white/[0.02] border border-white/[0.05] rounded-xl md:rounded-2xl w-full">

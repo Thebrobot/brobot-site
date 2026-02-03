@@ -26,7 +26,7 @@ export default function FinalCTA() {
               READY TO <span className="text-amber-500 italic">SCALE?</span>
             </h2>
             
-            <p className="text-lg md:text-xl text-slate-400 mb-12 md:mb-16 leading-relaxed font-medium max-w-2xl mx-auto px-4">
+            <p className="text-lg md:text-xl text-white mb-12 md:mb-16 leading-relaxed font-medium max-w-2xl mx-auto px-4">
               Deployment takes minutes. Results last for years. Connect your front office to the engine today.
             </p>
             

@@ -35,7 +35,7 @@ const industryCategories = [
       <h1 class="text-6xl md:text-8xl font-display font-black tracking-tighter mb-8 leading-tight">
         INDUSTRY <br /> <span class="text-amber-500 italic">SOLUTIONS</span>
       </h1>
-      <p class="text-xl text-slate-400 max-w-2xl mx-auto font-medium leading-relaxed">
+      <p class="text-xl md:text-2xl text-white max-w-2xl mx-auto font-medium leading-relaxed">
         Choose your industry to see how Brobot captures leads, qualifies prospects, and books appointments automatically for businesses like yours.
       </p>
     </section>
@@ -45,7 +45,7 @@ const industryCategories = [
       <div class="cyber-glass border border-white/5 bg-white/[0.02] rounded-[32px] md:rounded-[40px] p-4 md:p-8">
         <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4 md:gap-6">
           <div class="flex-1 text-left">
-            <label for="industry-filter" class="block text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 mb-3">
+            <label for="industry-filter" class="block text-[10px] font-black uppercase tracking-[0.4em] text-white mb-3">
               Find_Your_Industry
             </label>
             <input
@@ -59,7 +59,7 @@ const industryCategories = [
           </div>
           <div class="flex items-center justify-between md:justify-end gap-4">
             <div class="text-left md:text-right">
-              <div class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 mb-1">Showing</div>
+              <div class="text-[10px] font-black uppercase tracking-[0.3em] text-white mb-1">Showing</div>
               <div class="text-amber-500 font-black tracking-tight text-sm md:text-base">
                 <span id="industry-results-count">—</span>
               </div>
@@ -80,20 +80,20 @@ const industryCategories = [
               data-industry-chip
               data-category={cat}
               aria-pressed={cat === "All" ? "true" : "false"}
-              class="px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] transition-all border bg-white/[0.02] border-white/10 text-slate-500 hover:text-white hover:bg-white/[0.05] hover:border-white/20 focus:outline-none focus:ring-2 focus:ring-amber-500/40 whitespace-nowrap"
+              class="px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] transition-all border bg-white/[0.02] border-white/10 text-white hover:text-amber-400 hover:bg-white/[0.05] hover:border-white/20 focus:outline-none focus:ring-2 focus:ring-amber-500/40 whitespace-nowrap"
             >
               {cat.replaceAll(" ", "_")}
             </button>
           ))}
         </div>
-        <div class="hidden md:block mt-4 text-[10px] font-bold uppercase tracking-[0.3em] text-slate-600">
+        <div class="hidden md:block mt-4 text-[10px] font-bold uppercase tracking-[0.3em] text-white">
           Filters instantly as you type
         </div>
       </div>
     </section>
 
     <!-- Directory Grid -->
-    <section class="max-w-7xl mx-auto">
+    <section id="directory" class="max-w-7xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {industries.map((industry) => {
           const Icon = industry.icon;
@@ -119,7 +119,7 @@ const industryCategories = [
                 <h3 class="text-2xl font-black mb-3 uppercase tracking-tight group-hover:text-amber-400 transition-colors">
                   {industry.name}
                 </h3>
-                <p class="text-slate-500 font-medium mb-8 line-clamp-2">
+                <p class="text-white font-medium mb-8 line-clamp-2">
                   {industry.tagline}
                 </p>
                 <div class="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-amber-500 group-hover:gap-4 transition-all">
@@ -133,8 +133,8 @@ const industryCategories = [
 
       <div id="industry-empty-state" class="hidden mt-14 text-center">
         <div class="p-10 rounded-[40px] border border-dashed border-white/10">
-          <h3 class="text-2xl font-black uppercase tracking-widest text-slate-500 mb-4">No_Match_Found</h3>
-          <p class="text-slate-600 font-medium max-w-xl mx-auto italic mb-8">
+          <h3 class="text-2xl font-black uppercase tracking-widest text-white mb-4">No_Match_Found</h3>
+          <p class="text-white font-medium max-w-xl mx-auto italic mb-8">
             Try a different keyword (e.g. “contractor”, “insurance”, “dispatch”) or request a custom build for your niche.
           </p>
           <CustomBuildQuestionnaire
@@ -147,10 +147,10 @@ const industryCategories = [
     </section>
 
     <!-- Monthly Update Note -->
-    <section class="max-w-7xl mx-auto mt-32">
+    <section id="custom" class="max-w-7xl mx-auto mt-32">
       <div class="p-12 rounded-[50px] border border-dashed border-white/10 text-center">
-        <h4 class="text-xl font-black uppercase tracking-widest text-slate-500 mb-4">Expanding Monthly_</h4>
-        <p class="text-slate-600 font-medium max-w-xl mx-auto italic mb-8">
+        <h4 class="text-xl font-black uppercase tracking-widest text-white mb-4">Expanding Monthly_</h4>
+        <p class="text-base md:text-lg text-white font-medium max-w-xl mx-auto italic mb-8">
           Don’t see your niche? We can deploy a custom vertical module (intake, qualification, follow-up, scheduling, and integrations).
         </p>
         <CustomBuildQuestionnaire
@@ -172,7 +172,7 @@ const industryCategories = [
         if (!input || !countEl) return;
 
         const ACTIVE_ON = ["bg-amber-600/10", "border-amber-500/30", "text-amber-200"];
-        const ACTIVE_OFF = ["bg-white/[0.02]", "border-white/10", "text-slate-500"];
+        const ACTIVE_OFF = ["bg-white/[0.02]", "border-white/10", "text-white"];
 
         let activeCategory = "All";
 

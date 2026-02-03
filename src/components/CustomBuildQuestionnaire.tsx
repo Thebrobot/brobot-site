@@ -329,7 +329,7 @@ export default function CustomBuildQuestionnaire({
                 <button
                   type="button"
                   onClick={reset}
-                  className="absolute top-5 right-5 p-2 rounded-full bg-white/5 text-slate-400 hover:text-white transition-colors z-10"
+                  className="absolute top-5 right-5 p-2 rounded-full bg-white/5 text-white hover:text-white transition-colors z-10"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -344,7 +344,7 @@ export default function CustomBuildQuestionnaire({
                         <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight mb-2">
                           Tell us what you need.
                         </h2>
-                        <p className="text-slate-400 font-medium">
+                        <p className="text-white font-medium">
                           Tell us how you run your business and we'll build an AI agent that answers, qualifies, and books appointments while you're busy.
                         </p>
                       </div>
@@ -636,7 +636,7 @@ export default function CustomBuildQuestionnaire({
                       <h2 className="text-3xl font-black text-white mb-3">
                         {webhookSuccess ? "Request sent!" : "Request captured."}
                       </h2>
-                      <p className="text-slate-400 font-medium max-w-xl mx-auto mb-8">
+                      <p className="text-white font-medium max-w-xl mx-auto mb-8">
                         {webhookSuccess ? (
                           <>
                             We will review your business structure and send you a draft agent plan shortly!

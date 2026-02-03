@@ -58,7 +58,7 @@ export default function AutomationEngine() {
           <h2 className="text-4xl md:text-7xl font-display font-black tracking-tighter text-white">
             THE <span className="text-amber-500 italic">AUTOMATION</span> ENGINE
           </h2>
-          <p className="max-w-2xl mx-auto text-slate-500 text-lg md:text-xl font-medium leading-relaxed px-4">
+          <p className="max-w-2xl mx-auto text-white text-xl md:text-2xl font-medium leading-relaxed px-4">
             A proprietary central intelligence layer that handles the complexity of growth while you focus on the vision.
           </p>
         </div>
@@ -93,7 +93,7 @@ export default function AutomationEngine() {
                   </div>
                 </div>
                 <h3 className="text-xl md:text-2xl font-black text-white mb-3 tracking-tight font-display italic group-hover:text-cyan-400 transition-colors">AGENT BROSKI</h3>
-                <p className="text-slate-500 text-sm font-medium leading-relaxed mb-8">Talks & texts like a human. Qualifies inquiries 24/7. Books meetings for you.</p>
+                <p className="text-white text-base font-medium leading-relaxed mb-8">Talks & texts like a human. Qualifies inquiries 24/7. Books meetings for you.</p>
                 <div className="grid grid-cols-2 gap-4 border-t border-white/5 pt-6 mb-4">
                   <div>
                     <div className="text-[9px] font-black text-slate-600 uppercase mb-1">Latency</div>
@@ -130,7 +130,7 @@ export default function AutomationEngine() {
                   <div className="text-[10px] font-black text-emerald-500/50 uppercase tracking-widest">Growth_Engine</div>
                 </div>
                 <h3 className="text-xl md:text-2xl font-black text-white mb-3 tracking-tight font-display italic group-hover:text-emerald-400 transition-colors">REVUBRO</h3>
-                <p className="text-slate-500 text-sm font-medium leading-relaxed mb-8">Automate Google reviews. Convert satisfied customers. Build 5-star authority.</p>
+                <p className="text-white text-base font-medium leading-relaxed mb-8">Automate Google reviews. Convert satisfied customers. Build 5-star authority.</p>
                 <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden mb-2">
                   <motion.div 
                     initial={{ width: 0 }}
@@ -287,7 +287,7 @@ export default function AutomationEngine() {
                   <div className="text-[10px] font-black text-indigo-500/50 uppercase tracking-widest">Output_Node</div>
                 </div>
                 <h3 className="text-xl md:text-2xl font-black text-white mb-3 tracking-tight font-display italic group-hover:text-indigo-400 transition-colors">BROBOT CRM</h3>
-                <p className="text-slate-500 text-sm font-medium leading-relaxed mb-8">Smart CRM scheduling. Sync appointments. Automate follow-up sequences.</p>
+                <p className="text-white text-base font-medium leading-relaxed mb-8">Smart CRM scheduling. Sync appointments. Automate follow-up sequences.</p>
                 <div className="flex items-center gap-4 text-[10px] font-black text-indigo-400 mb-4">
                   <Activity className="w-4 h-4 animate-bounce" />
                   DATA_SYNC_ACTIVE_SYNCING...
@@ -318,7 +318,7 @@ export default function AutomationEngine() {
                   <div className="text-[10px] font-black text-emerald-500/50 uppercase tracking-widest">Local_SEO</div>
                 </div>
                 <h3 className="text-xl md:text-2xl font-black text-white mb-3 tracking-tight font-display italic group-hover:text-emerald-400 transition-colors">IMAPSPRO</h3>
-                <p className="text-slate-500 text-sm font-medium leading-relaxed mb-8">Apple Maps dominance. Untapped premium traffic. Own the local market.</p>
+                <p className="text-white text-base font-medium leading-relaxed mb-8">Apple Maps dominance. Untapped premium traffic. Own the local market.</p>
                 <div className="grid grid-cols-2 gap-4 border-t border-white/5 pt-6 mb-4">
                   <div>
                     <div className="text-[9px] font-black text-slate-600 uppercase mb-1">Rank</div>
@@ -354,25 +354,25 @@ export default function AutomationEngine() {
                 <span className="text-[10px] font-black uppercase tracking-[0.5em]">Front_Office_Suite</span>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-start">
+              <div className="grid grid-cols-1 xl:grid-cols-2 gap-10 md:gap-12 items-start">
                 <div>
                   <h3 className="text-3xl md:text-5xl font-display font-black tracking-tighter text-white leading-[0.95]">
                     BUY THE <span className="text-amber-500 italic">LOOP</span>,<br />
                     NOT PIECES.
                   </h3>
-                  <p className="mt-4 text-slate-500 text-sm md:text-lg font-medium leading-relaxed max-w-xl">
+                  <p className="mt-4 text-white text-base md:text-xl font-medium leading-relaxed max-w-xl">
                     Agent Broski is the entry point, but the compounding ROI comes from connecting the whole system: capture the lead, book the job, follow up, earn reviews, and win the map.
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
                   <div className="p-6 rounded-3xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all">
                     <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-5">
                       <Zap className="w-6 h-6" />
                     </div>
-                    <div className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-600 mb-2">One Setup</div>
-                    <div className="text-white font-black tracking-tight">Single install</div>
-                    <div className="mt-2 text-slate-500 text-sm font-medium leading-relaxed">
+                    <div className="text-[10px] font-black uppercase tracking-[0.3em] text-white mb-2">One Setup</div>
+                    <div className="text-lg md:text-xl text-white font-black tracking-tight">Single install</div>
+                    <div className="mt-2 text-white text-base font-medium leading-relaxed">
                       Phone + calendar + CRM + reputation + maps, wired together.
                     </div>
                   </div>
@@ -381,9 +381,9 @@ export default function AutomationEngine() {
                     <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-5">
                       <Activity className="w-6 h-6" />
                     </div>
-                    <div className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-600 mb-2">One Loop</div>
-                    <div className="text-white font-black tracking-tight">No leaks</div>
-                    <div className="mt-2 text-slate-500 text-sm font-medium leading-relaxed">
+                    <div className="text-[10px] font-black uppercase tracking-[0.3em] text-white mb-2">One Loop</div>
+                    <div className="text-lg md:text-xl text-white font-black tracking-tight">No leaks</div>
+                    <div className="mt-2 text-white text-base font-medium leading-relaxed">
                       Every call becomes a booked outcome and a trackable record.
                     </div>
                   </div>
@@ -392,9 +392,9 @@ export default function AutomationEngine() {
                     <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-5">
                       <ArrowRight className="w-6 h-6" />
                     </div>
-                    <div className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-600 mb-2">Compounds</div>
-                    <div className="text-white font-black tracking-tight">Gets stronger</div>
-                    <div className="mt-2 text-slate-500 text-sm font-medium leading-relaxed">
+                    <div className="text-[10px] font-black uppercase tracking-[0.3em] text-white mb-2">Compounds</div>
+                    <div className="text-lg md:text-xl text-white font-black tracking-tight">Gets stronger</div>
+                    <div className="mt-2 text-white text-base font-medium leading-relaxed">
                       More reviews increase conversion and improve local visibility.
                     </div>
                   </div>

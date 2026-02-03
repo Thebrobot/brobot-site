@@ -43,7 +43,7 @@ function FAQItem({ question, answer, isOpen, onClick }: { question: string, answ
         <span className={`text-lg md:text-xl font-bold transition-colors ${isOpen ? 'text-amber-500' : 'text-white group-hover:text-amber-400'}`}>
           {question}
         </span>
-        <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all ${isOpen ? 'bg-amber-600 text-white rotate-0' : 'bg-white/5 text-slate-500 rotate-180'}`}>
+        <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all ${isOpen ? 'bg-amber-600 text-white rotate-0' : 'bg-white/5 text-white rotate-180'}`}>
           {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
         </div>
       </button>
@@ -56,7 +56,7 @@ function FAQItem({ question, answer, isOpen, onClick }: { question: string, answ
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <p className="pb-6 md:pb-8 text-slate-400 text-sm md:text-base leading-relaxed max-w-3xl">
+            <p className="pb-6 md:pb-8 text-white text-sm md:text-base leading-relaxed max-w-3xl">
               {answer}
             </p>
           </motion.div>

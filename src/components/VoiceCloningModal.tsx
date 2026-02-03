@@ -34,7 +34,7 @@ export default function VoiceCloningModal({ isOpen, onClose }: VoiceCloningModal
               {/* Close Button */}
               <button 
                 onClick={onClose}
-                className="absolute top-6 right-6 p-2 rounded-full bg-white/5 text-slate-400 hover:text-white transition-colors z-10"
+                className="absolute top-6 right-6 p-2 rounded-full bg-white/5 text-white hover:text-white transition-colors z-10"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -141,7 +141,7 @@ export default function VoiceCloningModal({ isOpen, onClose }: VoiceCloningModal
                 </div>
 
                 {/* Footer Note */}
-                <p className="text-center text-slate-500 text-xs md:text-sm font-bold uppercase tracking-widest mt-6">
+                <p className="text-center text-white text-xs md:text-sm font-bold uppercase tracking-widest mt-6">
                   Optional Premium Enhancement • No Commitment Required
                 </p>
               </motion.div>

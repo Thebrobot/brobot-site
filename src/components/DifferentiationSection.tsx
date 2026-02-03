@@ -16,7 +16,7 @@ export default function DifferentiationSection() {
                 NOT JUST <br />
                 <span className="text-amber-500 italic">ANOTHER BOT.</span>
               </h2>
-              <p className="text-lg md:text-xl text-slate-400 font-medium mb-8 md:mb-12 leading-relaxed px-4 md:px-0">
+              <p className="text-lg md:text-xl text-white font-medium mb-8 md:mb-12 leading-relaxed px-4 md:px-0">
                 Most bots are static scripts. Agent Broski is a high-bandwidth intelligence layer that understands intent, manages friction, and closes loops.
               </p>
               
@@ -49,7 +49,7 @@ export default function DifferentiationSection() {
                   "Basic Rules-Based Bots",
                   "Manual CRM Entry"
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-4 text-slate-500 font-bold text-sm">
+                  <li key={i} className="flex items-center gap-4 text-white font-bold text-sm">
                     <ShieldAlert className="h-5 w-5 text-red-500/50" />
                     {item}
                   </li>

@@ -82,7 +82,7 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
               {/* Close Button */}
               <button 
                 onClick={resetModal}
-                className="absolute top-6 right-6 p-2 rounded-full bg-white/5 text-slate-400 hover:text-white transition-colors z-10"
+                className="absolute top-6 right-6 p-2 rounded-full bg-white/5 text-white hover:text-white transition-colors z-10"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -103,7 +103,7 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
                       </div>
                     </div>
                     <h2 className="text-3xl font-bold text-white mb-3">Hey, I'm Brobot</h2>
-                    <p className="text-slate-400 text-lg">
+                    <p className="text-white text-lg">
                       How would you like to connect with me?
                     </p>
                   </div>
@@ -118,9 +118,9 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
                       </div>
                       <div className="flex-1 text-left">
                         <div className="text-white font-bold text-lg">Call Me Now</div>
-                        <div className="text-slate-500 text-sm">Get a live voice demo in 10 seconds</div>
+                        <div className="text-white text-sm">Get a live voice demo in 10 seconds</div>
                       </div>
-                      <ArrowRight className="w-5 h-5 text-slate-500 group-hover:text-amber-500 group-hover:translate-x-1 transition-all" />
+                      <ArrowRight className="w-5 h-5 text-white group-hover:text-amber-500 group-hover:translate-x-1 transition-all" />
                     </button>
 
                     <button
@@ -132,9 +132,9 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
                       </div>
                       <div className="flex-1 text-left">
                         <div className="text-white font-bold text-lg">Text Me</div>
-                        <div className="text-slate-500 text-sm">Start a conversation via SMS</div>
+                        <div className="text-white text-sm">Start a conversation via SMS</div>
                       </div>
-                      <ArrowRight className="w-5 h-5 text-slate-500 group-hover:text-amber-500 group-hover:translate-x-1 transition-all" />
+                      <ArrowRight className="w-5 h-5 text-white group-hover:text-amber-500 group-hover:translate-x-1 transition-all" />
                     </button>
 
                     <button
@@ -146,9 +146,9 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
                       </div>
                       <div className="flex-1 text-left">
                         <div className="text-white font-bold text-lg">Chat Here</div>
-                        <div className="text-slate-500 text-sm">Continue in the browser</div>
+                        <div className="text-white text-sm">Continue in the browser</div>
                       </div>
-                      <ArrowRight className="w-5 h-5 text-slate-500 group-hover:text-amber-500 group-hover:translate-x-1 transition-all" />
+                      <ArrowRight className="w-5 h-5 text-white group-hover:text-amber-500 group-hover:translate-x-1 transition-all" />
                     </button>
                   </div>
                 </motion.div>
@@ -172,18 +172,18 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
                     <h2 className="text-2xl font-bold text-white mb-2">
                       {selectedAction === 'call' ? 'Call Me Setup' : 'Text Me Setup'}
                     </h2>
-                    <p className="text-slate-400">
+                    <p className="text-white">
                       Just need your name and number to {selectedAction === 'call' ? 'call you' : 'text you'}.
                     </p>
                   </div>
 
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="space-y-2">
-                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 ml-1">
+                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white ml-1">
                         Full Name
                       </label>
                       <div className="relative group">
-                        <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500 group-focus-within:text-amber-500 transition-colors" />
+                        <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white group-focus-within:text-amber-500 transition-colors" />
                         <input
                           required
                           type="text"
@@ -196,11 +196,11 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 ml-1">
+                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white ml-1">
                         Phone Number
                       </label>
                       <div className="relative group">
-                        <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500 group-focus-within:text-amber-500 transition-colors" />
+                        <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white group-focus-within:text-amber-500 transition-colors" />
                         <input
                           required
                           type="tel"
@@ -246,7 +246,7 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
                   <h2 className="text-3xl font-bold text-white mb-4">
                     {selectedAction === 'call' ? "Calling You Now!" : "Message Sent!"}
                   </h2>
-                  <p className="text-slate-400 mb-8">
+                  <p className="text-white mb-8">
                     {selectedAction === 'call' 
                       ? "Keep your phone close. Agent Broski is dialing you right now."
                       : "Check your messages. Brobot just sent you a text to get started."}

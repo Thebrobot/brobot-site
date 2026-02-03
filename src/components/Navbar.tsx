@@ -42,6 +42,11 @@ export default function Navbar({ pathname = "/" }: NavbarProps) {
     }
 
     switch (pathname) {
+      case "/industries":
+        return [
+          { name: "Browse Agents", href: "#directory" },
+          { name: "Build Custom", href: "#custom" },
+        ];
       case "/conversational-ai":
         return [
           { name: "Simulation", href: "#voice" },
@@ -127,11 +132,11 @@ export default function Navbar({ pathname = "/" }: NavbarProps) {
               <div className="text-xs md:text-sm font-black text-white tracking-wider leading-none">
                 {currentSystem.name}
               </div>
-              <div className="text-[8px] md:text-[9px] text-slate-400 font-bold uppercase tracking-tight leading-none mt-1">
+              <div className="text-[8px] md:text-[9px] text-white font-bold uppercase tracking-tight leading-none mt-1">
                 {currentSystem.desc}
               </div>
             </div>
-            <ChevronDown className={cn("w-3 h-3 md:w-4 md:h-4 text-slate-400 transition-transform duration-300 ml-1", isHubOpen && "rotate-180")} />
+            <ChevronDown className={cn("w-3 h-3 md:w-4 md:h-4 text-white transition-transform duration-300 ml-1", isHubOpen && "rotate-180")} />
           </div>
 
           <AnimatePresence>
@@ -144,7 +149,7 @@ export default function Navbar({ pathname = "/" }: NavbarProps) {
                 >
                   <div className="flex flex-col text-left">
                     <div className="px-3 py-2 mb-2">
-                      <div className="text-[9px] font-black text-neutral-400 uppercase tracking-[0.2em]">
+                      <div className="text-[10px] font-black text-neutral-400 uppercase tracking-[0.2em]">
                         Switch Product
                       </div>
                     </div>
@@ -176,10 +181,10 @@ export default function Navbar({ pathname = "/" }: NavbarProps) {
                               )}
                             </div>
                             <div className="flex-1 min-w-0">
-                              <div className="text-[11px] font-black text-neutral-900 tracking-wider truncate">
+                              <div className="text-[13px] font-black text-neutral-900 tracking-wider truncate">
                                 {sys.name}
                               </div>
-                              <div className="text-[8px] text-neutral-500 font-bold uppercase tracking-tight truncate">
+                              <div className="text-[10px] text-neutral-900 font-bold uppercase tracking-tight truncate">
                                 {isActive ? "Currently Viewing" : sys.desc}
                               </div>
                             </div>
@@ -200,10 +205,10 @@ export default function Navbar({ pathname = "/" }: NavbarProps) {
                           <span className="text-lg">📰</span>
                         </div>
                         <div className="flex-1 min-w-0">
-                          <div className="text-[11px] font-black text-neutral-900 tracking-wider truncate">
+                          <div className="text-[13px] font-black text-neutral-900 tracking-wider truncate">
                             Blog & Insights
                           </div>
-                          <div className="text-[8px] text-neutral-500 font-bold uppercase tracking-tight truncate">
+                          <div className="text-[10px] text-neutral-900 font-bold uppercase tracking-tight truncate">
                             Latest Updates
                           </div>
                         </div>
@@ -218,7 +223,7 @@ export default function Navbar({ pathname = "/" }: NavbarProps) {
                           <div className="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center">
                             <Command className="w-4 h-4 text-white" />
                           </div>
-                          <div className="text-[10px] font-black uppercase tracking-wider">
+                          <div className="text-[12px] font-black uppercase tracking-wider">
                             Industry Solutions
                           </div>
                         </div>
@@ -237,9 +242,13 @@ export default function Navbar({ pathname = "/" }: NavbarProps) {
             <a 
               key={link.name} 
               href={link.href} 
-              className="hover:text-amber-400 transition-colors"
+              className="flex items-center gap-1.5 hover:text-amber-400 transition-colors group"
+              title={link.href.startsWith('#') ? `Jump to ${link.name} section` : undefined}
             >
               {link.name}
+              {link.href.startsWith('#') && (
+                <ChevronDown className="w-2.5 h-2.5 opacity-60 group-hover:translate-y-0.5 transition-transform duration-300" />
+              )}
             </a>
           ))}
         </div>
@@ -248,7 +257,7 @@ export default function Navbar({ pathname = "/" }: NavbarProps) {
         <div className="flex items-center gap-3 md:gap-6">
           <a 
             href="https://app.thebrobot.com" 
-            className="text-[9px] md:text-[11px] font-black uppercase tracking-widest text-slate-500 hover:text-white transition-colors px-2"
+            className="text-[9px] md:text-[11px] font-black uppercase tracking-widest text-white hover:text-white transition-colors px-2"
           >
             Log In
           </a>

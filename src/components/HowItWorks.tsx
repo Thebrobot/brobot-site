@@ -44,7 +44,7 @@ export default function HowItWorks() {
           <h2 className="text-4xl md:text-7xl font-display font-black tracking-tighter text-white mb-6">
             THREE STEPS TO <br /> <span className="text-amber-500 italic">TOTAL AUTOMATION.</span>
           </h2>
-          <p className="text-slate-400 text-base md:text-lg max-w-2xl mx-auto font-medium px-4">
+          <p className="text-white text-base md:text-lg max-w-2xl mx-auto font-medium px-4">
             We've made it incredibly easy to get started. No coding required, no complex software to learn.
           </p>
         </div>
@@ -75,7 +75,7 @@ export default function HowItWorks() {
                 <h3 className="text-xl md:text-2xl font-black text-white mb-4 uppercase tracking-tight">
                   {step.title}
                 </h3>
-                <p className="text-slate-500 text-sm md:text-base font-medium leading-relaxed">
+                <p className="text-white text-sm md:text-base font-medium leading-relaxed">
                   {step.desc}
                 </p>
               </div>

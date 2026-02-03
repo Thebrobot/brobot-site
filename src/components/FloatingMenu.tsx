@@ -52,7 +52,7 @@ function MagneticIcon({ children, isActive, main, home }: { children: React.Reac
           ? "h-12 w-12 md:h-14 md:w-14 bg-amber-600 text-white shadow-[0_0_40px_-5px_rgba(245,158,11,0.6)]" 
           : home
           ? "h-10 w-10 md:h-11 md:w-11 bg-white/[0.08] border border-white/10 text-white hover:bg-white/[0.12] hover:border-white/20"
-          : "h-10 w-10 md:h-11 md:w-11 text-slate-500 hover:text-white hover:bg-white/[0.05]"
+          : "h-10 w-10 md:h-11 md:w-11 text-white hover:text-white hover:bg-white/[0.05]"
       )}
     >
       {children}

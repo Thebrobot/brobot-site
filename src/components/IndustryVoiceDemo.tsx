@@ -67,7 +67,7 @@ export default function IndustryVoiceDemo({ industryName, example }: IndustryVoi
                 isPlaying ? "bg-amber-500 animate-pulse" : "bg-slate-700"
               )} />
             </div>
-            <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">
+            <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] text-white">
               {isPlaying ? "Live_Call" : "Demo_Ready"}
             </span>
           </div>
@@ -95,7 +95,7 @@ export default function IndustryVoiceDemo({ industryName, example }: IndustryVoi
                     "w-8 h-8 md:w-10 md:h-10 rounded-xl md:rounded-2xl flex items-center justify-center flex-shrink-0 border transition-all",
                     line.sender === "bot" 
                       ? "bg-amber-500 text-white border-amber-400 shadow-[0_0_15px_-5px_rgba(245,158,11,0.5)]" 
-                      : "bg-white/5 text-slate-400 border-white/10"
+                      : "bg-white/5 text-white border-white/10"
                   )}>
                     {line.sender === "bot" ? <Bot className="w-4 h-4 md:w-5 md:h-5" strokeWidth={1.5} /> : <User className="w-4 h-4 md:w-5 md:h-5" strokeWidth={1.5} />}
                   </div>
@@ -115,7 +115,7 @@ export default function IndustryVoiceDemo({ industryName, example }: IndustryVoi
             {currentLine < 0 && (
               <div className="flex flex-col items-center justify-center py-8 md:py-12 text-center">
                 <Activity className="w-8 h-8 md:w-10 md:h-10 text-amber-500/30 mb-4" />
-                <p className="text-slate-500 text-sm md:text-base font-medium">
+                <p className="text-white text-sm md:text-base font-medium">
                   Press play to hear how Brobot handles a {industryName} call
                 </p>
               </div>
@@ -165,7 +165,7 @@ export default function IndustryVoiceDemo({ industryName, example }: IndustryVoi
       </div>
 
       {example.note && (
-        <p className="mt-4 text-center text-xs text-slate-500 font-medium italic">
+        <p className="mt-4 text-center text-xs text-white font-medium italic">
           {example.note}
         </p>
       )}
