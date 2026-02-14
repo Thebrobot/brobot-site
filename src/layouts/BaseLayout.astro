@@ -58,6 +58,9 @@ const ogImageURL = new URL(image, Astro.site || 'https://thebrobot.com');
 
     <title>{title}</title>
     
+    <!-- Page-specific head content (schema, etc.) -->
+    <slot name="head" />
+    
     <!-- Structured Data - Organization -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",

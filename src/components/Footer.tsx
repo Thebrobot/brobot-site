@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ShieldCheck, Zap, LayoutDashboard, Star, MapPin, Globe, Activity } from "lucide-react";
+import { ShieldCheck, Zap, LayoutDashboard, Star, MapPin, Globe, Activity, Phone } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -67,6 +67,7 @@ export default function Footer() {
             <ul className="space-y-4">
               {[
                 { name: "Main Ecosystem", href: "/", icon: Globe },
+                { name: "Brobot One", href: "/ai-phone-crm", icon: Phone },
                 { name: "Brobot CRM", href: "/crm", icon: LayoutDashboard },
                 { name: "Agent Broski (Voice)", href: "/conversational-ai", icon: Activity },
                 { name: "iMapsPro (SEO)", href: "/local-seo", icon: MapPin },

@@ -1,5 +1,5 @@
 import { motion, useSpring, useMotionValue, AnimatePresence } from "framer-motion";
-import { Home, Zap, MapPin, Star, LayoutDashboard, Bot } from "lucide-react";
+import { Home, Zap, MapPin, Star, LayoutDashboard, Bot, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useRef, useState, useEffect, useMemo } from "react";
 import DemoModal from "./DemoModal";
@@ -10,6 +10,7 @@ interface FloatingMenuProps {
 
 const menuItems = [
   { id: "home", icon: Home, label: "Home", href: "/", home: true },
+  { id: "brobot-one", icon: Phone, label: "Brobot_One", href: "/ai-phone-crm" },
   { id: "crm", icon: LayoutDashboard, label: "Brobot_CRM", href: "/crm" },
   { id: "broski", icon: Zap, label: "Agent_Broski", href: "/conversational-ai" },
   { id: "ai-hub", icon: Bot, label: "TALK TO AI", href: "#", main: true },
