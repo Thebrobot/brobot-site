@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Phone, User, MessageSquare, MessageCircle, ArrowRight, CheckCircle2, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
+const PHONE_NUMBER = '+19802762687';
+
 interface DemoModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -13,11 +15,6 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
   const [formData, setFormData] = useState({ name: '', phone: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedAction, setSelectedAction] = useState<'call' | 'text' | null>(null);
-
-  const handleActionSelect = (action: 'call' | 'text') => {
-    setSelectedAction(action);
-    setStep('form');
-  };
 
   const handleChatNow = () => {
     // Open the GHL chat widget immediately
@@ -110,7 +107,7 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
 
                   <div className="space-y-3">
                     <a
-                      href="tel:+19802762687"
+                      href={`tel:${PHONE_NUMBER}`}
                       onClick={() => onClose()}
                       className="w-full p-5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-amber-500/50 transition-all group flex items-center gap-4 block"
                     >
@@ -125,7 +122,7 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
                     </a>
 
                     <a
-                      href="sms:+19802762687"
+                      href={`sms:${PHONE_NUMBER}`}
                       onClick={() => onClose()}
                       className="w-full p-5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-amber-500/50 transition-all group flex items-center gap-4 block"
                     >
@@ -152,6 +149,14 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
                       </div>
                       <ArrowRight className="w-5 h-5 text-white group-hover:text-amber-500 group-hover:translate-x-1 transition-all" />
                     </button>
+
+                    <a
+                      href="/contact"
+                      onClick={() => onClose()}
+                      className="mt-6 pt-4 border-t border-white/10 block text-center text-white/70 hover:text-amber-400 text-sm font-medium transition-colors"
+                    >
+                      Or visit our Contact page →
+                    </a>
                   </div>
                 </motion.div>
               )}

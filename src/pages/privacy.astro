@@ -1,0 +1,231 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import FloatingMenu from '../components/FloatingMenu';
+import { Shield } from 'lucide-react';
+
+const pathname = "/privacy";
+---
+
+<BaseLayout
+  title="Privacy Policy | The Brobot LLC"
+  description="Privacy policy for The Brobot LLC. How we collect, use, and protect your information when you use our AI-powered communications platform."
+>
+  <main class="min-h-screen bg-[#020617] text-white">
+    <Navbar client:load pathname={pathname} />
+    
+    <section class="pt-36 pb-24 px-4 md:px-6">
+      <div class="max-w-3xl mx-auto">
+        <div class="flex items-center gap-3 mb-8 text-amber-500">
+          <Shield class="w-5 h-5" />
+          <span class="text-[10px] font-black uppercase tracking-[0.4em]">Privacy_Policy</span>
+        </div>
+        
+        <h1 class="text-4xl md:text-5xl font-display font-black tracking-tighter mb-8">
+          Privacy Policy
+        </h1>
+        
+        <p class="text-white/80 text-sm mb-10">Effective Date: March 2026</p>
+
+        <div class="prose prose-invert prose-sm max-w-none space-y-8 text-white/90">
+          <p>The Brobot LLC ("The Brobot LLC," "we," "our," or "us") respects your privacy and is committed to protecting the information you share with us. This Privacy Policy explains how we collect, use, store, and safeguard your information when you visit our website or use our services.</p>
+          <p>The Brobot LLC provides an AI-powered communications platform that allows businesses to manage calls, SMS messaging, and automated customer interactions.</p>
+          <p>By accessing or using our website or services, you agree to the practices described in this Privacy Policy.</p>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">1. Information We Collect</h2>
+            <p>We may collect several types of information when you interact with our website or use the services provided by The Brobot LLC.</p>
+            <h3 class="text-lg font-semibold text-white mt-6 mb-2">Personal Information</h3>
+            <p>Information you voluntarily provide to us, including:</p>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>Name</li>
+              <li>Email address</li>
+              <li>Phone number</li>
+              <li>Business name</li>
+              <li>Billing information</li>
+              <li>Account login credentials</li>
+            </ul>
+            <p class="mt-4">This information may be collected when you:</p>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>Request a demo</li>
+              <li>Create an account</li>
+              <li>Contact our support team</li>
+              <li>Submit forms on our website</li>
+              <li>Use our services</li>
+            </ul>
+
+            <h3 class="text-lg font-semibold text-white mt-6 mb-2">Communication Data</h3>
+            <p>Because The Brobot LLC provides communication automation tools, we may process communication-related data such as:</p>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>Call recordings</li>
+              <li>Call transcripts</li>
+              <li>SMS or messaging content</li>
+              <li>Voicemail recordings</li>
+              <li>Call routing metadata</li>
+              <li>CRM interaction logs</li>
+              <li>AI-generated conversation summaries or analytics</li>
+            </ul>
+            <p class="mt-4">This information is processed solely for the purpose of delivering and improving the services provided by The Brobot LLC.</p>
+
+            <h3 class="text-lg font-semibold text-white mt-6 mb-2">Usage Data</h3>
+            <p>When you use our website or services, we may automatically collect certain technical information including:</p>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>IP address</li>
+              <li>Browser type</li>
+              <li>Device type</li>
+              <li>Operating system</li>
+              <li>Pages visited</li>
+              <li>Time spent on pages</li>
+              <li>System activity logs</li>
+            </ul>
+            <p class="mt-4">This data helps The Brobot LLC understand how users interact with our services and allows us to improve performance, reliability, and security.</p>
+
+            <h3 class="text-lg font-semibold text-white mt-6 mb-2">Cookies & Tracking Technologies</h3>
+            <p>The Brobot LLC uses cookies and similar technologies to:</p>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>Improve website functionality</li>
+              <li>Analyze site traffic and usage patterns</li>
+              <li>Remember user preferences</li>
+              <li>Improve overall platform performance</li>
+            </ul>
+            <p class="mt-4">You can configure your browser to refuse cookies if you prefer.</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">2. How We Use Your Information</h2>
+            <p>The Brobot LLC uses the information collected to:</p>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>Provide and operate our services</li>
+              <li>Create and manage user accounts</li>
+              <li>Process billing and payments</li>
+              <li>Route calls and manage messaging services</li>
+              <li>Deliver AI-powered communication tools</li>
+              <li>Provide customer support</li>
+              <li>Send service-related updates and notifications</li>
+              <li>Monitor system performance and prevent fraud</li>
+              <li>Improve our products and services</li>
+            </ul>
+            <p class="mt-4">The Brobot LLC does not sell personal information to third parties.</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">3. Call Recording & AI Processing</h2>
+            <p>The Brobot LLC offers call recording, transcription, and AI-assisted analysis features.</p>
+            <p class="mt-4">By using our services, you acknowledge that:</p>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>Calls may be recorded or transcribed</li>
+              <li>AI systems may process conversations for automation, reporting, and analytics</li>
+              <li>Businesses using The Brobot LLC platform are responsible for notifying callers when call recording disclosures are required by law</li>
+              <li>Users must comply with all applicable call recording and privacy laws in their jurisdiction</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">4. SMS & Messaging Compliance</h2>
+            <p>The Brobot LLC enables businesses to communicate with their customers through SMS messaging.</p>
+            <p class="mt-4">These messages may include:</p>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>Appointment reminders</li>
+              <li>Customer service responses</li>
+              <li>Service notifications</li>
+              <li>Follow-up communications</li>
+              <li>Marketing messages (only when recipients have provided consent)</li>
+            </ul>
+            <p class="mt-4">Message frequency may vary. Message and data rates may apply.</p>
+            <p class="mt-4">Recipients may opt out of SMS communications at any time by replying STOP to any message. For assistance, recipients may reply HELP.</p>
+            <p class="mt-4">Businesses using The Brobot LLC platform are responsible for obtaining proper consent from recipients before sending SMS messages and must comply with applicable regulations including:</p>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>The Telephone Consumer Protection Act (TCPA)</li>
+              <li>A2P 10DLC messaging requirements</li>
+              <li>The CAN-SPAM Act</li>
+              <li>Applicable state and international messaging laws</li>
+            </ul>
+            <p class="mt-4">The Brobot LLC provides messaging infrastructure used by businesses to communicate with their own customers. The Brobot LLC does not engage in third-party lead generation or affiliate marketing messaging.</p>
+
+            <h3 class="text-lg font-semibold text-white mt-6 mb-2">Mobile Information Protection</h3>
+            <p>Mobile phone numbers and SMS opt-in data collected through services provided by The Brobot LLC will not be shared, sold, rented, or disclosed to third parties or affiliates for marketing or promotional purposes.</p>
+            <p class="mt-4">This information is used solely for the purpose of delivering messaging services requested by the user.</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">5. How We Share Information</h2>
+            <p>The Brobot LLC does not sell, rent, trade, or share personal information with third parties for marketing or promotional purposes.</p>
+            <p class="mt-4">Customer data collected through services operated by The Brobot LLC remains within systems controlled by The Brobot LLC and is used only to operate, maintain, and improve our services.</p>
+            <p class="mt-4">We do not disclose customer information to outside organizations except when required to:</p>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>Comply with applicable laws or legal obligations</li>
+              <li>Protect the security and integrity of our platform</li>
+              <li>Enforce our terms of service or protect our legal rights</li>
+            </ul>
+            <p class="mt-4">Mobile phone numbers and SMS opt-in data are never shared with third parties or affiliates for marketing purposes.</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">6. Data Security</h2>
+            <p>The Brobot LLC implements industry-standard security measures designed to protect your information, including:</p>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>Encryption of data in transit</li>
+              <li>Secure infrastructure and hosting</li>
+              <li>Access control systems</li>
+              <li>Continuous monitoring for unauthorized activity</li>
+            </ul>
+            <p class="mt-4">While The Brobot LLC takes strong precautions to safeguard data, no system can guarantee absolute security.</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">7. Data Retention</h2>
+            <p>The Brobot LLC retains information only as long as necessary to:</p>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>Provide and maintain our services</li>
+              <li>Comply with legal obligations</li>
+              <li>Resolve disputes</li>
+              <li>Enforce agreements</li>
+            </ul>
+            <p class="mt-4">Users may request deletion of their data, subject to legal and operational requirements.</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">8. Your Privacy Rights</h2>
+            <p>Depending on your location, you may have rights to:</p>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>Access your personal information</li>
+              <li>Request corrections to inaccurate information</li>
+              <li>Request deletion of your data</li>
+              <li>Opt out of certain communications</li>
+            </ul>
+            <p class="mt-4">To exercise these rights, please contact The Brobot LLC using the information below.</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">9. Third-Party Links</h2>
+            <p>Our website may contain links to external websites. The Brobot LLC is not responsible for the privacy practices of those third-party sites.</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">10. Children's Privacy</h2>
+            <p>Services provided by The Brobot LLC are not directed toward individuals under the age of 13. We do not knowingly collect personal information from children.</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">11. Changes to This Privacy Policy</h2>
+            <p>The Brobot LLC may update this Privacy Policy periodically to reflect changes in our services, technology, or legal requirements.</p>
+            <p class="mt-4">When updates are made, the Effective Date at the top of this policy will be updated. Continued use of our services after changes indicates acceptance of the updated policy.</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">12. Contact Us</h2>
+            <p>If you have questions about this Privacy Policy or our data practices, you may contact:</p>
+            <p class="mt-4"><strong class="text-white">The Brobot LLC</strong><br />1850 SE 18th Ave<br />Ocala, FL 34471</p>
+            <p class="mt-4">Email: <a href="mailto:info@thebrobot.com" class="text-amber-500 hover:text-amber-400 underline">info@thebrobot.com</a></p>
+            <p class="mt-2">Website: <a href="https://thebrobot.com" class="text-amber-500 hover:text-amber-400 underline">https://thebrobot.com</a></p>
+            <p class="mt-4"><a href="/contact" class="text-amber-500 hover:text-amber-400 underline">Contact page</a></p>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <FloatingMenu client:load pathname={pathname} />
+    <Footer client:visible />
+  </main>
+</BaseLayout>

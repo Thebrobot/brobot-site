@@ -121,8 +121,8 @@ export default function Footer() {
               {[
                 { name: "The Blog", href: "/blog" },
                 { name: "Log In", href: "https://app.thebrobot.com" },
-                { name: "Privacy_Protocol", href: "#" },
-                { name: "Terms_of_Service", href: "#" },
+                { name: "Privacy Policy", href: "/privacy" },
+                { name: "Terms of Service", href: "/terms" },
                 { name: "Contact_Sales", href: "/contact" },
               ].map((item) => (
                 <li key={item.name}>

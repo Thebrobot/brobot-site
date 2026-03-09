@@ -1,0 +1,268 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import FloatingMenu from '../components/FloatingMenu';
+import { FileText } from 'lucide-react';
+
+const pathname = "/terms";
+---
+
+<BaseLayout
+  title="Terms of Service | The Brobot LLC"
+  description="Terms of Service for The Brobot LLC. Terms governing access to and use of our AI-powered communications platform and services."
+>
+  <main class="min-h-screen bg-[#020617] text-white">
+    <Navbar client:load pathname={pathname} />
+    
+    <section class="pt-36 pb-24 px-4 md:px-6">
+      <div class="max-w-3xl mx-auto">
+        <div class="flex items-center gap-3 mb-8 text-amber-500">
+          <FileText class="w-5 h-5" />
+          <span class="text-[10px] font-black uppercase tracking-[0.4em]">Terms_of_Service</span>
+        </div>
+        
+        <h1 class="text-4xl md:text-5xl font-display font-black tracking-tighter mb-8">
+          Terms of Service
+        </h1>
+        
+        <p class="text-white/80 text-sm mb-10">Effective Date: March 2026</p>
+
+        <div class="prose prose-invert prose-sm max-w-none space-y-8 text-white/90">
+          <p>These Terms of Service ("Terms") govern access to and use of the website, software, and services provided by The Brobot LLC ("The Brobot LLC," "we," "our," or "us").</p>
+          <p>By accessing or using any services provided by The Brobot LLC, you agree to be legally bound by these Terms. If you do not agree to these Terms, you may not use the services.</p>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">1. Description of Services</h2>
+            <p>The Brobot LLC provides cloud-based software and communications infrastructure designed to help businesses automate and manage customer communications.</p>
+            <p class="mt-4">Services may include, but are not limited to:</p>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>AI-powered voice communications</li>
+              <li>SMS messaging and automation</li>
+              <li>Call routing and automation</li>
+              <li>Call recording and transcription</li>
+              <li>Communication workflow automation</li>
+              <li>CRM integrations</li>
+              <li>SIP connectivity for external devices</li>
+              <li>Brobot One Service provided by The Brobot LLC</li>
+            </ul>
+            <p class="mt-4">These services provide software and communications infrastructure only.</p>
+            <p class="mt-4">The Brobot LLC does not originate communications independently and does not control the content, recipients, legality, or timing of communications sent by users of the platform. Users are solely responsible for communications sent through the services.</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">2. Brobot One Service</h2>
+            <p>Brobot One Service provided by The Brobot LLC may allow users to connect external telephony devices, including SIP-enabled desk phones or other compatible hardware.</p>
+            <p class="mt-4">These devices connect to the Brobot platform through SIP handoff or similar integrations and function solely as external communication endpoints.</p>
+            <p class="mt-4">The Brobot One Service is provided as software-based communications infrastructure and is not intended to replace traditional telephone service.</p>
+            <p class="mt-4">External devices connected to the Brobot platform are considered user-managed equipment and remain the responsibility of the user.</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">3. No Telecommunications Carrier Status</h2>
+            <p>Services provided by The Brobot LLC, including Brobot One Service provided by The Brobot LLC, are offered as software-based communications infrastructure and technology services.</p>
+            <p class="mt-4">The Brobot LLC is not a telecommunications carrier, telephone company, or interconnected VoIP provider and does not provide traditional telephone services.</p>
+            <p class="mt-4">The platform enables users to connect communications systems, automate messaging, and integrate external telephony devices, including SIP-enabled hardware, but The Brobot LLC does not operate or control public telecommunications networks.</p>
+            <p class="mt-4">Users acknowledge that:</p>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>Services provided by The Brobot LLC are software tools used to facilitate communications</li>
+              <li>The Brobot LLC does not provide regulated telecommunications services</li>
+              <li>The Brobot LLC does not guarantee access to public switched telephone networks (PSTN) or emergency calling services</li>
+              <li>Users remain solely responsible for maintaining any required telecommunications services necessary for their business operations</li>
+            </ul>
+            <p class="mt-4">Nothing in these Terms shall be interpreted to classify The Brobot LLC as a telecommunications carrier, common carrier, or provider of regulated voice services.</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">4. Emergency Services (E911) Limitation</h2>
+            <p>Services provided by The Brobot LLC, including Brobot One Service, may utilize internet-based communication technologies and SIP connectivity.</p>
+            <p class="mt-4">Users acknowledge and agree that:</p>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>Services provided by The Brobot LLC are not a replacement for traditional telephone services</li>
+              <li>Emergency calling services, including E911, may not be available through the platform or through SIP-connected devices</li>
+              <li>Desk phones or other hardware connected through SIP or external integrations should not be relied upon for emergency communications</li>
+              <li>Emergency calls made through the platform may fail, be misrouted, or not transmit accurate location information</li>
+              <li>Users must maintain an alternative telephone service capable of contacting emergency services, such as a mobile phone or traditional telephone line</li>
+            </ul>
+            <p class="mt-4">By using services provided by The Brobot LLC, including the Brobot One Service, users acknowledge that:</p>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>Emergency services may not function through the platform</li>
+              <li>Location data may not be transmitted to emergency responders</li>
+              <li>Emergency calls may not connect to the appropriate public safety answering point</li>
+            </ul>
+            <p class="mt-4">The Brobot LLC shall not be liable for any claims, damages, injuries, or losses arising from the inability to place emergency calls using the platform or connected devices.</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">5. Account Registration</h2>
+            <p>To access certain services, users may be required to create an account.</p>
+            <p class="mt-4">Users agree to:</p>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>Provide accurate and complete information</li>
+              <li>Maintain the confidentiality of account credentials</li>
+              <li>Be responsible for all activities conducted through their account</li>
+            </ul>
+            <p class="mt-4">The Brobot LLC reserves the right to suspend or terminate accounts that provide false information or violate these Terms.</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">6. User Responsibilities and Legal Compliance</h2>
+            <p>Users agree to comply with all applicable laws and regulations when using services provided by The Brobot LLC, including but not limited to:</p>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>The Telephone Consumer Protection Act (TCPA)</li>
+              <li>A2P 10DLC messaging regulations</li>
+              <li>The CAN-SPAM Act</li>
+              <li>State telemarketing laws</li>
+              <li>Privacy and data protection laws</li>
+              <li>Call recording consent laws</li>
+            </ul>
+            <p class="mt-4">Users are solely responsible for obtaining proper consent before contacting individuals through the platform. The Brobot LLC does not verify consent and assumes no responsibility for communications sent by users.</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">7. Acceptable Use</h2>
+            <p>Users may not use services provided by The Brobot LLC to:</p>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>Send unlawful or unsolicited communications</li>
+              <li>Engage in spam or phishing</li>
+              <li>Violate telecommunications regulations</li>
+              <li>Distribute malicious or deceptive content</li>
+              <li>Conduct fraud or illegal activity</li>
+              <li>Harass or abuse individuals</li>
+            </ul>
+            <p class="mt-4">The Brobot LLC reserves the right to suspend or terminate accounts involved in prohibited activities.</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">8. SMS Messaging Terms</h2>
+            <p>The Brobot LLC platform may allow businesses to send SMS messages to customers.</p>
+            <p class="mt-4">When opting in to receive SMS communications:</p>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>Message frequency may vary</li>
+              <li>Message and data rates may apply</li>
+              <li>Recipients may opt out of SMS communications at any time by replying STOP</li>
+              <li>For assistance, recipients may reply HELP</li>
+            </ul>
+            <p class="mt-4">Businesses using the platform are responsible for obtaining appropriate consent before sending SMS communications. The Brobot LLC does not engage in third-party lead generation or affiliate marketing messaging.</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">9. Call Recording Compliance</h2>
+            <p>The Brobot LLC platform may allow users to record calls or generate transcripts. Users are responsible for complying with all applicable call recording laws and for obtaining consent when required. The Brobot LLC assumes no responsibility for users' compliance with recording laws.</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">10. Fees and Billing</h2>
+            <p>Certain services may require payment.</p>
+            <p class="mt-4">By purchasing services from The Brobot LLC, users agree to:</p>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>Pay all applicable fees</li>
+              <li>Maintain valid payment information</li>
+              <li>Authorize recurring billing where applicable</li>
+            </ul>
+            <p class="mt-4">Failure to pay fees may result in suspension or termination of services. All fees are non-refundable unless required by law.</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">11. Intellectual Property</h2>
+            <p>All technology, software, content, and systems provided by The Brobot LLC remain the exclusive property of The Brobot LLC. Users are granted a limited, non-exclusive, non-transferable license to use the platform.</p>
+            <p class="mt-4">Users may not:</p>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>Reverse engineer the platform</li>
+              <li>Copy or reproduce software</li>
+              <li>Resell the platform without authorization</li>
+              <li>Attempt to bypass security systems</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">12. Data Responsibility</h2>
+            <p>Users retain ownership of data submitted through the platform. By using services provided by The Brobot LLC, users grant permission for data processing necessary to operate and improve the platform. Users are responsible for ensuring their data complies with applicable laws.</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">13. Service Availability</h2>
+            <p>Services are provided on an "as is" and "as available" basis. The Brobot LLC does not guarantee uninterrupted or error-free service.</p>
+            <p class="mt-4">Service interruptions may occur due to:</p>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>Telecommunications carrier issues</li>
+              <li>Infrastructure outages</li>
+              <li>System maintenance</li>
+              <li>Third-party service failures</li>
+              <li>Events beyond our control</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">14. Disclaimer of Warranties</h2>
+            <p>To the maximum extent permitted by law, services provided by The Brobot LLC are offered without warranties of any kind, express or implied. This includes warranties of merchantability, fitness for a particular purpose, non-infringement, and uninterrupted service.</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">15. Limitation of Liability</h2>
+            <p>To the maximum extent permitted by law, The Brobot LLC shall not be liable for indirect, incidental, consequential, or punitive damages, including:</p>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>Loss of revenue</li>
+              <li>Loss of profits</li>
+              <li>Loss of business opportunities</li>
+              <li>Loss of data</li>
+              <li>Service interruptions</li>
+            </ul>
+            <p class="mt-4">The total liability of The Brobot LLC for any claim arising from use of the services shall not exceed the amount paid by the user to The Brobot LLC during the previous twelve (12) months.</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">16. Indemnification</h2>
+            <p>Users agree to indemnify, defend, and hold harmless The Brobot LLC, its owners, employees, partners, and affiliates from any claims, damages, liabilities, losses, or expenses arising from:</p>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>Use of the platform</li>
+              <li>Communications sent through the platform</li>
+              <li>Violations of telecommunications laws</li>
+              <li>Disputes with message recipients</li>
+              <li>Violations of these Terms</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">17. Arbitration and Dispute Resolution</h2>
+            <p>Any dispute arising from these Terms or the services provided by The Brobot LLC shall be resolved exclusively through binding arbitration.</p>
+            <p class="mt-4">Users waive the right to:</p>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>Participate in class actions</li>
+              <li>File lawsuits in court</li>
+              <li>Request jury trials</li>
+            </ul>
+            <p class="mt-4">Arbitration shall occur in the jurisdiction where The Brobot LLC operates unless otherwise required by law.</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">18. Privacy</h2>
+            <p>Use of the services is also governed by the <a href="/privacy" class="text-amber-500 hover:text-amber-400 underline">Privacy Policy</a> of The Brobot LLC, which explains how information is collected and handled.</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">19. Modifications to Terms</h2>
+            <p>The Brobot LLC may update these Terms periodically. The updated Terms will become effective once posted on the website. Continued use of services indicates acceptance of the revised Terms.</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">20. Governing Law</h2>
+            <p>These Terms shall be governed by the laws of the jurisdiction in which The Brobot LLC operates.</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4">21. Contact Information</h2>
+            <p>For questions regarding these Terms of Service, contact:</p>
+            <p class="mt-4"><strong class="text-white">The Brobot LLC</strong></p>
+            <p class="mt-2">Email: <a href="mailto:info@thebrobot.com" class="text-amber-500 hover:text-amber-400 underline">info@thebrobot.com</a></p>
+            <p class="mt-2">Website: <a href="https://thebrobot.com" class="text-amber-500 hover:text-amber-400 underline">https://thebrobot.com</a></p>
+            <p class="mt-4"><a href="/contact" class="text-amber-500 hover:text-amber-400 underline">Contact page</a></p>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <FloatingMenu client:load pathname={pathname} />
+    <Footer client:visible />
+  </main>
+</BaseLayout>
