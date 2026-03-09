@@ -31,7 +31,7 @@ const brobotOneTile = {
   desc: "AI-powered desk phone system that transforms your business number into a smart communication hub.",
   href: "/ai-phone-crm",
   icon: "phone" as const,
-  color: "emerald" as const,
+  color: "cyan" as const,
   stats: [{ label: "Go Live", value: "~7 days" }, { label: "Mobile App", value: "Yes" }],
 };
 

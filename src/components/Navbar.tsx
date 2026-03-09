@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
-import { ChevronDown, Zap, MapPin, Star, LayoutDashboard, Command, ArrowRight, Phone } from "lucide-react";
+import { ChevronDown, Zap, MapPin, Star, LayoutDashboard, Command, ArrowRight, Phone, Mail } from "lucide-react";
 
 interface NavbarProps {
   pathname?: string;
@@ -21,7 +21,7 @@ export default function Navbar({ pathname = "/" }: NavbarProps) {
 
   const systems = [
     { name: "Brobot", href: "/", icon: LayoutDashboard, image: "/images/favicon.png", desc: "MAIN ECOSYSTEM", color: "bg-neutral-950", iconColor: "text-white" },
-    { name: "Brobot One", href: "/ai-phone-crm", icon: Phone, desc: "AI desk phone + CRM", color: "bg-emerald-500", iconColor: "text-white" },
+    { name: "Brobot One", href: "/ai-phone-crm", icon: Phone, desc: "AI desk phone + CRM", color: "bg-cyan-500", iconColor: "text-white" },
     { name: "Brobot CRM", href: "/crm", icon: LayoutDashboard, desc: "COMMAND CENTER", color: "bg-indigo-600", iconColor: "text-white" },
     { name: "Agent Broski", href: "/conversational-ai", icon: Zap, image: "/images/agent-broski-logo.png", desc: "AI SALES AGENT", color: "bg-cyan-500", iconColor: "text-white" },
     { name: "iMapsPro", href: "/local-seo", icon: MapPin, desc: "LOCAL SEO MAPS", color: "bg-emerald-500", iconColor: "text-white" },
@@ -217,6 +217,24 @@ export default function Navbar({ pathname = "/" }: NavbarProps) {
                           </div>
                           <div className="text-[10px] text-neutral-900 font-bold uppercase tracking-tight truncate">
                             Latest Updates
+                          </div>
+                        </div>
+                        <ArrowRight className="w-3 h-3 text-neutral-400 group-hover:text-amber-500 group-hover:translate-x-1 transition-all" />
+                      </a>
+
+                      <a 
+                        href="/contact"
+                        className="flex items-center gap-3 p-3 rounded-2xl hover:bg-neutral-50 transition-all group mb-2"
+                      >
+                        <div className="w-10 h-10 rounded-xl bg-neutral-100 flex items-center justify-center transition-all shadow-sm">
+                          <Mail className="w-5 h-5 text-neutral-600" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="text-[13px] font-black text-neutral-900 tracking-wider truncate">
+                            Contact Us
+                          </div>
+                          <div className="text-[10px] text-neutral-900 font-bold uppercase tracking-tight truncate">
+                            Phone, email & form
                           </div>
                         </div>
                         <ArrowRight className="w-3 h-3 text-neutral-400 group-hover:text-amber-500 group-hover:translate-x-1 transition-all" />

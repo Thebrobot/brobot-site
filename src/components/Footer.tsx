@@ -120,7 +120,6 @@ export default function Footer() {
             <ul className="space-y-4">
               {[
                 { name: "The Blog", href: "/blog" },
-                { name: "System_Support", href: "#" },
                 { name: "Log In", href: "https://app.thebrobot.com" },
                 { name: "Privacy_Protocol", href: "#" },
                 { name: "Terms_of_Service", href: "#" },

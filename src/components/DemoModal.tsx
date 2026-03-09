@@ -109,33 +109,35 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
                   </div>
 
                   <div className="space-y-3">
-                    <button
-                      onClick={() => handleActionSelect('call')}
-                      className="w-full p-5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-amber-500/50 transition-all group flex items-center gap-4"
+                    <a
+                      href="tel:+19802762687"
+                      onClick={() => onClose()}
+                      className="w-full p-5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-amber-500/50 transition-all group flex items-center gap-4 block"
                     >
                       <div className="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center group-hover:bg-emerald-500/30 transition-colors">
                         <Phone className="w-6 h-6 text-emerald-500" />
                       </div>
                       <div className="flex-1 text-left">
-                        <div className="text-white font-bold text-lg">Call Me Now</div>
-                        <div className="text-white text-sm">Get a live voice demo in 10 seconds</div>
+                        <div className="text-white font-bold text-lg">Call Us</div>
+                        <div className="text-white text-sm">Talk to our team directly</div>
                       </div>
                       <ArrowRight className="w-5 h-5 text-white group-hover:text-amber-500 group-hover:translate-x-1 transition-all" />
-                    </button>
+                    </a>
 
-                    <button
-                      onClick={() => handleActionSelect('text')}
-                      className="w-full p-5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-amber-500/50 transition-all group flex items-center gap-4"
+                    <a
+                      href="sms:+19802762687"
+                      onClick={() => onClose()}
+                      className="w-full p-5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-amber-500/50 transition-all group flex items-center gap-4 block"
                     >
                       <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center group-hover:bg-blue-500/30 transition-colors">
                         <MessageSquare className="w-6 h-6 text-blue-500" />
                       </div>
                       <div className="flex-1 text-left">
-                        <div className="text-white font-bold text-lg">Text Me</div>
+                        <div className="text-white font-bold text-lg">Text Us</div>
                         <div className="text-white text-sm">Start a conversation via SMS</div>
                       </div>
                       <ArrowRight className="w-5 h-5 text-white group-hover:text-amber-500 group-hover:translate-x-1 transition-all" />
-                    </button>
+                    </a>
 
                     <button
                       onClick={handleChatNow}
