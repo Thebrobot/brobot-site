@@ -91,15 +91,15 @@ export default function Footer() {
             </h4>
             <ul className="space-y-4">
               {[
-                "Real Estate",
-                "HVAC & Plumbing",
-                "General Contractor",
-                "Dentistry",
-                "Legal & Finance",
+                { name: "Real Estate", href: "/industries/real-estate" },
+                { name: "HVAC", href: "/industries/hvac" },
+                { name: "General Contractor", href: "/industries/general-contractor" },
+                { name: "Dentistry", href: "/industries/dentist" },
+                { name: "Financial Planning", href: "/industries/financial-planning" },
               ].map((item) => (
-                <li key={item}>
-                  <a href="/industries" className="text-white hover:text-amber-400 text-xs font-bold transition-all block">
-                    {item}
+                <li key={item.name}>
+                  <a href={item.href} className="text-white hover:text-amber-400 text-xs font-bold transition-all block">
+                    {item.name}
                   </a>
                 </li>
               ))}

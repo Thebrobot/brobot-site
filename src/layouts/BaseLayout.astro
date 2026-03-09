@@ -75,16 +75,27 @@ const ogImageURL = new URL(image, Astro.site || 'https://thebrobot.com');
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Organization",
+      "@id": "https://thebrobot.com/#organization",
       "name": "Brobot Media",
+      "alternateName": "The Brobot",
       "url": "https://thebrobot.com",
       "logo": "https://thebrobot.com/images/favicon.png",
-      "description": "AI-powered business automation platform providing voice AI agents, CRM, review management, and local SEO for service-based businesses.",
+      "description": "Brobot Media provides AI-powered business automation: VoIP desk phone systems, AI voice agents, CRM, review management, and local SEO for service-based businesses.",
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "sales",
         "url": "https://thebrobot.com/contact"
       },
       "sameAs": []
+    })} />
+    <!-- WebSite schema for branded search / sitelinks -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Brobot Media",
+      "url": "https://thebrobot.com",
+      "publisher": { "@id": "https://thebrobot.com/#organization" },
+      "description": "AI voice agents, VoIP desk phone systems, CRM, review automation, and local SEO for local businesses."
     })} />
 
     <!-- GoHighLevel Chat Widget -->

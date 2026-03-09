@@ -3,12 +3,28 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import FloatingMenu from '../components/FloatingMenu';
+import RelatedServices from '../components/RelatedServices.astro';
 import { MapPin, Search, Globe, Shield, ArrowRight, Zap, Activity, AlertCircle, BarChart3, TrendingUp, CheckCircle2 } from 'lucide-react';
 
 const pathname = "/local-seo";
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "iMapsPro — Apple Maps Optimization",
+  "description": "Apple Maps optimization and local listing management for businesses. Customize and maintain your place card across Apple devices.",
+  "url": "https://thebrobot.com/local-seo",
+  "provider": { "@id": "https://thebrobot.com/#organization" }
+};
 ---
 
-<BaseLayout title="Apple Maps Optimization & Listing Management | iMapsPro">
+<BaseLayout 
+  title="Brobot Media | Apple Maps Optimization & Listing Management | iMapsPro"
+  description="Apple Maps optimization and local listing management. iMapsPro by Brobot Media helps businesses dominate Apple Maps and local SEO."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  </Fragment>
   <main class="min-h-screen bg-[#020617] text-white pt-20 md:pt-32 pb-12 md:pb-20">
     <Navbar client:load pathname={pathname} />
     
@@ -535,6 +551,7 @@ const pathname = "/local-seo";
       </div>
     </section>
 
+    <RelatedServices currentPath={pathname} />
     <FloatingMenu client:load pathname={pathname} />
     <Footer client:visible />
   </main>

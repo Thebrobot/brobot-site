@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import FloatingMenu from '../components/FloatingMenu';
+import RelatedServices from '../components/RelatedServices.astro';
 import {
   Calendar,
   MessageSquare,
@@ -85,7 +86,7 @@ const productSchema = {
   "@type": "SoftwareApplication",
   "name": "Brobot One",
   "applicationCategory": "BusinessApplication",
-  "description": "AI-powered desk phone solutions with built-in CRM. Answers calls 24/7, books appointments, follows up by text. Works with existing desk phones. Live in 7 days.",
+  "description": "Business VoIP and desk phone system with AI answering and CRM. Keep your number. Cloud-based phone system for small business. Live in 7 days.",
   "operatingSystem": "Web, iOS, Android",
   "url": "https://thebrobot.com/ai-phone-crm",
   "offers": {
@@ -98,8 +99,8 @@ const productSchema = {
 ---
 
 <BaseLayout
-  title="Brobot One | AI Desk Phone Solutions + CRM | The Brobot"
-  description="Desk phone solutions that actually work. Brobot One: AI-powered desk phone system with built-in CRM. AI answers 24/7, books appointments, follows up by text. Works with your desk phones. Live in 7 days."
+  title="Brobot One | Business VoIP & Desk Phone System | Brobot Media"
+  description="Business VoIP and desk phone system with AI, CRM, and 24/7 answering. Keep your number. Works with your existing desk phones. Cloud-based business phone—go live in 7 days. Brobot Media."
   image="/phones-hero.png"
 >
   <Fragment slot="head">
@@ -130,10 +131,10 @@ const productSchema = {
               <span class="text-[11px] font-semibold uppercase tracking-[0.25em] text-cyan-400/90">Desk Phone + CRM + AI</span>
             </div>
             <h1 class="text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-display font-black tracking-tighter mb-3 leading-snug">
-              AI-Powered Desk Phone Solutions for Small Business
+              Business VoIP & Desk Phone System for Small Business
             </h1>
             <p class="text-xl md:text-2xl lg:text-2xl font-semibold text-white/95 tracking-tight mb-5">
-              Desk phone system with built-in CRM and AI. Answer calls 24/7, never miss a lead.
+              Cloud-based business phone with AI answering and CRM. Keep your number. Works with your desk phones. Go live in 7 days.
             </p>
             <p class="inline-flex items-center justify-center lg:inline-flex gap-2 px-3 py-1.5 rounded-xl bg-cyan-500/10 border border-cyan-500/20 mb-5">
               <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
@@ -936,6 +937,7 @@ const productSchema = {
       </div>
     </section>
 
+    <RelatedServices currentPath={pathname} />
     <FloatingMenu client:load pathname={pathname} />
     <Footer client:visible />
   </main>

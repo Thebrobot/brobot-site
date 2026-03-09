@@ -11,16 +11,46 @@ import FAQ from '../components/FAQ.astro';
 import FinalCTA from '../components/FinalCTA.astro';
 import FloatingMenu from '../components/FloatingMenu';
 import Footer from '../components/Footer';
+import { Phone, LayoutDashboard, Activity, MapPin, Star } from 'lucide-react';
 
 const pathname = "/";
+
+const services = [
+  { name: "Brobot One — Desk Phone & VoIP", href: "/ai-phone-crm", icon: Phone },
+  { name: "Brobot CRM", href: "/crm", icon: LayoutDashboard },
+  { name: "Agent Broski — AI Voice Agent", href: "/conversational-ai", icon: Activity },
+  { name: "iMapsPro — Apple Maps & Local SEO", href: "/local-seo", icon: MapPin },
+  { name: "RevuBro — Review Automation", href: "/reputation", icon: Star },
+];
 ---
 
-<BaseLayout>
+<BaseLayout
+  title="Brobot Media | AI Voice Agents, VoIP Desk Phones & Lead Automation"
+  description="Brobot Media: AI voice agents, business VoIP desk phone systems, CRM, review automation, and local SEO for HVAC, plumbing, dental, real estate & 20+ industries. Book appointments 24/7."
+>
   <main class="min-h-screen bg-[#020617]">
     <Navbar client:load pathname={pathname} />
     
     <!-- Hero Intro -->
     <Hero client:load />
+    
+    <!-- Solutions / Sitelinks Block - crawlable service links for branded search -->
+    <section class="py-12 md:py-16 px-4 border-t border-white/5">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-center text-[10px] md:text-[11px] font-black uppercase tracking-[0.35em] text-slate-500 mb-8">Brobot Media Solutions</h2>
+        <nav class="flex flex-wrap justify-center gap-4 md:gap-6" aria-label="Brobot Media services">
+          {services.map((s) => {
+            const Icon = s.icon;
+            return (
+              <a href={s.href} class="group inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-white/10 bg-white/[0.02] hover:border-amber-500/30 hover:bg-amber-500/5 text-white font-semibold text-sm transition-all">
+                <Icon class="w-4 h-4 text-amber-500/80" />
+                <span>{s.name}</span>
+              </a>
+            );
+          })}
+        </nav>
+      </div>
+    </section>
     
     <!-- 1-2-3 Guide -->
     <HowItWorks />
