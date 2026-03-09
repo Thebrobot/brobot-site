@@ -32,9 +32,42 @@ const encodedTitle = encodeURIComponent(shareTitle);
 const twitterUrl = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`;
 const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
 const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+
+// Related posts: same tags first, then by date (respect preview mode)
+const allPosts = await getCollection('blog');
+const visiblePosts = preview ? allPosts : allPosts.filter((p) => p.data.pubDate.toISOString().slice(0, 10) <= today);
+const currentTags = new Set(post.data.tags || []);
+const related = visiblePosts
+	.filter((p) => p.slug !== post.slug)
+	.sort((a, b) => {
+		const aTags = new Set(a.data.tags || []);
+		const bTags = new Set(b.data.tags || []);
+		const aMatch = [...currentTags].filter((t) => aTags.has(t)).length;
+		const bMatch = [...currentTags].filter((t) => bTags.has(t)).length;
+		if (bMatch !== aMatch) return bMatch - aMatch;
+		return b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
+	})
+	.slice(0, 3);
+
+// BlogPosting schema for SEO
+const articleSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'BlogPosting',
+	headline: post.data.title,
+	description: post.data.description,
+	image: post.data.heroImage ? `${site}${post.data.heroImage}` : `${site}/images/brobot_landscape.png`,
+	datePublished: post.data.pubDate.toISOString(),
+	dateModified: post.data.pubDate.toISOString(),
+	author: { '@type': 'Organization', name: post.data.author },
+	publisher: { '@id': 'https://thebrobot.com/#organization' },
+	mainEntityOfPage: { '@type': 'WebPage', '@id': shareUrl },
+};
 ---
 
 <BaseLayout title={`${post.data.title} | Brobot Media`} description={post.data.description} image={post.data.heroImage || '/images/brobot_landscape.png'}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  </Fragment>
   <main class="min-h-screen bg-[#020617] text-white pt-32 pb-20">
     <Navbar client:load pathname={pathname} />
     
@@ -159,6 +192,38 @@ const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`
           </button>
         </div>
       </div>
+
+      <!-- Related posts (internal links for SEO) -->
+      {related.length > 0 && (
+        <div class="mt-16 pt-12 border-t border-white/10">
+          <p class="text-[10px] font-black uppercase tracking-[0.3em] text-amber-500 mb-6">You might also like</p>
+          <div class="flex flex-col gap-4">
+            {related.map((r) => (
+              <a 
+                href={`/blog/${r.slug}`} 
+                class="group flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-amber-500/20 transition-all"
+              >
+                {r.data.heroImage && (
+                  <div class="w-20 h-14 rounded-xl overflow-hidden flex-shrink-0">
+                    <img src={r.data.heroImage} alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                  </div>
+                )}
+                <div class="min-w-0 flex-1">
+                  <span class="text-[10px] font-black uppercase tracking-[0.2em] text-amber-500">
+                    {r.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                  </span>
+                  <h3 class="text-white font-bold mt-0.5 group-hover:text-amber-500 transition-colors line-clamp-2">
+                    {r.data.title}
+                  </h3>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-amber-500 flex-shrink-0 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
 
       <!-- CTA -->
       <div class="mt-32 p-12 md:p-20 rounded-[60px] bg-amber-600 relative overflow-hidden text-center shadow-2xl shadow-amber-600/40">

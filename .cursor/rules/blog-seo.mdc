@@ -1,0 +1,62 @@
+---
+description: Blog SEO standards for organic growth
+globs: src/content/blog/**/*.md
+alwaysApply: false
+---
+
+# Blog SEO Standards
+
+Follow these rules when creating or editing blog posts to maximize organic visibility and growth.
+
+## Frontmatter (Required)
+
+Every post must have:
+
+```yaml
+---
+title: "Keyword-rich, specific title (not generic)"
+description: "Compelling meta description, 150-160 chars, includes primary keyword"
+pubDate: YYYY-MM-DD
+heroImage: "/images/blog/[slug]-hero.png"
+author: "Brobot Media"
+tags: ["Primary", "Secondary", "Brobot One", "Topic"]
+---
+```
+
+- **title:** Include primary search phrase. Be specific (e.g. "How AI Phone Answering Cuts Missed Calls by 75%" not "Phone Tips").
+- **description:** Sell the click. Include keyword + benefit. Used for search snippets and social previews.
+- **heroImage:** Create a unique hero for each post. Path: `/images/blog/[slug]-hero.png`.
+- **tags:** 3-5 tags. Include "Brobot One" when relevant. Use for related-post matching.
+
+## Content Structure
+
+- **Length:** 1,200–2,500 words. Competitive topics need depth.
+- **H1:** Single H1 = page title (in frontmatter).
+- **H2/H3:** Logical sections. Include keywords in headings where natural.
+- **Intro:** First 100 words should state the value prop and include primary keyword.
+- **Conclusion:** Key takeaways + clear CTA (links to `/ai-phone-crm` or `/contact`).
+
+## Internal Linking
+
+- **CTA block:** Every post ends with "Ready to build your own AI Agent?" linking to `/contact` and `/`.
+- **Related posts:** Handled automatically by the template (shows 3 posts by shared tags).
+- **In-body links:** When mentioning Brobot One, AI answering, CRM, etc., link to relevant pages (`/ai-phone-crm`, `/conversational-ai`, `/contact`) at least once.
+
+## Keyword Targeting
+
+- Target phrases people search for: "missed calls cost", "AI phone answering", "speed to lead", "Brobot One vs [competitor]", "voicemail alternatives", "small business AI", etc.
+- Use stats and numbers (e.g. "75% reduction", "$126K per year") — they perform well in snippets.
+- Include industry terms: HVAC, plumbing, dental, contractors, VoIP, CRM, lead capture.
+
+## Technical (Handled by Template)
+
+The blog template automatically provides:
+
+- BlogPosting schema (author, datePublished, image, publisher)
+- og:image = post hero (not default logo)
+- Related posts section (internal links by tag)
+- Canonical URLs, sitemap
+
+## Style (See blog-content.mdc)
+
+- No em dashes (—). Use commas, colons, or parentheses instead.
