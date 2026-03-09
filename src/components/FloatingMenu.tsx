@@ -72,6 +72,7 @@ function MagneticIcon({ children, isActive, main, home }: { children: React.Reac
 export default function FloatingMenu({ pathname = "/" }: FloatingMenuProps) {
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const [showCallout, setShowCallout] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   const calloutText = useMemo(() => {
     const options = [
@@ -97,6 +98,29 @@ export default function FloatingMenu({ pathname = "/" }: FloatingMenuProps) {
       clearTimeout(timer);
       clearTimeout(hideTimer);
     };
+  }, []);
+
+  // Hide pill when scrolling down; show when scrolling up
+  useEffect(() => {
+    let lastY = window.scrollY;
+    let ticking = false;
+    const checkScroll = () => {
+      const y = window.scrollY;
+      const delta = y - lastY;
+      lastY = y;
+      if (Math.abs(delta) > 10) {
+        setIsVisible(delta < 0);
+      }
+      ticking = false;
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(checkScroll);
+        ticking = true;
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   // Effect to hide the GHL bubble inside Shadow DOM
@@ -125,34 +149,32 @@ export default function FloatingMenu({ pathname = "/" }: FloatingMenuProps) {
   return (
     <>
       <div className="fixed bottom-6 md:bottom-12 left-1/2 z-50 -translate-x-1/2 px-4 w-full max-w-fit">
-        {/* Ambient Glow Layer */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="absolute inset-0 -z-10"
-        >
-          <div className="absolute inset-0 bg-amber-500/20 blur-[60px] rounded-full" />
-          <motion.div 
-            animate={{ 
-              scale: [1, 1.1, 1],
-              opacity: [0.3, 0.5, 0.3]
-            }}
-            transition={{ 
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="absolute inset-0 bg-amber-500/20 blur-[80px] rounded-full"
-          />
-        </motion.div>
-
-        <motion.div 
-          initial={{ y: 40, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ type: "spring", stiffness: 260, damping: 20 }}
-          className="relative flex items-center gap-2 md:gap-4 rounded-[24px] md:rounded-[32px] bg-[#020617]/90 p-2 md:p-3 shadow-[0_8px_32px_rgba(245,158,11,0.15),0_0_80px_rgba(245,158,11,0.1)] backdrop-blur-3xl border border-white/20"
-        >
+        <AnimatePresence>
+          {isVisible && (
+            <motion.div
+              key="pill"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 20, opacity: 0 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="relative flex items-center gap-2 md:gap-4 rounded-[24px] md:rounded-[32px] bg-[#020617]/90 p-2 md:p-3 shadow-[0_8px_32px_rgba(245,158,11,0.15),0_0_80px_rgba(245,158,11,0.1)] backdrop-blur-3xl border border-white/20"
+            >
+              {/* Ambient Glow Layer */}
+              <div className="absolute inset-0 -z-10">
+                <div className="absolute inset-0 bg-amber-500/20 blur-[60px] rounded-full" />
+                <motion.div 
+                  animate={{ 
+                    scale: [1, 1.1, 1],
+                    opacity: [0.3, 0.5, 0.3]
+                  }}
+                  transition={{ 
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  className="absolute inset-0 bg-amber-500/20 blur-[80px] rounded-full"
+                />
+              </div>
           {menuItems.map((item) => {
             const isActive = pathname === item.href;
             
@@ -197,7 +219,9 @@ export default function FloatingMenu({ pathname = "/" }: FloatingMenuProps) {
               </a>
             );
           })}
-        </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       <DemoModal isOpen={isDemoModalOpen} onClose={() => setIsDemoModalOpen(false)} />
