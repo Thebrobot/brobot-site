@@ -1,0 +1,24 @@
+---
+description: Blog content style rules - no em dashes
+globs: src/content/blog/**/*.md
+alwaysApply: false
+---
+
+# Blog Content Style
+
+## No Em Dashes
+
+**Never use em dashes (—) in blog posts.** Replace with commas, colons, parentheses, or separate sentences as appropriate.
+
+### Examples
+
+❌ **Bad:** "That initial impression shapes everything that follows—and often determines whether you get the deal."
+✅ **Good:** "That initial impression shapes everything that follows, and often determines whether you get the deal."
+
+❌ **Bad:** "By the time you call back—an hour later, end of day, next morning—they've moved on."
+✅ **Good:** "By the time you call back (an hour later, end of day, or next morning), they've moved on."
+
+❌ **Bad:** "Traditional tools—voicemail, static chatbots—weren't built for that reality."
+✅ **Good:** "Traditional tools (voicemail, static chatbots) weren't built for that reality."
+
+Use commas for simple breaks, parentheses for parenthetical phrases, and colons for introductions.

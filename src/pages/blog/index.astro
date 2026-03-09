@@ -6,9 +6,10 @@ import FloatingMenu from '../../components/FloatingMenu';
 import { getCollection } from 'astro:content';
 
 const today = new Date().toISOString().slice(0, 10);
+const preview = import.meta.env.BROBOT_PREVIEW === '1';
 const allPosts = await getCollection('blog');
 const posts = allPosts
-	.filter((p) => p.data.pubDate.toISOString().slice(0, 10) <= today)
+	.filter((p) => preview || p.data.pubDate.toISOString().slice(0, 10) <= today)
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const pathname = "/blog";
@@ -22,8 +23,8 @@ const pathname = "/blog";
       <div class="absolute inset-0 bg-amber-500/5 blur-[120px] rounded-full scale-150 -z-10"></div>
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-20">
-          <h1 class="text-6xl md:text-8xl font-display font-black tracking-tighter mb-6 leading-tight uppercase">
-            THE <span class="text-amber-500 italic">BROBLOG</span>
+          <h1 class="text-5xl md:text-7xl font-bold tracking-normal mb-6 leading-tight">
+            The <span class="text-amber-500 italic">Broblog</span>
           </h1>
           <p class="text-xl md:text-2xl text-white max-w-3xl mx-auto font-medium leading-relaxed">
             Insights on AI agents, automation, and scaling your business without the overhead.
@@ -31,6 +32,11 @@ const pathname = "/blog";
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {preview && (
+            <p class="col-span-full text-center text-amber-500/80 text-sm font-medium mb-4">
+              Preview mode — showing all posts including scheduled
+            </p>
+          )}
           {posts.map((post) => (
             <a href={`/blog/${post.slug}`} class="group">
               <article class="h-full p-8 rounded-[40px] cyber-glass border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all flex flex-col">
@@ -57,7 +63,7 @@ const pathname = "/blog";
                       By {post.data.author}
                     </span>
                   </div>
-                  <h2 class="text-2xl font-black mb-4 uppercase tracking-tight group-hover:text-amber-500 transition-colors">
+                  <h2 class="text-xl font-bold mb-4 tracking-normal group-hover:text-amber-500 transition-colors">
                     {post.data.title}
                   </h2>
                   <p class="text-white font-medium leading-relaxed line-clamp-3">

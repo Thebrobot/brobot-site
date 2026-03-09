@@ -12,6 +12,7 @@ export default defineConfig({
     sitemap()
   ],
   vite: {
+    envPrefix: ['VITE_', 'BROBOT_'],
     ssr: {
       noExternal: ['framer-motion']
     }
