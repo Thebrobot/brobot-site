@@ -6,8 +6,10 @@ import Footer from '../../components/Footer';
 import FloatingMenu from '../../components/FloatingMenu';
 
 export async function getStaticPaths() {
+	const today = new Date().toISOString().slice(0, 10);
 	const posts = await getCollection('blog');
-	return posts.map((post) => ({
+	const published = posts.filter((p) => p.data.pubDate.toISOString().slice(0, 10) <= today);
+	return published.map((post) => ({
 		params: { slug: post.slug },
 		props: post,
 	}));
