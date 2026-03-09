@@ -34,7 +34,7 @@ const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encod
 const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
 ---
 
-<BaseLayout title={`${post.data.title} | Brobot Media`} description={post.data.description}>
+<BaseLayout title={`${post.data.title} | Brobot Media`} description={post.data.description} image={post.data.heroImage || '/images/brobot_landscape.png'}>
   <main class="min-h-screen bg-[#020617] text-white pt-32 pb-20">
     <Navbar client:load pathname={pathname} />
     
