@@ -151,6 +151,34 @@ export const industries: Industry[] = [
         question: "What if someone has complex questions?",
         answer: "The AI handles common questions and seamlessly transfers complex inquiries to you or your team.",
       },
+      {
+        question: "Can it handle different coaching niches?",
+        answer: "Yes. The AI is customized to your specific niche—business, executive, life, or specialty coaching. Questions and qualification criteria are tailored to your offerings.",
+      },
+      {
+        question: "What happens if a prospect wants to talk right now?",
+        answer: "The AI can transfer to you immediately or book the next available slot. You control when handoffs happen.",
+      },
+      {
+        question: "Does it work with my calendar and CRM?",
+        answer: "Yes. Brobot integrates with Google Calendar, Calendly, Acuity, and popular CRMs like HubSpot and GoHighLevel.",
+      },
+      {
+        question: "How do follow-up sequences work?",
+        answer: "Automated nurture sequences keep leads warm with your messaging. If they book, the sequence stops automatically.",
+      },
+      {
+        question: "What if a prospect is not ready to invest?",
+        answer: "The AI can route them to your nurture sequence with free resources, or set a follow-up reminder for when they are ready.",
+      },
+      {
+        question: "Can I customize the qualification questions?",
+        answer: "Absolutely. You define the exact questions, thresholds, and logic. The AI follows your playbook.",
+      },
+      {
+        question: "How do I know the AI is representing my brand well?",
+        answer: "You approve all scripts and tone. Many coaches find the AI sounds more consistent than a human receptionist.",
+      },
     ],
     examples: [
       {
@@ -263,6 +291,41 @@ export const industries: Industry[] = [
         question: "Do you require a deposit?",
         answer:
           "If your business uses deposits, the agent sends the payment link and explains the policy clearly before the booking is finalized.",
+      },
+      {
+        question: "Can it handle mobile detailing vs. shop appointments?",
+        answer:
+          "Yes. The AI checks your service radius and offers shop drop-off for areas outside your mobile range. You set the rules.",
+      },
+      {
+        question: "What about heavy pet hair or smoke damage?",
+        answer:
+          "The AI asks about condition during intake and can route severe cases to you for approval. Pricing adjustments are applied based on your rules.",
+      },
+      {
+        question: "Does it send appointment reminders?",
+        answer:
+          "Yes. Automated confirmations go out after booking, plus reminder sequences before the appointment to reduce no-shows.",
+      },
+      {
+        question: "Can it collect photos for quotes?",
+        answer:
+          "Absolutely. The AI prompts customers to send photos via SMS. Photos are attached to the lead in your CRM for accurate quoting.",
+      },
+      {
+        question: "How do I update pricing or packages?",
+        answer:
+          "You control all pricing logic. Update your package rules anytime and the AI uses the new rates immediately.",
+      },
+      {
+        question: "What if a customer wants to reschedule?",
+        answer:
+          "The AI handles rescheduling requests, checks availability, and sends updated confirmations. No phone tag needed.",
+      },
+      {
+        question: "Can it handle both calls and text messages?",
+        answer:
+          "Yes. Brobot works across phone and SMS so customers can reach you however they prefer. Same AI, same booking flow.",
       },
     ],
     examples: [
@@ -382,6 +445,34 @@ export const industries: Industry[] = [
         question: "What if I have questions during the process?",
         answer: "Clients can text or call anytime for status updates, and complex questions route directly to your team.",
       },
+      {
+        question: "Can it collect credit reports and IDs securely?",
+        answer: "Yes. Secure document links are sent via encrypted channels. Documents are routed to your system without being stored in plain text.",
+      },
+      {
+        question: "What if a client does not send documents on time?",
+        answer: "Automated reminders go out at 24 hours, 48 hours, and 1 week. You can customize the sequence or add a personal follow-up trigger.",
+      },
+      {
+        question: "Does it work with my credit repair software?",
+        answer: "Brobot integrates with Credit Repair Cloud, DisputeBee, and similar platforms. Client data flows into your CRM or case management system.",
+      },
+      {
+        question: "How does it qualify leads before enrollment?",
+        answer: "The AI collects score range, goals, timeline, and budget. Leads below your threshold get educational content; qualified leads get the enrollment process.",
+      },
+      {
+        question: "Can it handle payment for enrollment fees?",
+        answer: "Yes. Payment links can be sent during the call or follow-up. Stripe and Square integrations are supported.",
+      },
+      {
+        question: "What about clients who had bad experiences with other companies?",
+        answer: "The AI can detect hesitation and route to a senior consultant. You set the routing rules for sensitivity flags.",
+      },
+      {
+        question: "Does it set realistic expectations about results?",
+        answer: "Scripts are compliance-friendly. The AI explains typical timelines and outcomes without making promises or guarantees.",
+      },
     ],
     examples: [
       {
@@ -421,7 +512,7 @@ export const industries: Industry[] = [
     tagline: "Fill your chair without overwhelming your front desk.",
     description: "Automate appointment requests and answer common patient questions instantly.",
     benefits: ["Reduced No-shows", "Emergency Triage", "Insurance Verification"],
-    features: ["Patient Portal Sync", "HIPAA Compliant Comms", "Recall Automation"],
+    features: ["Patient Portal Sync", "Secure Patient Comms", "Recall Automation"],
     benefitCards: [
       {
         title: "Books appointments 24/7",
@@ -478,16 +569,44 @@ export const industries: Industry[] = [
     ],
     objections: [
       {
-        question: "Is this HIPAA compliant?",
-        answer: "Yes. All communications follow HIPAA guidelines. We do not store protected health information and use secure, compliant channels.",
-      },
-      {
         question: "What about complex insurance questions?",
         answer: "The AI handles common questions and routes complex insurance or billing inquiries to your team with full context.",
       },
       {
         question: "Can it handle emergencies properly?",
         answer: "Emergency keywords trigger immediate escalation to your on-call staff. Routine calls are handled automatically.",
+      },
+      {
+        question: "Is patient information kept secure?",
+        answer: "Yes. Patient data is encrypted, stored securely, and never shared with third parties. All communications use secure, compliant channels.",
+      },
+      {
+        question: "Can it sync with our practice management system?",
+        answer: "Brobot integrates with Dentrix, Eaglesoft, Open Dental, and similar platforms. Appointments flow directly into your existing software.",
+      },
+      {
+        question: "What about new patient intake forms?",
+        answer: "The AI can send links to digital forms after booking. New patients complete paperwork before their first visit.",
+      },
+      {
+        question: "Does it send appointment reminders?",
+        answer: "Automated reminders go out at 1 week, 1 day, and 2 hours before the appointment. Patients can confirm or reschedule easily.",
+      },
+      {
+        question: "Can it handle recall and follow-up scheduling?",
+        answer: "Yes. Recall patients can book their next cleaning or checkup. The AI knows they are existing patients and can reference visit history if synced.",
+      },
+      {
+        question: "What if a patient prefers to talk to a person?",
+        answer: "The AI can transfer to your front desk anytime. Many callers complete booking with the AI and never need a transfer.",
+      },
+      {
+        question: "Does it work after hours?",
+        answer: "The AI is available 24/7. After-hours calls that would have gone to voicemail now get appointments booked—often for the next business day.",
+      },
+      {
+        question: "Can it differentiate between cleaning, cosmetic, and emergency requests?",
+        answer: "Yes. The AI asks the right questions and routes accordingly. Emergencies go to on-call; routine and cosmetic are scheduled normally.",
       },
     ],
     examples: [
@@ -509,8 +628,8 @@ export const industries: Industry[] = [
     ],
     trustCards: [
       {
-        title: "HIPAA compliant",
-        description: "All patient communications meet healthcare privacy requirements.",
+        title: "Secure data handling",
+        description: "Patient information is encrypted, stored securely, and never shared with third parties.",
       },
       {
         title: "Emergency escalation",
@@ -597,6 +716,34 @@ export const industries: Industry[] = [
       {
         question: "What if the customer has technical questions?",
         answer: "Common questions are answered automatically. Technical or code questions route to you with full context.",
+      },
+      {
+        question: "Does it work when I am on a job and cannot answer?",
+        answer: "Yes. The AI answers every call 24/7, even when you are on a ladder. No more voicemails or missed opportunities.",
+      },
+      {
+        question: "Can it collect photos of electrical issues?",
+        answer: "Absolutely. Customers can text photos via SMS. The AI attaches them to the job for accurate quoting and dispatch prep.",
+      },
+      {
+        question: "How does it prioritize emergency vs routine calls?",
+        answer: "Emergency keywords like no power, sparking, or burning smell trigger immediate on-call transfer. Routine requests get scheduled normally.",
+      },
+      {
+        question: "Does it integrate with ServiceTitan or Jobber?",
+        answer: "Yes. Brobot syncs with ServiceTitan, Housecall Pro, Jobber, and similar platforms. Jobs flow into your existing system.",
+      },
+      {
+        question: "What if someone is outside my service area?",
+        answer: "The AI checks your service radius and politely declines or offers a referral. You set the geographic rules.",
+      },
+      {
+        question: "Can it notify my techs when a job is booked?",
+        answer: "Yes. Assigned techs get instant notifications with job details, address, and customer notes.",
+      },
+      {
+        question: "How do I update pricing or service areas?",
+        answer: "You control all settings. Update pricing logic, service areas, and routing rules anytime in the dashboard.",
       },
     ],
     examples: [
@@ -704,6 +851,34 @@ export const industries: Industry[] = [
       {
         question: "Can it handle vendor coordination?",
         answer: "The AI collects vendor preferences and requirements, then routes to your coordinator with organized notes.",
+      },
+      {
+        question: "Does it work on weekends when we are at events?",
+        answer: "Yes. Weekend and evening inquiries get instant responses. Leads no longer wait until Monday to hear back.",
+      },
+      {
+        question: "Can it explain our packages and pricing?",
+        answer: "You provide the package details. The AI walks prospects through tiers, add-ons, and inclusions so they arrive educated.",
+      },
+      {
+        question: "What if a date is already booked?",
+        answer: "The AI checks availability in real time and offers alternative dates or a waitlist when the requested date is taken.",
+      },
+      {
+        question: "Does it collect deposits for holds?",
+        answer: "Yes. If you use deposits to hold dates, the AI can send payment links and process bookings.",
+      },
+      {
+        question: "Can it differentiate between weddings and corporate events?",
+        answer: "Absolutely. The AI asks event type upfront and routes accordingly. Corporate inquiries can go to your events manager.",
+      },
+      {
+        question: "How does it handle guest count and capacity?",
+        answer: "The AI collects guest count and checks against your venue capacity. Oversized requests get appropriate guidance.",
+      },
+      {
+        question: "Does it work with Honeybook or Dubsado?",
+        answer: "Yes. Brobot integrates with Honeybook, Dubsado, Planning Pod, and major calendar systems.",
       },
     ],
     examples: [
@@ -814,6 +989,34 @@ export const industries: Industry[] = [
         question: "What about sensitive financial situations?",
         answer: "Complex or sensitive inquiries are identified and routed to your team with discretion and full context.",
       },
+      {
+        question: "Does it filter out unqualified prospects?",
+        answer: "Yes. Prospects below your asset minimums receive educational resources. Only qualified leads get advisor time.",
+      },
+      {
+        question: "Can it handle different advisor specializations?",
+        answer: "Route by retirement, wealth transfer, business sale, or other criteria. You set the rules for matching prospects to advisors.",
+      },
+      {
+        question: "What if someone wants an immediate meeting?",
+        answer: "The AI can transfer to you directly or book the next available slot. You control handoff preferences.",
+      },
+      {
+        question: "Does it work with our CRM?",
+        answer: "Brobot integrates with Salesforce, Wealthbox, Redtail, and similar platforms. Prospect data flows in automatically.",
+      },
+      {
+        question: "How do we ensure prospects are prepared for meetings?",
+        answer: "Pre-meeting prep emails go out with documents to gather. Advisors start with complete information.",
+      },
+      {
+        question: "Can it differentiate virtual vs in-person preferences?",
+        answer: "Yes. The AI asks preference and books the right type of consultation with the right advisor.",
+      },
+      {
+        question: "What about prospects who are not ready yet?",
+        answer: "They are added to a nurture sequence with valuable content. You set the follow-up cadence for future engagement.",
+      },
     ],
     examples: [
       {
@@ -921,6 +1124,34 @@ export const industries: Industry[] = [
         question: "Can it handle subcontractor coordination?",
         answer: "The AI can collect sub requirements and route messages, but complex coordination flows to your project manager.",
       },
+      {
+        question: "What if a homeowner has unrealistic budget expectations?",
+        answer: "The AI collects budget range upfront and can set expectations before scheduling a site visit. Scope vs budget mismatches are flagged for your review.",
+      },
+      {
+        question: "Can it differentiate between renovation, addition, and repair projects?",
+        answer: "Yes. The AI asks project type and scope upfront, then routes and collects the right details for each job type.",
+      },
+      {
+        question: "Does it work when I am on a job site?",
+        answer: "Absolutely. The AI answers every call 24/7 so you never miss an inquiry while you are working.",
+      },
+      {
+        question: "Can it collect photos of the project area?",
+        answer: "Yes. The AI prompts customers to send photos via SMS. Images are attached to the lead for accurate scoping before your site visit.",
+      },
+      {
+        question: "How do you handle permit and inspection questions?",
+        answer: "The AI can provide general guidance on typical requirements. Specific permit questions route to you with context for your expertise.",
+      },
+      {
+        question: "Does it integrate with Buildertrend or Jobber?",
+        answer: "Yes. Brobot syncs with Buildertrend, CoConstruct, Jobber, and similar platforms. Project details flow into your existing system.",
+      },
+      {
+        question: "What about new build vs. renovation inquiries?",
+        answer: "The AI asks project type upfront. New build and large renovation leads can be prioritized or routed differently based on your rules.",
+      },
     ],
     examples: [
       {
@@ -1027,6 +1258,34 @@ export const industries: Industry[] = [
       {
         question: "What about existing member questions?",
         answer: "The AI can answer FAQs for current members too, like class schedules, hours, and policies. Billing issues route to staff.",
+      },
+      {
+        question: "Can it handle trial and day-pass requests?",
+        answer: "Yes. The AI explains trial options, collects info, and books tours or trial sessions directly into your schedule.",
+      },
+      {
+        question: "Does it work when the front desk is overwhelmed?",
+        answer: "Absolutely. Peak hours and busy periods are when the AI shines—every call gets answered while staff focuses on in-person members.",
+      },
+      {
+        question: "Can it promote personal training packages?",
+        answer: "The AI can mention PT options and route interested prospects to your training team for a personalized pitch.",
+      },
+      {
+        question: "How do you handle corporate or group membership inquiries?",
+        answer: "Those inquiries are flagged and routed to your membership director with collected details for follow-up.",
+      },
+      {
+        question: "Does it send tour confirmation and reminders?",
+        answer: "Yes. Automated confirmations go out after booking, plus reminders before the tour to reduce no-shows.",
+      },
+      {
+        question: "Can it integrate with Mindbody or Zen Planner?",
+        answer: "Brobot integrates with Mindbody, Zen Planner, Club OS, and similar gym management platforms.",
+      },
+      {
+        question: "What if someone asks about cancellation policies?",
+        answer: "The AI can explain your policy from your scripts. Actual cancellation requests route to your retention team.",
       },
     ],
     examples: [
@@ -1139,6 +1398,34 @@ export const industries: Industry[] = [
         question: "Do you handle emergencies after hours?",
         answer:
           "If your business offers after hours dispatch, the agent follows your rules to prioritize and route the right emergencies to the right on call contact.",
+      },
+      {
+        question: "Can it identify gas leaks or CO concerns?",
+        answer: "Yes. Safety keywords trigger immediate escalation. The AI follows your safety scripts and routes to on-call immediately.",
+      },
+      {
+        question: "Does it send technician notifications?",
+        answer: "Assigned techs get instant alerts with address, system type, symptoms, and customer notes.",
+      },
+      {
+        question: "How does it handle maintenance plan inquiries?",
+        answer: "The AI explains your plan benefits and books tune-up appointments. Upsell conversations follow your pricing rules.",
+      },
+      {
+        question: "Can it check service area before booking?",
+        answer: "Yes. The AI validates address and zip against your service territory. Out-of-area calls get a polite decline or referral.",
+      },
+      {
+        question: "What about warranty or recent-install questions?",
+        answer: "The AI can collect system info and route warranty calls appropriately. Complex warranty questions go to your team.",
+      },
+      {
+        question: "Does it integrate with ServiceTitan or Housecall Pro?",
+        answer: "Yes. Brobot syncs with ServiceTitan, Housecall Pro, Jobber, and similar CRMs. Jobs flow in automatically.",
+      },
+      {
+        question: "Can it reschedule when weather affects installs?",
+        answer: "The AI handles reschedule requests and sends updated confirmations. Weather-related changes keep your schedule organized.",
       },
     ],
     examples: [
@@ -1257,6 +1544,34 @@ export const industries: Industry[] = [
         question: "Can you handle hazardous materials?",
         answer: "The AI identifies hazardous items and explains limitations. Those jobs route to appropriate specialists or are declined politely.",
       },
+      {
+        question: "Does it work when I am on the road between jobs?",
+        answer: "Yes. The AI answers every call 24/7 so you never miss an inquiry while driving or at a job site.",
+      },
+      {
+        question: "Can it collect deposits to secure bookings?",
+        answer: "If you require deposits, the AI sends payment links and secures the job before it is added to your route.",
+      },
+      {
+        question: "How does it handle same-day or rush requests?",
+        answer: "The AI checks availability and can offer premium pricing for rush jobs when your schedule allows.",
+      },
+      {
+        question: "What about commercial or estate cleanout inquiries?",
+        answer: "Large or commercial jobs are flagged and routed to you or your estimator for an on-site quote.",
+      },
+      {
+        question: "Does it optimize routing for multiple jobs?",
+        answer: "Job details flow into your route optimization software. You control how jobs are sequenced by area and priority.",
+      },
+      {
+        question: "Can it send day-before reminders?",
+        answer: "Yes. Automated reminders go out with prep instructions so customers are ready when your team arrives.",
+      },
+      {
+        question: "What if a customer has stairs or access issues?",
+        answer: "The AI asks about accessibility during intake. Complex access situations are noted for your crew and may affect pricing.",
+      },
     ],
     examples: [
       {
@@ -1364,6 +1679,34 @@ export const industries: Industry[] = [
       {
         question: "How does agent assignment work?",
         answer: "You set the rules. Route by product type, geography, round-robin, or any custom criteria.",
+      },
+      {
+        question: "Can it handle final expense and term life differently?",
+        answer: "Yes. The AI routes by product type. Final expense goes to FE specialists; term and whole life go to the right agents.",
+      },
+      {
+        question: "What about applicants with health concerns?",
+        answer: "Health mentions are noted professionally. Complex underwriting questions route to licensed agents who handle them appropriately.",
+      },
+      {
+        question: "Does it work after hours when leads come from ads?",
+        answer: "Yes. Night and weekend inquiries get instant response. Leads are qualified and booked before they call someone else.",
+      },
+      {
+        question: "Can it send e-application links?",
+        answer: "Yes. After qualification, the AI can send secure links to your e-app platform. Applicants complete before the call.",
+      },
+      {
+        question: "What if someone is shopping multiple agents?",
+        answer: "The AI focuses on qualification and booking. Your agents close with full context. Speed matters—you respond first.",
+      },
+      {
+        question: "Does it integrate with AgencyBloc or HawkSoft?",
+        answer: "Yes. Brobot integrates with AgencyBloc, HawkSoft, Salesforce, and similar agency CRMs.",
+      },
+      {
+        question: "How do we handle beneficiaries and policy details?",
+        answer: "Policy-specific discussions happen with your licensed agents. The AI qualifies interest and books the appointment only.",
       },
     ],
     examples: [
@@ -1474,6 +1817,34 @@ export const industries: Industry[] = [
         question: "How do you handle pricing questions?",
         answer: "You control how pricing is shared. The AI can provide ranges, packages, or direct to consultation for custom quotes.",
       },
+      {
+        question: "Does it work when we are busy with clients?",
+        answer: "Yes. Front desk is often tied up with in-spa care. The AI captures inquiries so no prospect waits on hold or goes to voicemail.",
+      },
+      {
+        question: "Can it explain the difference between Botox and fillers?",
+        answer: "The AI provides general education you approve. Detailed medical questions route to your providers.",
+      },
+      {
+        question: "What about event prep and bridal inquiries?",
+        answer: "The AI asks about events and timelines. Bridal and event prep get priority scheduling if you offer it.",
+      },
+      {
+        question: "Does it integrate with Vagaro or Boulevard?",
+        answer: "Yes. Brobot integrates with Vagaro, Boulevard, Zenoti, and similar med spa software.",
+      },
+      {
+        question: "Can it fill last-minute cancellations?",
+        answer: "When slots open, the AI can message waitlist clients and fill them. You control the waitlist and messaging.",
+      },
+      {
+        question: "What if someone had a bad experience elsewhere?",
+        answer: "The AI handles with empathy and routes to your team. You set whether these get special attention or standard flow.",
+      },
+      {
+        question: "Does it work evenings and weekends?",
+        answer: "Absolutely. Many prospects research treatments at night. The AI captures them before they book with a competitor.",
+      },
     ],
     examples: [
       {
@@ -1580,6 +1951,34 @@ export const industries: Industry[] = [
       {
         question: "How do you handle realtor partner leads?",
         answer: "Partner leads can be tagged and prioritized. Loan officers are notified immediately with full borrower details.",
+      },
+      {
+        question: "Does it work when loan officers are in appointments?",
+        answer: "Yes. The AI captures every inquiry 24/7. Loan officers get complete borrower profiles and can follow up when available.",
+      },
+      {
+        question: "Can it collect documents securely?",
+        answer: "Yes. Secure document links are sent for paystubs, tax returns, and bank statements. Docs flow into your LOS.",
+      },
+      {
+        question: "What about VA and FHA program questions?",
+        answer: "The AI provides general program info. Specific eligibility questions route to your government loan specialists.",
+      },
+      {
+        question: "Does it integrate with Encompass or Calyx?",
+        answer: "Yes. Brobot integrates with Encompass, Calyx, BytePro, and popular LOS platforms.",
+      },
+      {
+        question: "Can it handle refinance vs. purchase differently?",
+        answer: "Absolutely. The AI asks loan type upfront and routes accordingly. Refi questions differ from purchase—each gets the right path.",
+      },
+      {
+        question: "What if a borrower has credit challenges?",
+        answer: "The AI collects credit range and flags scenarios. Loan officers get full context to discuss options appropriately.",
+      },
+      {
+        question: "Does it work for after-hours Zillow and realtor leads?",
+        answer: "Yes. Night and weekend leads get instant response. Speed-to-lead wins deals—you respond before competitors.",
       },
     ],
     examples: [
@@ -1690,6 +2089,34 @@ export const industries: Industry[] = [
         question: "Can you handle last-minute moves?",
         answer: "The AI checks availability and can offer rush pricing for last-minute bookings when crews are available.",
       },
+      {
+        question: "Does it work during busy season when phones are ringing off the hook?",
+        answer: "Yes. The AI handles unlimited concurrent calls so every inquiry gets answered, even during peak moving months.",
+      },
+      {
+        question: "Can it differentiate local vs. long-distance moves?",
+        answer: "Yes. The AI asks origin and destination and routes long-distance or interstate moves to your appropriate team.",
+      },
+      {
+        question: "What about packing service add-ons?",
+        answer: "The AI asks if packing is needed and can include it in the estimate. Upsell logic follows your pricing rules.",
+      },
+      {
+        question: "Does it send confirmation and packing tips?",
+        answer: "Yes. Automated confirmations include arrival window and prep instructions. Packing tip sequences keep customers informed.",
+      },
+      {
+        question: "Can it collect deposits to secure move dates?",
+        answer: "If you require deposits, the AI sends payment links and locks the date. No more losing jobs to competitors who answer first.",
+      },
+      {
+        question: "What about commercial or office move inquiries?",
+        answer: "Commercial moves are flagged and routed to your commercial sales team with all details collected.",
+      },
+      {
+        question: "Does it integrate with move management software?",
+        answer: "Brobot integrates with MoveitPro, SmartMoving, Elromco, and similar platforms. Move details flow in automatically.",
+      },
     ],
     examples: [
       {
@@ -1798,6 +2225,34 @@ export const industries: Industry[] = [
       {
         question: "How do you handle after-hours calls?",
         answer: "Emergencies dispatch to on-call tech immediately. Routine calls schedule for next business day with confirmation sent.",
+      },
+      {
+        question: "Does it work when techs are on jobs and cannot answer?",
+        answer: "Yes. The AI answers every call 24/7 so you never lose a job when your team is busy.",
+      },
+      {
+        question: "Can it collect photos of plumbing issues?",
+        answer: "Yes. Customers can text photos via SMS. Images are attached to the job for accurate quoting and dispatch prep.",
+      },
+      {
+        question: "What about water heater and fixture install quotes?",
+        answer: "The AI gathers details and can provide estimate ranges for standard installs. Complex jobs route to you for site visit.",
+      },
+      {
+        question: "How does it handle sewage backup vs. simple clog?",
+        answer: "The AI asks specific questions to triage. Sewage backup and flooding trigger emergency dispatch; simple clogs get scheduled.",
+      },
+      {
+        question: "Does it send tech notifications?",
+        answer: "Assigned techs get instant alerts with address, problem details, and customer notes.",
+      },
+      {
+        question: "Can it integrate with ServiceTitan or Jobber?",
+        answer: "Yes. Brobot syncs with ServiceTitan, Housecall Pro, Jobber, and similar platforms. Jobs flow into your system.",
+      },
+      {
+        question: "What if someone is outside your service area?",
+        answer: "The AI checks your service radius and politely declines or offers a referral. You set the geographic rules.",
       },
     ],
     examples: [
@@ -1911,6 +2366,34 @@ export const industries: Industry[] = [
         question: "What if the weather changes?",
         answer:
           "The agent can automatically reschedule and message the customer so your schedule stays organized.",
+      },
+      {
+        question: "Does it work when I am on a job or driving between sites?",
+        answer: "Yes. The AI answers every call 24/7 so you never miss a quote request while you are on the ladder or road.",
+      },
+      {
+        question: "Can it suggest add-ons like gutter cleaning?",
+        answer: "Yes. The AI recommends add-ons based on your packages. Driveway jobs get house wash and gutter upsells per your logic.",
+      },
+      {
+        question: "What about commercial pressure washing inquiries?",
+        answer: "Commercial jobs are flagged and routed to you with address, square footage, and surface details for a custom bid.",
+      },
+      {
+        question: "Does it collect photos for accurate quoting?",
+        answer: "Yes. The AI prompts customers to send photos via SMS. Images are attached to the lead for precise estimates.",
+      },
+      {
+        question: "Can it handle deck and patio wash requests?",
+        answer: "The AI asks service type and surfaces. Deck, patio, and concrete jobs are quoted and booked using your pricing rules.",
+      },
+      {
+        question: "Does it integrate with Jobber or Housecall Pro?",
+        answer: "Yes. Brobot syncs with Jobber, Housecall Pro, and similar CRMs. Jobs flow into your existing system.",
+      },
+      {
+        question: "What if someone is outside your service area?",
+        answer: "The AI validates address against your territory. Out-of-area inquiries get a polite decline or referral.",
       },
     ],
     examples: [
@@ -2030,6 +2513,34 @@ export const industries: Industry[] = [
         question: "Can it handle seller inquiries too?",
         answer: "Yes. Seller leads are qualified and routed to your listing presentation booking flow.",
       },
+      {
+        question: "Does it work on weekends when inquiries peak?",
+        answer: "Yes. The AI answers 24/7 so you capture weekend and evening leads without sacrificing your downtime.",
+      },
+      {
+        question: "Can it connect buyers without pre-approval to lenders?",
+        answer: "Yes. The AI can introduce non-approved buyers to your lender partners for pre-approval before scheduling showings.",
+      },
+      {
+        question: "What about open house follow-up?",
+        answer: "Open house visitors can be added to nurture sequences. The AI follows up with property matches based on their criteria.",
+      },
+      {
+        question: "Does it send showing confirmations and reminders?",
+        answer: "Yes. Buyers get confirmation with property address and your contact. Reminders reduce no-shows.",
+      },
+      {
+        question: "Can it handle investor or multi-property inquiries?",
+        answer: "Investor inquiries are flagged and routed to your investment specialist with all details collected.",
+      },
+      {
+        question: "Does it integrate with Follow Up Boss or KVCore?",
+        answer: "Brobot integrates with Follow Up Boss, KVCore, Chime, LionDesk, and similar real estate CRMs.",
+      },
+      {
+        question: "What if a buyer asks about a specific listing's status?",
+        answer: "The AI can provide general availability from your scripts. Complex status questions route to you with full context.",
+      },
     ],
     examples: [
       {
@@ -2138,6 +2649,34 @@ export const industries: Industry[] = [
         question: "What about emergency leak situations?",
         answer: "Active leaks are identified immediately and can trigger emergency tarp service dispatch.",
       },
+      {
+        question: "Does it work when crews are on roofs and cannot answer?",
+        answer: "Yes. The AI answers every call 24/7 so you never lose a lead when your team is busy with installations.",
+      },
+      {
+        question: "Can it differentiate hail damage from routine wear?",
+        answer: "The AI asks about damage type and timing. Storm-related damage gets priority; routine questions get normal scheduling.",
+      },
+      {
+        question: "What about financing and payment plan questions?",
+        answer: "The AI can provide general financing info and collect details. Your finance team gets the lead with full context.",
+      },
+      {
+        question: "Does it send inspection confirmations and prep instructions?",
+        answer: "Yes. Homeowners get confirmation with what to expect and a documentation checklist for insurance.",
+      },
+      {
+        question: "Can it handle commercial roofing inquiries?",
+        answer: "Commercial inquiries are flagged and routed to your commercial division with property details collected.",
+      },
+      {
+        question: "Does it integrate with JobNimbus or AccuLynx?",
+        answer: "Yes. Brobot syncs with JobNimbus, AccuLynx, RoofSnap, and similar roofing CRMs.",
+      },
+      {
+        question: "What if someone just had a tree fall on their roof?",
+        answer: "The AI identifies urgent damage and prioritizes accordingly. Emergency tarp service can be dispatched immediately.",
+      },
     ],
     examples: [
       {
@@ -2244,6 +2783,34 @@ export const industries: Industry[] = [
       {
         question: "What about renters who inquire?",
         answer: "Renters are politely informed they need to own their home and can be added to a nurture list for future follow-up.",
+      },
+      {
+        question: "Does it work when sales reps are in consultations?",
+        answer: "Yes. The AI qualifies every lead 24/7 so your closers only meet with homeowners who are a good fit.",
+      },
+      {
+        question: "Can it explain federal and state incentives?",
+        answer: "The AI covers incentive basics from your scripts. Complex incentive questions route to your sales team.",
+      },
+      {
+        question: "What about battery storage inquiries?",
+        answer: "Battery and backup power inquiries can be routed to your premium consultation or specialty team.",
+      },
+      {
+        question: "Does it send consultation confirmations with savings preview?",
+        answer: "Yes. Homeowners get confirmation with estimated savings preview and what to expect at the consultation.",
+      },
+      {
+        question: "Can it filter out low utility bill homes?",
+        answer: "The AI collects utility cost and can set minimum thresholds. Low-bill homeowners get educational content or nurture.",
+      },
+      {
+        question: "Does it integrate with solar CRMs?",
+        answer: "Brobot integrates with Salesforce, EnergySage, SolarNexus, and similar solar CRMs.",
+      },
+      {
+        question: "What if someone has an old or shaded roof?",
+        answer: "The AI gathers roof age and can set expectations. Poor-fit roofs are filtered before your team spends time.",
       },
     ],
     examples: [
@@ -2353,6 +2920,34 @@ export const industries: Industry[] = [
       {
         question: "How do you handle existing client questions?",
         answer: "Current clients can get answers to common questions 24/7. Specific concerns route to their assigned coach.",
+      },
+      {
+        question: "Does it work when coaches are in sessions?",
+        answer: "Yes. The AI handles inquiries 24/7 so motivated prospects get instant response and current clients get support anytime.",
+      },
+      {
+        question: "Can it explain program differences and pricing tiers?",
+        answer: "The AI walks through your program options and pricing from your scripts. Complex questions route to your team.",
+      },
+      {
+        question: "What about clients asking about medication programs?",
+        answer: "Medication and prescription inquiries are flagged and routed to your medical staff immediately.",
+      },
+      {
+        question: "Does it send consultation confirmations and reminders?",
+        answer: "Yes. Prospects get confirmation with what to expect. Reminders reduce no-shows before the consultation.",
+      },
+      {
+        question: "Can it nurture leads who are not ready to enroll?",
+        answer: "The AI can add prospects to nurture sequences with success stories and program info. You set the follow-up cadence.",
+      },
+      {
+        question: "Does it integrate with practice management software?",
+        answer: "Brobot integrates with GoHighLevel, HubSpot, and practice management platforms. Client data flows in automatically.",
+      },
+      {
+        question: "What if someone has a medical condition or takes medications?",
+        answer: "Health mentions are noted professionally. The AI routes to your clinical team for appropriate handling.",
       },
     ],
     examples: [

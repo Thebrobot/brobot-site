@@ -17,6 +17,10 @@ In 2026, **46% of all Google searches** seek local information. **87% of consume
 
 Verification is just the start. Completing every section, keeping hours and services accurate, and maintaining consistency with your website and other listings all factor into how Google ranks and displays your business.
 
+## Industry Standards
+
+Service businesses face unique local search challenges. For contractors and healthcare providers, the connection between your Google Business Profile and your phone system matters. [AI phone systems for HVAC contractors](/industries/hvac) help ensure that when a profile view becomes a call, you capture the lead. For practices where patient acquisition is key, [dental office call management](/industries/dental) paired with a strong GBP presence keeps you visible and responsive.
+
 ## What Moves the Needle: Clicks, Calls, and Directions
 
 Website clicks typically account for **4 to 7%** of total profile views (10 to 12% for B2B services). Clicks to call range from **5 to 8%** of views (10 to 15% for service-based businesses). Direction requests sit at **3 to 5%** (7 to 10% for restaurants and retail). These numbers might seem small, but they add up. A profile with 10,000 monthly views could generate 500 to 800 call clicks. For service businesses, that's real pipeline. The businesses winning local search are the ones generating consistent engagement from their profiles.

@@ -5,16 +5,83 @@ import Navbar from '../../components/Navbar';
 import FloatingMenu from '../../components/FloatingMenu';
 import IndustryVoiceDemo from '../../components/IndustryVoiceDemo';
 import { industries } from '../../data/industries';
-import { CheckCircle2, ArrowRight, Activity, Bot, Zap, ShieldCheck, MessageSquareText, Workflow, AlertCircle, Settings } from 'lucide-react';
+import { getCollection } from 'astro:content';
+import { CheckCircle2, ArrowRight, Activity, Bot, Zap, ShieldCheck, MessageSquareText, Workflow, AlertCircle, Settings, BookOpen } from 'lucide-react';
+
+const { industry } = Astro.props;
+
+// --- Blog-to-FAQ: The Scanner ---
+// Get all blog posts where vertical includes this industry
+const allBlogPosts = await getCollection('blog');
+const industryBlogs = allBlogPosts.filter((post) => {
+  const vertical = post.data.vertical;
+  if (!vertical || vertical.length === 0) return false;
+  return vertical.includes(industry.slug);
+});
+
+// --- Blog-to-FAQ: Topic Matching Helper ---
+// Extract meaningful words (4+ chars, skip common stopwords) for fuzzy topic matching
+const STOPWORDS = new Set(['that', 'this', 'with', 'have', 'from', 'they', 'what', 'when', 'where', 'which', 'your', 'will', 'does', 'doesn', 'there', 'their', 'about', 'would', 'could', 'should', 'could', 'into', 'more', 'some', 'very', 'just', 'only', 'also', 'most', 'other', 'than', 'then', 'them', 'these', 'those', 'like', 'been', 'being', 'such', 'both', 'each', 'much', 'must', 'over', 'make', 'many', 'know', 'need', 'want', 'work', 'call', 'calls']);
+function extractTopicWords(text: string): Set<string> {
+  const words = text.toLowerCase().replace(/[^a-z0-9\s]/g, ' ').split(/\s+/);
+  const set = new Set<string>();
+  for (const w of words) {
+    if (w.length >= 4 && !STOPWORDS.has(w)) set.add(w);
+  }
+  return set;
+}
+function topicOverlap(a: string, b: string, minOverlap = 2): boolean {
+  const setA = extractTopicWords(a);
+  const setB = extractTopicWords(b);
+  let count = 0;
+  for (const w of setA) {
+    if (setB.has(w)) count++;
+    if (count >= minOverlap) return true;
+  }
+  return false;
+}
+
+// --- Blog-to-FAQ: The FAQ Matcher + Link Injector ---
+// For each FAQ objection, find a matching blog post (title or description overlaps with FAQ question/answer)
+type ObjectionWithBlog = { question: string; answer: string; blogUrl?: string; blogTitle?: string };
+const objectionsWithBlogs: ObjectionWithBlog[] = (industry.objections ?? []).map((obj) => {
+  const combined = obj.question + ' ' + obj.answer;
+  const match = industryBlogs.find((post) => {
+    const postText = post.data.title + ' ' + post.data.description;
+    return topicOverlap(combined, postText, 2);
+  });
+  return {
+    question: obj.question,
+    answer: obj.answer,
+    blogUrl: match ? `/blog/${match.slug}` : undefined,
+    blogTitle: match?.data.title,
+  };
+});
+
+// --- Blog-to-FAQ: The 'New Question' Trigger ---
+// Question-type posts whose question doesn't exist in industry FAQ → Recently Answered
+const existingQuestions = new Set(
+  (industry.objections ?? []).map((o) => o.question.toLowerCase().replace(/\s+/g, ' ').trim())
+);
+const recentlyAnswered = industryBlogs
+  .filter((post) => post.data.type === 'Question')
+  .filter((post) => {
+    const q = (post.data.question ?? post.data.title ?? '').toLowerCase().replace(/\s+/g, ' ').trim();
+    if (!q) return false;
+    // Check if this question is already covered by an objection (exact or semantic)
+    const alreadyCovered = [...existingQuestions].some((eq) => eq.includes(q) || q.includes(eq));
+    return !alreadyCovered;
+  })
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .slice(0, 5);
 
 export function getStaticPaths() {
-  return industries.map((industry) => ({
-    params: { slug: industry.slug },
-    props: { industry },
+  return industries.map((i) => ({
+    params: { slug: i.slug },
+    props: { industry: i },
   }));
 }
 
-const { industry } = Astro.props;
 const pathname = `/industries/${industry.slug}`;
 const Icon = industry.icon;
 const benefitCards =
@@ -460,7 +527,7 @@ const breadcrumbSchema = {
               </div>
             )}
 
-            {industry.objections?.length && (
+            {objectionsWithBlogs.length > 0 && (
               <div>
                 <div class="text-[10px] font-black uppercase tracking-[0.5em] text-amber-500 mb-4 md:mb-6">
                   Common_Questions
@@ -469,15 +536,69 @@ const breadcrumbSchema = {
                   OBJECTIONS, HANDLED.
                 </h3>
                 <div class="space-y-4 md:space-y-6">
-                  {industry.objections.map((obj) => (
+                  {objectionsWithBlogs.map((obj) => (
                     <div class="cyber-glass border border-white/5 bg-white/[0.02] rounded-2xl md:rounded-3xl p-5 md:p-6">
                       <div class="text-white font-black tracking-tight mb-2 text-base md:text-lg">{obj.question}</div>
-                      <div class="text-white/70 font-medium leading-relaxed text-sm md:text-base">{obj.answer}</div>
+                      <div class="text-white/70 font-medium leading-relaxed text-sm md:text-base">
+                        {obj.answer}
+                        {obj.blogUrl && (
+                          <p class="mt-3">
+                            <a
+                              href={obj.blogUrl}
+                              class="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 font-semibold transition-colors"
+                            >
+                              <BookOpen class="w-4 h-4" />
+                              Read more in-depth
+                            </a>
+                          </p>
+                        )}
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
             )}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Recently Answered: Question-type blog posts not yet in industry FAQ -->
+    {recentlyAnswered.length > 0 && (
+      <section class="py-16 md:py-24 px-4 md:px-6 bg-white/[0.01] border-y border-white/5">
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center mb-10 md:mb-16">
+            <div class="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 px-4 py-1.5 rounded-full text-[10px] uppercase tracking-[0.4em] font-black text-amber-400 mb-4 md:mb-6">
+              <BookOpen class="w-3 h-3" />
+              <span>Recently_Answered</span>
+            </div>
+            <h2 class="text-3xl md:text-5xl font-display font-black tracking-tighter text-white">
+              NEW QUESTIONS, <span class="text-amber-500 italic">ANSWERED</span>
+            </h2>
+            <p class="mt-3 md:mt-4 max-w-2xl mx-auto text-white/70 text-base md:text-lg font-medium leading-relaxed">
+              Deep dives on topics {industry.name} professionals care about.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {recentlyAnswered.map((post) => (
+              <a
+                href={`/blog/${post.slug}`}
+                class="cyber-glass border border-white/5 bg-white/[0.02] rounded-2xl md:rounded-3xl p-5 md:p-6 hover:bg-white/[0.04] transition-all block group"
+              >
+                <div class="text-amber-400 mb-2 text-sm font-bold uppercase tracking-wider">
+                  {new Date(post.data.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                </div>
+                <h3 class="text-white font-black tracking-tight mb-2 text-base md:text-lg group-hover:text-amber-400 transition-colors">
+                  {post.data.question ?? post.data.title}
+                </h3>
+                <p class="text-white/70 text-sm md:text-base font-medium line-clamp-2">
+                  {post.data.description}
+                </p>
+                <span class="inline-flex items-center gap-2 mt-3 text-amber-400 font-semibold text-sm group-hover:gap-3 transition-all">
+                  Read more <ArrowRight class="w-3 h-3" />
+                </span>
+              </a>
+            ))}
           </div>
         </div>
       </section>

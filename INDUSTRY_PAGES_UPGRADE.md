@@ -106,7 +106,7 @@ Pick the next 3–5 industries you sell most and fill in the same fields for the
 Use a prompt to generate the playbook/objections/examples for each industry (I can help with that).
 
 ### Option C: Add Compliance Notes
-For verticals like Dentist, Med Spa, Mortgage, Life Insurance—add `complianceNote` (e.g., "HIPAA-compliant communications") and render it as a badge or disclaimer.
+For verticals like Dentist, Med Spa, Mortgage, Life Insurance—add `complianceNote` (e.g., "secure data handling for sensitive communications") and render it as a badge or disclaimer.
 
 ---
 

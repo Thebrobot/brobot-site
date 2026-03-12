@@ -13,7 +13,7 @@ In 2026, **68% of U.S. small businesses** use AI regularly. Of those, **91% repo
 
 ## The 2026 AI Adoption Reality
 
-Small business AI adoption has moved past early adopters. Two-thirds of SMBs are now using AI in some form. Adoption spans from simple tools (like ChatGPT for drafting) to embedded solutions (AI phone answering, chatbots, automated scheduling). The variety matters. Businesses that treat AI as a strategic tool, not just a novelty, see the biggest returns.
+Small business AI adoption has moved past early adopters. Two-thirds of SMBs are now using AI in some form. Adoption spans from simple tools (like ChatGPT for drafting) to embedded solutions (AI phone answering, chatbots, automated scheduling), including [AI solutions for law firms](/industries/legal) and other high-touch industries. The variety matters. Businesses that treat AI as a strategic tool, not just a novelty, see the biggest returns.
 
 The financial case is strong. Small businesses report **$500 to $2,000 in monthly savings** and **over 20 hours of work saved per month** with AI. McKinsey research puts the average ROI at **$3.70 for every $1 invested**, with top performers seeing **$10.30 return**. Time to see ROI typically runs **3 to 6 months**. For most SMBs, that's a no-brainer. The question isn't whether to invest. It's where to invest first.
 
