@@ -16,7 +16,7 @@ const {
   type = "website"
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://thebrobot.com');
+const canonicalURL = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro.site);
 const ogImageURL = new URL(image, Astro.site || 'https://thebrobot.com');
 ---
 
