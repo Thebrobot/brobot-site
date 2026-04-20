@@ -194,6 +194,12 @@ chat-widget {
     pointer-events: auto !important;
 }
 
+
+@keyframes hub-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
 /* Mobile performance: reduce GPU-heavy effects on small screens */
 @media (max-width: 768px) {
   .cyber-glass {
