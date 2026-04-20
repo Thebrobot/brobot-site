@@ -53,7 +53,7 @@ const objectionsWithBlogs: ObjectionWithBlog[] = (industry.objections ?? []).map
   return {
     question: obj.question,
     answer: obj.answer,
-    blogUrl: match ? `/blog/${match.slug}` : undefined,
+    blogUrl: match ? `/blog/${match.id}` : undefined,
     blogTitle: match?.data.title,
   };
 });
@@ -580,7 +580,7 @@ const breadcrumbSchema = {
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {recentlyAnswered.map((post) => (
               <a
-                href={`/blog/${post.slug}`}
+                href={`/blog/${post.id}`}
                 class="cyber-glass border border-white/5 bg-white/[0.02] rounded-2xl md:rounded-3xl p-5 md:p-6 hover:bg-white/[0.04] transition-all block group"
               >
                 <div class="text-amber-400 mb-2 text-sm font-bold uppercase tracking-wider">

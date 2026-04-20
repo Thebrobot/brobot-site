@@ -1,8 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+/* Scan app sources for class names (Tailwind v4) */
+@source '../**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}';
+
+@theme {
+	--color-primary: #2563eb;
+	--color-accent: #00e5ff;
+	--color-brand-dark: #0f172a;
+	--color-brand-muted: #64748b;
+	--color-brand-border: #e2e8f0;
+	--font-display: 'Plus Jakarta Sans', Inter, sans-serif;
+	--font-sans: Inter, sans-serif;
+	--radius: 12px;
+	--radius-2xl: 24px;
+	--radius-3xl: 32px;
+}
 
 :root {
   --background: #020617; /* Deep Midnight */

@@ -38,7 +38,7 @@ const pathname = "/blog";
             </p>
           )}
           {posts.map((post) => (
-            <a href={`/blog/${post.slug}`} class="group">
+            <a href={`/blog/${post.id}`} class="group">
               <article class="h-full p-8 rounded-[40px] cyber-glass border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all flex flex-col">
                 {post.data.heroImage && (
                   <div class="aspect-video w-full mb-8 rounded-[24px] overflow-hidden border border-white/5">
