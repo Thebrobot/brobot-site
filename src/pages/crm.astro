@@ -68,7 +68,7 @@ const serviceSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   </Fragment>
   <main class="min-h-screen bg-[#020617] text-white pt-32 pb-20">
-    <Navbar client:idle pathname={pathname} />
+    <Navbar client:load pathname={pathname} />
     
     <!-- Hero Section -->
     <section class="relative px-6 pt-8 md:pt-20 pb-12 md:pb-20 overflow-hidden">
@@ -921,7 +921,7 @@ const serviceSchema = {
     </section>
 
     <RelatedServices currentPath={pathname} />
-    <FloatingMenu client:idle pathname={pathname} />
+    <FloatingMenu client:visible pathname={pathname} />
     <Footer client:visible />
   </main>
 </BaseLayout>

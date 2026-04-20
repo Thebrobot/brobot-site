@@ -69,7 +69,7 @@ const articleSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   </Fragment>
   <main class="min-h-screen bg-[#020617] text-white pt-16 md:pt-32 pb-20">
-    <Navbar client:idle pathname={pathname} />
+    <Navbar client:load pathname={pathname} />
     
     {showPreviewBanner && (
       <div class="max-w-4xl mx-auto px-6 pt-6">
@@ -262,7 +262,7 @@ const articleSchema = {
       </div>
     </article>
 
-    <FloatingMenu client:idle pathname={pathname} />
+    <FloatingMenu client:visible pathname={pathname} />
     <Footer client:visible />
   </main>
 </BaseLayout>

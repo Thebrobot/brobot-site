@@ -4,6 +4,18 @@
 /* Scan app sources for class names (Tailwind v4) */
 @source '../**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}';
 
+/* System font fallbacks — render before web fonts arrive */
+@font-face {
+  font-family: 'Inter';
+  src: local('Inter'), local('Arial');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: local('Plus Jakarta Sans'), local('Helvetica Neue'), local('Arial');
+  font-display: swap;
+}
+
 @theme {
 	--color-primary: #2563eb;
 	--color-accent: #00e5ff;
