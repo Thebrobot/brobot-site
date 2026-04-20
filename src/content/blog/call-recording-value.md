@@ -2,7 +2,7 @@
 title: "Why Call Recording Is a Game-Changer for Small Business"
 description: "Call recording improves follow-up, training, and compliance. Here's what you gain and how to get it without the premium price tag."
 pubDate: 2026-03-29
-heroImage: "/images/blog/call-recording-value-hero.png"
+heroImage: "/images/blog/call-recording-value-hero.webp"
 author: "Brobot Media"
 tags: ["Brobot One", "Call Recording", "CRM", "Training", "Lead Capture"]
 ---

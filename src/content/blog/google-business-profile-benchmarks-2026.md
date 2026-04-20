@@ -2,7 +2,7 @@
 title: "Google Business Profile Benchmarks for 2026"
 description: "46% of Google searches seek local info. 2 billion connections to U.S. businesses monthly. Here are the 2026 GBP benchmarks that matter."
 pubDate: 2026-03-12
-heroImage: "/images/blog/google-business-profile-benchmarks-2026-hero.png"
+heroImage: "/images/blog/google-business-profile-benchmarks-2026-hero.webp"
 author: "Brobot Media"
 tags: ["iMapsPro", "Local SEO", "Google Business Profile", "2026 Stats"]
 ---

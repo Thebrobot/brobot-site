@@ -2,7 +2,7 @@
 title: "Speed to Lead: Why Responding in Minutes, Not Hours, Wins Deals"
 description: "First response time determines who wins. Learn why speed to lead matters and how to follow up within seconds instead of hours."
 pubDate: 2026-03-21
-heroImage: "/images/blog/speed-to-lead-hero.png"
+heroImage: "/images/blog/speed-to-lead-hero.webp"
 author: "Brobot Media"
 tags: ["Brobot One", "Speed to Lead", "Lead Capture", "CRM", "SMS"]
 ---

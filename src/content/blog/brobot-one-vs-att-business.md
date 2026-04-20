@@ -2,7 +2,7 @@
 title: "Brobot One vs AT&T Business: AI Phone, CRM, and 24/7 Answering Compared"
 description: "Compare Brobot One and AT&T Business phone systems. See which offers AI answering, CRM, and better lead capture for small business."
 pubDate: 2026-03-20
-heroImage: "/images/blog/brobot-one-vs-att-business-hero.png"
+heroImage: "/images/blog/brobot-one-vs-att-business-hero.webp"
 author: "Brobot Media"
 tags: ["Brobot One", "AT&T Business", "VoIP", "Business Phone", "Comparison"]
 ---

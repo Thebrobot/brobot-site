@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
@@ -182,4 +180,33 @@ chat-widget {
     visibility: visible !important;
     opacity: 1 !important;
     pointer-events: auto !important;
+}
+
+/* Mobile performance: reduce GPU-heavy effects on small screens */
+@media (max-width: 768px) {
+  .cyber-glass {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  /* Disable continuous animations on mobile to save battery */
+  .animate-spin-slow,
+  .animate-spin-slow-reverse {
+    animation-duration: 60s;
+  }
+
+  /* Reduce heavy blur glows on mobile */
+  .engine-core-glow {
+    background: radial-gradient(circle at center, rgba(245, 158, 11, 0.15) 0%, transparent 60%);
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .animate-beam,
+  .animate-spin-slow,
+  .animate-spin-slow-reverse,
+  .animate-pulse-fast {
+    animation: none;
+  }
 }

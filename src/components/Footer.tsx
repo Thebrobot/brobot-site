@@ -34,7 +34,7 @@ export default function Footer() {
             <a href="/" className="block">
               <div className="relative h-10 md:h-12 w-40 md:w-48">
                 <img 
-                  src="/images/Brobot Lanscape Trans  (1).png" 
+                  src="/images/Brobot Lanscape Trans  (1).webp" 
                   alt="Brobot" 
                   className="h-full w-full object-contain object-left"
                   loading="lazy"

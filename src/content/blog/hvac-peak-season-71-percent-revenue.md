@@ -2,7 +2,7 @@
 title: "Peak Season Survival: Why HVAC Teams Miss 71% of Revenue"
 description: "71% of HVAC companies miss calls during peak season. Emergency triage and after-hours dispatch don't wait. Summer breakdowns, winter furnace failures. Here's how to capture every call."
 pubDate: 2026-03-25
-heroImage: "/images/blog/hvac-peak-season-71-percent-revenue-hero.png"
+heroImage: "/images/blog/hvac-peak-season-71-percent-revenue-hero.webp"
 author: "Brobot Media"
 tags: ["Brobot One", "HVAC", "Missed Calls", "Peak Season", "2026 Stats"]
 vertical: ["hvac", "plumbing", "electrician"]

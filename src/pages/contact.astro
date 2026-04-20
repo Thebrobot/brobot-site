@@ -13,7 +13,7 @@ const pathname = "/contact";
   description="Contact Brobot Media for AI voice agents, VoIP desk phones, CRM, and review automation. Book a free demo or call."
 >
   <main class="min-h-screen bg-[#020617] text-white">
-    <Navbar client:load pathname={pathname} />
+    <Navbar client:idle pathname={pathname} />
     
     <section class="pt-48 pb-32 px-6 relative overflow-hidden">
       <!-- Ambient Background Glows -->
@@ -336,7 +336,7 @@ const pathname = "/contact";
       </div>
     </section>
 
-    <FloatingMenu client:load pathname={pathname} />
+    <FloatingMenu client:idle pathname={pathname} />
     
     <Footer client:visible />
   </main>

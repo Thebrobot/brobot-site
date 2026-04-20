@@ -2,7 +2,7 @@
 title: "The Contractor's Desk Phone Guide: Hardened Hardware for Busy Dispatch Centers"
 description: "When you're on a job site and cannot answer, calls slip through. Hardened desk phones for busy dispatch centers. Roofing, HVAC, solar, general contractors. Here's the 2026 guide."
 pubDate: 2026-03-21
-heroImage: "/images/blog/contractors-desk-phone-guide-hero.png"
+heroImage: "/images/blog/contractors-desk-phone-guide-hero.webp"
 author: "Brobot Media"
 tags: ["Brobot One", "VoIP", "Contractors", "Desk Phone", "Dispatch"]
 vertical: ["general-contractor", "roofing", "solar", "hvac"]

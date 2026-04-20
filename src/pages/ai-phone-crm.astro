@@ -101,14 +101,32 @@ const productSchema = {
 <BaseLayout
   title="Brobot One | Business VoIP & Desk Phone System | Brobot Media"
   description="Business VoIP and desk phone system with AI, CRM, and 24/7 answering. Keep your number. Works with your existing desk phones. Cloud-based business phone—go live in 7 days. Brobot Media."
-  image="/phones-hero.png"
+  image="/phones-hero.webp"
 >
   <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://thebrobot.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Brobot One — AI Phone & CRM",
+          "item": "https://thebrobot.com/ai-phone-crm"
+        }
+      ]
+    })} />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
   </Fragment>
   <main class="min-h-screen bg-[#020617] text-white pt-28 pb-16 md:pt-36 lg:pt-32 md:pb-20">
-    <Navbar client:load pathname={pathname} />
+    <Navbar client:idle pathname={pathname} />
 
     <!-- SECTION 1 - HERO -->
     <section class="relative px-4 md:px-6 lg:px-10 pt-6 md:pt-8 lg:pt-6 pb-12 md:pb-20 overflow-visible">
@@ -121,7 +139,7 @@ const productSchema = {
           <div class="flex-1 text-center lg:text-left lg:pr-12 xl:pr-16">
             <div class="flex justify-center lg:justify-start mb-4 md:mb-5">
               <img
-                src="/brobot1-logo.png"
+                src="/brobot1-logo.webp"
                 alt="Brobot One - Connect, Communicate, Innovate"
                 class="w-full max-w-[240px] md:max-w-[300px] lg:max-w-[340px] xl:max-w-[380px] h-auto"
               />
@@ -143,7 +161,7 @@ const productSchema = {
             <!-- Mobile: image appears right after the pill -->
             <div class="lg:hidden w-full max-w-md mx-auto mb-5">
               <img
-                src="/phones-hero.png"
+                src="/phones-hero.webp"
                 alt="Switch your number from your current provider to Brobot One"
                 class="w-full h-auto drop-shadow-[0_20px_60px_rgba(0,0,0,0.3)]"
               />
@@ -156,7 +174,7 @@ const productSchema = {
           <div class="flex flex-shrink-0 lg:w-[50%] flex-col items-center lg:items-end justify-center">
             <div class="w-full max-w-md lg:max-w-xl">
               <img
-                src="/phones-hero.png"
+                src="/phones-hero.webp"
                 alt="Switch your number from your current provider to Brobot One"
                 class="hidden lg:block w-full h-auto drop-shadow-[0_20px_60px_rgba(0,0,0,0.3)]"
               />
@@ -429,7 +447,7 @@ const productSchema = {
             </p>
             <div class="w-full max-w-2xl mb-8">
               <img
-                src="/phones-porting.png"
+                src="/phones-porting.webp"
                 alt="Port your number from your current provider to Brobot One"
                 class="w-full h-auto drop-shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
               />
@@ -536,7 +554,7 @@ const productSchema = {
               <!-- Brobot app on phones -->
               <div class="flex justify-center md:justify-end flex-shrink-0">
                 <img
-                  src="/phones-app.png"
+                  src="/phones-app.webp"
                   alt="Brobot One app on mobile phones showing Opportunities and navigation"
                   class="w-full max-w-[320px] md:max-w-[360px] h-auto drop-shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)]"
                 />
@@ -938,7 +956,7 @@ const productSchema = {
     </section>
 
     <RelatedServices currentPath={pathname} />
-    <FloatingMenu client:load pathname={pathname} />
+    <FloatingMenu client:idle pathname={pathname} />
     <Footer client:visible />
   </main>
 </BaseLayout>

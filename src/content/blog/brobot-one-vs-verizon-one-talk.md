@@ -2,7 +2,7 @@
 title: "Brobot One vs Verizon One Talk: Which Small Business Phone System Wins?"
 description: "Compare Brobot One and Verizon One Talk for desk phone, VoIP, AI answering, and CRM. See which fits your small business."
 pubDate: 2026-03-17
-heroImage: "/images/blog/brobot-one-vs-verizon-one-talk-hero.png"
+heroImage: "/images/blog/brobot-one-vs-verizon-one-talk-hero.webp"
 author: "Brobot Media"
 tags: ["Brobot One", "Verizon One Talk", "VoIP", "Business Phone", "Comparison"]
 ---

@@ -2,7 +2,7 @@
 title: "Brobot One vs Nextiva: AI Answering, CRM, and Small Business Phone Compared"
 description: "Compare Brobot One and Nextiva for small business phone. See which offers AI answering, built-in CRM, and better lead capture."
 pubDate: 2026-03-28
-heroImage: "/images/blog/brobot-one-vs-nextiva-hero.png"
+heroImage: "/images/blog/brobot-one-vs-nextiva-hero.webp"
 author: "Brobot Media"
 tags: ["Brobot One", "Nextiva", "VoIP", "Business Phone", "Comparison"]
 ---

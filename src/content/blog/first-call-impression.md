@@ -2,7 +2,7 @@
 title: "The First 30 Seconds: Why Your Call Answer Makes or Breaks the Sale"
 description: "You have seconds to set the tone. Learn what happens in the first moments of a call and how to get it right every time."
 pubDate: 2026-03-25
-heroImage: "/images/blog/first-call-impression-hero.png"
+heroImage: "/images/blog/first-call-impression-hero.webp"
 author: "Brobot Media"
 tags: ["First Impression", "Lead Capture", "Customer Experience", "AI Answering", "Brobot One"]
 ---

@@ -2,7 +2,7 @@
 title: "Weekend Calls: Why Saturday and Sunday Are Your Busiest Lead Days"
 description: "Homeowners research and call on weekends. If you're closed, you're missing your highest-intent leads. Here's how to capture them."
 pubDate: 2026-03-31
-heroImage: "/images/blog/weekend-calls-lead-days-hero.png"
+heroImage: "/images/blog/weekend-calls-lead-days-hero.webp"
 author: "Brobot Media"
 tags: ["Brobot One", "Weekend Leads", "24/7", "Lead Capture", "AI Answering"]
 ---

@@ -2,7 +2,7 @@
 title: "AI vs Human Receptionist: Which Is Right for Your Business?"
 description: "Receptionists cost $30K+/year and can't work 24/7. AI answering costs less and never sleeps. Here's how to choose."
 pubDate: 2026-03-24
-heroImage: "/images/blog/ai-vs-human-receptionist-hero.png"
+heroImage: "/images/blog/ai-vs-human-receptionist-hero.webp"
 author: "Brobot Media"
 tags: ["AI Answering", "Receptionist", "Small Business", "Automation", "Brobot One"]
 ---

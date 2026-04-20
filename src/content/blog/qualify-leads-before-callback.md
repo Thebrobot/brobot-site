@@ -2,7 +2,7 @@
 title: "How to Qualify Leads Before You Pick Up the Phone"
 description: "Stop wasting time on cold callbacks. Learn how AI qualification captures the right details so you only talk to leads who are worth your time."
 pubDate: 2026-03-30
-heroImage: "/images/blog/qualify-leads-before-callback-hero.png"
+heroImage: "/images/blog/qualify-leads-before-callback-hero.webp"
 author: "Brobot Media"
 tags: ["Brobot One", "Lead Qualification", "AI Answering", "CRM", "Small Business"]
 ---

@@ -2,7 +2,7 @@
 title: "The Real Cost of Missed Calls: What Your Business Loses When Calls Go to Voicemail"
 description: "Missed calls mean lost revenue. Learn the true cost of voicemail and how 24/7 AI answering captures every opportunity."
 pubDate: 2026-03-16
-heroImage: "/images/blog/lost-revenue-missed-calls-hero.png"
+heroImage: "/images/blog/lost-revenue-missed-calls-hero.webp"
 author: "Brobot Media"
 tags: ["Brobot One", "Missed Calls", "VoIP", "Lead Capture", "Small Business"]
 ---

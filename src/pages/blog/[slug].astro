@@ -55,7 +55,7 @@ const articleSchema = {
 	'@type': 'BlogPosting',
 	headline: post.data.title,
 	description: post.data.description,
-	image: post.data.heroImage ? `${site}${post.data.heroImage}` : `${site}/images/brobot_landscape.png`,
+	image: post.data.heroImage ? `${site}${post.data.heroImage}` : `${site}/images/brobot_landscape.webp`,
 	datePublished: post.data.pubDate.toISOString(),
 	dateModified: post.data.pubDate.toISOString(),
 	author: { '@type': 'Organization', name: post.data.author },
@@ -64,12 +64,12 @@ const articleSchema = {
 };
 ---
 
-<BaseLayout title={`${post.data.title} | Brobot Media`} description={post.data.description} image={post.data.heroImage || '/images/brobot_landscape.png'}>
+<BaseLayout title={`${post.data.title} | Brobot Media`} description={post.data.description} image={post.data.heroImage || '/images/brobot_landscape.webp'}>
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   </Fragment>
   <main class="min-h-screen bg-[#020617] text-white pt-16 md:pt-32 pb-20">
-    <Navbar client:load pathname={pathname} />
+    <Navbar client:idle pathname={pathname} />
     
     {showPreviewBanner && (
       <div class="max-w-4xl mx-auto px-6 pt-6">
@@ -262,7 +262,7 @@ const articleSchema = {
       </div>
     </article>
 
-    <FloatingMenu client:load pathname={pathname} />
+    <FloatingMenu client:idle pathname={pathname} />
     <Footer client:visible />
   </main>
 </BaseLayout>

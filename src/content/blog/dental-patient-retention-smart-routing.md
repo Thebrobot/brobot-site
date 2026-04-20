@@ -2,7 +2,7 @@
 title: "Patient Retention: How Dental Offices Use Smart Routing to Save 25% of New Patient Calls"
 description: "58% of dental practices miss new patient calls. Smart routing, emergency triage, and after-hours booking recover 25%. Emergencies go to on-call; routine and cosmetic schedule normally. Here's how."
 pubDate: 2026-03-27
-heroImage: "/images/blog/dental-patient-retention-smart-routing-hero.png"
+heroImage: "/images/blog/dental-patient-retention-smart-routing-hero.webp"
 author: "Brobot Media"
 tags: ["Brobot One", "Dental", "AI Answering", "Patient Retention", "Smart Routing"]
 vertical: ["dentist", "med-spa"]

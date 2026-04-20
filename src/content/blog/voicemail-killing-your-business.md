@@ -2,7 +2,7 @@
 title: "Why Voicemail Is Killing Your Business (And What to Do Instead)"
 description: "Voicemail abandonment is costing you leads. Learn why callers hate it and how AI answering captures every opportunity."
 pubDate: 2026-03-18
-heroImage: "/images/blog/voicemail-killing-your-business-hero.png"
+heroImage: "/images/blog/voicemail-killing-your-business-hero.webp"
 author: "Brobot Media"
 tags: ["Brobot One", "Voicemail", "AI Answering", "Lead Capture", "VoIP"]
 ---

@@ -2,7 +2,7 @@
 title: "The 93% Recovery Rate: How One Text Changes Missed Call Outcomes"
 description: "When you can't answer, a text within 60 seconds can recover 93% of would-be lost leads. Here's the data and how to implement it."
 pubDate: 2026-03-27
-heroImage: "/images/blog/text-back-recovery-hero.png"
+heroImage: "/images/blog/text-back-recovery-hero.webp"
 author: "Brobot Media"
 tags: ["Brobot One", "SMS", "Lead Recovery", "Missed Calls", "Speed to Lead"]
 ---

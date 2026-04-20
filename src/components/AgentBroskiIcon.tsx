@@ -12,7 +12,7 @@ export default function AgentBroskiIcon({
   return (
     <div className={`relative inline-block ${className}`} style={{ width: size, height: size }}>
       <img 
-        src="/images/agent-broski-logo.png" 
+        src="/images/agent-broski-logo.webp" 
         alt="Agent Broski" 
         className="w-full h-full object-contain"
       />

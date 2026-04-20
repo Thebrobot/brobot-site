@@ -2,7 +2,7 @@
 title: "How to Capture Every Lead Who Calls (Even When You're Busy)"
 description: "You can't answer every call, but your phone system can. Learn how AI answering qualifies and logs leads so nothing slips through."
 pubDate: 2026-03-19
-heroImage: "/images/blog/lead-capture-when-busy-hero.png"
+heroImage: "/images/blog/lead-capture-when-busy-hero.webp"
 author: "Brobot Media"
 tags: ["Brobot One", "Lead Capture", "CRM", "AI Answering", "VoIP"]
 ---

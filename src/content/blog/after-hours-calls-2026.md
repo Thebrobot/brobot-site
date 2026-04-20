@@ -2,7 +2,7 @@
 title: "After-Hours Calls: The Hidden Lead Source Your Business Is Missing"
 description: "Up to 40% of calls happen when you're closed. Here's what that means for revenue and how to capture every one."
 pubDate: 2026-03-23
-heroImage: "/images/blog/after-hours-calls-hero.png"
+heroImage: "/images/blog/after-hours-calls-hero.webp"
 author: "Brobot Media"
 tags: ["Brobot One", "After Hours", "Lead Capture", "24/7", "AI Answering"]
 ---

@@ -2,7 +2,7 @@
 title: "Why AI Agents are the Future of Business Automation"
 description: "AI agents aren't chatbots. They think, qualify, schedule, and follow up. Here's how they're transforming local business and what to implement first."
 pubDate: 2026-03-22
-heroImage: "/images/blog/future-of-automation-hero.png"
+heroImage: "/images/blog/future-of-automation-hero.webp"
 author: "Brobot Media"
 tags: ["AI Agents", "Automation", "Small Business", "Agent Broski"]
 ---

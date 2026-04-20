@@ -125,7 +125,7 @@ function EcosystemTile({
       <div className="relative z-10">
         <div className="flex items-start justify-between mb-6">
           <div className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl border flex items-center justify-center transition-all ${iconBgClasses[tile.color]}`}>
-            {tile.icon === "broski" && <img src="/images/agent-broski-logo.png" alt="" className="w-6 h-6 md:w-7 md:h-7 object-contain" />}
+            {tile.icon === "broski" && <img src="/images/agent-broski-logo.webp" alt="" className="w-6 h-6 md:w-7 md:h-7 object-contain" />}
             {tile.icon === "phone" && <Phone className="w-6 h-6 md:w-7 md:h-7" />}
             {tile.icon === "star" && <Star className="w-6 h-6 md:w-7 md:h-7" />}
             {tile.icon === "crm" && <img src="/images/favicon.png" alt="" className="w-6 h-6 md:w-7 md:h-7 object-contain" />}
@@ -362,7 +362,7 @@ export default function AutomationEngine() {
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
-                  {tile.icon === "broski" && <img src="/images/agent-broski-logo.png" alt="" className="w-6 h-6 object-contain" />}
+                  {tile.icon === "broski" && <img src="/images/agent-broski-logo.webp" alt="" className="w-6 h-6 object-contain" />}
                   {tile.icon === "phone" && <Phone className="w-6 h-6" />}
                   {tile.icon === "star" && <Star className="w-6 h-6" />}
                   {tile.icon === "crm" && <img src="/images/favicon.png" alt="" className="w-6 h-6 object-contain" />}

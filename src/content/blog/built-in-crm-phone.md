@@ -2,7 +2,7 @@
 title: "Why Your Phone and CRM Should Be the Same System"
 description: "Separate phone and CRM mean manual entry, missed follow-ups, and lost context. Here's why unified beats fragmented."
 pubDate: 2026-03-26
-heroImage: "/images/blog/built-in-crm-phone-hero.png"
+heroImage: "/images/blog/built-in-crm-phone-hero.webp"
 author: "Brobot Media"
 tags: ["Brobot One", "CRM", "VoIP", "Lead Capture", "Small Business"]
 ---

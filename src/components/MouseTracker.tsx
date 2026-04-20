@@ -1,23 +1,31 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion, useSpring, useMotionValue } from "framer-motion";
 
 export default function MouseTracker() {
+  const [isPointerDevice, setIsPointerDevice] = useState(false);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  // Smooth out the movement
   const springX = useSpring(mouseX, { stiffness: 50, damping: 20 });
   const springY = useSpring(mouseY, { stiffness: 50, damping: 20 });
 
   useEffect(() => {
+    // Only activate on devices with a fine pointer (mouse/trackpad), not touch screens
+    const mq = window.matchMedia("(pointer: fine)");
+    setIsPointerDevice(mq.matches);
+
+    if (!mq.matches) return;
+
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [mouseX, mouseY]);
+
+  if (!isPointerDevice) return null;
 
   return (
     <motion.div

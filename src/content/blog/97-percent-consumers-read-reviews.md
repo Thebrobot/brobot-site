@@ -2,7 +2,7 @@
 title: "97% of Consumers Read Reviews. Is Your Business Ready?"
 description: "97% rely on reviews. 57% won't consider businesses below 4 stars. 53% expect responses within 24 hours. Here's the 2026 playbook."
 pubDate: 2026-03-14
-heroImage: "/images/blog/97-percent-consumers-read-reviews-hero.png"
+heroImage: "/images/blog/97-percent-consumers-read-reviews-hero.webp"
 author: "Brobot Media"
 tags: ["RevuBro", "Reviews", "Reputation", "2026 Stats", "Small Business"]
 ---

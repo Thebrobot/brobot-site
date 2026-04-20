@@ -2,7 +2,7 @@
 title: "Stop the Leak: Syncing Desk Phone Calls to Your Field Service CRM Automatically"
 description: "62% of calls go unlogged. For junk removal, moving, and pressure washing (when you're on the road between jobs), automatic CRM sync stops the leak. Here's the fix."
 pubDate: 2026-03-10
-heroImage: "/images/blog/small-business-crm-unlogged-calls-2026-hero.png"
+heroImage: "/images/blog/small-business-crm-unlogged-calls-2026-hero.webp"
 author: "Brobot Media"
 tags: ["Brobot CRM", "Call Logging", "VoIP", "Small Business", "Lead Capture"]
 vertical: ["junk-removal", "moving-company", "pressure-washing"]

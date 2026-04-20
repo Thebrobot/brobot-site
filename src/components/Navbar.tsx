@@ -23,7 +23,7 @@ export default function Navbar({ pathname = "/" }: NavbarProps) {
     { name: "Brobot", href: "/", icon: LayoutDashboard, image: "/images/favicon.png", desc: "MAIN ECOSYSTEM", color: "bg-neutral-950", iconColor: "text-white" },
     { name: "Brobot One", href: "/ai-phone-crm", icon: Phone, desc: "Desk phone & VoIP", color: "bg-cyan-500", iconColor: "text-white" },
     { name: "Brobot CRM", href: "/crm", icon: LayoutDashboard, desc: "COMMAND CENTER", color: "bg-indigo-600", iconColor: "text-white" },
-    { name: "Agent Broski", href: "/conversational-ai", icon: Zap, image: "/images/agent-broski-logo.png", desc: "AI SALES AGENT", color: "bg-cyan-500", iconColor: "text-white" },
+    { name: "Agent Broski", href: "/conversational-ai", icon: Zap, image: "/images/agent-broski-logo.webp", desc: "AI SALES AGENT", color: "bg-cyan-500", iconColor: "text-white" },
     { name: "iMapsPro", href: "/local-seo", icon: MapPin, desc: "LOCAL SEO MAPS", color: "bg-emerald-500", iconColor: "text-white" },
     { name: "RevuBro", href: "/reputation", icon: Star, desc: "REVIEW AUTOMATION", color: "bg-emerald-500", iconColor: "text-white" },
   ];

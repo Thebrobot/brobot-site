@@ -2,7 +2,7 @@
 title: "How AI Phone Answering Cuts Missed Calls by 75%"
 description: "2026 data: AI phone answering reduces missed calls by 75%. 93% recovery with text-back within 1 minute. Here's how it works."
 pubDate: 2026-03-15
-heroImage: "/images/blog/ai-phone-answering-75-percent-missed-calls-hero.png"
+heroImage: "/images/blog/ai-phone-answering-75-percent-missed-calls-hero.webp"
 author: "Brobot Media"
 tags: ["Brobot One", "AI Answering", "Missed Calls", "VoIP", "2026 Stats"]
 ---

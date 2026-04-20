@@ -2,7 +2,7 @@
 title: "The $126,000 Ghost: How Missed Calls Quietly Kill Service Business Growth"
 description: "Emergency calls and after-hours demand leak $126,000 yearly. Only 37.8% of calls are answered. Real estate, HVAC, and plumbing: here's the fix."
 pubDate: 2026-03-09
-heroImage: "/images/blog/true-cost-missed-calls-2026-hero.png"
+heroImage: "/images/blog/true-cost-missed-calls-2026-hero.webp"
 author: "Brobot Media"
 tags: ["Brobot One", "Missed Calls", "VoIP", "2026 Stats", "Small Business"]
 vertical: ["real-estate", "hvac", "plumbing"]

@@ -2,7 +2,7 @@
 title: "Brobot One vs Grasshopper: AI Answering vs Virtual Phone for Small Business"
 description: "Compare Brobot One and Grasshopper. See which offers AI answering, CRM, and 24/7 lead capture for solo and small teams."
 pubDate: 2026-04-01
-heroImage: "/images/blog/brobot-one-vs-grasshopper-hero.png"
+heroImage: "/images/blog/brobot-one-vs-grasshopper-hero.webp"
 author: "Brobot Media"
 tags: ["Brobot One", "Grasshopper", "VoIP", "Virtual Phone", "AI Answering"]
 ---

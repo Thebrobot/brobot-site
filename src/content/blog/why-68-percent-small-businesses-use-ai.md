@@ -2,7 +2,7 @@
 title: "Why 68% of Small Businesses Use AI (And How to Catch Up)"
 description: "68% of U.S. small businesses use AI in 2026. 91% report revenue increases. Here's how to join them."
 pubDate: 2026-03-11
-heroImage: "/images/blog/why-68-percent-small-businesses-use-ai-hero.png"
+heroImage: "/images/blog/why-68-percent-small-businesses-use-ai-hero.webp"
 author: "Brobot Media"
 tags: ["Agent Broski", "AI", "Small Business", "2026 Stats", "Automation"]
 ---
