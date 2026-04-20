@@ -62,20 +62,16 @@ const ogImageURL = new URL(image, Astro.site || 'https://thebrobot.com');
     </script>
     
     <!-- DNS Prefetch for external domains -->
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://stcdn.leadconnectorhq.com" />
     <link rel="dns-prefetch" href="https://beta.leadconnectorhq.com" />
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 
     <!-- Font Preloading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Non-blocking font load: preload as style, swap to stylesheet onload -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=fallback" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=fallback" /></noscript>
 
+    <!-- Preload critical self-hosted fonts -->
+    <link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/plus-jakarta-sans-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
     <title>{title}</title>
     
     <!-- Page-specific head content (schema, etc.) -->

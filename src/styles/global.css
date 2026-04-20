@@ -4,15 +4,47 @@
 /* Scan app sources for class names (Tailwind v4) */
 @source '../**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}';
 
-/* System font fallbacks — render before web fonts arrive */
+/* Self-hosted fonts — same origin, no external request, no FOUT delay */
 @font-face {
   font-family: 'Inter';
-  src: local('Inter'), local('Arial');
+  src: url('/fonts/inter-latin-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter-latin-600-normal.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter-latin-700-normal.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Plus Jakarta Sans';
-  src: local('Plus Jakarta Sans'), local('Helvetica Neue'), local('Arial');
+  src: url('/fonts/plus-jakarta-sans-latin-600-normal.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/fonts/plus-jakarta-sans-latin-700-normal.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/fonts/plus-jakarta-sans-latin-800-normal.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
   font-display: swap;
 }
 
