@@ -81,7 +81,7 @@ export const NAV_SYSTEMS: NavSystem[] = [
   {
     name: "Brobot",
     href: "/",
-    desc: "MAIN ECOSYSTEM",
+    desc: "HOME",
     color: "bg-neutral-950",
     iconColor: "text-white",
     image: "/images/favicon-nav.webp",
