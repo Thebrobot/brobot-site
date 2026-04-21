@@ -1,0 +1,496 @@
+---
+import { getMenuLinksForPath, NAV_SYSTEMS } from "../lib/navMenu";
+
+interface Props {
+  pathname?: string;
+}
+
+const { pathname = "/" } = Astro.props;
+const menuLinks = getMenuLinksForPath(pathname);
+const currentSystem = NAV_SYSTEMS.find((s) => s.href === pathname) ?? NAV_SYSTEMS[0];
+const isPhonePage = pathname === "/ai-phone-crm";
+
+const navShellClass = [
+  "cyber-glass px-3 md:px-8 py-2 md:py-3 rounded-full flex items-center justify-between gap-3 md:gap-8 pointer-events-auto transition-all duration-500",
+  "shadow-[0_8px_32px_rgba(0,0,0,0.4),0_0_1px_rgba(255,255,255,0.1)_inset]",
+  "border border-white/20",
+  isPhonePage ? "bg-[#020617] nav-phone" : "bg-[#020617]/80 backdrop-blur-xl nav-default",
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 flex justify-center p-4 md:p-8 pointer-events-none">
+  <nav id="brobot-nav-shell" class:list={navShellClass} data-phone-page={isPhonePage ? "1" : "0"}>
+    <details id="brobot-hub" class="relative pointer-events-auto group/hub">
+      <summary
+        class="list-none cursor-pointer flex items-center gap-2 md:gap-3 px-3 md:px-5 py-2 md:py-3 bg-white/10 rounded-full border border-white/5 backdrop-blur-md transition-all hover:bg-white/20 [&::-webkit-details-marker]:hidden"
+      >
+        <span class="sr-only">Open product menu</span>
+        <div
+          class:list={[
+            "w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl flex items-center justify-center transition-transform group-hover/hub:scale-110 relative flex-shrink-0 animate-[hub-pulse_4s_ease-in-out_infinite]",
+            currentSystem.image ? "" : currentSystem.color,
+          ]}
+        >
+          {
+            currentSystem.image ? (
+              <img
+                src={currentSystem.image}
+                alt={currentSystem.name}
+                width={40}
+                height={40}
+                class="w-full h-full object-contain"
+                loading="eager"
+                decoding="async"
+              />
+            ) : currentSystem.icon === "phone" ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class:list={["w-4 h-4 md:w-5 md:h-5", currentSystem.iconColor]}
+                aria-hidden="true"
+              >
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+            ) : currentSystem.icon === "map" ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class:list={["w-4 h-4 md:w-5 md:h-5", currentSystem.iconColor]}
+                aria-hidden="true"
+              >
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+            ) : currentSystem.icon === "star" ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class:list={["w-4 h-4 md:w-5 md:h-5", currentSystem.iconColor]}
+                aria-hidden="true"
+              >
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg>
+            ) : currentSystem.icon === "zap" ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class:list={["w-4 h-4 md:w-5 md:h-5", currentSystem.iconColor]}
+                aria-hidden="true"
+              >
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class:list={["w-4 h-4 md:w-5 md:h-5", currentSystem.iconColor]}
+                aria-hidden="true"
+              >
+                <rect width="7" height="9" x="3" y="3" rx="1" />
+                <rect width="7" height="5" x="14" y="3" rx="1" />
+                <rect width="7" height="9" x="14" y="12" rx="1" />
+                <rect width="7" height="5" x="3" y="16" rx="1" />
+              </svg>
+            )
+          }
+        </div>
+        <div class="flex flex-col justify-center">
+          <div class="text-xs md:text-sm font-black text-white tracking-wider leading-none">
+            {currentSystem.name}
+          </div>
+          <div class="text-[8px] md:text-[9px] text-white font-bold uppercase tracking-tight leading-none mt-1">
+            {currentSystem.desc}
+          </div>
+        </div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="hub-chev w-3 h-3 md:w-4 md:h-4 text-white transition-transform duration-300 ml-1"
+          aria-hidden="true"
+        >
+          <path d="m6 9 6 6 6-6" />
+        </svg>
+      </summary>
+
+      <div
+        class="absolute top-full left-0 mt-1 w-64 md:w-72 bg-white rounded-[24px] p-3 shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-neutral-200 z-50 overflow-hidden max-h-[min(70vh,520px)] overflow-y-auto"
+      >
+        <div class="flex flex-col text-left">
+          <div class="px-3 py-2 mb-2">
+            <div class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.2em]">Switch Product</div>
+          </div>
+          <div class="space-y-1.5">
+            {
+              NAV_SYSTEMS.map((sys) => {
+                const isActive = pathname === sys.href;
+                return (
+                  <a
+                    href={sys.href}
+                    class:list={[
+                      "flex items-center gap-3 p-3 rounded-2xl transition-all group relative overflow-hidden",
+                      isActive ? "bg-neutral-50" : "hover:bg-neutral-50",
+                    ]}
+                  >
+                    <div
+                      class:list={[
+                        "w-10 h-10 rounded-xl flex items-center justify-center transition-all shadow-sm relative overflow-hidden",
+                        sys.image ? "" : sys.color,
+                      ]}
+                    >
+                      {sys.image ? (
+                        <img
+                          src={sys.image}
+                          alt={sys.name}
+                          width={40}
+                          height={40}
+                          class="w-full h-full object-cover"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      ) : sys.icon === "phone" ? (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class:list={["w-5 h-5", sys.iconColor]}
+                          aria-hidden="true"
+                        >
+                          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                      ) : sys.icon === "map" ? (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class:list={["w-5 h-5", sys.iconColor]}
+                          aria-hidden="true"
+                        >
+                          <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                          <circle cx="12" cy="10" r="3" />
+                        </svg>
+                      ) : sys.icon === "star" ? (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class:list={["w-5 h-5", sys.iconColor]}
+                          aria-hidden="true"
+                        >
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                        </svg>
+                      ) : sys.icon === "zap" ? (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class:list={["w-5 h-5", sys.iconColor]}
+                          aria-hidden="true"
+                        >
+                          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                        </svg>
+                      ) : (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class:list={["w-5 h-5", sys.iconColor]}
+                          aria-hidden="true"
+                        >
+                          <rect width="7" height="9" x="3" y="3" rx="1" />
+                          <rect width="7" height="5" x="14" y="3" rx="1" />
+                          <rect width="7" height="9" x="14" y="12" rx="1" />
+                          <rect width="7" height="5" x="3" y="16" rx="1" />
+                        </svg>
+                      )}
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="text-[13px] font-black text-neutral-900 tracking-wider truncate">{sys.name}</div>
+                      <div class="text-[10px] text-neutral-900 font-bold uppercase tracking-tight truncate">
+                        {isActive ? "Currently Viewing" : sys.desc}
+                      </div>
+                    </div>
+                    {isActive && (
+                      <div class="w-1.5 h-1.5 rounded-full bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.8)]" />
+                    )}
+                  </a>
+                );
+              })
+            }
+          </div>
+          <div class="mt-3 pt-3 border-t border-neutral-100 px-1">
+            <a href="/blog" class="flex items-center gap-3 p-3 rounded-2xl hover:bg-neutral-50 transition-all group mb-2">
+              <div class="w-10 h-10 rounded-xl bg-neutral-100 flex items-center justify-center transition-all shadow-sm">
+                <span class="text-lg" aria-hidden="true">📰</span>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="text-[13px] font-black text-neutral-900 tracking-wider truncate">Blog & Insights</div>
+                <div class="text-[10px] text-neutral-900 font-bold uppercase tracking-tight truncate">Latest Updates</div>
+              </div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-3 h-3 text-neutral-400 group-hover:text-amber-500 group-hover:translate-x-1 transition-all"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </a>
+            <a href="/contact" class="flex items-center gap-3 p-3 rounded-2xl hover:bg-neutral-50 transition-all group mb-2">
+              <div class="w-10 h-10 rounded-xl bg-neutral-100 flex items-center justify-center transition-all shadow-sm">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-5 h-5 text-neutral-600"
+                  aria-hidden="true"
+                >
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="text-[13px] font-black text-neutral-900 tracking-wider truncate">Contact Us</div>
+                <div class="text-[10px] text-neutral-900 font-bold uppercase tracking-tight truncate">Phone, email & form</div>
+              </div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-3 h-3 text-neutral-400 group-hover:text-amber-500 group-hover:translate-x-1 transition-all"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </a>
+            <a
+              href="/industries"
+              class="flex items-center justify-between p-3 rounded-2xl bg-amber-600 text-white hover:bg-amber-500 transition-all shadow-lg shadow-amber-600/20 group"
+            >
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="w-4 h-4 text-white"
+                    aria-hidden="true"
+                  >
+                    <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" />
+                  </svg>
+                </div>
+                <div class="text-[12px] font-black uppercase tracking-wider">Industry Solutions</div>
+              </div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-3 h-3 group-hover:translate-x-1 transition-transform"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <div class="hidden md:flex items-center gap-8 text-[11px] font-black uppercase tracking-[0.3em] text-white">
+      {
+        menuLinks.map((link) => (
+          <a
+            href={link.href}
+            class="flex items-center gap-1.5 hover:text-amber-400 transition-colors group"
+            title={link.href.startsWith("#") ? `Jump to ${link.name} section` : undefined}
+          >
+            {link.name}
+            {link.href.startsWith("#") && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-2.5 h-2.5 opacity-60 group-hover:translate-y-0.5 transition-transform duration-300"
+                aria-hidden="true"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            )}
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="flex items-center gap-3 md:gap-6">
+      <a
+        href="https://app.thebrobot.com"
+        class="text-[9px] md:text-[11px] font-black uppercase tracking-widest text-white hover:text-white transition-colors px-2"
+      >
+        Log In
+      </a>
+      <a
+        href="/contact"
+        class="bg-amber-600 hover:bg-amber-500 transition-all text-white px-4 md:px-8 py-2 md:py-3 rounded-full text-[9px] md:text-[11px] font-black uppercase tracking-[0.2em] shadow-[0_0_30px_-10px_rgba(245,158,11,0.5)]"
+      >
+        <span class="hidden sm:inline">Book Demo</span>
+        <span class="sm:hidden">Book</span>
+      </a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  #brobot-hub[open] .hub-chev {
+    transform: rotate(180deg);
+  }
+  #brobot-nav-shell.nav-default.nav-scrolled {
+    background-color: rgb(2 6 23 / 0.95);
+    backdrop-filter: blur(40px);
+    transform: translateY(0.5rem);
+  }
+  #brobot-nav-shell.nav-phone.nav-scrolled {
+    transform: translateY(0.5rem);
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    var nav = document.getElementById("brobot-nav-shell");
+    var hub = document.getElementById("brobot-hub");
+    if (!nav) return;
+
+    function syncScroll() {
+      var y = window.scrollY > 50;
+      nav.classList.toggle("nav-scrolled", y);
+    }
+
+    syncScroll();
+    window.addEventListener("scroll", syncScroll, { passive: true });
+
+    if (hub) {
+      hub.addEventListener("click", function (e) {
+        var t = e.target;
+        if (!(t instanceof Element)) return;
+        var a = t.closest("a");
+        if (!a || !hub.contains(a)) return;
+        var href = a.getAttribute("href") || "";
+        if (href.startsWith("#")) hub.removeAttribute("open");
+      });
+
+      hub.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") hub.removeAttribute("open");
+      });
+    }
+  })();
+</script>

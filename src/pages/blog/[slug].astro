@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Navbar from '../../components/Navbar';
+import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 
 export async function getStaticPaths() {
@@ -68,7 +68,7 @@ const articleSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   </Fragment>
   <main class="min-h-screen bg-[#020617] text-white pt-16 md:pt-32 pb-20">
-    <Navbar client:idle pathname={pathname} />
+    <Navbar pathname={pathname} />
     
     {showPreviewBanner && (
       <div class="max-w-4xl mx-auto px-6 pt-6">

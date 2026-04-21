@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar.astro';
 import HeroDesktopStatic from '../components/HeroDesktopStatic.astro';
 import HeroMobile from '../components/HeroMobile.astro';
 import HowItWorks from '../components/HowItWorks.astro';
@@ -29,7 +29,7 @@ const services = [
   description="Brobot Media: AI voice agents, business VoIP desk phone systems, CRM, review automation, and local SEO for HVAC, plumbing, dental, real estate & 20+ industries. Book appointments 24/7."
 >
   <main class="min-h-screen bg-[#020617]">
-    <Navbar client:idle pathname={pathname} />
+    <Navbar pathname={pathname} />
     
     <!-- Hero: static Astro on all breakpoints (no Unicorn / no Framer hero island) -->
     <div class="md:hidden"><HeroMobile /></div>
