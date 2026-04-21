@@ -74,6 +74,8 @@ const ogImageURL = new URL(image, Astro.site || 'https://thebrobot.com');
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://beta.leadconnectorhq.com" crossorigin />
+    <link rel="dns-prefetch" href="https://beta.leadconnectorhq.com" />
 
     <!-- Font Preloading -->
 
@@ -211,5 +213,7 @@ const ogImageURL = new URL(image, Astro.site || 'https://thebrobot.com');
   </head>
   <body class="antialiased selection:bg-amber-100 selection:text-amber-900">
     <slot />
+    <!-- LeadConnector (HighLevel) chat widget -->
+    <script src="https://beta.leadconnectorhq.com/loader.js" data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="697afb8edad8af891080ebef"></script>
   </body>
 </html>
