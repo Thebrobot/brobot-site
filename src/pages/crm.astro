@@ -66,7 +66,7 @@ const serviceSchema = {
     })} />
     <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   </Fragment>
-  <main class="min-h-screen bg-[#020617] text-white pt-32 pb-20">
+  <main class="crm-mobile-tune min-h-screen bg-[#020617] text-white pt-32 pb-20">
     <Navbar pathname={pathname} />
     
     <!-- Hero Section -->
@@ -922,4 +922,22 @@ const serviceSchema = {
     <RelatedServices currentPath={pathname} />
     <Footer />
   </main>
+
+  <!-- Mobile: this page stacks many backdrop-blur + filter blurs — neuter on small viewports for scroll/paint. -->
+  <style is:global>
+    @media (max-width: 767px) {
+      .crm-mobile-tune .backdrop-blur-sm,
+      .crm-mobile-tune .backdrop-blur,
+      .crm-mobile-tune .backdrop-blur-md,
+      .crm-mobile-tune .backdrop-blur-xl,
+      .crm-mobile-tune .backdrop-blur-2xl,
+      .crm-mobile-tune .backdrop-blur-3xl {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+      }
+      .crm-mobile-tune [class*="blur-"] {
+        filter: none !important;
+      }
+    }
+  </style>
 </BaseLayout>

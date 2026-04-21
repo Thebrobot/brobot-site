@@ -10,11 +10,14 @@ const menuLinks = getMenuLinksForPath(pathname);
 const currentSystem = NAV_SYSTEMS.find((s) => s.href === pathname) ?? NAV_SYSTEMS[0];
 const isPhonePage = pathname === "/ai-phone-crm";
 
+/** Mobile: solid bar — no stacked backdrop-filters (huge cost on long pages like /crm). Desktop: unchanged glass. */
 const navShellClass = [
-  "cyber-glass px-3 md:px-8 py-2 md:py-3 rounded-full flex items-center justify-between gap-3 md:gap-8 pointer-events-auto transition-all duration-500",
+  "px-3 md:px-8 py-2 md:py-3 rounded-full flex items-center justify-between gap-3 md:gap-8 pointer-events-auto transition-all duration-500",
   "shadow-[0_8px_32px_rgba(0,0,0,0.4),0_0_1px_rgba(255,255,255,0.1)_inset]",
   "border border-white/20",
-  isPhonePage ? "bg-[#020617] nav-phone" : "bg-[#020617]/80 backdrop-blur-xl nav-default",
+  "max-md:bg-[#020617] max-md:border-white/20",
+  "md:cyber-glass",
+  isPhonePage ? "md:bg-[#020617] nav-phone" : "md:bg-[#020617]/80 md:backdrop-blur-xl nav-default",
 ];
 ---
 
@@ -22,12 +25,12 @@ const navShellClass = [
   <nav id="brobot-nav-shell" class:list={navShellClass} data-phone-page={isPhonePage ? "1" : "0"}>
     <details id="brobot-hub" class="relative pointer-events-auto group/hub">
       <summary
-        class="list-none cursor-pointer flex items-center gap-2 md:gap-3 px-3 md:px-5 py-2 md:py-3 bg-white/10 rounded-full border border-white/5 backdrop-blur-md transition-all hover:bg-white/20 [&::-webkit-details-marker]:hidden"
+        class="list-none cursor-pointer flex items-center gap-2 md:gap-3 px-3 md:px-5 py-2 md:py-3 bg-white/10 rounded-full border border-white/5 md:backdrop-blur-md transition-all hover:bg-white/20 [&::-webkit-details-marker]:hidden"
       >
         <span class="sr-only">Open product menu</span>
         <div
           class:list={[
-            "w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl flex items-center justify-center transition-transform group-hover/hub:scale-110 relative flex-shrink-0 animate-[hub-pulse_4s_ease-in-out_infinite]",
+            "w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl flex items-center justify-center transition-transform group-hover/hub:scale-110 relative flex-shrink-0 max-md:animate-none md:animate-[hub-pulse_4s_ease-in-out_infinite]",
             currentSystem.image ? "" : currentSystem.color,
           ]}
         >
@@ -454,13 +457,22 @@ const navShellClass = [
   #brobot-hub[open] .hub-chev {
     transform: rotate(180deg);
   }
-  #brobot-nav-shell.nav-default.nav-scrolled {
-    background-color: rgb(2 6 23 / 0.95);
-    backdrop-filter: blur(40px);
-    transform: translateY(0.5rem);
+  /* Scroll feedback: keep heavy backdrop-filter for md+ only */
+  @media (min-width: 768px) {
+    #brobot-nav-shell.nav-default.nav-scrolled {
+      background-color: rgb(2 6 23 / 0.95);
+      backdrop-filter: blur(40px);
+      transform: translateY(0.5rem);
+    }
+    #brobot-nav-shell.nav-phone.nav-scrolled {
+      transform: translateY(0.5rem);
+    }
   }
-  #brobot-nav-shell.nav-phone.nav-scrolled {
-    transform: translateY(0.5rem);
+  @media (max-width: 767px) {
+    #brobot-nav-shell.nav-scrolled {
+      transform: translateY(0.35rem);
+      background-color: rgb(2 6 23);
+    }
   }
 </style>
 
