@@ -5,47 +5,50 @@
 @source '../**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}';
 
 /* Self-hosted fonts — same origin, no external request, no FOUT delay */
+/* font-display: optional — fonts are preloaded so they arrive in the ~100ms window on
+   warm/CDN connections. If they miss the window the browser keeps the system font and
+   never does a late swap, which prevents a 2–3 s LCP repaint penalty. */
 @font-face {
   font-family: 'Inter';
   src: url('/fonts/inter-latin-400-normal.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: 'Inter';
   src: url('/fonts/inter-latin-600-normal.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: 'Inter';
   src: url('/fonts/inter-latin-700-normal.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: 'Plus Jakarta Sans';
   src: url('/fonts/plus-jakarta-sans-latin-600-normal.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: 'Plus Jakarta Sans';
   src: url('/fonts/plus-jakarta-sans-latin-700-normal.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: 'Plus Jakarta Sans';
   src: url('/fonts/plus-jakarta-sans-latin-800-normal.woff2') format('woff2');
   font-weight: 800;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 
 @theme {
