@@ -1,10 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Footer from '../components/Footer';
+import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar';
 import VoicePreview from '../components/VoicePreview';
 import AutomationEngine from '../components/AutomationEngine';
-import FAQ from '../components/FAQ';
+import FAQ from '../components/FAQ.astro';
 import RelatedServices from '../components/RelatedServices.astro';
 import AgentBroskiIcon from '../components/AgentBroskiIcon';
 import { ArrowRight, Mic2, Bot, Zap, Sparkles, ShieldCheck, Clock, PhoneCall, MessagesSquare, CalendarCheck2 } from 'lucide-react';
@@ -48,7 +48,7 @@ const serviceSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   </Fragment>
   <main class="min-h-screen bg-[#020617] text-white pt-32 pb-20">
-    <Navbar client:load pathname={pathname} />
+    <Navbar client:idle pathname={pathname} />
     
     <!-- Hero Section -->
     <section class="relative px-6 py-20 overflow-hidden">
@@ -281,7 +281,7 @@ const serviceSchema = {
     <AutomationEngine client:visible />
 
     <!-- Objection handling / FAQ -->
-    <FAQ client:visible />
+    <FAQ />
 
     <!-- Final CTA -->
     <section class="py-40 px-6">
@@ -301,6 +301,6 @@ const serviceSchema = {
     </section>
 
     <RelatedServices currentPath={pathname} />
-    <Footer client:visible />
+    <Footer />
   </main>
 </BaseLayout>

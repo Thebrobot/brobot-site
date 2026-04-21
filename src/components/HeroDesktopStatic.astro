@@ -1,0 +1,114 @@
+---
+/**
+ * Desktop/tablet hero — zero JS, no Unicorn Studio, no Framer Motion.
+ * Same messaging and CTAs as the former HeroDesktop island.
+ */
+---
+<section
+  id="hero"
+  class="relative pt-24 md:pt-32 pb-20 px-4 flex flex-col items-center justify-center overflow-hidden min-h-[90vh] md:min-h-screen"
+>
+  <div class="absolute inset-0 bg-[#020617] -z-20"></div>
+
+  <!-- Static ambient (no animated opacity/scale loops) -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+    <div
+      class="absolute top-[-10%] left-[-10%] w-[70%] h-[70%] bg-amber-600/15 blur-[150px] rounded-full"
+    ></div>
+    <div
+      class="absolute bottom-[-10%] right-[-10%] w-[70%] h-[70%] bg-amber-600/8 blur-[150px] rounded-full"
+    ></div>
+  </div>
+
+  <!-- Perspective grid (fixed; no scroll-linked motion) -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden h-full w-full z-0">
+    <div
+      class="grid-perspective absolute -bottom-1/2 left-[-50%] right-[-50%] h-full opacity-20"
+    ></div>
+  </div>
+
+  <div class="max-w-6xl mx-auto text-center relative z-10">
+    <div
+      class="mb-8 md:mb-12 inline-flex items-center space-x-3 bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] px-4 md:px-6 py-2 rounded-full text-[9px] md:text-[10px] uppercase tracking-[0.4em] font-bold text-amber-400 shadow-2xl"
+    >
+      <svg
+        class="w-3 md:w-3.5 h-3 md:h-3.5 shrink-0 text-amber-400"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+        <rect x="9" y="9" width="6" height="6"></rect>
+        <path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"></path>
+      </svg>
+      <span>Neural Engine Active</span>
+    </div>
+
+    <h1
+      class="mb-8 md:mb-10 text-5xl sm:text-7xl md:text-9xl lg:text-[10rem] font-display font-black tracking-tighter leading-[0.9] md:leading-[0.85] bg-gradient-to-b from-white via-white to-white/60 bg-clip-text text-transparent drop-shadow-[0_15px_35px_rgba(0,0,0,0.8)]"
+    >
+      EVERY MISSED <br />
+      <span class="relative inline-block text-amber-500 drop-shadow-[0_0_30px_rgba(245,158,11,0.3)]">
+        CALL IS MONEY
+        <span
+          class="absolute -inset-x-4 inset-y-0 bg-amber-500/5 blur-3xl -z-10 rounded-full pointer-events-none"
+          aria-hidden="true"
+        ></span>
+      </span>
+    </h1>
+
+    <p
+      class="mx-auto mb-12 md:mb-16 max-w-2xl text-lg md:text-2xl text-white font-medium leading-relaxed tracking-tight drop-shadow-md px-4 md:px-0"
+    >
+      The only system you need to grow. Calls → booked appointments → CRM follow-up → more 5-star reviews → higher map visibility.
+    </p>
+
+    <div class="flex flex-col items-center justify-center gap-4 md:gap-8 sm:flex-row px-4">
+      <a
+        href="/contact"
+        class="h-16 md:h-18 w-full sm:w-auto px-10 md:px-12 rounded-2xl bg-amber-500 text-black font-black text-base md:text-lg transition-all hover:bg-amber-400 flex items-center justify-center hover:scale-[1.02] active:scale-[0.98] motion-reduce:transform-none shadow-none hover:shadow-[0_0_30px_rgba(245,158,11,0.35)]"
+      >
+        <span class="uppercase tracking-widest">BOOK 15-MIN DEMO</span>
+      </a>
+
+      <a
+        href="/industries"
+        class="group h-16 md:h-18 w-full sm:w-auto px-10 md:px-12 rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-md text-white font-bold text-base md:text-lg transition-all flex items-center justify-center gap-3 hover:bg-white/[0.05] hover:scale-[1.02] active:scale-[0.98] motion-reduce:transform-none hover:text-amber-500"
+      >
+        <span
+          class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-amber-500/10 transition-colors"
+        >
+          <svg
+            class="w-3.5 h-3.5 text-white group-hover:text-amber-500 transition-colors"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </span>
+        PICK YOUR INDUSTRY
+      </a>
+    </div>
+
+    <div class="mt-8 md:mt-10 text-center">
+      <a
+        href="#voice"
+        class="inline-flex items-center justify-center text-[10px] md:text-[11px] font-black uppercase tracking-[0.25em] text-slate-300 hover:text-amber-300 transition-colors"
+      >
+        Hear Agent Broski
+      </a>
+    </div>
+  </div>
+
+  <div class="hidden md:flex absolute bottom-12 flex-col items-center gap-4 z-10">
+    <div class="text-[9px] font-black uppercase tracking-[0.5em] text-slate-600">Secure AI Protocol v2.0</div>
+    <div class="w-px h-12 bg-gradient-to-b from-amber-500/50 to-transparent"></div>
+  </div>
+</section>

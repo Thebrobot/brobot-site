@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import Footer from '../components/Footer.astro';
 import { Mail, Phone, Send, Activity, Shield, MessageSquare, CheckCircle2, ArrowRight } from 'lucide-react';
 
 const pathname = "/contact";
@@ -12,7 +12,7 @@ const pathname = "/contact";
   description="Contact Brobot Media for AI voice agents, VoIP desk phones, CRM, and review automation. Book a free demo or call."
 >
   <main class="min-h-screen bg-[#020617] text-white">
-    <Navbar client:load pathname={pathname} />
+    <Navbar client:idle pathname={pathname} />
     
     <section class="pt-48 pb-32 px-6 relative overflow-hidden">
       <!-- Ambient Background Glows -->
@@ -336,7 +336,7 @@ const pathname = "/contact";
     </section>
 
     
-    <Footer client:visible />
+    <Footer />
   </main>
 </BaseLayout>
 

@@ -1,10 +1,11 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, Pause, User, Bot, Activity, ArrowUpRight, Zap } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useMemo, lazy, Suspense } from "react";
 import { cn } from "@/lib/utils";
 import { industries } from "@/data/industries";
-import DemoModal from "./DemoModal";
-import VoiceCloningModal from "./VoiceCloningModal";
+
+const DemoModal = lazy(() => import("./DemoModal"));
+const VoiceCloningModal = lazy(() => import("./VoiceCloningModal"));
 
 const demos = [
   {
@@ -43,6 +44,9 @@ const demos = [
 ];
 
 export default function VoicePreview() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [sectionVisible, setSectionVisible] = useState(false);
+  const [reduceMotion, setReduceMotion] = useState(false);
   const [activeDemo, setActiveDemo] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentLine, setCurrentLine] = useState(-1);
@@ -50,12 +54,37 @@ export default function VoicePreview() {
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const [isVoiceCloningModalOpen, setIsVoiceCloningModalOpen] = useState(false);
 
+  const eqHeights = useMemo(
+    () => Array.from({ length: 24 }, () => 10 + Math.random() * 32),
+    []
+  );
+
   useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const sync = () => setReduceMotion(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([e]) => setSectionVisible(e.isIntersecting),
+      { rootMargin: "80px", threshold: 0.05 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!sectionVisible || reduceMotion) return;
     const interval = setInterval(() => {
       setIndustryIndex((prev) => (prev + 1) % industries.length);
     }, 2000);
     return () => clearInterval(interval);
-  }, []);
+  }, [sectionVisible, reduceMotion]);
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -85,7 +114,7 @@ export default function VoicePreview() {
   };
 
   return (
-    <section id="voice" className="py-24 md:py-40 bg-[#020617] relative overflow-hidden">
+    <section ref={sectionRef} id="voice" className="py-24 md:py-40 bg-[#020617] relative overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row gap-12 md:gap-24 items-center">
           <div className="flex-1 w-full text-left">
@@ -121,10 +150,10 @@ export default function VoicePreview() {
                     <AnimatePresence mode="wait">
                       <motion.div
                         key={industryIndex}
-                        initial={{ y: 20, opacity: 0 }}
+                        initial={reduceMotion ? false : { y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        exit={{ y: -20, opacity: 0 }}
-                        transition={{ duration: 0.5, ease: "circOut" }}
+                        exit={reduceMotion ? false : { y: -20, opacity: 0 }}
+                        transition={reduceMotion ? { duration: 0 } : { duration: 0.5, ease: "circOut" }}
                         className="absolute inset-0"
                       >
                         <a 
@@ -161,26 +190,28 @@ export default function VoicePreview() {
               <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
                 <motion.button
                   onClick={isPlaying ? stopDemo : startDemo}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={reduceMotion ? undefined : { scale: 1.02 }}
+                  whileTap={reduceMotion ? undefined : { scale: 0.98 }}
                   className="group relative flex items-center justify-center gap-6 bg-white text-[#020617] w-full sm:flex-1 px-10 md:px-12 py-5 md:py-6 rounded-2xl md:rounded-[24px] font-black text-sm shadow-[0_0_40px_-5px_rgba(255,255,255,0.2)] overflow-hidden"
                 >
                   <div className="relative z-10 flex items-center gap-4">
                     {isPlaying ? <Pause className="w-5 h-5 md:w-6 md:h-6 fill-current" /> : <Play className="w-5 h-5 md:w-6 md:h-6 fill-current" />}
                     <span className="uppercase tracking-[0.2em]">Initiate_Simulation</span>
                   </div>
-                  <motion.div 
-                    initial={{ x: "-100%" }}
-                    animate={isPlaying ? { x: "100%" } : { x: "-100%" }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                    className="absolute inset-0 bg-cyan-500/10"
-                  />
+                  {!reduceMotion && (
+                    <motion.div 
+                      initial={{ x: "-100%" }}
+                      animate={isPlaying ? { x: "100%" } : { x: "-100%" }}
+                      transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                      className="absolute inset-0 bg-cyan-500/10"
+                    />
+                  )}
                 </motion.button>
 
                 <motion.button
                   onClick={() => setIsDemoModalOpen(true)}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={reduceMotion ? undefined : { scale: 1.02 }}
+                  whileTap={reduceMotion ? undefined : { scale: 0.98 }}
                   className="group relative flex items-center justify-center gap-3 bg-cyan-500 hover:bg-cyan-400 text-white w-full sm:flex-1 px-10 md:px-12 py-5 md:py-6 rounded-2xl md:rounded-[24px] font-black text-sm shadow-[0_0_40px_-5px_rgba(6,182,212,0.3)] transition-all overflow-hidden"
                 >
                   <Zap className="w-5 h-5 md:w-6 md:h-6" />
@@ -218,8 +249,9 @@ export default function VoicePreview() {
                     {currentLine >= 0 && demos[activeDemo].transcript.slice(0, currentLine + 1).map((line, i) => (
                       <motion.div
                         key={i}
-                        initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+                        initial={reduceMotion ? false : { opacity: 0, y: 30, filter: "blur(10px)" }}
                         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                        transition={reduceMotion ? { duration: 0 } : undefined}
                         className={cn(
                           "flex gap-4 md:gap-6 max-w-[95%] md:max-w-[90%]",
                           line.sender === "user" ? "ml-auto flex-row-reverse" : ""
@@ -252,11 +284,15 @@ export default function VoicePreview() {
                     {[...Array(24)].map((_, i) => (
                       <motion.div
                         key={i}
-                        animate={isPlaying ? { 
-                          height: [4, Math.random() * 40 + 10, 4],
-                          backgroundColor: ["#00E5FF", "#70F3FF", "#00E5FF"]
-                        } : { height: 2, backgroundColor: "#334155" }}
-                        transition={{ repeat: Infinity, duration: 0.5, delay: i * 0.03 }}
+                        animate={
+                          reduceMotion || !isPlaying
+                            ? { height: 4, backgroundColor: "#334155" }
+                            : {
+                                height: [4, eqHeights[i], 4],
+                                backgroundColor: ["#00E5FF", "#70F3FF", "#00E5FF"],
+                              }
+                        }
+                        transition={reduceMotion || !isPlaying ? { duration: 0 } : { repeat: Infinity, duration: 0.5, delay: i * 0.03 }}
                         className="w-1 rounded-full"
                       />
                     ))}
@@ -312,8 +348,14 @@ export default function VoicePreview() {
         </motion.div>
       </div>
 
-      <DemoModal isOpen={isDemoModalOpen} onClose={() => setIsDemoModalOpen(false)} />
-      <VoiceCloningModal isOpen={isVoiceCloningModalOpen} onClose={() => setIsVoiceCloningModalOpen(false)} />
+      <Suspense fallback={null}>
+        {isDemoModalOpen ? (
+          <DemoModal isOpen={isDemoModalOpen} onClose={() => setIsDemoModalOpen(false)} />
+        ) : null}
+        {isVoiceCloningModalOpen ? (
+          <VoiceCloningModal isOpen={isVoiceCloningModalOpen} onClose={() => setIsVoiceCloningModalOpen(false)} />
+        ) : null}
+      </Suspense>
     </section>
   );
 }

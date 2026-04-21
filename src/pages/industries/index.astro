@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Footer from '../../components/Footer';
+import Footer from '../../components/Footer.astro';
 import Navbar from '../../components/Navbar';
 import CustomBuildQuestionnaire from '../../components/CustomBuildQuestionnaire';
 import { industries } from '../../data/industries';
@@ -23,7 +23,7 @@ const industryCategories = [
   description="Choose your industry to see how Brobot’s AI agents handle lead response, qualification, scheduling, and follow-up—built for your vertical."
 >
   <main class="min-h-screen bg-[#020617] text-white pt-40 pb-20 px-6">
-    <Navbar client:load pathname={pathname} />
+    <Navbar client:idle pathname={pathname} />
     
     <!-- Header -->
     <section class="max-w-7xl mx-auto mb-20 text-center">
@@ -137,7 +137,7 @@ const industryCategories = [
             Try a different keyword (e.g. “contractor”, “insurance”, “dispatch”) or request a custom build for your niche.
           </p>
           <CustomBuildQuestionnaire
-            client:load
+            client:visible
             buttonLabel="Request Custom Build"
             buttonClassName="inline-flex items-center justify-center gap-3 bg-amber-600 hover:bg-amber-500 text-white px-8 py-4 rounded-full font-black uppercase tracking-[0.2em] shadow-xl shadow-amber-600/20 transition-all text-[10px]"
           />
@@ -153,7 +153,7 @@ const industryCategories = [
           Don’t see your niche? We can deploy a custom vertical module (intake, qualification, follow-up, scheduling, and integrations).
         </p>
         <CustomBuildQuestionnaire
-          client:load
+          client:visible
           buttonLabel="REQUEST CUSTOM BUILD"
           buttonClassName="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full font-black uppercase tracking-[0.2em] border border-white/10 hover:bg-white/5 transition-all text-center text-[10px] text-white"
         />
@@ -233,6 +233,6 @@ const industryCategories = [
     </script>
 
 
-    <Footer client:visible />
+    <Footer />
   </main>
 </BaseLayout>

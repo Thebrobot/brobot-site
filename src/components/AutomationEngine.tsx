@@ -85,10 +85,12 @@ function EcosystemTile({
   tile,
   index,
   side,
+  reduceMotion = false,
 }: {
   tile: (typeof allTiles)[0];
   index: number;
   side: "left" | "right" | "above";
+  reduceMotion?: boolean;
 }) {
   const colorClasses: Record<string, string> = {
     cyan: "cyber-glass hover:border-cyan-500/30 hover:shadow-[0_20px_60px_-15px_rgba(34,211,238,0.4)]",
@@ -114,11 +116,19 @@ function EcosystemTile({
   return (
     <motion.a
       href={tile.href}
-      initial={{ opacity: 0, x: side === "left" ? -20 : side === "right" ? 20 : 0, y: side === "above" ? -20 : 0 }}
+      initial={
+        reduceMotion
+          ? false
+          : { opacity: 0, x: side === "left" ? -20 : side === "right" ? 20 : 0, y: side === "above" ? -20 : 0 }
+      }
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      transition={{ delay: index * 0.1 }}
+      transition={reduceMotion ? { duration: 0 } : { delay: index * 0.1 }}
       viewport={{ once: true }}
-      whileHover={{ scale: 1.02, x: side === "left" ? 8 : side === "right" ? -8 : 0, y: side === "above" ? 4 : 0 }}
+      whileHover={
+        reduceMotion
+          ? undefined
+          : { scale: 1.02, x: side === "left" ? 8 : side === "right" ? -8 : 0, y: side === "above" ? 4 : 0 }
+      }
       className={`block cyber-glass p-6 md:p-8 rounded-3xl md:rounded-[32px] neon-border group relative transition-all cursor-pointer overflow-hidden ${colorClasses[tile.color]}`}
     >
       <div className={`absolute inset-0 bg-transparent transition-all duration-300 pointer-events-none rounded-3xl md:rounded-[32px] ${hoverGlowClasses[tile.color]}`} />
@@ -150,7 +160,7 @@ function EcosystemTile({
         )}
         {tile.id === "crm" && (
           <div className="flex items-center gap-2 text-indigo-400 text-[10px] font-black uppercase tracking-wider mb-4">
-            <Activity className="w-4 h-4 animate-bounce" />
+            <Activity className={reduceMotion ? "w-4 h-4" : "w-4 h-4 animate-bounce"} />
             DATA_SYNC_ACTIVE_SYNCING...
           </div>
         )}
@@ -164,8 +174,10 @@ function EcosystemTile({
 }
 
 export default function AutomationEngine() {
+  const [reduceMotion, setReduceMotion] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const brainRef = useRef<HTMLDivElement>(null);
+  const debounceTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const tileRefs = [
     useRef<HTMLDivElement>(null), // Agent Broski
     useRef<HTMLDivElement>(null), // RevuBro
@@ -181,6 +193,14 @@ export default function AutomationEngine() {
     { x: 600, y: 180 },
     { x: 600, y: 460 },
   ]);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const sync = () => setReduceMotion(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
 
   useEffect(() => {
     const updatePositions = () => {
@@ -214,17 +234,27 @@ export default function AutomationEngine() {
       });
       if (positions.length === 5) setTilePositions(positions);
     };
+
+    const scheduleUpdate = () => {
+      if (debounceTimer.current) clearTimeout(debounceTimer.current);
+      debounceTimer.current = setTimeout(() => {
+        debounceTimer.current = undefined;
+        updatePositions();
+      }, 100);
+    };
+
     updatePositions();
-    const ro = new ResizeObserver(updatePositions);
+    const ro = new ResizeObserver(scheduleUpdate);
     if (containerRef.current) ro.observe(containerRef.current);
-    window.addEventListener("resize", updatePositions);
+    window.addEventListener("resize", scheduleUpdate);
     const t1 = setTimeout(updatePositions, 100);
     const t2 = setTimeout(updatePositions, 500);
     return () => {
       ro.disconnect();
-      window.removeEventListener("resize", updatePositions);
+      window.removeEventListener("resize", scheduleUpdate);
       clearTimeout(t1);
       clearTimeout(t2);
+      if (debounceTimer.current) clearTimeout(debounceTimer.current);
     };
   }, []);
 
@@ -240,8 +270,9 @@ export default function AutomationEngine() {
       <div className="max-w-7xl mx-auto relative">
         <div className="text-center mb-16 md:mb-24 space-y-6">
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={reduceMotion ? false : { opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
+            transition={reduceMotion ? { duration: 0 } : undefined}
             className="text-amber-500 font-black text-[10px] uppercase tracking-[0.5em]"
           >
             System Architecture
@@ -261,7 +292,14 @@ export default function AutomationEngine() {
             {curvedArms.map((path, i) => (
               <g key={i}>
                 <path d={path} fill="none" stroke="white" strokeWidth="1" className="opacity-[0.15]" />
-                <path d={path} fill="none" stroke="#f59e0b" strokeWidth="2" className="animate-beam" style={{ animationDelay: `${-i * 0.6}s` }} />
+                <path
+                  d={path}
+                  fill="none"
+                  stroke="#f59e0b"
+                  strokeWidth="2"
+                  className={reduceMotion ? "opacity-40" : "animate-beam"}
+                  style={reduceMotion ? undefined : { animationDelay: `${-i * 0.6}s` }}
+                />
               </g>
             ))}
           </svg>
@@ -270,7 +308,7 @@ export default function AutomationEngine() {
           <div className="space-y-8 md:space-y-12 order-2 lg:order-1">
             {leftTiles.map((tile, i) => (
               <div key={tile.id} ref={tileRefs[i]}>
-                <EcosystemTile tile={tile} index={i} side="left" />
+                <EcosystemTile tile={tile} index={i} side="left" reduceMotion={reduceMotion} />
               </div>
             ))}
           </div>
@@ -279,7 +317,7 @@ export default function AutomationEngine() {
           <div className="relative flex flex-col items-center justify-center order-1 lg:order-2 py-8 md:py-16 lg:py-0 gap-6 lg:gap-8">
             {/* Brobot One - directly above brain */}
             <div ref={tileRefs[2]} className="w-full max-w-md">
-              <EcosystemTile tile={brobotOneTile} index={0} side="above" />
+              <EcosystemTile tile={brobotOneTile} index={0} side="above" reduceMotion={reduceMotion} />
             </div>
             <div className="relative w-full h-80 md:w-[500px] md:h-[400px] lg:w-[600px] lg:h-[450px] flex items-center justify-center">
               <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet">
@@ -294,17 +332,23 @@ export default function AutomationEngine() {
                 {/* Center core - brain as centerpiece (arms are in overlay SVG above) */}
                 <g transform="translate(300, 300)">
                   <circle r="100" fill="url(#center-glow)" className="opacity-90" />
-                  <circle fill="none" stroke="#f59e0b" strokeWidth="1.5">
-                    <animate attributeName="r" from="20" to="85" dur="3s" repeatCount="indefinite" />
-                    <animate attributeName="opacity" from="0.6" to="0" dur="3s" repeatCount="indefinite" />
-                  </circle>
-                  <circle fill="none" stroke="#f59e0b" strokeWidth="1.5">
-                    <animate attributeName="r" from="20" to="85" dur="3s" begin="1s" repeatCount="indefinite" />
-                    <animate attributeName="opacity" from="0.6" to="0" dur="3s" begin="1s" repeatCount="indefinite" />
-                  </circle>
-                  <circle r="55" fill="none" stroke="white" strokeOpacity="0.15" strokeWidth="1" strokeDasharray="10 20" className="animate-spin-slow" style={{ transformOrigin: "center" }} />
+                  {!reduceMotion ? (
+                    <>
+                      <circle fill="none" stroke="#f59e0b" strokeWidth="1.5">
+                        <animate attributeName="r" from="20" to="85" dur="3s" repeatCount="indefinite" />
+                        <animate attributeName="opacity" from="0.6" to="0" dur="3s" repeatCount="indefinite" />
+                      </circle>
+                      <circle fill="none" stroke="#f59e0b" strokeWidth="1.5">
+                        <animate attributeName="r" from="20" to="85" dur="3s" begin="1s" repeatCount="indefinite" />
+                        <animate attributeName="opacity" from="0.6" to="0" dur="3s" begin="1s" repeatCount="indefinite" />
+                      </circle>
+                      <circle r="55" fill="none" stroke="white" strokeOpacity="0.15" strokeWidth="1" strokeDasharray="10 20" className="animate-spin-slow" style={{ transformOrigin: "center" }} />
+                    </>
+                  ) : (
+                    <circle r="55" fill="none" stroke="white" strokeOpacity="0.15" strokeWidth="1" strokeDasharray="10 20" style={{ transformOrigin: "center" }} />
+                  )}
                   <circle r="10" fill="#0A0A0A" stroke="#f59e0b" strokeWidth="2.5" />
-                  <circle r="5" fill="#f59e0b" className="animate-pulse-fast" />
+                  <circle r="5" fill="#f59e0b" className={reduceMotion ? "" : "animate-pulse-fast"} />
                 </g>
               </svg>
 
@@ -312,8 +356,8 @@ export default function AutomationEngine() {
               <div ref={brainRef} className="absolute inset-0 flex items-center justify-center pointer-events-none z-30">
                 <motion.div
                   className="flex items-center justify-center"
-                  animate={{ scale: [1, 1.08, 1], opacity: [0.9, 1, 0.9] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  animate={reduceMotion ? false : { scale: [1, 1.08, 1], opacity: [0.9, 1, 0.9] }}
+                  transition={reduceMotion ? { duration: 0 } : { duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 >
                   <svg
                     viewBox="0 0 24 24"
@@ -341,7 +385,7 @@ export default function AutomationEngine() {
           <div className="space-y-8 md:space-y-12 order-3">
             {rightTiles.map((tile, i) => (
               <div key={tile.id} ref={tileRefs[3 + i]}>
-                <EcosystemTile tile={tile} index={i} side="right" />
+                <EcosystemTile tile={tile} index={i} side="right" reduceMotion={reduceMotion} />
               </div>
             ))}
           </div>
@@ -354,9 +398,9 @@ export default function AutomationEngine() {
             <motion.a
               key={tile.id}
               href={tile.href}
-              initial={{ opacity: 0, y: 20 }}
+              initial={reduceMotion ? false : { opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.08 }}
+              transition={reduceMotion ? { duration: 0 } : { delay: i * 0.08 }}
               viewport={{ once: true }}
               className="block cyber-glass p-6 rounded-2xl neon-border border-white/10 hover:border-amber-500/30 transition-all"
             >

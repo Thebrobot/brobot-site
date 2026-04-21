@@ -1,6 +1,5 @@
 ---
 import '../styles/global.css';
-import MouseTracker from '../components/MouseTracker';
 
 interface Props {
   title?: string;
@@ -137,14 +136,43 @@ const ogImageURL = new URL(image, Astro.site || 'https://thebrobot.com');
       "parentOrganization": { "@id": "https://thebrobot.com/#organization" }
     })} />
 
-    <!-- GoHighLevel Chat Widget -->
+    <!-- GoHighLevel Chat Widget: deferred after idle / first scroll / 20s cap (reduces main-thread contention on load) -->
     <link rel="stylesheet" href="https://stcdn.leadconnectorhq.com/intl-tel-input/17.0.12/css/intlTelInput.min.css" media="print" onload="this.media='all'" />
     <noscript><link rel="stylesheet" href="https://stcdn.leadconnectorhq.com/intl-tel-input/17.0.12/css/intlTelInput.min.css" /></noscript>
-    <script 
-      src="https://beta.leadconnectorhq.com/loader.js"
-      data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
-      data-widget-id="697afb8edad8af891080ebef"
-      defer>
+    <script is:inline>
+      (function () {
+        var WIDGET_ID = '697afb8edad8af891080ebef';
+        var LOADER = 'https://beta.leadconnectorhq.com/loader.js';
+        var RES = 'https://beta.leadconnectorhq.com/chat-widget/loader.js';
+        var loaded = false;
+        function inject() {
+          if (loaded || document.getElementById('ghl-chat-loader')) return;
+          loaded = true;
+          var s = document.createElement('script');
+          s.id = 'ghl-chat-loader';
+          s.src = LOADER;
+          s.defer = true;
+          s.setAttribute('data-resources-url', RES);
+          s.setAttribute('data-widget-id', WIDGET_ID);
+          document.head.appendChild(s);
+        }
+        function schedule() {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(function () { inject(); }, { timeout: 20000 });
+          } else {
+            setTimeout(inject, 3000);
+          }
+        }
+        window.addEventListener(
+          'scroll',
+          function onScroll() {
+            inject();
+          },
+          { passive: true, once: true }
+        );
+        window.addEventListener('load', schedule);
+        document.addEventListener('astro:after-swap', schedule);
+      })();
     </script>
 
     <!-- Unicorn Studio (load only on tablet/desktop, and only when needed) -->
@@ -158,11 +186,19 @@ const ogImageURL = new URL(image, Astro.site || 'https://thebrobot.com');
           return !!document.querySelector('[data-us-project]');
         }
 
-        function shouldLoadUnicorn() {
-          return window.matchMedia(TABLET_UP).matches && hasUnicornProject();
+        function prefersReducedMotion() {
+          return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         }
 
-        function ensureLoadedAndInit() {
+        function shouldLoadUnicorn() {
+          return (
+            window.matchMedia(TABLET_UP).matches &&
+            hasUnicornProject() &&
+            !prefersReducedMotion()
+          );
+        }
+
+        function loadScript() {
           if (!shouldLoadUnicorn()) return;
 
           const existing = document.getElementById(SCRIPT_ID);
@@ -180,13 +216,31 @@ const ogImageURL = new URL(image, Astro.site || 'https://thebrobot.com');
           document.head.appendChild(s);
         }
 
+        /** Defer Unicorn until after first paint + idle (or first interaction) so hero text stays responsive. */
+        function ensureLoadedAndInit() {
+          if (!shouldLoadUnicorn()) return;
+          var run = function () { loadScript(); };
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(run, { timeout: 4000 });
+          } else {
+            setTimeout(run, 2500);
+          }
+        }
+
+        window.addEventListener(
+          'pointerdown',
+          function tryEarly() {
+            if (shouldLoadUnicorn()) loadScript();
+          },
+          { once: true, passive: true }
+        );
+
         window.addEventListener('load', ensureLoadedAndInit);
         document.addEventListener('astro:after-swap', ensureLoadedAndInit);
       })();
     </script>
   </head>
   <body class="antialiased selection:bg-amber-100 selection:text-amber-900">
-    <MouseTracker client:idle />
     <slot />
   </body>
 </html>

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import Footer from '../components/Footer.astro';
 import { FileText } from 'lucide-react';
 
 const pathname = "/terms";
@@ -12,7 +12,7 @@ const pathname = "/terms";
   description="Terms of Service for The Brobot LLC. Terms governing access to and use of our AI-powered communications platform and services."
 >
   <main class="min-h-screen bg-[#020617] text-white">
-    <Navbar client:load pathname={pathname} />
+    <Navbar client:idle pathname={pathname} />
     
     <section class="pt-36 pb-24 px-4 md:px-6">
       <div class="max-w-3xl mx-auto">
@@ -261,6 +261,6 @@ const pathname = "/terms";
       </div>
     </section>
 
-    <Footer client:visible />
+    <Footer />
   </main>
 </BaseLayout>

@@ -7,14 +7,13 @@
     "dev": "astro dev --port 4322",
     "dev:preview": "BROBOT_PREVIEW=1 astro dev --port 4322",
     "build": "astro build",
+    "build:analyze": "ANALYZE=1 astro build",
     "preview": "astro preview --port 4322",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/react": "^5.0.3",
     "@astrojs/sitemap": "^3.7.2",
-    "@fontsource/inter": "^5.2.8",
-    "@fontsource/plus-jakarta-sans": "^5.2.8",
     "astro": "^6.1.8",
     "clsx": "^2.1.1",
     "framer-motion": "^12.0.6",
@@ -32,6 +31,7 @@
     "sharp": "^0.34.5",
     "tailwindcss": "^4.2.2",
     "terser": "^5.46.0",
+    "rollup-plugin-visualizer": "^5.14.0",
     "typescript": "^5.0.0"
   }
 }
