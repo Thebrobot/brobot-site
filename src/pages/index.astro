@@ -56,11 +56,71 @@ const services = [
     <!-- 1-2-3 Guide -->
     <HowItWorks />
     
-    <!-- The Core Engine Flow -->
-    <AutomationEngine client:visible />
+    <!-- The Core Engine Flow: below md = static teasers + no React; md+ = island after matchMedia -->
+    <section id="automation" aria-labelledby="automation-mobile-title" class="relative bg-[#020617] overflow-hidden">
+      <div class="md:hidden px-4 py-14 border-b border-white/5">
+        <p class="text-center text-amber-500 font-black text-[10px] uppercase tracking-[0.5em] mb-4">System Architecture</p>
+        <h2 id="automation-mobile-title" class="text-center text-3xl sm:text-4xl font-display font-black tracking-tighter text-white mb-4">
+          THE <span class="text-amber-500 italic">AUTOMATION</span> ENGINE
+        </h2>
+        <p class="text-center text-slate-300 text-base max-w-xl mx-auto leading-relaxed mb-8 px-2">
+          A proprietary central intelligence layer that handles the complexity of growth while you focus on the vision.
+        </p>
+        <nav class="flex flex-col gap-2.5 max-w-md mx-auto" aria-label="Automation system products">
+          <a href="/conversational-ai" class="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3.5 text-sm font-semibold text-white hover:border-amber-500/30 transition-colors">
+            <span>Agent Broski — AI Voice</span>
+            <span class="text-amber-500 text-xs font-black" aria-hidden="true">→</span>
+          </a>
+          <a href="/reputation" class="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3.5 text-sm font-semibold text-white hover:border-emerald-500/30 transition-colors">
+            <span>RevuBro — Reviews</span>
+            <span class="text-emerald-400 text-xs font-black" aria-hidden="true">→</span>
+          </a>
+          <a href="/ai-phone-crm" class="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3.5 text-sm font-semibold text-white hover:border-cyan-500/30 transition-colors">
+            <span>Brobot One — Desk Phone & VoIP</span>
+            <span class="text-cyan-400 text-xs font-black" aria-hidden="true">→</span>
+          </a>
+          <a href="/crm" class="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3.5 text-sm font-semibold text-white hover:border-indigo-500/30 transition-colors">
+            <span>Brobot CRM</span>
+            <span class="text-indigo-400 text-xs font-black" aria-hidden="true">→</span>
+          </a>
+          <a href="/local-seo" class="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3.5 text-sm font-semibold text-white hover:border-emerald-500/30 transition-colors">
+            <span>iMapsPro — Apple Maps & Local SEO</span>
+            <span class="text-emerald-400 text-xs font-black" aria-hidden="true">→</span>
+          </a>
+        </nav>
+      </div>
+      <div class="hidden md:block">
+        <AutomationEngine client:media="(min-width: 768px)" embedded />
+      </div>
+    </section>
 
     <!-- Meet Agent Broski: Human-Grade Voice AI -->
-    <VoicePreview client:visible />
+    <section id="voice" aria-labelledby="voice-mobile-title" class="relative bg-[#020617] overflow-hidden">
+      <div class="md:hidden px-4 py-14 border-t border-white/5">
+        <p class="flex items-center justify-center gap-2 text-cyan-400 font-black text-[10px] uppercase tracking-[0.5em] mb-4">
+          <span class="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" aria-hidden="true"></span>
+          Live_Transmission
+        </p>
+        <h2 id="voice-mobile-title" class="text-center text-3xl sm:text-4xl font-display font-black tracking-tighter text-white mb-4 leading-[0.95]">
+          AI THAT SOUNDS <br />
+          <span class="text-cyan-400 italic text-4xl sm:text-5xl">LIKE A HUMAN.</span>
+        </h2>
+        <p class="text-center text-slate-200 text-base max-w-xl mx-auto leading-relaxed mb-8 px-2">
+          No robot voices. No delays. Brobot talks to your customers and books your appointments while you focus on your business.
+        </p>
+        <div class="flex flex-col gap-3 max-w-md mx-auto">
+          <a href="/conversational-ai#voice" class="h-14 flex items-center justify-center rounded-2xl bg-white text-[#020617] font-black text-sm uppercase tracking-[0.2em] shadow-lg">
+            Hear live demos
+          </a>
+          <a href="/contact" class="h-14 flex items-center justify-center rounded-2xl border border-white/15 text-white font-bold text-sm hover:bg-white/5 transition-colors">
+            Book a 15-min call
+          </a>
+        </div>
+      </div>
+      <div class="hidden md:block">
+        <VoicePreview client:media="(min-width: 768px)" embedded />
+      </div>
+    </section>
 
     <!-- Built for Conversion: Pillars of Growth -->
     <BuiltForConversion />

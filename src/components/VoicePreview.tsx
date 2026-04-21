@@ -43,8 +43,13 @@ const demos = [
   }
 ];
 
-export default function VoicePreview() {
-  const sectionRef = useRef<HTMLElement>(null);
+export type VoicePreviewProps = {
+  /** When true, render a div without #voice (parent landmark owns the id). */
+  embedded?: boolean;
+};
+
+export default function VoicePreview({ embedded = false }: VoicePreviewProps) {
+  const sectionRef = useRef<HTMLDivElement>(null);
   const [sectionVisible, setSectionVisible] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
   const [activeDemo, setActiveDemo] = useState(0);
@@ -113,9 +118,14 @@ export default function VoicePreview() {
     setCurrentLine(-1);
   };
 
+  const Shell = embedded ? "div" : "section";
+  const shellExtra = embedded
+    ? ({ role: "region" as const, "aria-label": "Agent Broski voice preview" } as const)
+    : ({ id: "voice" } as const);
+
   return (
-    <section ref={sectionRef} id="voice" className="py-24 md:py-40 bg-[#020617] relative overflow-hidden">
-      <div className="container mx-auto px-6">
+    <Shell {...shellExtra} className="py-24 md:py-40 bg-[#020617] relative overflow-hidden">
+      <div ref={sectionRef} className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row gap-12 md:gap-24 items-center">
           <div className="flex-1 w-full text-left">
             <motion.div
@@ -356,6 +366,6 @@ export default function VoicePreview() {
           <VoiceCloningModal isOpen={isVoiceCloningModalOpen} onClose={() => setIsVoiceCloningModalOpen(false)} />
         ) : null}
       </Suspense>
-    </section>
+    </Shell>
   );
 }

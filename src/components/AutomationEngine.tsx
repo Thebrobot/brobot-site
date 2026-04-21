@@ -173,7 +173,12 @@ function EcosystemTile({
   );
 }
 
-export default function AutomationEngine() {
+export type AutomationEngineProps = {
+  /** When true, render a div without #automation (parent landmark owns the id). */
+  embedded?: boolean;
+};
+
+export default function AutomationEngine({ embedded = false }: AutomationEngineProps) {
   const [reduceMotion, setReduceMotion] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const brainRef = useRef<HTMLDivElement>(null);
@@ -260,8 +265,13 @@ export default function AutomationEngine() {
 
   const curvedArms = getCurvedArms(brainOrigin.x, brainOrigin.y, tilePositions);
 
+  const Shell = embedded ? "div" : "section";
+  const shellExtra = embedded
+    ? ({ role: "region" as const, "aria-label": "The automation engine" } as const)
+    : ({ id: "automation" } as const);
+
   return (
-    <section id="automation" className="relative py-24 md:py-40 px-4 bg-[#020617] overflow-hidden">
+    <Shell {...shellExtra} className="relative py-24 md:py-40 px-4 bg-[#020617] overflow-hidden">
       {/* Background Lighting */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-amber-600/10 blur-[150px] rounded-full" />
@@ -500,6 +510,6 @@ export default function AutomationEngine() {
           </div>
         </div>
       </div>
-    </section>
+    </Shell>
   );
 }

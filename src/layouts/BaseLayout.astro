@@ -50,14 +50,21 @@ const ogImageURL = new URL(image, Astro.site || 'https://thebrobot.com');
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KEEDYJ7F12"></script>
+    <!-- Google tag (gtag.js) — load after window load so it does not compete with LCP on mobile -->
     <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-KEEDYJ7F12');
+      window.addEventListener('load', function () {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-KEEDYJ7F12';
+        document.head.appendChild(s);
+        s.onload = function () {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', 'G-KEEDYJ7F12');
+        };
+      });
     </script>
     
     <!-- DNS Prefetch for external domains -->
@@ -68,7 +75,7 @@ const ogImageURL = new URL(image, Astro.site || 'https://thebrobot.com');
 
     <!-- Preload critical self-hosted fonts -->
     <link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/plus-jakarta-sans-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/plus-jakarta-sans-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin />
     <title>{title}</title>
     
     <!-- Page-specific head content (schema, etc.) -->
