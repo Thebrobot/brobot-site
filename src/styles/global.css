@@ -211,22 +211,6 @@ svg.lucide path {
   height: 24px;
 }
 
-/* Hide GoHighLevel Chat Widget Default Launcher Bubble */
-.lc_chat_widget_button,
-#chat-widget-launcher,
-#chat-widget-container {
-    display: none !important;
-}
-
-/* Ensure the main widget container can be seen when opened */
-chat-widget {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-}
-
-
 @keyframes hub-pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.03); }

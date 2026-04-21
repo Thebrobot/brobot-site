@@ -286,7 +286,7 @@ export default function AutomationEngine() {
         </div>
 
         {/* Original 3-column layout: Left | Brain (center) | Right */}
-        <div ref={containerRef} className="relative min-h-[600px]">
+        <div ref={containerRef} className="relative min-h-0 lg:min-h-[600px]">
           {/* Overlay SVG: arms originate from measured brain center */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 hidden lg:block" viewBox={`0 0 ${VIEW_W} ${VIEW_H}`} preserveAspectRatio="none">
             {curvedArms.map((path, i) => (
@@ -319,7 +319,8 @@ export default function AutomationEngine() {
             <div ref={tileRefs[2]} className="w-full max-w-md">
               <EcosystemTile tile={brobotOneTile} index={0} side="above" reduceMotion={reduceMotion} />
             </div>
-            <div className="relative w-full h-80 md:w-[500px] md:h-[400px] lg:w-[600px] lg:h-[450px] flex items-center justify-center">
+            {/* Brain / SVG centerpiece: desktop only — mobile uses stacked tile list below */}
+            <div className="relative hidden lg:flex w-full h-80 md:w-[500px] md:h-[400px] lg:w-[600px] lg:h-[450px] items-center justify-center">
               <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet">
                 <defs>
                   <radialGradient id="center-glow">

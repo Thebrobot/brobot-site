@@ -62,8 +62,6 @@ const ogImageURL = new URL(image, Astro.site || 'https://thebrobot.com');
     
     <!-- DNS Prefetch for external domains -->
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <link rel="dns-prefetch" href="https://stcdn.leadconnectorhq.com" />
-    <link rel="dns-prefetch" href="https://beta.leadconnectorhq.com" />
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 
     <!-- Font Preloading -->
@@ -135,45 +133,6 @@ const ogImageURL = new URL(image, Astro.site || 'https://thebrobot.com');
       "sameAs": [],
       "parentOrganization": { "@id": "https://thebrobot.com/#organization" }
     })} />
-
-    <!-- GoHighLevel Chat Widget: deferred after idle / first scroll / 20s cap (reduces main-thread contention on load) -->
-    <link rel="stylesheet" href="https://stcdn.leadconnectorhq.com/intl-tel-input/17.0.12/css/intlTelInput.min.css" media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href="https://stcdn.leadconnectorhq.com/intl-tel-input/17.0.12/css/intlTelInput.min.css" /></noscript>
-    <script is:inline>
-      (function () {
-        var WIDGET_ID = '697afb8edad8af891080ebef';
-        var LOADER = 'https://beta.leadconnectorhq.com/loader.js';
-        var RES = 'https://beta.leadconnectorhq.com/chat-widget/loader.js';
-        var loaded = false;
-        function inject() {
-          if (loaded || document.getElementById('ghl-chat-loader')) return;
-          loaded = true;
-          var s = document.createElement('script');
-          s.id = 'ghl-chat-loader';
-          s.src = LOADER;
-          s.defer = true;
-          s.setAttribute('data-resources-url', RES);
-          s.setAttribute('data-widget-id', WIDGET_ID);
-          document.head.appendChild(s);
-        }
-        function schedule() {
-          if ('requestIdleCallback' in window) {
-            requestIdleCallback(function () { inject(); }, { timeout: 20000 });
-          } else {
-            setTimeout(inject, 3000);
-          }
-        }
-        window.addEventListener(
-          'scroll',
-          function onScroll() {
-            inject();
-          },
-          { passive: true, once: true }
-        );
-        window.addEventListener('load', schedule);
-        document.addEventListener('astro:after-swap', schedule);
-      })();
-    </script>
 
     <!-- Unicorn Studio (load only on tablet/desktop, and only when needed) -->
     <script is:inline>

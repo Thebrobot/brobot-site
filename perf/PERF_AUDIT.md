@@ -18,7 +18,7 @@ This document records **measurement methodology**, **Lighthouse results** from a
 ## Lighthouse — local preview (post-change)
 
 Target: `http://127.0.0.1:4321` after `npm run build` + `npm run preview`.  
-Google Analytics and GoHighLevel still load from the network; Unicorn Studio loads from jsDelivr when eligible.
+Google Analytics loads from the network; Unicorn Studio loads from jsDelivr when a page embeds `[data-us-project]`.
 
 ### Desktop (`--preset=desktop`)
 
@@ -66,22 +66,21 @@ Use **`npm run build:analyze`** and open **`dist/bundle-stats.html`** for gzip/b
 | **Shell** | New static [`src/components/Footer.astro`](src/components/Footer.astro); removed React [`Footer.tsx`](src/components/Footer.tsx). All pages use `<Footer />` with no `client:*`. |
 | **Navbar** | All pages: `client:load` → **`client:idle`** to defer hydration until the browser is idle. |
 | **Mouse** | Removed [`MouseTracker`](src/components/MouseTracker.tsx) from [`BaseLayout.astro`](src/layouts/BaseLayout.astro) and deleted the component file. |
-| **GoHighLevel chat** | Injected only after **first scroll** (passive, once) **or** `requestIdleCallback` (fallback `setTimeout`, 20 s cap). |
 | **Unicorn Studio** | Skipped when **`prefers-reduced-motion: reduce`**. Otherwise load deferred via **`requestIdleCallback`** (with timeout) after `load`, with an optional earlier load on **first `pointerdown`**. |
 | **FAQ** | [`conversational-ai.astro`](src/pages/conversational-ai.astro) now uses [`FAQ.astro`](src/components/FAQ.astro) (vanilla accordion). Removed [`FAQ.tsx`](src/components/FAQ.tsx). Added the missing **voice cloning** FAQ entry to `FAQ.astro` for parity. |
 | **Industries hub** | [`CustomBuildQuestionnaire`](src/pages/industries/index.astro): `client:load` → **`client:visible`**. |
 | **VoicePreview** | `React.lazy` + `Suspense` for **DemoModal** / **VoiceCloningModal**; **IntersectionObserver** pauses the industry ticker when off-screen; **`prefers-reduced-motion`** simplifies motion and EQ bars; stable **EQ peak heights** via `useMemo` (no `Math.random()` per frame). |
 | **AutomationEngine** | **Debounced** ResizeObserver/resize updates (~100 ms); **`prefers-reduced-motion`** disables heavy SVG SMIL, beam CSS animation, and hover/entrance motion. |
 | **Dependencies** | Removed unused **`@fontsource/*`** from `package.json`. Added **`rollup-plugin-visualizer`** and **`npm run build:analyze`**. |
+| **Chat widget** | Removed GoHighLevel / LeadConnector **embed** from `BaseLayout` and **launcher-hiding CSS** from `global.css`. Contact page and demo modal use **contact form** links instead of opening a web chat. |
 
 ---
 
 ## Tradeoffs (hard truths)
 
-1. **Deferred GHL chat** — Visitors who never scroll and never get an idle slice within the timeout may see the widget **later**. If chat is a primary conversion path, consider a small “Chat” control that calls `inject()` immediately on click.
-2. **Deferred Unicorn** — The hero WebGL-style background may appear **after** first paint; `prefers-reduced-motion` users get **no** Unicorn load (static hero only).
-3. **Navbar `client:idle`** — The hub menu hydrates **after** idle; on very busy main threads it can feel slightly delayed vs `client:load`.
-4. **Home page** — Still ships the **full marketing stack** (hero + engine + voice). Further gains require **removing or lazy-gating** those islands, not more micro-optimizations.
+1. **Deferred Unicorn** — When `[data-us-project]` exists, the WebGL-style background may load **after** first paint; `prefers-reduced-motion` users get **no** Unicorn load.
+2. **Navbar `client:idle`** — The hub menu hydrates **after** idle; on very busy main threads it can feel slightly delayed vs `client:load`.
+3. **Home page** — Still ships the **full marketing stack** (hero + engine + voice). Further gains require **removing or lazy-gating** those islands, not more micro-optimizations.
 
 ---
 

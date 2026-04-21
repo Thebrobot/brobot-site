@@ -16,18 +16,6 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedAction, setSelectedAction] = useState<'call' | 'text' | null>(null);
 
-  const handleChatNow = () => {
-    // Open the GHL chat widget immediately
-    const chatWidget = document.querySelector('chat-widget');
-    if (chatWidget && chatWidget.shadowRoot) {
-      const shadowButton = chatWidget.shadowRoot.querySelector('#lc_text-widget--btn') as HTMLElement;
-      if (shadowButton) {
-        shadowButton.click();
-      }
-    }
-    onClose();
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -136,19 +124,20 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
                       <ArrowRight className="w-5 h-5 text-white group-hover:text-amber-500 group-hover:translate-x-1 transition-all" />
                     </a>
 
-                    <button
-                      onClick={handleChatNow}
+                    <a
+                      href="/contact#contact-form"
+                      onClick={() => onClose()}
                       className="w-full p-5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-amber-500/50 transition-all group flex items-center gap-4"
                     >
                       <div className="w-12 h-12 rounded-xl bg-amber-500/20 flex items-center justify-center group-hover:bg-amber-500/30 transition-colors">
                         <MessageCircle className="w-6 h-6 text-amber-500" />
                       </div>
                       <div className="flex-1 text-left">
-                        <div className="text-white font-bold text-lg">Chat Here</div>
-                        <div className="text-white text-sm">Continue in the browser</div>
+                        <div className="text-white font-bold text-lg">Contact form</div>
+                        <div className="text-white text-sm">Send a message from the site</div>
                       </div>
                       <ArrowRight className="w-5 h-5 text-white group-hover:text-amber-500 group-hover:translate-x-1 transition-all" />
-                    </button>
+                    </a>
 
                     <a
                       href="/contact"
