@@ -37,6 +37,8 @@ const ogImageURL = new URL(image, Astro.site || 'https://thebrobot.com');
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="Brobot Media" />
     <meta property="og:locale" content="en_US" />
     
@@ -68,7 +70,8 @@ const ogImageURL = new URL(image, Astro.site || 'https://thebrobot.com');
       });
     </script>
     
-    <!-- DNS Prefetch for external domains -->
+    <!-- DNS Prefetch / Preconnect for external domains -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 
@@ -98,8 +101,7 @@ const ogImageURL = new URL(image, Astro.site || 'https://thebrobot.com');
         "@type": "ContactPoint",
         "contactType": "sales",
         "url": "https://thebrobot.com/contact"
-      },
-      "sameAs": []
+      }
     })} />
     <!-- WebSite schema for branded search / sitelinks -->
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -134,13 +136,11 @@ const ogImageURL = new URL(image, Astro.site || 'https://thebrobot.com');
       },
       "areaServed": "United States",
       "priceRange": "$$",
-      "telephone": "",
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "sales",
         "url": "https://thebrobot.com/contact"
       },
-      "sameAs": [],
       "parentOrganization": { "@id": "https://thebrobot.com/#organization" }
     })} />
 

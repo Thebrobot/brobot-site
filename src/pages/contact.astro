@@ -14,14 +14,14 @@ const pathname = "/contact";
   <main class="min-h-screen bg-[#020617] text-white">
     <Navbar pathname={pathname} />
     
-    <section class="pt-48 pb-32 px-6 relative overflow-hidden">
+    <section class="pt-32 md:pt-40 pb-20 md:pb-28 px-6 relative overflow-hidden">
       <!-- Ambient Background Glows -->
       <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-amber-600/10 blur-[120px] rounded-full -z-10"></div>
       <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-amber-600/5 blur-[120px] rounded-full -z-10"></div>
 
       <div class="container mx-auto max-w-6xl relative z-10">
         <!-- Header -->
-        <div class="text-center mb-16">
+        <div class="text-center mb-10">
           <div class="flex items-center justify-center gap-3 mb-8 text-amber-500">
             <Activity class="w-4 h-4 animate-pulse" />
             <span class="text-[10px] font-black uppercase tracking-[0.5em]">Transmission_Hub</span>
@@ -37,7 +37,7 @@ const pathname = "/contact";
           </p>
 
           <!-- Quick Action Channels -->
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-2xl mx-auto mb-20">
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-2xl mx-auto mb-12">
             <a 
               href="tel:+19802762687"
               class="group w-full sm:w-auto px-8 py-4 bg-white/[0.02] border border-white/10 hover:border-amber-500/50 hover:bg-white/[0.04] rounded-full transition-all flex items-center justify-center gap-3"
@@ -122,7 +122,7 @@ const pathname = "/contact";
               </a>
             </div>
 
-            <div class="mt-16 space-y-6">
+            <div class="mt-10 space-y-6">
               <div class="flex items-start gap-4">
                 <Shield class="w-5 h-5 text-emerald-400 flex-shrink-0 mt-1" />
                 <div>
