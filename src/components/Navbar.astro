@@ -453,29 +453,6 @@ const navShellClass = [
   </nav>
 </header>
 
-<style>
-  #brobot-hub[open] .hub-chev {
-    transform: rotate(180deg);
-  }
-  /* Scroll feedback: keep heavy backdrop-filter for md+ only */
-  @media (min-width: 768px) {
-    #brobot-nav-shell.nav-default.nav-scrolled {
-      background-color: rgb(2 6 23 / 0.95);
-      backdrop-filter: blur(40px);
-      transform: translateY(0.5rem);
-    }
-    #brobot-nav-shell.nav-phone.nav-scrolled {
-      transform: translateY(0.5rem);
-    }
-  }
-  @media (max-width: 767px) {
-    #brobot-nav-shell.nav-scrolled {
-      transform: translateY(0.35rem);
-      background-color: rgb(2 6 23);
-    }
-  }
-</style>
-
 <script is:inline>
   (function () {
     var nav = document.getElementById("brobot-nav-shell");

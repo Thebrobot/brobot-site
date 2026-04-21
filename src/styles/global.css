@@ -216,6 +216,27 @@ svg.lucide path {
   50% { transform: scale(1.03); }
 }
 
+/* Navbar: hub chevron + scroll shell (lives with global Tailwind in the site stylesheet) */
+#brobot-hub[open] .hub-chev {
+  transform: rotate(180deg);
+}
+@media (min-width: 768px) {
+  #brobot-nav-shell.nav-default.nav-scrolled {
+    background-color: rgb(2 6 23 / 0.95);
+    backdrop-filter: blur(40px);
+    transform: translateY(0.5rem);
+  }
+  #brobot-nav-shell.nav-phone.nav-scrolled {
+    transform: translateY(0.5rem);
+  }
+}
+@media (max-width: 767px) {
+  #brobot-nav-shell.nav-scrolled {
+    transform: translateY(0.35rem);
+    background-color: rgb(2 6 23);
+  }
+}
+
 /* Mobile performance: reduce GPU-heavy effects on small screens */
 @media (max-width: 768px) {
   .cyber-glass {
