@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import FloatingMenu from '../components/FloatingMenu';
 import { Shield } from 'lucide-react';
 
 const pathname = "/privacy";
@@ -225,7 +224,6 @@ const pathname = "/privacy";
       </div>
     </section>
 
-    <FloatingMenu client:visible pathname={pathname} />
     <Footer client:visible />
   </main>
 </BaseLayout>

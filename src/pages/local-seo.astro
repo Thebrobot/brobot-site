@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
-import FloatingMenu from '../components/FloatingMenu';
 import RelatedServices from '../components/RelatedServices.astro';
 import { MapPin, Search, Globe, Shield, ArrowRight, Zap, Activity, AlertCircle, BarChart3, TrendingUp, CheckCircle2 } from 'lucide-react';
 
@@ -572,7 +571,6 @@ const serviceSchema = {
     </section>
 
     <RelatedServices currentPath={pathname} />
-    <FloatingMenu client:visible pathname={pathname} />
     <Footer client:visible />
   </main>
 </BaseLayout>

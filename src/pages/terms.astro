@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import FloatingMenu from '../components/FloatingMenu';
 import { FileText } from 'lucide-react';
 
 const pathname = "/terms";
@@ -262,7 +261,6 @@ const pathname = "/terms";
       </div>
     </section>
 
-    <FloatingMenu client:visible pathname={pathname} />
     <Footer client:visible />
   </main>
 </BaseLayout>

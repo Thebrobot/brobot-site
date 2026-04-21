@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Footer from '../../components/Footer';
 import Navbar from '../../components/Navbar';
-import FloatingMenu from '../../components/FloatingMenu';
 import IndustryVoiceDemo from '../../components/IndustryVoiceDemo';
 import { industries } from '../../data/industries';
 import { getCollection } from 'astro:content';
@@ -669,7 +668,6 @@ const breadcrumbSchema = {
       </div>
     </section>
 
-    <FloatingMenu client:visible pathname={pathname} />
 
     <Footer client:visible />
   </main>

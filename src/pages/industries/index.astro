@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Footer from '../../components/Footer';
 import Navbar from '../../components/Navbar';
-import FloatingMenu from '../../components/FloatingMenu';
 import CustomBuildQuestionnaire from '../../components/CustomBuildQuestionnaire';
 import { industries } from '../../data/industries';
 import { ArrowRight, Activity } from 'lucide-react';
@@ -233,7 +232,6 @@ const industryCategories = [
       })();
     </script>
 
-    <FloatingMenu client:visible pathname={pathname} />
 
     <Footer client:visible />
   </main>

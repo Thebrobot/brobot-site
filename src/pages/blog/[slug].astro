@@ -3,7 +3,6 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import FloatingMenu from '../../components/FloatingMenu';
 
 export async function getStaticPaths() {
 	const today = new Date().toISOString().slice(0, 10);
@@ -262,7 +261,6 @@ const articleSchema = {
       </div>
     </article>
 
-    <FloatingMenu client:visible pathname={pathname} />
     <Footer client:visible />
   </main>
 </BaseLayout>

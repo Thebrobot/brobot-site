@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import FloatingMenu from '../../components/FloatingMenu';
 import { getCollection } from 'astro:content';
 
 const today = new Date().toISOString().slice(0, 10);
@@ -83,7 +82,6 @@ const pathname = "/blog";
       </div>
     </section>
 
-    <FloatingMenu client:visible pathname={pathname} />
     <Footer client:visible />
   </main>
 </BaseLayout>

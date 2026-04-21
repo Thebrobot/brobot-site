@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
-import FloatingMenu from '../components/FloatingMenu';
 import VoicePreview from '../components/VoicePreview';
 import AutomationEngine from '../components/AutomationEngine';
 import FAQ from '../components/FAQ';
@@ -302,7 +301,6 @@ const serviceSchema = {
     </section>
 
     <RelatedServices currentPath={pathname} />
-    <FloatingMenu client:visible pathname={pathname} />
     <Footer client:visible />
   </main>
 </BaseLayout>

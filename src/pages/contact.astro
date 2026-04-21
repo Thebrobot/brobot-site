@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar';
-import FloatingMenu from '../components/FloatingMenu';
 import Footer from '../components/Footer';
 import { Mail, Phone, Send, Activity, Shield, MessageSquare, CheckCircle2, ArrowRight } from 'lucide-react';
 
@@ -336,7 +335,6 @@ const pathname = "/contact";
       </div>
     </section>
 
-    <FloatingMenu client:visible pathname={pathname} />
     
     <Footer client:visible />
   </main>

@@ -10,7 +10,6 @@ import BuiltForConversion from '../components/BuiltForConversion.astro';
 import DifferentiationSection from '../components/DifferentiationSection.astro';
 import FAQ from '../components/FAQ.astro';
 import FinalCTA from '../components/FinalCTA.astro';
-import FloatingMenu from '../components/FloatingMenu';
 import Footer from '../components/Footer';
 import { Phone, LayoutDashboard, Activity, MapPin, Star } from 'lucide-react';
 
@@ -74,8 +73,6 @@ const services = [
     <!-- Final Conversion Block -->
     <FinalCTA />
     
-    <!-- Floating App Switcher -->
-    <FloatingMenu client:visible pathname={pathname} />
 
     <Footer client:visible />
   </main>
