@@ -1,0 +1,24 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    # Fallback: daily at 11:00 UTC (6:00 AM Eastern)
+    - cron: "0 11 * * *"
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Cloudflare Pages deploy
+        env:
+          BUILD_HOOK_URL: ${{ secrets.BUILD_HOOK_URL }}
+        run: |
+          if [ -z "$BUILD_HOOK_URL" ]; then
+            echo "::error::BUILD_HOOK_URL secret is not set. In GitHub: Settings → Secrets and variables → Actions → add BUILD_HOOK_URL (Cloudflare Pages → your project → Settings → Builds & deployments → Deploy hooks)."
+            exit 1
+          fi
+          curl -X POST -f -d "" "$BUILD_HOOK_URL" || exit 1
