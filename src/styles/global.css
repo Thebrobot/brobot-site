@@ -259,6 +259,15 @@ svg.lucide path {
   }
 }
 
+/* Disable scroll-reveal animations on mobile — content renders immediately */
+@media (max-width: 767px) {
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 /* Reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
   .animate-beam,
