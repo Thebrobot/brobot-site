@@ -235,9 +235,14 @@ svg.lucide path {
 }
 @media (max-width: 767px) {
   #brobot-nav-shell.nav-scrolled {
-    transform: translateY(0.35rem);
+    /* No translateY on mobile: it moved the open <details> panel and caused missed taps / “double click” feel */
     background-color: rgb(2 6 23);
   }
+}
+
+/* Mobile: faster tap response; avoid double-tap-zoom delay on legacy WebKit */
+#brobot-hub {
+  touch-action: manipulation;
 }
 
 /* Mobile performance: reduce GPU-heavy effects on small screens */

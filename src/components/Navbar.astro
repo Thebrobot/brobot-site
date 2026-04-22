@@ -158,13 +158,14 @@ const navShellClass = [
       </summary>
 
       <div
-        class="absolute top-full left-0 mt-1 w-64 md:w-72 bg-white rounded-[24px] p-3 shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-neutral-200 z-50 overflow-hidden max-h-[min(70vh,520px)] overflow-y-auto"
+        id="brobot-hub-panel"
+        class="absolute top-full left-0 mt-1 w-64 md:w-72 max-md:w-[min(20rem,calc(100vw-2.25rem))] bg-white rounded-[24px] p-3 shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-neutral-200 z-[60] overflow-hidden max-h-[min(70vh,520px)] overflow-y-auto touch-manipulation"
       >
         <div class="flex flex-col text-left">
           <div class="px-3 py-2 mb-2">
             <div class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.2em]">Switch Product</div>
           </div>
-          <div class="space-y-1.5">
+          <div class="space-y-2 max-md:space-y-2.5">
             {
               NAV_SYSTEMS.map((sys) => {
                 const isActive = pathname === sys.href;
@@ -172,7 +173,7 @@ const navShellClass = [
                   <a
                     href={sys.href}
                     class:list={[
-                      "flex items-center gap-3 p-3 rounded-2xl transition-all group relative overflow-hidden",
+                      "flex items-center gap-3 max-md:min-h-[48px] max-md:py-3.5 max-md:px-3.5 p-3 rounded-2xl transition-colors group relative overflow-hidden max-md:active:bg-neutral-100",
                       isActive ? "bg-neutral-50" : "hover:bg-neutral-50",
                     ]}
                   >
@@ -293,7 +294,7 @@ const navShellClass = [
             }
           </div>
           <div class="mt-3 pt-3 border-t border-neutral-100 px-1">
-            <a href="/blog" class="flex items-center gap-3 p-3 rounded-2xl hover:bg-neutral-50 transition-all group mb-2">
+            <a href="/blog" class="flex items-center gap-3 max-md:min-h-[48px] max-md:py-3.5 max-md:px-3.5 p-3 rounded-2xl hover:bg-neutral-50 transition-colors group mb-2 max-md:active:bg-neutral-100">
               <div class="w-10 h-10 rounded-xl bg-neutral-100 flex items-center justify-center transition-all shadow-sm">
                 <span class="text-lg" aria-hidden="true">📰</span>
               </div>
@@ -318,7 +319,7 @@ const navShellClass = [
                 <path d="m12 5 7 7-7 7" />
               </svg>
             </a>
-            <a href="/contact" class="flex items-center gap-3 p-3 rounded-2xl hover:bg-neutral-50 transition-all group mb-2">
+            <a href="/contact" class="flex items-center gap-3 max-md:min-h-[48px] max-md:py-3.5 max-md:px-3.5 p-3 rounded-2xl hover:bg-neutral-50 transition-colors group mb-2 max-md:active:bg-neutral-100">
               <div class="w-10 h-10 rounded-xl bg-neutral-100 flex items-center justify-center transition-all shadow-sm">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -360,7 +361,7 @@ const navShellClass = [
             </a>
             <a
               href="/industries"
-              class="flex items-center justify-between p-3 rounded-2xl bg-amber-600 text-white hover:bg-amber-500 transition-all shadow-lg shadow-amber-600/20 group"
+              class="flex items-center justify-between max-md:min-h-[48px] max-md:py-3.5 max-md:px-3.5 p-3 rounded-2xl bg-amber-600 text-white hover:bg-amber-500 transition-colors shadow-lg shadow-amber-600/20 group max-md:active:bg-amber-500"
             >
               <div class="flex items-center gap-3">
                 <div class="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center">
@@ -474,7 +475,9 @@ const navShellClass = [
         var a = t.closest("a");
         if (!a || !hub.contains(a)) return;
         var href = a.getAttribute("href") || "";
-        if (href.startsWith("#")) hub.removeAttribute("open");
+        if (!href || href.startsWith("javascript:")) return;
+        /* Close before navigation: avoids <details> quirks (esp. mobile) where the panel steals the first tap */
+        hub.removeAttribute("open");
       });
 
       hub.addEventListener("keydown", function (e) {
