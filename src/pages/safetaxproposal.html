@@ -1,0 +1,1927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="robots" content="noindex, nofollow" />
+<title>Safe Tax Nation — AI System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0D1B2E;
+  --navy-mid: #162338;
+  --navy-light: #1E3050;
+  --gold: #C9A84C;
+  --gold-light: #E5C87A;
+  --gold-pale: #F5E9C8;
+  --white: #FFFFFF;
+  --off-white: #FAFAF7;
+  --text: #111827;
+  --text-mid: #374151;
+  --text-soft: #6B7280;
+  --border: rgba(0,0,0,0.08);
+  --green: #14532D;
+  --green-bg: #F0FDF4;
+  --green-accent: #16A34A;
+  --red: #EF4444;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  background: var(--navy);
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ══════════════════════════════════════════
+   SECTION 1 — HERO
+══════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 100%, rgba(82,136,193,0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.hero-stripe {
+  width: 48px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin: 0 auto 1.75rem;
+  opacity: 0;
+  animation: fadeUp .5s .1s forwards;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp .5s .2s forwards;
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.0;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp .6s .35s forwards;
+}
+
+.hero-title em { font-style: italic; color: var(--gold-light); }
+
+.hero-sub {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.7;
+  max-width: 420px;
+  margin: 0 auto 2.5rem;
+  opacity: 0;
+  animation: fadeUp .5s .5s forwards;
+}
+
+.hero-cta {
+  opacity: 0;
+  animation: fadeUp .5s .65s forwards;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: .625rem;
+  background: var(--gold);
+  color: var(--navy);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 1rem 2.25rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform .15s, box-shadow .15s, background .15s;
+  box-shadow: 0 4px 24px rgba(201,168,76,0.3);
+  letter-spacing: .01em;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(201,168,76,0.4);
+  background: var(--gold-light);
+}
+
+.btn-primary:active { transform: translateY(0); }
+
+.btn-arrow {
+  font-size: 1.1rem;
+  transition: transform .15s;
+}
+
+.btn-primary:hover .btn-arrow { transform: translateX(4px); }
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: .75rem;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .4rem;
+  opacity: 0;
+  animation: fadeIn 1s 1.5s forwards;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.2), transparent);
+  animation: scrollPulse 2s infinite;
+}
+
+/* ══════════════════════════════════════════
+   SECTION 2 — DEMO
+══════════════════════════════════════════ */
+.demo-section {
+  background: var(--navy);
+  padding: 5rem 1.5rem;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: .75rem;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 300;
+  color: var(--white);
+  text-align: center;
+  line-height: 1.1;
+  margin-bottom: .875rem;
+}
+
+.section-title em { font-style: italic; color: var(--gold-light); }
+
+.section-sub {
+  font-size: .975rem;
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  line-height: 1.7;
+  max-width: 460px;
+  margin: 0 auto 3rem;
+}
+
+/* Phone */
+.phone-wrap {
+  max-width: 393px;
+  margin: 0 auto 3rem;
+  position: relative;
+}
+
+/* iPhone 17 outer shell */
+.iphone-shell {
+  position: relative;
+  border-radius: 58px;
+  padding: 10px;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.2),
+    0 0 0 2.5px #3A3A3C,
+    0 0 0 4px #1C1C1E,
+    0 48px 96px rgba(0,0,0,0.75),
+    0 16px 32px rgba(0,0,0,0.45),
+    inset 0 0 0 1px rgba(255,255,255,0.06),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+  /* Titanium dark finish */
+  background:
+    linear-gradient(160deg,
+      rgba(255,255,255,0.08) 0%,
+      transparent 30%,
+      transparent 70%,
+      rgba(255,255,255,0.04) 100%),
+    linear-gradient(145deg, #2C2C2E 0%, #1C1C1E 40%, #2A2A2C 70%, #1C1C1E 100%);
+}
+
+.iphone-shell.light-mode {
+  background:
+    linear-gradient(160deg,
+      rgba(255,255,255,0.5) 0%,
+      transparent 30%,
+      transparent 70%,
+      rgba(255,255,255,0.3) 100%),
+    linear-gradient(145deg, #E8E8ED 0%, #D8D8DC 40%, #E0E0E5 70%, #D4D4D8 100%);
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.15),
+    0 0 0 2.5px #B0B0B8,
+    0 0 0 4px #9898A0,
+    0 48px 96px rgba(0,0,0,0.35),
+    0 16px 32px rgba(0,0,0,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+/* Camera Control button (iPhone 17 right side) */
+.iphone-shell::before {
+  content: '';
+  position: absolute;
+  right: -4px;
+  top: 180px;
+  width: 3.5px;
+  height: 80px;
+  background: #1A1A1A;
+  border-radius: 0 2.5px 2.5px 0;
+  box-shadow:
+    0 -90px 0 #1A1A1A,
+    0 -80px 0 #1A1A1A,
+    inset 0 0 0 0.5px rgba(255,255,255,0.04);
+}
+
+.iphone-shell.light-mode::before {
+  background: #9898A0;
+  box-shadow: 0 -90px 0 #9898A0, 0 -80px 0 #9898A0;
+}
+
+/* Volume + silent switch (left side) */
+.iphone-shell::after {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 130px;
+  width: 3.5px;
+  height: 38px;
+  background: #1A1A1A;
+  border-radius: 2.5px 0 0 2.5px;
+  box-shadow: 0 50px 0 #1A1A1A, 0 104px 0 #1A1A1A;
+}
+
+.iphone-shell.light-mode::after {
+  background: #9898A0;
+  box-shadow: 0 50px 0 #9898A0, 0 104px 0 #9898A0;
+}
+
+/* Inner screen - thinner bezels on iPhone 17 */
+.phone {
+  background: #17212B;
+  border-radius: 50px;
+  overflow: hidden;
+  position: relative;
+}
+
+.iphone-shell.light-mode .phone { background: #F2F2F7; }
+
+/* Status bar */
+.iphone-status-bar {
+  background: #17212B;
+  padding: 16px 24px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.iphone-shell.light-mode .iphone-status-bar { background: #F2F2F7; }
+
+/* Dynamic Island - iPhone 17 slightly wider */
+.dynamic-island {
+  position: absolute;
+  top: 13px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 126px;
+  height: 36px;
+  background: #000000;
+  border-radius: 22px;
+  z-index: 10;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.06);
+}
+
+.status-time {
+  font-family: -apple-system, "SF Pro Display", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: -.3px;
+}
+
+.iphone-shell.light-mode .status-time { color: #000000; }
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #FFFFFF;
+}
+
+.iphone-shell.light-mode .status-icons { color: #000000; }
+
+/* Home indicator */
+.iphone-home-indicator {
+  background: #17212B;
+  padding: 8px 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iphone-shell.light-mode .iphone-home-indicator { background: #F2F2F7; }
+
+.home-bar {
+  width: 134px;
+  height: 5px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 3px;
+}
+
+.iphone-shell.light-mode .home-bar { background: rgba(0,0,0,0.2); }
+
+/* Light mode telegram adjustments */
+.iphone-shell.light-mode .tg-header { background: #FFFFFF; }
+.iphone-shell.light-mode .tg-contact-name { color: #000000; }
+.iphone-shell.light-mode .tg-contact-status { color: #8E8E93; }
+.iphone-shell.light-mode .tg-back { color: #007AFF; }
+.iphone-shell.light-mode .tg-icons { color: #007AFF; }
+.iphone-shell.light-mode .tg-chat { background: #F2F2F7; }
+/* iPhone light mode — bot bubbles */
+.iphone-shell.light-mode .msg-row.bot .msg-bubble {
+  background: #FFFFFF;
+  color: #111827;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+.iphone-shell.light-mode .msg-row.bot .msg-bubble strong { color: #111827; }
+.iphone-shell.light-mode .msg-row.bot .msg-bubble .gold { color: #B8860B; }
+.iphone-shell.light-mode .msg-row.bot .msg-bubble .flag { color: #DC2626; }
+.iphone-shell.light-mode .msg-row.bot .msg-bubble .good { color: #15803D; }
+.iphone-shell.light-mode .msg-row.bot .msg-bubble .metric-label { color: #6B7280; }
+.iphone-shell.light-mode .msg-row.bot .msg-bubble .metric-val { color: #111827; }
+.iphone-shell.light-mode .msg-row.bot .msg-bubble .divider { background: rgba(0,0,0,0.1); }
+.iphone-shell.light-mode .msg-row.bot .msg-bubble .tag {
+  background: rgba(201,168,76,0.15);
+  color: #92650A;
+}
+.iphone-shell.light-mode .msg-row.bot .msg-bubble .flag-tag {
+  background: rgba(220,38,38,0.1);
+  color: #DC2626;
+}
+/* Any inline style colors in the bubble */
+.iphone-shell.light-mode .msg-row.bot .msg-bubble [style*="color:rgba(255,255,255"] {
+  color: #6B7280 !important;
+}
+.iphone-shell.light-mode .msg-row.bot .msg-bubble [style*="color:#4ADE80"] { color: #15803D !important; }
+.iphone-shell.light-mode .msg-row.bot .msg-bubble [style*="color:#F87171"] { color: #DC2626 !important; }
+.iphone-shell.light-mode .msg-row.bot .msg-bubble [style*="color:#C9A84C"] { color: #92650A !important; }
+/* Draft italic text */
+.iphone-shell.light-mode .msg-row.bot .msg-bubble [style*="font-style:italic"] { color: #374151 !important; }
+/* Small muted text */
+.iphone-shell.light-mode .msg-row.bot .msg-bubble [style*="color:rgba"] { color: #6B7280 !important; }
+/* SEND / EDIT labels */
+.iphone-shell.light-mode .msg-row.bot .msg-bubble [style*="color:#4ADE80"],
+.iphone-shell.light-mode .msg-row.bot .msg-bubble strong[style*="color:#4ADE80"] { color: #15803D !important; }
+.iphone-shell.light-mode .msg-row.bot .msg-bubble strong[style*="color:#F87171"] { color: #DC2626 !important; }
+
+/* User bubbles stay blue */
+.iphone-shell.light-mode .msg-row.user .msg-bubble { background: #007AFF; color: #FFFFFF; }
+
+/* Typing indicator */
+.iphone-shell.light-mode .typing-bubble { background: #FFFFFF; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.iphone-shell.light-mode .typing-dot { background: rgba(0,0,0,0.35); }
+
+/* Input bar */
+.iphone-shell.light-mode .tg-input-bar { background: #F9F9F9; border-top: 0.5px solid rgba(0,0,0,0.12); }
+.iphone-shell.light-mode .tg-input-fake { background: #EFEFEF; color: #9CA3AF; border: none; border-radius: 20px; }
+.iphone-shell.light-mode .tg-emoji { color: #9CA3AF; }
+.iphone-shell.light-mode .tg-mic { color: #9CA3AF; }
+
+/* Date and time */
+.iphone-shell.light-mode .date-pill { background: rgba(0,0,0,0.07); color: #6B7280; }
+.iphone-shell.light-mode .msg-time { color: rgba(0,0,0,0.3); }
+
+/* Mode toggle */
+.mode-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.mode-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-family: 'Outfit', sans-serif;
+  font-size: .8rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.mode-btn.active {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.9);
+}
+
+.mode-icon { font-size: 14px; }
+
+.tg-header {
+  background: #17212B;
+  padding: .875rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.tg-back { font-size: 1.1rem; color: #5288C1; }
+
+.tg-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: linear-gradient(135deg, #C9A84C, #8B6914);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 600; color: var(--navy); flex-shrink: 0;
+}
+
+.tg-contact-info { flex: 1; }
+.tg-contact-name { font-size: .9rem; font-weight: 500; color: #FFFFFF; }
+.tg-contact-status { font-size: .75rem; color: rgba(255,255,255,0.35); margin-top: 1px; }
+.tg-icons { display: flex; gap: .875rem; color: #5288C1; font-size: 1.1rem; }
+
+.tg-chat {
+  background: #0E1621;
+  padding: .875rem;
+  min-height: 480px;
+}
+
+.date-divider { text-align: center; margin: .5rem 0 1rem; }
+.date-pill {
+  display: inline-block;
+  background: rgba(255,255,255,0.06);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: .72rem;
+  color: rgba(255,255,255,0.35);
+}
+
+.msg-row {
+  display: flex;
+  margin-bottom: .75rem;
+  align-items: flex-end;
+  gap: .4rem;
+  opacity: 0;
+}
+
+.msg-row.bot { justify-content: flex-start; }
+.msg-row.user { justify-content: flex-end; }
+
+.msg-avatar {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: linear-gradient(135deg, #C9A84C, #8B6914);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 600; color: var(--navy); flex-shrink: 0;
+}
+
+.msg-bubble {
+  max-width: 86%;
+  padding: .625rem .875rem;
+  border-radius: 12px;
+  font-size: .875rem;
+  line-height: 1.55;
+}
+
+.msg-row.bot .msg-bubble {
+  background: #182533;
+  color: #E8E8E8;
+  border-bottom-left-radius: 4px;
+}
+
+.msg-row.user .msg-bubble {
+  background: #2B5278;
+  color: #FFFFFF;
+  border-bottom-right-radius: 4px;
+}
+
+.msg-time {
+  font-size: .68rem;
+  color: rgba(255,255,255,0.3);
+  display: block;
+  margin-top: .3rem;
+}
+
+.msg-row.bot .msg-time { text-align: left; margin-left: 32px; margin-top: -.4rem; margin-bottom: .4rem; }
+.msg-row.user .msg-time { text-align: right; margin-right: 4px; margin-top: -.4rem; margin-bottom: .4rem; }
+
+.msg-bubble strong { color: #FFFFFF; font-weight: 500; }
+.msg-bubble .gold { color: #C9A84C; font-weight: 500; }
+.msg-bubble .flag { color: #F87171; font-weight: 500; }
+.msg-bubble .good { color: #4ADE80; font-weight: 500; }
+.msg-bubble .divider { height: 1px; background: rgba(255,255,255,0.07); margin: .5rem 0; }
+.msg-bubble .tag { display: inline-block; background: rgba(201,168,76,0.15); color: #C9A84C; font-size: .72rem; padding: 1px 7px; border-radius: 4px; margin-right: 3px; }
+.msg-bubble .flag-tag { background: rgba(248,113,113,0.15); color: #F87171; }
+.msg-bubble .metric-row { display: flex; justify-content: space-between; margin: .2rem 0; font-size: .82rem; }
+.msg-bubble .metric-label { color: rgba(255,255,255,0.5); }
+.msg-bubble .metric-val { color: #FFFFFF; font-weight: 500; }
+
+.typing-bubble {
+  background: #182533;
+  border-radius: 12px 12px 12px 4px;
+  padding: .6rem .875rem;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  opacity: 0;
+}
+
+.typing-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  animation: typingBounce 1.2s infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: .2s; }
+.typing-dot:nth-child(3) { animation-delay: .4s; }
+
+.tg-input-bar {
+  background: #17212B;
+  padding: .625rem .875rem;
+  display: flex;
+  align-items: center;
+  gap: .625rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.tg-emoji { color: rgba(255,255,255,0.3); font-size: 1.2rem; }
+.tg-input-fake {
+  flex: 1;
+  background: #0E1621;
+  border-radius: 20px;
+  padding: .5rem .875rem;
+  font-size: .85rem;
+  color: rgba(255,255,255,0.25);
+}
+.tg-mic { color: rgba(255,255,255,0.3); font-size: 1.2rem; }
+
+/* Dashboard tabs */
+.dashboard-wrap {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--navy-mid);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+}
+
+.dash-nav {
+  background: var(--navy);
+  display: flex;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.dash-nav::-webkit-scrollbar { display: none; }
+
+.dash-tab {
+  padding: .75rem 1rem;
+  font-size: .8rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.4);
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color .15s, border-color .15s;
+  flex-shrink: 0;
+}
+
+.dash-tab.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+.dash-tab:hover:not(.active) { color: rgba(255,255,255,0.7); }
+
+.dash-panel { display: none; padding: 1.25rem; }
+.dash-panel.active { display: block; }
+
+.brief-card {
+  background: var(--navy);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin-bottom: .875rem;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.brief-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: .625rem;
+}
+
+.brief-text {
+  font-size: .875rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.7;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-bottom: .875rem;
+}
+
+.metric-card {
+  background: var(--navy);
+  border-radius: 8px;
+  padding: .875rem;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.metric-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: .2rem;
+}
+
+.metric-label { font-size: .75rem; color: rgba(255,255,255,0.4); }
+.metric-sub { font-size: .72rem; margin-top: .2rem; }
+.metric-sub.good { color: #4ADE80; }
+.metric-sub.warn { color: #FBBF24; }
+
+.flag-list { display: flex; flex-direction: column; gap: 6px; }
+
+.flag-item {
+  display: flex;
+  align-items: flex-start;
+  gap: .625rem;
+  background: var(--navy);
+  border-radius: 8px;
+  padding: .75rem .875rem;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.flag-icon {
+  width: 28px; height: 28px; border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; flex-shrink: 0;
+}
+
+.flag-icon.warn { background: rgba(251,191,36,0.15); color: #FBBF24; }
+.flag-icon.danger { background: rgba(239,68,68,0.15); color: #EF4444; }
+.flag-icon.info { background: rgba(96,165,250,0.15); color: #60A5FA; }
+
+.flag-text { font-size: .85rem; color: rgba(255,255,255,0.8); line-height: 1.45; }
+.flag-sub { font-size: .75rem; color: rgba(255,255,255,0.35); margin-top: 2px; }
+.flag-action { font-size: .78rem; color: #60A5FA; margin-left: auto; flex-shrink: 0; cursor: pointer; padding-top: 2px; }
+
+.loc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.loc-card {
+  background: var(--navy);
+  border-radius: 8px;
+  padding: .875rem;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.loc-name { font-size: .8rem; font-weight: 500; color: rgba(255,255,255,0.7); margin-bottom: .3rem; }
+.loc-num { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 300; color: var(--white); line-height: 1; }
+.loc-sub { font-size: .7rem; color: rgba(255,255,255,0.35); margin-top: 2px; }
+.loc-bar { height: 3px; background: rgba(255,255,255,0.08); border-radius: 2px; margin-top: 6px; }
+.loc-bar-fill { height: 3px; border-radius: 2px; }
+
+.ask-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: .875rem;
+}
+
+.ask-input {
+  flex: 1;
+  background: var(--navy);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: .625rem .875rem;
+  color: rgba(255,255,255,0.7);
+  font-family: 'Outfit', sans-serif;
+  font-size: .875rem;
+  font-weight: 300;
+  outline: none;
+}
+
+.ask-input::placeholder { color: rgba(255,255,255,0.25); }
+.ask-input:focus { border-color: rgba(201,168,76,0.4); }
+
+.ask-btn {
+  background: var(--gold);
+  color: var(--navy);
+  border: none;
+  border-radius: 8px;
+  padding: .625rem 1rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: .875rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.ask-examples { display: flex; flex-direction: column; gap: 6px; }
+
+.ask-example {
+  display: flex;
+  align-items: center;
+  gap: .625rem;
+  background: var(--navy);
+  border-radius: 8px;
+  padding: .75rem .875rem;
+  border: 1px solid rgba(255,255,255,0.06);
+  cursor: pointer;
+  transition: border-color .15s;
+}
+
+.ask-example:hover { border-color: rgba(201,168,76,0.3); }
+.ask-example-icon { font-size: 14px; color: var(--gold); flex-shrink: 0; }
+.ask-example-text { font-size: .875rem; color: rgba(255,255,255,0.65); }
+
+.dash-divider-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  margin-bottom: .5rem;
+  margin-top: .5rem;
+}
+
+/* ══════════════════════════════════════════
+   SECTION 3 — DECISION / BLOCKS
+══════════════════════════════════════════ */
+.blocks-section {
+  background: var(--off-white);
+  padding: 5rem 1.5rem;
+}
+
+.blocks-eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: .75rem;
+}
+
+.blocks-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 300;
+  color: var(--text);
+  text-align: center;
+  line-height: 1.1;
+  margin-bottom: .875rem;
+}
+
+.blocks-title em { font-style: italic; color: var(--gold); }
+
+.blocks-sub {
+  font-size: .975rem;
+  color: var(--text-soft);
+  text-align: center;
+  max-width: 460px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.product-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.card-head { padding: 1.5rem 1.5rem 1.25rem; position: relative; }
+.card-head-1 { background: linear-gradient(135deg, #0D1B2E 0%, #162338 100%); }
+.card-head-2 { background: linear-gradient(135deg, #14532D 0%, #166534 100%); }
+.card-head-3 { background: linear-gradient(135deg, #1E3A5F 0%, #1B3154 100%); }
+
+.card-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4rem; font-weight: 300;
+  color: rgba(255,255,255,0.07);
+  position: absolute; top: .25rem; right: 1rem;
+  line-height: 1; pointer-events: none;
+}
+
+.card-tag {
+  display: inline-block;
+  font-size: 10px; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: .4rem;
+}
+
+.card-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem; font-weight: 300;
+  color: var(--white); line-height: 1.05; margin-bottom: .4rem;
+}
+
+.card-result { font-size: .875rem; color: rgba(255,255,255,0.6); line-height: 1.55; }
+
+.card-body { padding: 1.1rem 1.5rem; border-bottom: 1px solid var(--border); }
+
+.card-delivers-label {
+  font-size: 10px; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--text-soft); margin-bottom: .625rem;
+}
+
+.deliverable-list { display: flex; flex-direction: column; gap: 7px; }
+
+.deliverable-item {
+  display: flex; align-items: flex-start;
+  gap: .5rem; font-size: .875rem;
+  color: var(--text-mid); line-height: 1.5;
+}
+
+.del-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  flex-shrink: 0; margin-top: 6px;
+}
+.del-dot-1 { background: var(--gold); }
+.del-dot-2 { background: var(--green-accent); }
+.del-dot-3 { background: #3B82F6; }
+
+.card-outcome { padding: .875rem 1.5rem; border-bottom: 1px solid var(--border); }
+.outcome-label { font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--text-soft); margin-bottom: .35rem; }
+.outcome-text { font-size: .875rem; color: var(--text); line-height: 1.6; }
+
+.card-footer {
+  padding: .875rem 1.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--off-white);
+}
+
+.card-price { font-family: 'DM Mono', monospace; font-size: 1.4rem; font-weight: 500; color: var(--text); }
+.card-timeline { font-size: .8rem; color: var(--text-soft); text-align: right; }
+.card-timeline strong { color: var(--text-mid); font-weight: 500; }
+
+.card-enables {
+  padding: .6rem 1.5rem;
+  font-size: .8rem;
+  color: var(--text-mid);
+  border-top: 1px solid var(--border);
+}
+
+.card-enables strong { font-weight: 500; }
+
+/* Local hosting note */
+.local-note {
+  max-width: 520px;
+  margin: 1.25rem auto 0;
+  background: var(--navy);
+  border-radius: 12px;
+  padding: 1.1rem 1.5rem;
+}
+
+.local-note p { font-size: .875rem; color: rgba(255,255,255,0.55); line-height: 1.7; }
+.local-note strong { color: var(--gold); font-weight: 500; }
+
+/* Dashboard light mode */
+.dashboard-wrap.light-mode {
+  background: #FFFFFF;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.dashboard-wrap.light-mode .dash-nav { background: #F2F2F7; border-bottom: 1px solid rgba(0,0,0,0.08); }
+.dashboard-wrap.light-mode .dash-tab { color: #8E8E93; }
+.dashboard-wrap.light-mode .dash-tab.active { color: #C9A84C; border-bottom-color: #C9A84C; }
+.dashboard-wrap.light-mode .dash-panel { background: #FFFFFF; }
+.dashboard-wrap.light-mode { background: #F2F2F7; }
+.dashboard-wrap.light-mode .brief-card { background: #F2F2F7; border: 1px solid rgba(0,0,0,0.06); }
+.dashboard-wrap.light-mode .brief-label { color: #C9A84C; }
+.dashboard-wrap.light-mode .brief-text { color: #374151; }
+.dashboard-wrap.light-mode .brief-text strong { color: #111827; }
+.dashboard-wrap.light-mode .metric-card { background: #F2F2F7; border: 1px solid rgba(0,0,0,0.06); }
+.dashboard-wrap.light-mode .metric-num { color: #111827; }
+.dashboard-wrap.light-mode .metric-label { color: #6B7280; }
+.dashboard-wrap.light-mode .metric-sub.good { color: #16A34A; }
+.dashboard-wrap.light-mode .metric-sub.warn { color: #D97706; }
+.dashboard-wrap.light-mode .flag-item { background: #F9F9F9; border: 1px solid rgba(0,0,0,0.06); }
+.dashboard-wrap.light-mode .flag-text { color: #111827; }
+.dashboard-wrap.light-mode .flag-sub { color: #9CA3AF; }
+.dashboard-wrap.light-mode .flag-action { color: #2563EB; }
+.dashboard-wrap.light-mode .loc-card { background: #F2F2F7; border: 1px solid rgba(0,0,0,0.06); }
+.dashboard-wrap.light-mode .loc-name { color: #374151; }
+.dashboard-wrap.light-mode .loc-sub { color: #9CA3AF; }
+.dashboard-wrap.light-mode .loc-bar { background: rgba(0,0,0,0.06); }
+.dashboard-wrap.light-mode .ask-input { background: #F2F2F7; border: 1px solid rgba(0,0,0,0.1); color: #374151; }
+.dashboard-wrap.light-mode .ask-input::placeholder { color: #9CA3AF; }
+.dashboard-wrap.light-mode .ask-example { background: #F9F9F9; border: 1px solid rgba(0,0,0,0.06); }
+.dashboard-wrap.light-mode .ask-example-text { color: #374151; }
+.dashboard-wrap.light-mode .dash-divider-label { color: #9CA3AF; }
+
+/* Dashboard mode toggle */
+.dash-mode-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-bottom: .75rem;
+}
+
+.dash-mode-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 16px;
+  padding: 6px 14px;
+  font-family: 'Outfit', sans-serif;
+  font-size: .8rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.55);
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.dash-mode-btn.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.dash-mode-btn:not(.active):hover {
+  background: rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.8);
+}
+
+/* Way stack */
+.why-wrap {
+  max-width: 520px;
+  margin: 1.25rem auto 0;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+}
+
+.why-label { font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: .5rem; }
+.why-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 300; color: var(--text); line-height: 1.2; margin-bottom: .625rem; }
+.why-title em { font-style: italic; }
+.why-text { font-size: .875rem; color: var(--text-mid); line-height: 1.7; }
+
+/* ══════════════════════════════════════════
+   SECTION 4 — NEXT STEP
+══════════════════════════════════════════ */
+.next-section {
+  background: var(--navy);
+  padding: 5rem 1.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.next-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 100%, rgba(201,168,76,0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.next-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.next-title em { font-style: italic; color: var(--gold-light); }
+
+.next-sub {
+  font-size: .975rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+  max-width: 400px;
+  margin: 0 auto 2.5rem;
+}
+
+.btn-next {
+  display: inline-flex;
+  align-items: center;
+  gap: .625rem;
+  background: transparent;
+  color: var(--gold);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: .875rem 2rem;
+  border-radius: 50px;
+  border: 1.5px solid var(--gold);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background .15s, color .15s, transform .15s;
+  margin: 0 .4rem .75rem;
+}
+
+.btn-next:hover { background: var(--gold); color: var(--navy); transform: translateY(-2px); }
+
+.next-footer {
+  margin-top: 2.5rem;
+  font-size: .75rem;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: .04em;
+}
+
+/* What happens next */
+.what-next {
+  background: var(--off-white);
+  padding: 5rem 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.what-next-inner {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.next-steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 2.5rem;
+  position: relative;
+}
+
+.next-steps-list::before {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 24px;
+  bottom: 24px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--gold), rgba(201,168,76,0.1));
+}
+
+.next-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 0 0 2.25rem;
+  position: relative;
+}
+
+.next-step:last-child { padding-bottom: 0; }
+
+.next-step-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--navy);
+  border: 2px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: var(--gold);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.next-step-content { padding-top: .4rem; }
+
+.next-step-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: .3rem;
+  line-height: 1.3;
+}
+
+.next-step-desc {
+  font-size: .9rem;
+  color: var(--text-soft);
+  line-height: 1.65;
+}
+
+.next-step-time {
+  display: inline-block;
+  margin-top: .4rem;
+  font-size: .78rem;
+  font-weight: 500;
+  color: var(--gold);
+  background: rgba(201,168,76,0.1);
+  padding: 2px 10px;
+  border-radius: 20px;
+}
+
+@media (min-width: 680px) {
+  .what-next-inner { max-width: 680px; }
+}
+
+/* ══════════════════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: .1s; }
+.reveal-delay-2 { transition-delay: .2s; }
+.reveal-delay-3 { transition-delay: .3s; }
+.reveal-delay-4 { transition-delay: .4s; }
+
+/* ══════════════════════════════════════════
+   ANIMATIONS
+══════════════════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: .2; }
+  50% { opacity: .5; }
+}
+
+@keyframes typingBounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: .35; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+
+/* ══════════════════════════════════════════
+   DESKTOP
+══════════════════════════════════════════ */
+@media (min-width: 680px) {
+  .hero-title { font-size: clamp(4rem, 8vw, 6rem); }
+  .cards { flex-direction: row; max-width: 900px; align-items: start; }
+  .product-card { flex: 1; }
+  .local-note { max-width: 900px; }
+  .why-wrap { max-width: 900px; }
+  .dashboard-wrap { max-width: 680px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ SECTION 1: HERO ══════════════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-overlay"></div>
+
+  <div class="hero-stripe"></div>
+  <div class="hero-eyebrow">Prepared for Jermaine Jones &nbsp;|&nbsp; Safe Tax Nation</div>
+
+  <h1 class="hero-title">
+    Your AI<br><em>Operating</em><br>System.
+  </h1>
+
+  <p class="hero-sub">Everything you need to know before you open anything else.</p>
+
+  <div class="hero-cta">
+    <button class="btn-primary" onclick="scrollToSection('demo')">
+      Take a look <span class="btn-arrow">&#8594;</span>
+    </button>
+  </div>
+
+  <div class="hero-scroll" onclick="scrollToSection('demo')" style="cursor:pointer">
+    <span>scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ══ SECTION 2: DEMO ══════════════════════════════════════════════════ -->
+<section class="demo-section" id="demo">
+
+  <!-- TELEGRAM DEMO -->
+  <div class="section-label reveal">Block 01 demo</div>
+  <h2 class="section-title reveal reveal-delay-1">This is what lands<br><em>in your Telegram.</em></h2>
+  <p class="section-sub reveal reveal-delay-2">Every morning at 6am. Real data from your GHL, TPG, and CrossLink accounts. No logins. No reports. Just this.</p>
+
+  <!-- Mode toggle -->
+  <div class="mode-toggle reveal reveal-delay-3">
+    <button class="mode-btn active" id="darkBtn" onclick="setMode('dark')">
+      <span class="mode-icon">&#127769;</span> Dark
+    </button>
+    <button class="mode-btn" id="lightBtn" onclick="setMode('light')">
+      <span class="mode-icon">&#9728;</span> Light
+    </button>
+  </div>
+
+  <div class="phone-wrap reveal reveal-delay-4">
+    <div class="iphone-shell" id="iphoneShell">
+      <div class="phone">
+        <!-- Status bar -->
+        <div class="iphone-status-bar">
+          <div class="dynamic-island"></div>
+          <div class="status-time">9:41</div>
+          <div class="status-icons">
+            <svg width="17" height="12" viewBox="0 0 17 12" fill="currentColor"><rect x="0" y="3" width="3" height="9" rx="1" opacity=".4"/><rect x="4.5" y="2" width="3" height="10" rx="1" opacity=".6"/><rect x="9" y="0" width="3" height="12" rx="1" opacity=".8"/><rect x="13.5" y="0" width="3" height="12" rx="1"/></svg>
+            <svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.4C10.6 2.4 12.9 3.5 14.5 5.2L16 3.6C14 1.4 11.2 0 8 0S2 1.4 0 3.6L1.5 5.2C3.1 3.5 5.4 2.4 8 2.4z" opacity=".4"/><path d="M8 5.6C9.8 5.6 11.4 6.3 12.6 7.5L14.1 5.9C12.5 4.3 10.4 3.2 8 3.2S3.5 4.3 1.9 5.9L3.4 7.5C4.6 6.3 6.2 5.6 8 5.6z" opacity=".7"/><path d="M8 8.8C9 8.8 9.9 9.2 10.6 9.8L12 8.3C10.9 7.3 9.5 6.7 8 6.7S5.1 7.3 4 8.3L5.4 9.8C6.1 9.2 7 8.8 8 8.8z"/><circle cx="8" cy="12" r="1.5"/></svg>
+            <svg width="25" height="12" viewBox="0 0 25 12" fill="currentColor"><rect x="0" y="1" width="21" height="10" rx="3.5" stroke="currentColor" stroke-width="1" fill="none" opacity=".35"/><rect x="1.5" y="2.5" width="16" height="7" rx="2.5" fill="currentColor"/><path d="M23 4.5v3a1.5 1.5 0 000-3z" opacity=".4"/></svg>
+          </div>
+        </div>
+        <div class="tg-header">
+        <div class="tg-back">&#8249;</div>
+        <div class="tg-avatar">AI</div>
+        <div class="tg-contact-info">
+          <div class="tg-contact-name">SafeTax Operations</div>
+          <div class="tg-contact-status">bot &nbsp;&#183;&nbsp; online</div>
+        </div>
+        <div class="tg-icons"><span>&#9906;</span><span>&#8942;</span></div>
+      </div>
+
+      <div class="tg-chat" id="tgChat">
+        <div class="date-divider">
+          <span class="date-pill">Today, 6:00 AM</span>
+        </div>
+
+        <div class="msg-row bot" id="m1">
+          <div class="msg-avatar">AI</div>
+          <div>
+            <div class="msg-bubble">
+              <span class="gold">&#9728; Good morning, Jermaine.</span><br>
+              Here is your <strong>Safe Tax Nation</strong> briefing for Wednesday, May 27.
+              <div class="divider"></div>
+              <span class="tag">NETWORK</span><br>
+              <div class="metric-row"><span class="metric-label">Returns filed yesterday</span><span class="metric-val good">61</span></div>
+              <div class="metric-row"><span class="metric-label">Active locations</span><span class="metric-val">19 of 26</span></div>
+              <div class="metric-row"><span class="metric-label">Week revenue</span><span class="metric-val good">$24,800</span></div>
+              <div class="metric-row"><span class="metric-label">Season vs last year</span><span class="metric-val good">+14%</span></div>
+              <div class="divider"></div>
+              <span class="tag">TOP LOCATION</span><br>
+              <strong>Orlando Corp #7</strong> led with 11 returns. Best single day this season.
+              <div class="divider"></div>
+              <span class="tag flag-tag">FLAGS</span><br>
+              <span class="flag">3 affiliates</span> silent 7 or more days<br>
+              <span style="font-size:.75rem;color:rgba(255,255,255,0.4)">Miami North &nbsp;&#183;&nbsp; Gainesville &nbsp;&#183;&nbsp; Ocala West</span><br><br>
+              <span class="flag">2 leads</span> in Tampa pipeline, 48 hours no contact<br><br>
+              <span class="flag">1 speaking inquiry</span> from Orlando Business Summit, unanswered 4 days
+              <div class="divider"></div>
+              <span style="font-size:.78rem;color:rgba(255,255,255,0.4)">Reply with any location, affiliate, or question for more detail.</span>
+            </div>
+            <span class="msg-time">6:00 AM &#10003;&#10003;</span>
+          </div>
+        </div>
+
+        <div class="msg-row user" id="m2">
+          <div class="msg-bubble">How is Gainesville doing vs last month?</div>
+        </div>
+        <span class="msg-time" id="m2t" style="text-align:right;display:none;margin-top:-.4rem;margin-bottom:.6rem;padding-right:.4rem;font-size:.68rem;color:rgba(255,255,255,0.3);">6:03 AM &#10003;&#10003;</span>
+
+        <div class="msg-row bot" id="mTyping" style="margin-bottom:.75rem;">
+          <div class="msg-avatar">AI</div>
+          <div class="typing-bubble" id="typingBubble">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+          </div>
+        </div>
+
+        <div class="msg-row bot" id="m3">
+          <div class="msg-avatar">AI</div>
+          <div>
+            <div class="msg-bubble">
+              <span class="tag">GAINESVILLE</span> &nbsp;<span class="flag-tag tag">NEEDS ATTENTION</span>
+              <div class="divider"></div>
+              <div class="metric-row"><span class="metric-label">Returns this month</span><span class="metric-val flag">18</span></div>
+              <div class="metric-row"><span class="metric-label">Returns last month</span><span class="metric-val">34</span></div>
+              <div class="metric-row"><span class="metric-label">Change</span><span class="metric-val flag">-47%</span></div>
+              <div class="metric-row"><span class="metric-label">Network average</span><span class="metric-val">52 per month</span></div>
+              <div class="divider"></div>
+              Last GHL contact <strong>11 days ago.</strong> No pipeline movement since May 16. Currently your lowest-performing active location this season.
+              <div class="divider"></div>
+              <span style="font-size:.8rem;color:rgba(255,255,255,0.45)">Want me to draft a re-engagement message?</span>
+            </div>
+            <span class="msg-time">6:03 AM &#10003;&#10003;</span>
+          </div>
+        </div>
+
+        <div class="msg-row user" id="m4">
+          <div class="msg-bubble">Yes draft it</div>
+        </div>
+        <span class="msg-time" id="m4t" style="text-align:right;display:none;margin-top:-.4rem;margin-bottom:.6rem;padding-right:.4rem;font-size:.68rem;color:rgba(255,255,255,0.3);">6:04 AM &#10003;&#10003;</span>
+
+        <div class="msg-row bot" id="m5">
+          <div class="msg-avatar">AI</div>
+          <div>
+            <div class="msg-bubble">
+              <span class="tag">DRAFT</span> &nbsp;<span style="font-size:.75rem;color:rgba(255,255,255,0.35)">for your approval</span>
+              <div class="divider"></div>
+              <span style="font-style:italic;color:rgba(255,255,255,0.8);font-size:.85rem;line-height:1.65">"Hey, just checking in. Things have been quiet on your end and we wanted to make sure everything is good. Season is moving fast and your market has real opportunity right now. If there is anything slowing you down, we have got you. Let us get a quick call on the calendar this week."</span>
+              <div class="divider"></div>
+              <span style="font-size:.8rem;color:rgba(255,255,255,0.4)">Reply <strong style="color:#4ADE80">SEND</strong> to approve or <strong style="color:#F87171">EDIT</strong> to revise.</span>
+            </div>
+            <span class="msg-time">6:04 AM &#10003;&#10003;</span>
+          </div>
+        </div>
+
+      </div>
+
+        <div class="tg-input-bar">
+          <div class="tg-emoji">&#128512;</div>
+          <div class="tg-input-fake">Message</div>
+          <div class="tg-mic">&#127908;</div>
+        </div>
+        <div class="iphone-home-indicator">
+          <div class="home-bar"></div>
+        </div>
+      </div><!-- .phone -->
+    </div><!-- .iphone-shell -->
+  </div><!-- .phone-wrap -->
+
+  <!-- DASHBOARD -->
+  <div class="section-label" style="margin-top:3rem">Block 03 demo</div>
+  <h2 class="section-title">This is the<br><em>visual dashboard.</em></h2>
+  <p class="section-sub">When you want to see everything laid out visually. Accessible from any device via your private VPN.</p>
+
+  <!-- Dashboard mode toggle -->
+  <div class="dash-mode-toggle" style="max-width:600px;margin:0 auto .75rem;">
+    <button class="dash-mode-btn active" id="dashDarkBtn" onclick="setDashMode('dark')">
+      <span>&#127769;</span> Dark
+    </button>
+    <button class="dash-mode-btn" id="dashLightBtn" onclick="setDashMode('light')">
+      <span>&#9728;</span> Light
+    </button>
+  </div>
+
+  <div class="dashboard-wrap" id="dashboardWrap" style="max-width:600px;margin:0 auto;">
+    <div class="dash-nav">
+      <div class="dash-tab active" onclick="switchTab('brief',this)">Morning brief</div>
+      <div class="dash-tab" onclick="switchTab('locations',this)">Locations</div>
+      <div class="dash-tab" onclick="switchTab('affiliates',this)">Affiliates</div>
+      <div class="dash-tab" onclick="switchTab('ask',this)">Ask anything</div>
+    </div>
+
+    <div class="dash-panel active" id="tab-brief">
+      <div class="brief-card">
+        <div class="brief-label">&#129302; AI situation report &nbsp;&#183;&nbsp; 6:00 AM</div>
+        <div class="brief-text">Your network filed <strong>61 returns</strong> yesterday across 19 active locations. Orlando led the season with its best single day. Three affiliates have been silent for 7 or more days and are flagged below. A speaking inquiry from last Thursday still needs a response. Two GHL leads in Tampa are 48 hours without follow-up. Week revenue is tracking <strong>14% above</strong> last season.</div>
+      </div>
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-num">61</div>
+          <div class="metric-label">Returns yesterday</div>
+          <div class="metric-sub good">+14% vs last season</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num">$24.8k</div>
+          <div class="metric-label">Week revenue</div>
+          <div class="metric-sub good">On track</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num">19/26</div>
+          <div class="metric-label">Active locations</div>
+          <div class="metric-sub warn">3 need attention</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num">3</div>
+          <div class="metric-label">Flags today</div>
+          <div class="metric-sub warn">Action required</div>
+        </div>
+      </div>
+      <div class="dash-divider-label">Flags needing attention</div>
+      <div class="flag-list">
+        <div class="flag-item">
+          <div class="flag-icon warn">&#9888;</div>
+          <div>
+            <div class="flag-text">3 affiliates silent for 7 or more days</div>
+            <div class="flag-sub">Miami North &nbsp;&#183;&nbsp; Gainesville &nbsp;&#183;&nbsp; Ocala West</div>
+          </div>
+          <div class="flag-action">Draft &#8594;</div>
+        </div>
+        <div class="flag-item">
+          <div class="flag-icon info">&#127908;</div>
+          <div>
+            <div class="flag-text">Speaking inquiry unanswered, 4 days old</div>
+            <div class="flag-sub">Orlando Business Summit</div>
+          </div>
+          <div class="flag-action">Reply &#8594;</div>
+        </div>
+        <div class="flag-item">
+          <div class="flag-icon danger">&#128100;</div>
+          <div>
+            <div class="flag-text">2 leads past 48 hours no contact</div>
+            <div class="flag-sub">Tampa pipeline</div>
+          </div>
+          <div class="flag-action">View &#8594;</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-panel" id="tab-locations">
+      <div class="dash-divider-label">Corporate locations &nbsp;&#183;&nbsp; this week</div>
+      <div class="loc-grid">
+        <div class="loc-card">
+          <div class="loc-name">Orlando #7</div>
+          <div class="loc-num" style="color:#4ADE80">94</div>
+          <div class="loc-sub">returns this week</div>
+          <div class="loc-bar"><div class="loc-bar-fill" style="width:94%;background:#4ADE80"></div></div>
+        </div>
+        <div class="loc-card">
+          <div class="loc-name">Tampa #3</div>
+          <div class="loc-num" style="color:#4ADE80">81</div>
+          <div class="loc-sub">returns this week</div>
+          <div class="loc-bar"><div class="loc-bar-fill" style="width:81%;background:#4ADE80"></div></div>
+        </div>
+        <div class="loc-card">
+          <div class="loc-name">Jacksonville #1</div>
+          <div class="loc-num">67</div>
+          <div class="loc-sub">returns this week</div>
+          <div class="loc-bar"><div class="loc-bar-fill" style="width:67%;background:var(--gold)"></div></div>
+        </div>
+        <div class="loc-card">
+          <div class="loc-name">Miami #2</div>
+          <div class="loc-num">58</div>
+          <div class="loc-sub">returns this week</div>
+          <div class="loc-bar"><div class="loc-bar-fill" style="width:58%;background:var(--gold)"></div></div>
+        </div>
+        <div class="loc-card">
+          <div class="loc-name">Gainesville #11</div>
+          <div class="loc-num" style="color:#F87171">18</div>
+          <div class="loc-sub">returns this week</div>
+          <div class="loc-bar"><div class="loc-bar-fill" style="width:18%;background:#F87171"></div></div>
+        </div>
+        <div class="loc-card">
+          <div class="loc-name">Ocala #9</div>
+          <div class="loc-num" style="color:#FBBF24">21</div>
+          <div class="loc-sub">returns this week</div>
+          <div class="loc-bar"><div class="loc-bar-fill" style="width:21%;background:#FBBF24"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-panel" id="tab-affiliates">
+      <div class="dash-divider-label">Affiliate network &nbsp;&#183;&nbsp; 26 total</div>
+      <div class="flag-list">
+        <div class="flag-item">
+          <div style="flex:1">
+            <div class="flag-text">Brevard Tax Solutions</div>
+            <div class="flag-sub">Top affiliate this season &nbsp;&#183;&nbsp; 88 returns</div>
+          </div>
+          <span style="background:rgba(74,222,128,0.15);color:#4ADE80;font-size:11px;font-weight:500;padding:2px 8px;border-radius:20px;">Top performer</span>
+        </div>
+        <div class="flag-item">
+          <div style="flex:1">
+            <div class="flag-text">First Coast Tax, St. Augustine</div>
+            <div class="flag-sub">Joined 3 weeks ago &nbsp;&#183;&nbsp; 31 returns</div>
+          </div>
+          <span style="background:rgba(96,165,250,0.15);color:#60A5FA;font-size:11px;font-weight:500;padding:2px 8px;border-radius:20px;">Growing</span>
+        </div>
+        <div class="flag-item">
+          <div style="flex:1">
+            <div class="flag-text">Sunrise Tax, Miami North</div>
+            <div class="flag-sub">Last active 9 days ago &nbsp;&#183;&nbsp; 12 returns</div>
+          </div>
+          <span style="background:rgba(251,191,36,0.15);color:#FBBF24;font-size:11px;font-weight:500;padding:2px 8px;border-radius:20px;">Silent</span>
+        </div>
+        <div class="flag-item">
+          <div style="flex:1">
+            <div class="flag-text">Quick Returns, Gainesville</div>
+            <div class="flag-sub">Last active 11 days ago &nbsp;&#183;&nbsp; 7 returns</div>
+          </div>
+          <span style="background:rgba(251,191,36,0.15);color:#FBBF24;font-size:11px;font-weight:500;padding:2px 8px;border-radius:20px;">Silent</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-panel" id="tab-ask">
+      <div class="ask-bar">
+        <input class="ask-input" type="text" placeholder="Ask about any location, affiliate, or metric..." readonly>
+        <button class="ask-btn">Ask</button>
+      </div>
+      <div class="dash-divider-label">Try asking</div>
+      <div class="ask-examples">
+        <div class="ask-example">
+          <span class="ask-example-icon">&#128200;</span>
+          <span class="ask-example-text">How is location 7 performing compared to last month?</span>
+        </div>
+        <div class="ask-example">
+          <span class="ask-example-icon">&#128101;</span>
+          <span class="ask-example-text">Which affiliates are growing fastest this quarter?</span>
+        </div>
+        <div class="ask-example">
+          <span class="ask-example-icon">&#128196;</span>
+          <span class="ask-example-text">Draft a welcome packet for a new affiliate in Orlando</span>
+        </div>
+        <div class="ask-example">
+          <span class="ask-example-icon">&#128197;</span>
+          <span class="ask-example-text">What tax deadlines are coming up I should post about?</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA to blocks -->
+  <div style="text-align:center;margin-top:3.5rem">
+    <p style="font-size:.875rem;color:rgba(255,255,255,0.4);margin-bottom:1.25rem">This is what Block 01 and Block 03 look like in practice. Here is how we build it.</p>
+    <button class="btn-primary" onclick="scrollToSection('blocks')">
+      See the build plan <span class="btn-arrow">&#8594;</span>
+    </button>
+  </div>
+
+</section>
+
+<!-- ══ SECTION 3: BLOCKS ════════════════════════════════════════════════ -->
+<section class="blocks-section" id="blocks">
+  <div class="blocks-eyebrow reveal">The build</div>
+  <h2 class="blocks-title reveal reveal-delay-1">Three blocks.<br><em>One complete system.</em></h2>
+  <p class="blocks-sub reveal reveal-delay-2">Each block delivers a standalone result at $3,500. Each one makes the next more powerful. Start where it makes sense for you.</p>
+
+  <div class="cards">
+
+    <!-- BLOCK 01 -->
+    <div class="product-card reveal reveal-delay-1">
+      <div class="card-head card-head-1">
+        <div class="card-num">1</div>
+        <div class="card-tag">Block 01</div>
+        <div class="card-name">The Visibility<br>System</div>
+        <div class="card-result">Wake up every morning already knowing how your entire business performed yesterday.</div>
+      </div>
+      <div class="card-body">
+        <div class="card-delivers-label">What gets built</div>
+        <div class="deliverable-list">
+          <div class="deliverable-item"><div class="del-dot del-dot-1"></div><span>Both Mac Studios configured locally with Tailscale secure remote access from any device</span></div>
+          <div class="deliverable-item"><div class="del-dot del-dot-1"></div><span>GoHighLevel, TPG bank, and CrossLink connected and pulling live data daily</span></div>
+          <div class="deliverable-item"><div class="del-dot del-dot-1"></div><span>Daily Telegram briefing delivered every morning covering all 26 locations</span></div>
+          <div class="deliverable-item"><div class="del-dot del-dot-1"></div><span>Ask anything via Telegram and get an accurate data-backed answer in seconds</span></div>
+        </div>
+      </div>
+      <div class="card-outcome">
+        <div class="outcome-label">The result</div>
+        <div class="outcome-text">You open Telegram before you open your eyes. Location performance, affiliate status, revenue, pipeline health, and anything needing attention is already there. No logins. No reports. No guesswork.</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-price">$3,500</div>
+        <div class="card-timeline"><strong>30 days</strong><br>to delivery</div>
+      </div>
+      <div class="card-enables" style="background:#F0F4FF;">
+        <strong style="color:#1B2A4A">Enables next:</strong> <span style="color:#374151">The Execution System agents run on top of this data foundation</span>
+      </div>
+    </div>
+
+    <!-- BLOCK 02 -->
+    <div class="product-card reveal reveal-delay-2">
+      <div class="card-head card-head-2">
+        <div class="card-num">2</div>
+        <div class="card-tag">Block 02</div>
+        <div class="card-name">The Execution<br>System</div>
+        <div class="card-result">Six agents live and operating on your real business data. Drafting, monitoring, flagging, and generating.</div>
+      </div>
+      <div class="card-body">
+        <div class="card-delivers-label">What gets built</div>
+        <div class="deliverable-list">
+          <div class="deliverable-item"><div class="del-dot del-dot-2"></div><span>Six specialized CrewAI agents deployed across both studios, each with a defined role operating on live data</span></div>
+          <div class="deliverable-item"><div class="del-dot del-dot-2"></div><span>Email and WhatsApp drafts routed to Telegram for your one-tap review and approval before anything sends</span></div>
+          <div class="deliverable-item"><div class="del-dot del-dot-2"></div><span>Affiliate monitoring active with re-engagement sequences triggered when affiliates go quiet</span></div>
+          <div class="deliverable-item"><div class="del-dot del-dot-2"></div><span>On-demand content agent loaded with your brand assets — give it a topic and it generates post options in your voice for approval</span></div>
+        </div>
+      </div>
+      <div class="card-outcome">
+        <div class="outcome-label">The result</div>
+        <div class="outcome-text">Your agents are live and operating on real business data. They draft, monitor, flag, and generate. Intelligent and useful from day one. At this point the agents are working from live data and general AI intelligence. Block 03 is what makes them specifically yours.</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-price">$3,500</div>
+        <div class="card-timeline"><strong>Days 30 to 60</strong><br>requires Block 01</div>
+      </div>
+      <div class="card-enables" style="background:#F0FDF4;">
+        <strong style="color:#14532D">Enables next:</strong> <span style="color:#374151">The Brain loads your institutional knowledge into the agents you have built</span>
+      </div>
+    </div>
+
+    <!-- BLOCK 03 -->
+    <div class="product-card reveal reveal-delay-3">
+      <div class="card-head card-head-3">
+        <div class="card-num">3</div>
+        <div class="card-tag">Block 03</div>
+        <div class="card-name">The<br>Brain</div>
+        <div class="card-result">Your agents were running in Block 02. Block 03 is what makes them yours. Trained on how Safe Tax Nation operates.</div>
+      </div>
+      <div class="card-body">
+        <div class="card-delivers-label">What gets built</div>
+        <div class="deliverable-list">
+          <div class="deliverable-item"><div class="del-dot del-dot-3"></div><span>Your existing SOPs and processes restructured into agent-readable intelligence so every decision is grounded in how Safe Tax Nation actually operates</span></div>
+          <div class="deliverable-item"><div class="del-dot del-dot-3"></div><span>Every agent prompt engineered and voice-calibrated to your communication standards and brand, tested until outputs sound like they came from your organization</span></div>
+          <div class="deliverable-item"><div class="del-dot del-dot-3"></div><span>Visual command center dashboard accessible from any device via secure VPN with HQ staff roles configured</span></div>
+          <div class="deliverable-item"><div class="del-dot del-dot-3"></div><span>Full system tested end-to-end with live data, edge cases handled, and complete handoff documentation</span></div>
+        </div>
+      </div>
+      <div class="card-outcome">
+        <div class="outcome-label">The result</div>
+        <div class="outcome-text">The same agents running in Block 02 now operate with the institutional knowledge of Safe Tax Nation behind every decision. A re-engagement message sounds like Jermaine wrote it. A staff query gets answered with your actual policy. The system stops being a smart generalist and becomes a trained member of your organization.</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-price">$3,500</div>
+        <div class="card-timeline"><strong>Days 60 to 90</strong><br>requires Blocks 01 and 02</div>
+      </div>
+      <div class="card-enables" style="background:#EFF6FF;">
+        <strong style="color:#1E3A5F">Complete:</strong> <span style="color:#374151">The full AI operating system for Safe Tax Nation is live</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="local-note reveal">
+    <p><strong>Locally hosted on your hardware.</strong> No cloud infrastructure. No third-party servers holding your data. Everything runs on your Mac Studios inside your own network, secured behind a private VPN. Your client data, your financial data, and your business intelligence stay where they belong.</p>
+  </div>
+
+  <div class="why-wrap reveal">
+    <div class="why-label">Why the full stack</div>
+    <div class="why-title">Each block makes<br><em>the next one stronger.</em></div>
+    <div class="why-text">Block 01 is valuable on its own and you will feel the difference on day one. Block 02 puts agents on top of that data foundation and they start doing real work immediately. But those agents are still operating on general intelligence at that point. Block 03 is what closes the gap between a smart AI tool and an AI that actually knows your business. Together they are not three separate tools. They are one unified system where every layer amplifies the others.</div>
+  </div>
+
+  <div style="text-align:center;margin-top:2.5rem">
+    <button class="btn-primary" style="background:transparent;color:var(--gold);box-shadow:none;border:1.5px solid var(--gold);" onclick="scrollToSection('next')">
+      Ready to start <span class="btn-arrow">&#8594;</span>
+    </button>
+  </div>
+
+</section>
+
+<!-- ══ WHAT HAPPENS NEXT ══════════════════════════════════════════════════ -->
+<section class="what-next">
+  <div class="what-next-inner">
+    <div class="blocks-eyebrow reveal">What happens next</div>
+    <h2 class="blocks-title reveal reveal-delay-1">Three steps.<br><em>Thirty days.</em></h2>
+    <p class="blocks-sub reveal reveal-delay-2" style="text-align:left;max-width:100%">From your first message to a live AI system delivering your daily briefing. Here is exactly how we get there.</p>
+
+    <div class="next-steps-list">
+
+      <div class="next-step reveal">
+        <div class="next-step-num">1</div>
+        <div class="next-step-content">
+          <div class="next-step-title">You reach out and we align on scope</div>
+          <div class="next-step-desc">A short conversation to confirm which blocks you want to start with, answer any questions, and agree on the timeline. No long discovery process. You have already seen what this looks like.</div>
+          <span class="next-step-time">Day 1</span>
+        </div>
+      </div>
+
+      <div class="next-step reveal reveal-delay-1">
+        <div class="next-step-num">2</div>
+        <div class="next-step-content">
+          <div class="next-step-title">Mac Studio ships and the build begins</div>
+          <div class="next-step-desc">You ship the Mac Studio to us. We configure the environment, connect GoHighLevel, TPG, and CrossLink, set up your Telegram bots, and start engineering the morning brief. You get progress updates as each piece goes live.</div>
+          <span class="next-step-time">Days 2 to 14</span>
+        </div>
+      </div>
+
+      <div class="next-step reveal reveal-delay-2">
+        <div class="next-step-num">3</div>
+        <div class="next-step-content">
+          <div class="next-step-title">Your first morning brief arrives</div>
+          <div class="next-step-desc">Day 30. You wake up to a Telegram message with real Safe Tax Nation data. Location performance, affiliate flags, pipeline status, revenue summary. Everything you need to know. Before you open anything else.</div>
+          <span class="next-step-time">Day 30</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECTION 4: NEXT STEP ══════════════════════════════════════════════ -->
+<section class="next-section" id="next">
+  <h2 class="next-title reveal">Start where<br><em>it makes sense.</em></h2>
+  <p class="next-sub reveal reveal-delay-1">Block 01 in 30 days. Real data. Real results in your Telegram every morning. The rest follows when you are ready.</p>
+
+  <div>
+    <a href="sms:6788774009" class="btn-next">&#128172; Text Kyle directly</a>
+    <a href="https://wa.me/16788774009" class="btn-next">&#128241; WhatsApp</a>
+  </div>
+
+  <p style="font-size:.825rem;color:rgba(255,255,255,0.3);margin-top:1.5rem">Or reply to the message that brought you here.</p>
+
+  <div class="next-footer">
+    The Brobot LLC &nbsp;|&nbsp; thebrobot.com &nbsp;|&nbsp; Prepared for Jermaine Jones &nbsp;|&nbsp; Confidential
+  </div>
+</section>
+
+<script>
+// ── SMOOTH SCROLL ────────────────────────────────────────────────────────
+function scrollToSection(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ── TELEGRAM ANIMATION ──────────────────────────────────────────────────
+let telegramStarted = false;
+
+function startTelegramAnimation() {
+  if (telegramStarted) return;
+  telegramStarted = true;
+
+  const steps = [
+    { id: 'm1', delay: 600 },
+    { id: 'm2', delay: 2200, timeId: 'm2t' },
+    { id: 'mTyping', delay: 2800, typing: true },
+    { id: 'm3', delay: 4200, hideTyping: true },
+    { id: 'm4', delay: 5800, timeId: 'm4t' },
+    { id: 'm5', delay: 6800 },
+  ];
+
+  steps.forEach(step => {
+    setTimeout(() => {
+      const el = document.getElementById(step.id);
+      if (!el) return;
+
+      if (step.typing) {
+        el.style.opacity = '1';
+        document.getElementById('typingBubble').style.opacity = '1';
+        return;
+      }
+
+      if (step.hideTyping) {
+        document.getElementById('mTyping').style.opacity = '0';
+      }
+
+      el.style.transition = 'opacity .4s ease, transform .4s ease';
+      el.style.transform = 'translateY(8px)';
+      el.style.opacity = '0';
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        });
+      });
+
+      if (step.timeId) {
+        setTimeout(() => {
+          const t = document.getElementById(step.timeId);
+          if (t) t.style.display = 'block';
+        }, 300);
+      }
+
+      // Scroll chat to bottom
+      setTimeout(() => {
+        const chat = document.getElementById('tgChat');
+        if (chat) chat.scrollTop = chat.scrollHeight;
+      }, 200);
+
+    }, step.delay);
+  });
+}
+
+// ── MODE TOGGLE ─────────────────────────────────────────────────────────
+function setMode(mode) {
+  const shell = document.getElementById('iphoneShell');
+  const darkBtn = document.getElementById('darkBtn');
+  const lightBtn = document.getElementById('lightBtn');
+  if (mode === 'light') {
+    shell.classList.add('light-mode');
+    lightBtn.classList.add('active');
+    darkBtn.classList.remove('active');
+  } else {
+    shell.classList.remove('light-mode');
+    darkBtn.classList.add('active');
+    lightBtn.classList.remove('active');
+  }
+  // Sync dashboard if it is visible
+  if (document.getElementById('dashboardWrap')) {
+    setDashMode(mode);
+  }
+}
+
+// ── DASHBOARD MODE ───────────────────────────────────────────────────────
+function setDashMode(mode) {
+  const wrap = document.getElementById('dashboardWrap');
+  const darkBtn = document.getElementById('dashDarkBtn');
+  const lightBtn = document.getElementById('dashLightBtn');
+  if (mode === 'light') {
+    wrap.classList.add('light-mode');
+    lightBtn.classList.add('active');
+    darkBtn.classList.remove('active');
+    // Override for light context
+    darkBtn.style.cssText = 'background:rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.12);color:rgba(0,0,0,0.45);';
+    lightBtn.style.cssText = 'background:#1B2A4A;border:1px solid #1B2A4A;color:#C9A84C;font-weight:600;';
+  } else {
+    wrap.classList.remove('light-mode');
+    darkBtn.classList.add('active');
+    lightBtn.classList.remove('active');
+    darkBtn.style.cssText = '';
+    lightBtn.style.cssText = '';
+  }
+}
+
+// ── SCROLL REVEAL OBSERVER ───────────────────────────────────────────────
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('revealed');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ── TELEGRAM AUTO-TRIGGER ON SCROLL ──────────────────────────────────────
+const telegramTrigger = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      startTelegramAnimation();
+      telegramTrigger.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+const tgChat = document.getElementById('tgChat');
+if (tgChat) telegramTrigger.observe(tgChat);
+
+// ── DASHBOARD TABS ───────────────────────────────────────────────────────
+function switchTab(id, btn) {
+  document.querySelectorAll('.dash-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.dash-tab').forEach(b => b.classList.remove('active'));
+  const panel = document.getElementById('tab-' + id);
+  if (panel) panel.classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>

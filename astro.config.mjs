@@ -11,7 +11,9 @@ export default defineConfig({
   trailingSlash: 'never',
   integrations: [
     react(),
-    sitemap()
+    sitemap({
+      filter: (page) => !page.includes('/safetaxproposal'),
+    })
   ],
   vite: {
     envPrefix: ['VITE_', 'BROBOT_'],
